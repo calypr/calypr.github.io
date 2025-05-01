@@ -1,3 +1,6 @@
+---
+title: Removing Files
+---
 
 ## 🗑️ Deleting Files and Updating Metadata
 
