@@ -17,7 +17,7 @@ nav:
   - Adding FHIR Metadata:
       - data-model/introduction.md
       - workflows/metadata.md
-      - workflows/rm-files.md
+      - workflows/remove-files.md
       - data-model/integration.md
   - workflows/commit-push.md
   - workflows/clone.md
