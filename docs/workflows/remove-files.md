@@ -22,7 +22,7 @@ This command performs the following actions:
     It will not:
 
     - Delete the specified `data` file.
-    - Updates or removes related metadata in the `META/` directory.
+    - Update or remove related metadata in the `META/` directory.
 
 ### 2. Review Changes
 
