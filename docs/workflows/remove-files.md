@@ -10,31 +10,27 @@ When removing data files from your project, it's crucial to also update the mani
 
 Use the `g3t rm` command to delete files and automatically update the manifest and metadata:
 
-
 ```bash
 g3t rm DATA/subject-123/vcf/sample1.vcf.gz
 ```
-
 
 This command performs the following actions:
 
 - Removes the corresponding `entry` from `MANIFEST/`.
 
-It will not:
-- Delete the specified `data` file.
-- Updates or removes related metadata in the `META/` directory.
+!!! note
+    It will not:
 
-
+    - Delete the specified `data` file.
+    - Updates or removes related metadata in the `META/` directory.
 
 ### 2. Review Changes
 
 After removing files, check the status of your project to see the staged changes:
 
-
 ```bash
 g3t status
 ```
-
 
 This will display the files marked for deletion and any updates to the manifest and metadata.
 
@@ -46,20 +42,21 @@ If you need to regenerate the metadata after file deletions, use the `g3t meta i
 g3t meta init
 ```
 
-Note: This command rebuilds the `META/` directory based on the current state of the `MANIFEST/`, ensuring that your metadata accurately reflects the existing data files.  This command will re-create all metadata in the META/ directory. If you have customized the metadata, you will need to manually remove the affected DocumentReference entries before running this command to avoid conflicts or inconsistencies.
-
+!!! note
+    This command rebuilds the `META/` directory based on the current state of the `MANIFEST/`, ensuring that your metadata accurately reflects the existing data files.
+    
+    This command will re-create all metadata in the `META/` directory.
+    
+    If you have customized the metadata, you will need to manually remove the affected DocumentReference entries before running this command to avoid conflicts or inconsistencies.
 
 ### 4. Commit Changes
 
 Once you've reviewed the changes, commit them to your local repository:
 
-
 ```bash
 g3t commit -m "Removed sample1.vcf.gz and updated associated metadata"
 ```
-
 This command records the deletion of the file and the updates to the manifest and metadata.
-
 
 ---
 
@@ -71,11 +68,9 @@ After committing your changes, push them to the ACED-IDP platform to update the 
 
 Use the `g3t push` command to upload your changes:
 
-
 ```bash
 g3t push
 ```
-
 
 This command performs the following actions:
 
@@ -84,6 +79,7 @@ This command performs the following actions:
 - Provides logs detailing the outcome of the push operation.
 
 ### 2. Using the `--bundle` and `--overwrite` Option
+
 If you have previously pushed changes and want to ensure that the metadata is up-to-date, you can use the `--bundle` option with the `g3t push` command:
 
 ```bash
@@ -99,7 +95,6 @@ After pushing your changes, review the logs to confirm that the operation was su
 - Logs are stored in the `.logs/` directory.
 - Each log entry is a JSON object detailing the status of the submission (e.g., success or error).
 - Example of a successful deletion log entry:
-
 
 ---
 
