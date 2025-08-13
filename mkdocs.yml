@@ -4,7 +4,7 @@
 #   https://www.mkdocs.org/
 #   https://mkdocstrings.github.io/recipes/
 
-site_name: ACED-IDP Documentation
+site_name: CALYPR Documentation
 
 nav:
 - index.md
@@ -31,15 +31,15 @@ nav:
   - Experimental Features:
     - workflows/tabular.md
   - workflows/common-errors.md
-- Status Monitor ↗: https://aced-idp.github.io/status-monitor
+- Status Monitor ↗: https://calypr.ohsu.edu.github.io/status-monitor
 
 plugins:
   - search
   - macros
   - open-in-new-tab # automatically open ext links in new tab
 
-repo_url: https://github.com/ACED-IDP/aced-idp.github.io
-repo_name: ACED-IDP/aced-idp.github.io
+repo_url: https://github.com/CALYPR/calypr.ohsu.edu.github.io
+repo_name: CALYPR/calypr.ohsu.edu.github.io
   
 theme:
   name: material

@@ -28,7 +28,7 @@ The process of integrating your data into the graph involves several steps:
     * Validation: Use `g3t  meta validate` to validate the transformed data against FHIR specifications to ensure compliance and accuracy.
 
 * Step 5: Import into FHIR-Compatible System
-    * Load Data: Use `g3t commit` to load the transformed data into the aced system.
+    * Load Data: Use `g3t commit` to load the transformed data into the calypr system.
     * Testing and Verification: Use `g3t push` to ensure your data appears correctly in the portal and analysis tools.
 
 * Step 6: Iterate and Refine
@@ -76,7 +76,7 @@ Identifiers in FHIR references typically include the following components: [see 
 
 > A string, typically numeric or alphanumeric, that is associated with a single object or entity within a given system. Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
 
-System: Indicates the system or namespace to which the identifier belongs. By default the namespace is `http://aced-idp.org/<project-id>`.
+System: Indicates the system or namespace to which the identifier belongs. By default the namespace is `http://calypr.ohsu.edu.org/<project-id>`.
 
 Value: The actual value of the identifier within the specified system. For instance, a lab controlled subject identifier or a specimen identifier.
 

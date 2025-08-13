@@ -48,11 +48,11 @@ g3t collaborator approve
 
 ```
 
-There are several institutions that are contributing data to ACED. Each institution has a different set of data access policies. 
+There are several institutions that are contributing data to CALYPR. Each institution has a different set of data access policies. 
 Each may have different requirements for how data is accessed, and who can access it. 
 Importantly, each institution may have individual who approves access to data.
 
-<img width="894" alt="image" src="https://github.com/ACED-IDP/gen3-helm/assets/47808/77fe3293-f4f4-4aeb-9390-51df7ff042b0">
+<img width="894" alt="image" src="https://github.com/CALYPR/gen3-helm/assets/47808/77fe3293-f4f4-4aeb-9390-51df7ff042b0">
 
 ## Solution
 

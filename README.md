@@ -2,7 +2,7 @@
 
 This mkdocs-based codebase deploys documentation to [calypr.github.io](https://calypr.github.io)
 
-<a href="https://calypr.github.io">![Main landing page for CALYPR](./docs/images/main-page.png)</a>
+<a href="https://calypr.github.io">![Main landing page for CALYPR](./docs/images/website_header.png)</a>
 
 It is built using [mkdocs-material](https://squidfunk.github.io/mkdocs-material/reference/) and [mkdocs-macros-plugin](https://mkdocs-macros-plugin.readthedocs.io/en/latest/)
 

@@ -5,7 +5,7 @@
 
 ## About
 
-gen3 tracker, or g3t, is a command line tool for the ACED-IDP platform. It provides a set of utilities for users to upload data to and download data from the platform. The following tutorial will walk you through the steps for two different use cases:
+gen3 tracker, or g3t, is a command line tool for the CALYPR platform. It provides a set of utilities for users to upload data to and download data from the platform. The following tutorial will walk you through the steps for two different use cases:
 
 1. Uploading files for a new project to the platform
 2. Downloading an existing project from the platform
@@ -29,8 +29,8 @@ g3t --profile <your_g3t_profile_name> ping
 
 You should get a message like this
 
-> msg: 'Configuration OK: Connected using profile:aced'
-endpoint: https://aced-idp.org
+> msg: 'Configuration OK: Connected using profile:calypr'
+endpoint: https://calypr.ohsu.edu.org
 username: someone@example.com
 
 along with the set of projects you have been provided access to.
@@ -45,10 +45,10 @@ g3t is built on git, so many commands behave similarly to git with some key diff
 
 ## 1. Upload Data to a Newly Approved Project
 
-The first use case we will cover is how to add data to a new project on the ACED-IDP.
+The first use case we will cover is how to add data to a new project on the CALYPR.
 
 !!! note
-    The following examples will use the `aced` program with a project called `myproject` and an `aced` g3t profile.
+    The following examples will use the `calypr` program with a project called `myproject` and an `calypr` g3t profile.
 
 ### Check Project Permissions
 
@@ -58,7 +58,7 @@ To start, check what projects you have access to using the command
 g3t projects ls
 ```
 
-Check that you have permission to edit `aced-myproject`. This is what allows you to push data up to the platform. If you do not have the correct permissions, please contact a system administrator.
+Check that you have permission to edit `calypr-myproject`. This is what allows you to push data up to the platform. If you do not have the correct permissions, please contact a system administrator.
 
 ### Specify a gen3 Profile
 
@@ -66,13 +66,13 @@ For most g3t commands, you need to specify the gen3-client profile you want to u
 
 To set a profile using an environmental variable:
 ```sh
-export G3T_PROFILE=aced
+export G3T_PROFILE=calypr
 ```
 
 To pass the profile as a flag to the `ping` command for example:
 
 ```sh
-g3t --profile aced ping
+g3t --profile calypr ping
 ```
 
 For the rest of the tutorial, we will assume you have exported a `G3T_PROFILE` environment variable so we don't have to use the `--profile` flag each time.
@@ -82,9 +82,9 @@ For the rest of the tutorial, we will assume you have exported a `G3T_PROFILE` e
 To initialize your new project locally, you can use `g3t init`
 
 ```bash
-mkdir aced-myproject
-cd aced-myproject
-g3t init aced-myproject
+mkdir calypr-myproject
+cd calypr-myproject
+g3t init calypr-myproject
 ```
 
 * Similar to `git init`, this command creates a new project in the current directory
@@ -92,7 +92,7 @@ g3t init aced-myproject
     * `MANIFEST/`: stores file metadata entries
     * `META/`: stores metadata converted into the [FHIR](https://hl7.org/fhir/) standard
     * `.g3t/`: hidden, stores and manages g3t state for the project
-* The project ID is `aced-myproject` made from the program name `aced` and project name `myproject`. Specifically,
+* The project ID is `calypr-myproject` made from the program name `calypr` and project name `myproject`. Specifically,
     * **Program name:** is predefined by the institution, defining what remote data buckets and endpoints you have access to
     * **Project name:** must be unique within the server, be alphanumeric, and contain no spaces or hyphens
 * For more information, see [creating a project](creating-project.md)
@@ -175,7 +175,7 @@ g3t commit -m "adding tsv metadata"
 - As a reminder, the files that are committed to git are the FHIR metadata in META/ and the .dvc entries in MANIFEST/, not the data files themselves
 - See [publishing a project](commit-push.md) for more info
 
-### Push to ACED-IDP
+### Push to CALYPR
 
 To submit the files and metadata to the data platform, we can use `g3t push`
 
@@ -195,14 +195,14 @@ g3t push
 
 ### View the Data on the Platform
 
-Congratulations, you have submitted data to the platform! To check that your data was uploaded, login and navigate to the Exploration page on [aced-idp.org](https://aced-idp.org)!
+Congratulations, you have submitted data to the platform! To check that your data was uploaded, login and navigate to the Exploration page on [calypr.ohsu.edu.org](https://calypr.ohsu.edu.org)!
 
-## 2. Download Data from a Project on ACED-IDP
+## 2. Download Data from a Project on CALYPR
 
 Sometimes you might want the most recent version of a data project that has already been published to the platform. To download the metadata for an existing project, use the `g3t clone` command.
 
 ```sh
-g3t clone aced-myproject
+g3t clone calypr-myproject
 ```
 
 - The clone command will download the metadata associated with the project into a new directory
@@ -211,13 +211,13 @@ g3t clone aced-myproject
 To retrieve the actual data files described by manifest as opposed to just the file metadata, use the pull command.
 
 ```commandline
-mkdir aced-myproject
-cd aced-myproject
-g3t init aced-myproject
+mkdir calypr-myproject
+cd calypr-myproject
+g3t init calypr-myproject
 g3t pull
 ```
 
 - The pull command will retrieve the actual data files associated with the metadata.
 
 
-To download only a subset of files, refer to the downloads [page](https://aced-idp.github.io/workflows/portal-download/). For more information on other commands or use cases, see the Use Cases & Workflows section.
+To download only a subset of files, refer to the downloads [page](https://calypr.ohsu.edu.github.io/workflows/portal-download/). For more information on other commands or use cases, see the Use Cases & Workflows section.

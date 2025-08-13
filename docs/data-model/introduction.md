@@ -5,7 +5,7 @@ Given all of the intricacies healthcare and experimental data, we use Fast Healt
 
 ## What is FHIR?
 
-In an era where healthcare information is abundant yet diverse and often siloed, FHIR emerges as a standard, empowering research analysts to navigate, aggregate, and interpret health data seamlessly. This guide aims to unravel the intricacies of FHIR, equipping research analysts with the knowledge and tools needed to harness the potential of interoperable healthcare data for insightful analysis and impactful research outcomes in the context of ACED collaborations.
+In an era where healthcare information is abundant yet diverse and often siloed, FHIR emerges as a standard, empowering research analysts to navigate, aggregate, and interpret health data seamlessly. This guide aims to unravel the intricacies of FHIR, equipping research analysts with the knowledge and tools needed to harness the potential of interoperable healthcare data for insightful analysis and impactful research outcomes in the context of CALYPR collaborations.
 
 ## Graph Model
 
@@ -17,11 +17,11 @@ References and Linkages: FHIR resources utilize references to establish connecti
 
 ### Example
 
-The following "file focused" example illustrates how ACED uses FHIR resources a DocumentReference's ancestors within a study.
+The following "file focused" example illustrates how CALYPR uses FHIR resources a DocumentReference's ancestors within a study.
 
 Examine [resource](https://www.hl7.org/fhir/resource.html) definitions [here](http://www.hl7.org/fhir/resource.html):
 
-* Details on [uploaded files](https://aced-idp.github.io/workflows/upload/) are captured as [DocumentReference](http://www.hl7.org/fhir/documentreference.html)
+* Details on [uploaded files](https://calypr.ohsu.edu.github.io/workflows/upload/) are captured as [DocumentReference](http://www.hl7.org/fhir/documentreference.html)
 
 * DocumentReference.[subject](https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.subject) indicates who or what the document is about:  
   * Can simply point to the [ResearchStudy](https://hl7.org/fhir/researchstudy.html), to indicate the file is part of the study
