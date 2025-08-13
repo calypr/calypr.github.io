@@ -1,6 +1,6 @@
 # Welcome to the CALYPR Documentation
 
-<a href="https://calypr.ohsu.edu">![CALYPR logo](./images/website_header.jpg)</a>
+<a href="https://calypr.ohsu.edu">![CALYPR site](./images/website_header.png)</a>
 
 This documentation will walk you through the steps for submitting data to the [CALYPR Data Commons](https://calypr.ohsu.edu.org).
 
