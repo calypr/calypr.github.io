@@ -62,6 +62,6 @@ gen3_util meta publish /tmp/$PROJECT_ID
 
 ## View the Files
 
-This final step uploads the metadata associated with the project and makes the files visible on the [Explorer page](https://aced-idp.org/explorer).
+This final step uploads the metadata associated with the project and makes the files visible on the [Explorer page](https://calypr.ohsu.edu.org/explorer).
 
-<a href="https://aced-idp.org/explorer">![Gen3 File Explorer](./explorer.png)</a>
+<a href="https://calypr.ohsu.edu.org/explorer">![Gen3 File Explorer](./explorer.png)</a>

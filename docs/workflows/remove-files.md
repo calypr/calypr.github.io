@@ -62,7 +62,7 @@ This command records the deletion of the file and the updates to the manifest an
 
 ## 🚀 Pushing Updates to the Platform
 
-After committing your changes, push them to the ACED-IDP platform to update the remote repository.
+After committing your changes, push them to the CALYPR platform to update the remote repository.
 
 ### 1. Push Changes
 
@@ -107,4 +107,4 @@ After pushing your changes, review the logs to confirm that the operation was su
 
 ---
 
-By following these steps, you can maintain a consistent and accurate state across your data, manifest, and metadata in your ACED-IDP project. 
+By following these steps, you can maintain a consistent and accurate state across your data, manifest, and metadata in your CALYPR project. 

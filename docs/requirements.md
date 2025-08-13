@@ -6,13 +6,13 @@ title: Requirements
 
 ## 1. Download gen3-client
 
-gen3-client to upload and download files to the [gen3 platform](https://gen3.org/). Since the ACED-IDP is built on gen3, gen3-client is used in gen3-tracker (g3t) for the same purpose. See the instructions below for how to download gen3-client for your operating system.
+gen3-client to upload and download files to the [gen3 platform](https://gen3.org/). Since the CALYPR is built on gen3, gen3-client is used in gen3-tracker (g3t) for the same purpose. See the instructions below for how to download gen3-client for your operating system.
 
 ### Installation Instructions
 
 
 === "macOS"
-    1. Download the [macOS version](https://github.com/ACED-IDP/cdis-data-client/releases/latest/download/gen3-client-macos.pkg) of the gen3-client.
+    1. Download the [macOS version](https://github.com/CALYPR/cdis-data-client/releases/latest/download/gen3-client-macos.pkg) of the gen3-client.
     2. Run the gen3-client pkg, following the instructions in the installer.
     3. Open a terminal window.
     4. Create a new gen3 directory: `mkdir ~/.gen3`
@@ -24,7 +24,7 @@ gen3-client to upload and download files to the [gen3 platform](https://gen3.org
 
 
 === "Linux"
-    1. Download the [Linux version](https://github.com/ACED-IDP/cdis-data-client/releases/latest/download/gen3-client-linux-amd64.zip) of the gen3-client.
+    1. Download the [Linux version](https://github.com/CALYPR/cdis-data-client/releases/latest/download/gen3-client-linux-amd64.zip) of the gen3-client.
     2. Unzip the archive.
     3. Open a terminal window.
     4. Create a new gen3 directory: `mkdir ~/.gen3`
@@ -35,7 +35,7 @@ gen3-client to upload and download files to the [gen3 platform](https://gen3.org
     9. Check that the program is downloaded: run `gen3-client`
 
 === "Windows"
-    1. Download the [Windows version](https://github.com/ACED-IDP/cdis-data-client/releases/latest/download/gen3-client-windows-amd64.zip) of the gen3-client.
+    1. Download the [Windows version](https://github.com/CALYPR/cdis-data-client/releases/latest/download/gen3-client-windows-amd64.zip) of the gen3-client.
     2. Unzip the archive.
     3. Add the unzipped executable to a directory, for example: `C:\Program Files\gen3-client\gen3-client.exe`
     4. Open the Start Menu and type "edit environment variables".
@@ -48,7 +48,7 @@ gen3-client to upload and download files to the [gen3 platform](https://gen3.org
 
 ## 2. Configure a gen3-client Profile with Credentials
 
-To use the gen3-client, you need to configure  `gen3-client` with API credentials downloaded from the [Profile page](https://aced-idp.org/Profile).
+To use the gen3-client, you need to configure  `gen3-client` with API credentials downloaded from the [Profile page](https://calypr.ohsu.edu.org/Profile).
 
 ![Gen3 Profile page](images/profile.png)
 
@@ -63,32 +63,32 @@ From the command line, run the gen3-client configure command:
     gen3-client configure \
         --profile=<profile_name> \
         --cred=<credentials.json> \
-        --apiendpoint=https://aced-idp.org
+        --apiendpoint=https://calypr.ohsu.edu.org
     ```
 
 === "Mac/Linux"
     ```sh
     gen3-client configure \
-        --profile=aced \
+        --profile=calypr \
         --cred=~/Downloads/credentials.json \
-        --apiendpoint=https://aced-idp.org
+        --apiendpoint=https://calypr.ohsu.edu.org
     ```
 === "Windows"
     ```sh
     gen3-client configure \
-        --profile=aced \
+        --profile=calypr \
         --cred=C:\Users\demo\Downloads\credentials.json \
-        --apiendpoint=https://aced-idp.org
+        --apiendpoint=https://calypr.ohsu.edu.org
     ```
 
 Run the `gen3-client auth` command to confirm you configured a profile with the correct authorization privileges. Then, to list your access privileges for each project in the commons you have access to:
 
 ```sh
-gen3-client auth --profile=aced
+gen3-client auth --profile=calypr
 
 # 2023/12/05 15:07:12
-# You have access to the following resource(s) at https://aced-idp.org:
-# 2023/12/05 15:07:12 /programs/aced/projects/myproject...
+# You have access to the following resource(s) at https://calypr.ohsu.edu.org:
+# 2023/12/05 15:07:12 /programs/calypr/projects/myproject...
 ```
 
 ## 3. Install gen3-tracker (g3t)
@@ -132,14 +132,14 @@ After configuration, you can either specify the `--profile` or set the `G3T_PROF
 The command `g3t ping` will confirm that the access key and gen3-client have been configured correctly
 
 ```sh
-g3t --profile aced ping
+g3t --profile calypr ping
 ```
 
 A successful ping will output something like:
 
-> msg: 'Configuration OK: Connected using profile:aced'
+> msg: 'Configuration OK: Connected using profile:calypr'
 >
-> endpoint: https://aced-idp.org
+> endpoint: https://calypr.ohsu.edu.org
 >
 > username: someone@example.com
 >
