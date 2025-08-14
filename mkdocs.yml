@@ -38,8 +38,8 @@ plugins:
   - macros
   - open-in-new-tab # automatically open ext links in new tab
 
-repo_url: https://github.com/CALYPR/calypr.ohsu.edu.github.io
-repo_name: CALYPR/calypr.ohsu.edu.github.io
+repo_url: https://github.com/calypr/calypr.github.io
+repo_name: calypr.github.io
   
 theme:
   name: material
