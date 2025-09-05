@@ -31,7 +31,7 @@ nav:
   - Experimental Features:
     - workflows/tabular.md
   - workflows/common-errors.md
-- Status Monitor ↗: https://calypr.ohsu.edu.github.io/status-monitor
+- Status Monitor ↗: https://calypr.github.io/status-monitor
 
 plugins:
   - search
