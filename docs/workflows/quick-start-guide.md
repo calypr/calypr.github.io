@@ -197,7 +197,7 @@ g3t push
 
 Congratulations, you have submitted data to the platform! To check that your data was uploaded, login and navigate to the Exploration page on [calypr.ohsu.edu.org](https://calypr.ohsu.edu.org)!
 
-## 2. Download Data from a Project on CALYPR
+## 2. Bulk Download Data from a Project on CALYPR
 
 Sometimes you might want the most recent version of a data project that has already been published to the platform. To download the metadata for an existing project, use the `g3t clone` command.
 
@@ -210,14 +210,13 @@ g3t clone calypr-myproject
 
 To retrieve the actual data files described by manifest as opposed to just the file metadata, use the pull command.
 
-```commandline
-mkdir calypr-myproject
+```bash
+g3t clone calypr-myproject
 cd calypr-myproject
-g3t init calypr-myproject
 g3t pull
 ```
 
 - The pull command will retrieve the actual data files associated with the metadata.
 
 
-To download only a subset of files, refer to the downloads [page](https://calypr.ohsu.edu.github.io/workflows/portal-download/). For more information on other commands or use cases, see the Use Cases & Workflows section.
+To download only a subset of files, refer to the downloads [page](https://calypr.github.io/workflows/portal-download/). For more information on other commands or use cases, see the Use Cases & Workflows section.
