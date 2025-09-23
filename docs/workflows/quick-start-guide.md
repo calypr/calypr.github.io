@@ -24,7 +24,7 @@ Please ensure you have completed the following setup from the [Requirements](/re
 To confirm all dependencies are set up as expected, run
 
 ```sh
-g3t --profile <your_CALYPR_PROFILE_name> ping
+calypr_admin --profile <your_CALYPR_PROFILE_name> ping
 ```
 
 You should get a message like this
@@ -36,6 +36,8 @@ username: someone@example.com
 along with the set of projects you have been provided access to.
 
 ## General Usage
+
+`TODO - rewrite for git-drs`
 
 ```sh
 g3t [OPTIONS] COMMAND [ARGS]...
