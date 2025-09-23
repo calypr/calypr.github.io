@@ -1,6 +1,7 @@
 # g3t status
 
 ## Show the working tree status
+`TODO - rewrite for git-drs`
 
 The `g3t status` command is used to view the state of your working directory. It functions the same as `git status`, providing info on: 
 

@@ -22,6 +22,8 @@ Here are a couple ways to add file metadata to the manifest.
 
 ## Adding a local file to the manifest
 
+`TODO - rewrite for git-drs`
+
 To add a single file from your current working directory to the manifest,
 
 ```bash

@@ -2,6 +2,8 @@
 
 ### Create Metadata
 
+`TODO - rewrite for git-drs`
+
 Create basic, minimal metadata for the project:
 
 ```sh

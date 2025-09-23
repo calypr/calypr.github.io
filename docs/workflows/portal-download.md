@@ -39,6 +39,8 @@ gen3-client download-single --profile=calypr --guid=f623df8f-5dad-5bce-a8ca-a7b6
 
 ### Download All Files
 
+`TODO - rewrite for git-drs`
+
 To retrieve the actual data files described by manifest as opposed to just the file metadata, use the pull command.
 
 ```bash

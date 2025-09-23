@@ -5,6 +5,7 @@ title: Create Tabular Metadata
 {% include '/note.md' %}
 
 ## Creating Tabular Data
+`TODO - rewrite for git-drs`
 
 On the Explorer page on the data platform, FHIR metadata gets flattened out from a graph structure to a tabular format so that it is more easily visualized by users. For complex use cases, you might want to see what the flattened version of the metadata looks like before submitting the data through `g3t push`. This can be done using `g3t meta dataframe`
 

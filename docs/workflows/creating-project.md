@@ -6,6 +6,8 @@ title: Creating a Project
 
 ## CLI
 
+`TODO - rewrite for git-drs`
+
 ```bash
 $ g3t init --help
 

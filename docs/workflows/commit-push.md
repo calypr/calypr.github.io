@@ -1,5 +1,7 @@
 # Publishing a Project
 
+`TODO - rewrite for git-drs`
+
 The following page will outline how to publish your project to the data platform.
 
 ## Committing Changes

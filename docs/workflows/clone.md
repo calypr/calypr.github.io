@@ -1,6 +1,8 @@
 
 # Cloning a Project
 
+`TODO - rewrite for git-drs`
+
 The `g3t clone` command is used to clone a project from the remote repository. Here's a brief explanation of what happens when you use g3t clone:
 
 * A subdirectory is created for the project, it is named after the `project_id`.
