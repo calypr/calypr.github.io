@@ -1,6 +1,8 @@
 
 # Data Querying + Gen3 SDK
 
+`TODO - rewrite for grip and dataframer`
+
 ## Overview ⚙️
 
 Gen3 supports API access to Files and Metadata, allowing users to download and query their data via the Gen3 SDK and GraphQL queries.
@@ -15,7 +17,7 @@ Gen3 supports API access to Files and Metadata, allowing users to download and q
 Prior to installing, check a profile credentials. 
 Test:
 ```bash
-g3t ping 
+calypr_admin ping 
 ```
 - will return a list of projects that a profile has access to.
 

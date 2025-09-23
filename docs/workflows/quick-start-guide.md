@@ -18,13 +18,13 @@ Please ensure you have completed the following setup from the [Requirements](/re
 
 1. Installed gen3-client
 2. Configured a gen3-client profile with credentials
-3. Installed gen3-tracker
+3. Installed calypr_admin
 
 
 To confirm all dependencies are set up as expected, run
 
 ```sh
-g3t --profile <your_g3t_profile_name> ping
+g3t --profile <your_CALYPR_PROFILE_name> ping
 ```
 
 You should get a message like this
@@ -55,7 +55,7 @@ The first use case we will cover is how to add data to a new project on the CALY
 To start, check what projects you have access to using the command
 
 ```sh
-g3t projects ls
+calypr_admin projects ls
 ```
 
 Check that you have permission to edit `calypr-myproject`. This is what allows you to push data up to the platform. If you do not have the correct permissions, please contact a system administrator.
@@ -66,18 +66,19 @@ For most g3t commands, you need to specify the gen3-client profile you want to u
 
 To set a profile using an environmental variable:
 ```sh
-export G3T_PROFILE=calypr
+export CALYPR_PROFILE=calypr
 ```
 
 To pass the profile as a flag to the `ping` command for example:
 
 ```sh
-g3t --profile calypr ping
+calypr_admin --profile calypr ping
 ```
 
-For the rest of the tutorial, we will assume you have exported a `G3T_PROFILE` environment variable so we don't have to use the `--profile` flag each time.
+For the rest of the tutorial, we will assume you have exported a `CALYPR_PROFILE` environment variable so we don't have to use the `--profile` flag each time.
 
 ### Initialize a new project
+`TODO - rewrite for git-drs`
 
 To initialize your new project locally, you can use `g3t init`
 
@@ -98,6 +99,7 @@ g3t init calypr-myproject
 * For more information, see [creating a project](creating-project.md)
 
 ### Add files to the manifest
+`TODO - rewrite for git-drs`
 
 Once your project is initialized, you can add files to the project's manifest. For example, let's say you have tsv files in a `folder/` directory within your current repository. Each of the tsv files are associated with a particular subject, say `patient_1` and `patient_2`. To add them using `g3t add`,
 
@@ -117,6 +119,8 @@ g3t add folder/file2.tsv --patient patient_2
 
 
 ### Create metadata
+
+`TODO - rewrite for git-drs`
 
 Now that your files have been staged with metadata entries, you can create FHIR-compliant metadata using the `g3t meta init` command
 
@@ -144,6 +148,8 @@ g3t meta init
 
 ### Check that the metadata is valid
 
+`TODO - rewrite for git-drs`
+
 To ensure that the FHIR data has been properly formatted, you can call `g3t meta validate`.
 
 ```bash
@@ -155,6 +161,8 @@ g3t meta validate
 
 ### Check that the expected files are queued for upload
 
+`TODO - rewrite for git-drs`
+
 You can double-check that all of your files have been staged with `g3t status`
 
 ```bash
@@ -162,6 +170,9 @@ g3t status
 ```
 
 ### Commit files
+
+`TODO - rewrite for git-drs`
+
 
 With all checks complete, you can commit the metadata we created using `g3t commit`.
 
@@ -176,6 +187,8 @@ g3t commit -m "adding tsv metadata"
 - See [publishing a project](commit-push.md) for more info
 
 ### Push to CALYPR
+
+`TODO - rewrite for git-drs`
 
 To submit the files and metadata to the data platform, we can use `g3t push`
 
@@ -198,6 +211,8 @@ g3t push
 Congratulations, you have submitted data to the platform! To check that your data was uploaded, login and navigate to the Exploration page on [calypr.ohsu.edu.org](https://calypr.ohsu.edu.org)!
 
 ## 2. Bulk Download Data from a Project on CALYPR
+
+`TODO - rewrite for git-drs`
 
 Sometimes you might want the most recent version of a data project that has already been published to the platform. To download the metadata for an existing project, use the `g3t clone` command.
 

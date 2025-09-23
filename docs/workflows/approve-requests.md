@@ -40,7 +40,7 @@ Note: This example uses the ohsu program, but the same process applies to all pr
 
 ```text
 ## As an admin, I need to grant data steward privileges add the requester reader and updater role on a program to an un-privileged user
-g3t collaborator add  add data_steward_example@<institution>.edu --resource_path /programs/<program_name>/projects  --steward
+calypr_admin collaborator add  add data_steward_example@<institution>.edu --resource_path /programs/<program_name>/projects  --steward
 # As an admin, approve that request
 g3t collaborator approve
 
