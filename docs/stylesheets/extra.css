@@ -23,3 +23,28 @@ h1, h2, h3 {
   --md-primary-fg-color: #0057B7;
   --md-primary-fg-color--light: #4698CA;
 }
+
+/* Hero section container */
+.md-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                    url("../assets/banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+  margin-top: -1.5rem; /* Offsets default margin */
+}
+
+.md-hero h1 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.md-hero .md-button {
+  margin-top: 1rem;
+  color: white;
+  border-color: white;
+}
