@@ -27,6 +27,7 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.top
+    - header.autohide
 
 markdown_extensions:
   - admonition
