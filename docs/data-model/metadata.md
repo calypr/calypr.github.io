@@ -2,7 +2,7 @@
 
 ### Create Metadata
 
-`TODO - rewrite for git-drs`
+`TODO: - rewrite for git-drs`
 
 Create basic, minimal metadata for the project:
 
