@@ -26,6 +26,7 @@ h1, h2, h3 {
 
 /* Hero section container */
 .md-hero {
+  width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                     url("../assets/banner.png");
   background-position: center;
@@ -47,4 +48,90 @@ h1, h2, h3 {
   margin-top: 1rem;
   color: white;
   border-color: white;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 48px 24px;
+}
+.card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 300px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.card-title {
+  color: #1a73e8;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.card a {
+  background-color: #1a73e8;
+  border-radius: 4px;
+  color: white;
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.card a:hover {
+  background-color: #1557b0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* Card Image Container */
+.card-image-container {
+  position: relative;
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Image Styling */
+.card-image {
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay Text */
+.overlay-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(26, 115, 232, 0.7); /* Semi-transparent blue */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Caption Styling */
+.card-caption {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 12px 0 20px;
 }
