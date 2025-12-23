@@ -1,4 +1,4 @@
-# 3\. Environment Initialization
+# 3. Environment Initialization
 
 All tools can be installed via pip, conda, or binary releases.  
 The following steps assume a Unix‑like shell (bash/zsh).
