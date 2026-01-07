@@ -25,29 +25,46 @@ h1, h2, h3 {
 }
 
 /* Hero section container */
+/* Hero section background and spacing */
 .md-hero {
-  width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                    url("../assets/banner.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-color: var(--md-primary-fg-color); */
+  background-image: linear-gradient(to bottom, var(--md-primary-fg-color), #4051b5);
+  background: 
+    /* linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), */
+    url("../assets/banner_fade.png");
   color: white;
-  padding: 4rem 1rem;
+  padding: 4rem 0;
+}
+
+.md-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-top: -1.5rem; /* Offsets default margin */
 }
 
-.md-hero h1 {
-  color: #fff;
-  font-weight: 700;
+.md-hero__content h1 {
   font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.md-hero .md-button {
-  margin-top: 1rem;
+.md-hero__content p {
+  font-size: 1.2rem;
+  max-width: 30rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.md-hero__actions .md-button {
+  margin: 0.5rem;
   color: white;
   border-color: white;
+}
+
+.md-hero__actions .md-button--primary {
+  background-color: white;
+  color: var(--md-primary-fg-color);
 }
 
 .cards {

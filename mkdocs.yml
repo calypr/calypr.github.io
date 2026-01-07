@@ -5,24 +5,23 @@
 #   https://mkdocstrings.github.io/recipes/
 
 site_name: CALYPR
+site_url: https://calypr.org
 
 plugins:
   - search
   - macros
   - awesome-nav
   - open-in-new-tab # automatically open ext links in new tab
-
-repo_url: https://github.com/calypr/calypr.github.io
-repo_name: calypr.github.io
   
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - scheme: default
       primary: custom
   features:
     - navigation.indexes 
-    - navigation.footer
+    # - navigation.footer
     - content.code.copy
     - navigation.tabs
     - navigation.sections
@@ -30,6 +29,8 @@ theme:
     - header.autohide
 
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - admonition
   - pymdownx.superfences
   - pymdownx.tabbed:

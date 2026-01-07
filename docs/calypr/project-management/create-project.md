@@ -1,6 +1,6 @@
 
 
-# 1\. Create/Initiate a Project (gen3 \+ GitHub)
+# Create a Project (gen3 \+ GitHub)
 
 Status: *Manual and DevOps‑only at the moment*
 

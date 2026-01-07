@@ -1,7 +1,7 @@
 
 
 
-# 2\. Calypr Login
+# Calypr Login
 
 To get started you'll need to log into the website and get a copy of API keys. 
 

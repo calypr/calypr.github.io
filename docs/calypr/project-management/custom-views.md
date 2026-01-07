@@ -1,7 +1,7 @@
 
-# 5\. Project Customization
+# Project Customization
 
-## 5.1 Dataframer Configuration 
+## Dataframer Configuration 
 
 The dataframer is used to render the FHIR .ndjson files into the tabular space that is used in the explorer page table. If you want to customize your project’s explorer page you will need to specify database field names that are defined in the dataframer, thus you will need to run the dataframer on your data ahead of time in order to know these field names.
 

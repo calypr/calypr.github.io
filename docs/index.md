@@ -1,8 +1,11 @@
 ---
+template: home.html
 hide:
   - navigation
   - toc
 ---
+
+Here is the content
 
 <div class="md-hero">
   <h1>Next-Generation Genomics Data Science</h1>

@@ -1,0 +1,9 @@
+[submodule "products/funnel"]
+	path = products/funnel
+	url = https://github.com/ohsu-comp-bio/funnel.git
+[submodule "products/grip"]
+	path = products/grip
+	url = https://github.com/bmeg/grip.git
+[submodule "products/git-drs"]
+	path = products/git-drs
+	url = https://github.com/calypr/git-drs.git

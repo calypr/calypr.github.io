@@ -2,8 +2,6 @@
 title: Download
 ---
 
-{% include '/note.md' %}
-
 There are two main ways to download files:
 
 1. Individually through the browser or through the command line with the `gen3-client`
