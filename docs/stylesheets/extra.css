@@ -102,6 +102,10 @@ h3 {
   border-color: var(--md-primary-fg-color--light);
 }
 
+.product-card--featured:hover {
+  transform: none;
+}
+
 /* Featured / Umbrella Card */
 .product-card--featured {
   grid-column: 1 / -1;
@@ -187,6 +191,10 @@ h3 {
   transform: scale(1.05);
 }
 
+.product-card--featured:hover .product-card__image {
+  transform: scale(1);
+}
+
 .product-card__content {
   padding: 1.5rem;
   flex-grow: 1;
@@ -238,6 +246,10 @@ h3 {
 
 .product-card__link:hover i {
   transform: translateX(4px);
+}
+
+.product-card--featured .product-card__link:hover i {
+  transform: none;
 }
 
 /* Responsive */
