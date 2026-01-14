@@ -13,47 +13,56 @@ hide:
   }
 </style>
 
-<div class="cards">
-  <div class="card">
-    <div class="card-image-container">
-      <img src="assets/calypr_family.png" alt="CALYPR" class="card-image" />
+<div class="product-grid">
+  <!-- CALYPR -->
+  <div class="product-card">
+    <div class="product-card__image-wrap">
+      <img src="assets/calypr_family.png" alt="CALYPR" class="product-card__image" />
     </div>
-    <div class="card-caption">
-      <h2 class="card-title">CALYPR</h2>
-      <p>Next-generation genomics data science platform with scalable cloud / on-prem hybrid infrastructure for biological insights.</p>
-      <a href="calypr/">Learn more →</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-image-container">
-      <img src="assets/grip.png" alt="GRIP" class="card-image" />
-    </div>
-    <div class="card-caption">
-    <h2 class="card-title">GRIP</h2>
-    <p>Secure, scalable genomic and clinical data integration system for research.</p>
-    <p>GRIP (Graph Integration Platform) is an open-source, high-performance graph query engine and integration platform. It provides a unified graph-based interface across various database technologies, enabling the construction and analysis of large-scale property graphs. GRIP supports backends like MongoDB, SQL, Badger, and Pebble. With a powerful query API inspired by Apache TinkerPop and native support for gRPC and HTTP, GRIP allows seamless integration, traversal, and analysis of heterogeneous datasets in a scalable, multi-backend environment.</p>
-    <a href="tools/grip/">Learn more →</a>
+    <div class="product-card__content">
+      <h2 class="product-card__title">CALYPR</h2>
+      <p class="product-card__summary">Scalable genomics data science platform for biological insights.</p>
+      <p class="product-card__description">Next-generation genomics data science platform with scalable cloud / on-prem hybrid infrastructure, streamlining the journey from raw data to discovery.</p>
+      <a href="calypr/" class="product-card__link">Learn more <i>→</i></a>
     </div>
   </div>
-  <div class="card">
-    <div class="card-image-container">
-      <img src="assets/funnel.png" alt="Funnel" class="card-image" />
+
+  <!-- GRIP -->
+  <div class="product-card">
+    <div class="product-card__image-wrap">
+      <img src="assets/grip.png" alt="GRIP" class="product-card__image" />
     </div>
-    <div class="card-caption">
-      <h2 class="card-title">Funnel</h2>
-      <p>High-performance genomic data pipeline at petabyte scale.</p>
-      <p>Funnel is an open-source, distributed task execution toolkit that simplifies batch computing jobs across diverse infrastructures. It implements the GA4GH TES API, providing a unified interface for Docker-based tasks on local machines to large-scale cloud environments like AWS, Google Cloud, and Kubernetes. The system automates task lifecycle, including resource scheduling, data staging, and real-time log tracking, enabling a "write once, run anywhere" workflow.</p>
-      <a href="tools/funnel/">Learn more →</a>
+    <div class="product-card__content">
+      <h2 class="product-card__title">GRIP</h2>
+      <p class="product-card__summary">Graph-based data integration for complex research datasets.</p>
+      <p class="product-card__description">High-performance graph query engine that provides a unified interface across MongoDB, SQL, and key-value stores. Ideal for complex relational discovery in genomics.</p>
+      <a href="tools/grip/" class="product-card__link">Learn more <i>→</i></a>
     </div>
   </div>
-  <div class="card">
-    <div class="card-image-container">
-      <img src="assets/git-drs.png" alt="Git-DRS" class="card-image" />
+
+  <!-- Funnel -->
+  <div class="product-card">
+    <div class="product-card__image-wrap">
+      <img src="assets/funnel.png" alt="Funnel" class="product-card__image" />
     </div>
-    <div class="card-caption">
-      <h2 class="card-title">Git-DRS</h2>
-      <p>Genomic data repository system with version control and metadata management for research data.</p>
-      <a href="tools/git-drs/">Learn more →</a>
+    <div class="product-card__content">
+      <h2 class="product-card__title">Funnel</h2>
+      <p class="product-card__summary">Distributed task execution for petabyte-scale pipelines.</p>
+      <p class="product-card__description">Standardized batch computing using the GA4GH TES API. Run Docker-based tasks seamlessly across AWS, Google Cloud, and Kubernetes at any scale.</p>
+      <a href="tools/funnel/" class="product-card__link">Learn more <i>→</i></a>
+    </div>
+  </div>
+
+  <!-- Git-DRS -->
+  <div class="product-card">
+    <div class="product-card__image-wrap">
+      <img src="assets/git-drs.png" alt="Git-DRS" class="product-card__image" />
+    </div>
+    <div class="product-card__content">
+      <h2 class="product-card__title">Git-DRS</h2>
+      <p class="product-card__summary">Secure data repository system with version control.</p>
+      <p class="product-card__description">Manage large-scale genomic data with integrated versioning and metadata management, ensuring reproducibility and data integrity throughout research cycles.</p>
+      <a href="tools/git-drs/" class="product-card__link">Learn more <i>→</i></a>
     </div>
   </div>
 </div>
