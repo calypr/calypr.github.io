@@ -78,7 +78,7 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   max-width: 1100px;
-  margin: -3rem auto 4rem;
+  margin: 0rem auto 4rem;
   padding: 0 1rem;
   position: relative;
   z-index: 10;
