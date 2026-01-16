@@ -1,3 +1,7 @@
+---
+title: Funnel
+---
+
 ## Funnel Tool Documentation
 
 The Funnel tool is designed to streamline data processing workflows, enabling efficient data transformation and analysis. Key features include:

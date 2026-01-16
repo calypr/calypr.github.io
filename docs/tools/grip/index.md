@@ -1,3 +1,7 @@
+---
+title: GRIP
+---
+
 ## GRIP Tool Documentation
 
 GRIP (Generic Resource Integration Platform) is a powerful framework for building and managing distributed data processing systems. Key features include:

@@ -1,12 +1,17 @@
+---
+title: Managing projects git-drs
+---
 
-## **3.5: Commit and Upload you files**
+git-drs is used to managed project data. It connects git projects to the DRS datalake, allowing users to create new versions of projects, incorporating large scale data objects, without dupicating storage.
 
-\# Commit files (creates DRS records via pre-commit hook)  
+## Commit and Upload you files
+
+# Commit files (creates DRS records via pre-commit hook)  
 ```
 git commit -m "Add genomic data files"
 ```
 
-\# Upload to object store  
+# Upload to object store  
 ```
 git push
 ```
@@ -20,7 +25,7 @@ What happens during push:
 
 ## 
 
-### 3.5.1 Verifying upload
+### Verifying upload
 
 ```
 git lfs ls-files
@@ -44,7 +49,7 @@ After completing the workflow:
 *  Can share DRS URIs with collaborators  
 *  Files NOT searchable in CALYPR web interface (expected)
 
-## 4.5: Committing Changes
+## Committing Changes
 
 ```
 # Stage all changes  
