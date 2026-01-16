@@ -15,6 +15,7 @@ plugins:
   
 theme:
   name: material
+  logo: assets/logo.png
   custom_dir: overrides
   palette:
     - scheme: default

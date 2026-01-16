@@ -78,7 +78,7 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   max-width: 1100px;
-  margin: -3rem auto 4rem;
+  margin: 0rem auto 4rem;
   padding: 0 1rem;
   position: relative;
   z-index: 10;
@@ -100,6 +100,10 @@ h3 {
   transform: translateY(-8px);
   box-shadow: var(--card-shadow-hover);
   border-color: var(--md-primary-fg-color--light);
+}
+
+.product-card--featured:hover {
+  transform: none;
 }
 
 /* Featured / Umbrella Card */
@@ -187,6 +191,10 @@ h3 {
   transform: scale(1.05);
 }
 
+.product-card--featured:hover .product-card__image {
+  transform: scale(1);
+}
+
 .product-card__content {
   padding: 1.5rem;
   flex-grow: 1;
@@ -238,6 +246,10 @@ h3 {
 
 .product-card__link:hover i {
   transform: translateX(4px);
+}
+
+.product-card--featured .product-card__link:hover i {
+  transform: none;
 }
 
 /* Responsive */
