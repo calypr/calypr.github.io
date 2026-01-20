@@ -15,6 +15,7 @@ plugins:
 
 theme:
   name: material
+  logo: assets/logo.png
   custom_dir: overrides
   palette:
     - scheme: default
@@ -24,9 +25,10 @@ theme:
     # - navigation.footer
     - content.code.copy
     - navigation.tabs
-    - navigation.sections
+    # - navigation.sections
     - navigation.top
     - header.autohide
+    - navigation.tabs
 
 markdown_extensions:
   - attr_list
