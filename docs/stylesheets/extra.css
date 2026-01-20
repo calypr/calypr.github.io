@@ -26,6 +26,10 @@ h3 {
   letter-spacing: -0.02em;
 }
 
+.md-header {
+  z-index: 100
+}
+
 /* Hides the title */
 .md-content h1 {
   display: none;
