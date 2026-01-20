@@ -25,10 +25,11 @@ theme:
     # - navigation.footer
     - content.code.copy
     - navigation.tabs
-    # - navigation.sections
+    - navigation.sections
     - navigation.top
     - header.autohide
-    - navigation.tabs
+    # - navigation.tabs
+    
 
 markdown_extensions:
   - attr_list
