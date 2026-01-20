@@ -6,11 +6,11 @@ menu:
     weight: 20
 ---
 
-> Funnel on Kubernetes is in active development and may involve frequent updates 🚧
+> Funnel on Kubernetes is in active development and may involve frequent updates
 
 # Quick Start
 
-## 1. Deploying with Helm ⚡️
+## 1. Deploying with Helm
 
 ```sh
 helm repo add ohsu https://ohsu-comp-bio.github.io/helm-charts
@@ -18,7 +18,7 @@ helm repo update
 helm upgrade --install ohsu funnel
 ```
 
-{{< details title="(Alternative) Deploying with `kubectl` ⚙️" >}}
+## Alternative: Deploying with `kubectl` ⚙️"
 
 ### 1. Create a Service:
 
@@ -37,9 +37,11 @@ kubectl apply -f funnel-service.yml
 Get the clusterIP:
 
 ```sh
+{% raw %}
 export HOSTNAME=$(kubectl get services funnel --output=jsonpath='{.spec.clusterIP}')
 
 sed -i "s|\${HOSTNAME}|${HOSTNAME}|g" funnel-worker.yaml
+{% endraw %}
 ```
 
 ### 3. Create a ConfigMap
