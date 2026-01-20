@@ -23,9 +23,9 @@ g3t ping
 
     - Download an API Key from the [Profile page](https://calypr.ohsu.edu.org/identity) and save it to `~/.gen3/credentials.json`
 
-    ![Gen3 Profile page](../images/api-key.png)
+    ![Gen3 Profile page](../../images/api-key.png)
 
-    ![Gen3 Credentials](../images/credentials.png)
+    ![Gen3 Credentials](../../images/credentials.png)
 
 
 ## 2. Install

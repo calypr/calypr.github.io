@@ -18,7 +18,7 @@ helm repo update
 helm upgrade --install ohsu funnel
 ```
 
-{{< details title="(Alternative) Deploying with `kubectl` ⚙️" >}}
+{% raw %}{{< details title="(Alternative) Deploying with `kubectl` ⚙️" >}}{% endraw %}
 
 ### 1. Create a Service:
 
@@ -78,7 +78,7 @@ kubectl apply -f funnel-storage-pvc.yml
 kubectl apply -f funnel-deployment.yml
 ```
 
-{{< /details >}}
+{% raw %}{{< /details >}}{% endraw %}
 
 # 2. Proxy the Service for local testing
 
