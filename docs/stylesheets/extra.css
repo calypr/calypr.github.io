@@ -99,6 +99,9 @@ h3 {
   border: 1px solid rgba(226, 232, 240, 0.8);
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -238,23 +241,14 @@ h3 {
   font-size: 0.95rem;
   text-decoration: none;
   transition: var(--transition);
-}
-
-.product-card__link i {
-  margin-left: 0.25rem;
-  transition: var(--transition);
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .product-card__link:hover {
   color: #1a73e8;
-}
-
-.product-card__link:hover i {
-  transform: translateX(4px);
-}
-
-.product-card--featured .product-card__link:hover i {
-  transform: none;
+  text-decoration: underline;
 }
 
 /* Responsive */
