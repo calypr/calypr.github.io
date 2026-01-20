@@ -30,6 +30,29 @@ h3 {
   z-index: 100
 }
 
+/* Logo background color */
+.md-header__button.md-logo {
+  background-color: var(--md-primary-fg-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.md-header__button.md-logo:hover {
+  background-color: var(--md-primary-fg-color--light);
+  transform: scale(1.05);
+}
+
+.md-header__button.md-logo img {
+  background-color: white;
+  border-radius: 4px;
+  display: block;
+  height: 4em;
+}
+
+.md-header__topic {
+  font-size: larger;
+}
+
 /* Hides the title */
 .md-content h1 {
   display: none;
