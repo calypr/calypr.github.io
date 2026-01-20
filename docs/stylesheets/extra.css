@@ -26,6 +26,11 @@ h3 {
   letter-spacing: -0.02em;
 }
 
+/* Hides the title */
+.md-content h1 {
+  display: none;
+}
+
 /* horizontal dividers */
 .md-content h2::before {
   content: "";
