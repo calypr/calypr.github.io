@@ -74,14 +74,14 @@ nav:
       - calypr/project-management/publishing-project.md
     - Web Portal:
       - calypr/website/portal-explore.md
-      - calypr/website/portal-download.md
+      - calypr/website/portal-releases.md
     - Analysis:
       - calypr/analysis/query.md
   - Tools:
     - Funnel:
       - tools/funnel/index.md
       - Getting Started:
-        - tools/funnel/download.md
+        - tools/funnel/releases.md
       - Documentation:
         - tools/funnel/docs.md
         - tasks.md
