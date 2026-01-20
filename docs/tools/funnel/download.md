@@ -1,24 +1,25 @@
 ---
-title: Download 0.11.0
+title: Download
 menu:
   main:
     weight: -2000
 ---
 
-{{< download-links >}}
+## Releases
 
-Funnel is a single binary.  
-Funnel requires [Docker][docker].  
-Funnel is beta quality. APIs might break, bugs exist, data might be lost.  
+See the [Releases](https://github.com/ohsu-comp-bio/funnel/releases)  page for release history.
 
-### Homebrew
+<!-- Release table -->
+--8<-- "docs/tools/funnel/_releases.md"
+
+## Homebrew
 
 ```sh
 brew tap ohsu-comp-bio/formula
 brew install funnel@0.11
 ```
 
-<h3>Build the lastest development version <i class="optional">optional</i></h3>
+## Build the lastest development version
 
 In order to build the latest code, run:
 ```shell
@@ -28,10 +29,6 @@ $ make
 ```
 
 Funnel requires Go 1.21+. Check out the [development docs][dev] for more detail.
-
-### Release History
-
-See the [Releases](https://github.com/ohsu-comp-bio/funnel/releases)  page for release history.
 
 
 [dev]: /docs/development/developers/

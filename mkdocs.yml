@@ -12,7 +12,7 @@ plugins:
   - macros
   - awesome-nav
   - open-in-new-tab # automatically open ext links in new tab
-  
+
 theme:
   name: material
   custom_dir: overrides
@@ -48,3 +48,100 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+exclude_docs: |
+  **/_*.md
+
+nav:
+  - Home: index.md
+  - CALYPR Platform:
+    - calypr/index.md
+    - Getting Started:
+      - calypr/requirements.md
+      - calypr/getting-started/getting-started.md
+      - calypr/getting-started/login.md
+      - calypr/getting-started/environment.md
+    - Data Model:
+      - calypr/data-model/introduction.md
+      - calypr/data-model/metadata.md
+      - calypr/data-model/integration.md
+    - Data Management:
+      - calypr/data-management/git-drs.md
+      - calypr/data-management/meta-data.md
+    - Project Management:
+      - calypr/project-management/create-project.md
+      - calypr/project-management/custom-views.md
+      - calypr/project-management/publishing-project.md
+    - Web Portal:
+      - calypr/website/portal-explore.md
+      - calypr/website/portal-download.md
+    - Analysis:
+      - calypr/analysis/query.md
+  - Tools:
+    - Funnel:
+      - tools/funnel/index.md
+      - Getting Started:
+        - tools/funnel/download.md
+      - Documentation:
+        - tools/funnel/docs.md
+        - tasks.md
+        - tools/funnel/docs/storage.md
+        - tools/funnel/docs/compute.md
+        - tools/funnel/docs/databases.md
+        - tools/funnel/docs/security.md
+        - tools/funnel/docs/metrics.md
+        - tools/funnel/docs/events.md
+        - tools/funnel/docs/development.md
+    - GRIP:
+      - tools/grip/index.md
+      - Getting Started:
+        - tools/grip/databases.md
+        - tools/grip/clients.md
+      - Commands:
+        - tools/grip/commands.md
+        - tools/grip/commands/create.md
+        - tools/grip/commands/delete.md
+        - tools/grip/commands/list.md
+        - tools/grip/commands/query.md
+        - tools/grip/commands/server.md
+      - Queries:
+        - tools/grip/queries.md
+        - tools/grip/queries/aggregation.md
+        - tools/grip/queries/filtering.md
+        - tools/grip/queries/iterations.md
+        - tools/grip/queries/jsonpath.md
+        - tools/grip/queries/output.md
+        - tools/grip/queries/record_transforms.md
+        - tools/grip/queries/traversal_start.md
+        - tools/grip/queries/traverse_graph.md
+        - tools/grip/queries/jobs.md
+      - GraphQL:
+        - tools/grip/graphql.md
+        - tools/grip/graphql/graph_schemas.md
+        - tools/grip/graphql/graphql.md
+      - Tutorials:
+        - tools/grip/tutorials.md
+        - tools/grip/tutorials/amazon.md
+        - tools/grip/tutorials/pathway-commons.md
+        - tools/grip/tutorials/tcga-rna.md
+      - Development:
+        - tools/grip/developers.md
+        - tools/grip/gripper.md
+        - tools/grip/gripper/proxy.md
+        - tools/grip/jobs_api.md
+        - tools/grip/security.md
+    - Git-DRS:
+      - tools/git-drs/index.md
+      - Getting Started:
+        - tools/git-drs/installation.md
+        - tools/git-drs/getting-started.md
+      - User Guide:
+        - tools/git-drs/adding-s3-files.md
+        - tools/git-drs/remove-files.md
+        - tools/git-drs/commands.md
+      - Development:
+        - tools/git-drs/developer-guide.md
+        - tools/git-drs/troubleshooting.md
+  - Workflows:
+    - workflows/upload.md
+    - workflows/restrict-access.md
