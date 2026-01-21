@@ -12,6 +12,10 @@ plugins:
   - macros
   - awesome-nav
   - open-in-new-tab # automatically open ext links in new tab
+  - termynal:
+      prompt_literal_start:
+        - "$"
+        - ">"
 
 theme:
   name: material
