@@ -54,9 +54,9 @@ h3 {
 }
 
 /* Hides the title */
-.md-content h1 {
+/* .md-content h1 {
   display: none;
-}
+} */
 
 /* horizontal dividers */
 .md-content h2::before {
