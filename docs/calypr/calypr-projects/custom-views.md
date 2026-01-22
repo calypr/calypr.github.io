@@ -13,8 +13,6 @@ python \-m venv venv
 
 source venv/bin/activate
 
-pip install gen3-tracker==0.0.7rc27
-
 git-drs meta dataframe DocumentReference
 
 \`\`\`
