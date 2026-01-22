@@ -13,4 +13,4 @@ The following guide details the steps a data contributor must take to submit a p
 
 To navigate through each page, use pages list in the top left or using the navigation arrow on the bottom left and right! Otherwise, check out our [requirements](requirements.md) page to get started.
 
-<a href="https://calypr.ohsu.edu.org">![Main landing page for CALYPR IDP](./images/main-page.png)</a>
+![Main landing page for CALYPR IDP](./images/main-page.png)
