@@ -109,4 +109,4 @@ By using identifiers in references, FHIR ensures that data can be accurately lin
 > A reference to a document of any kind for any purpose. [see more](https://hl7.org/fhir/documentreference.html)
 
 
-See the  <a href="/workflows/metadata/">metadata workflow section</a> for more information on how to create and upload metadata.
+See the [data management section](../data-management/meta-data.md) for more information on how to create and upload metadata.
