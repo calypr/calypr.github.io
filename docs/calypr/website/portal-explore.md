@@ -6,4 +6,4 @@ The `push` command uploads the metadata associated with the project and makes th
 <a href="https://calypr.ohsu.edu/Explorer">![Gen3 File Explorer](./explorer.png)</a>
 
 
-See the  <a href="/workflows/portal-download/">portal download</a> for more information on downloading files from the portal.
+See the [portal download page](portal-download.md) for more information on downloading files from the portal.
