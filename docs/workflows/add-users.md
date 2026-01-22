@@ -37,7 +37,7 @@ calypr_admin collaborators add --write  user-can-write@example.com
 
 Alternatively, to give another user read access only (without the ability to upload to the project), run the following:
 ```sh
-calypr_admin collaborator add user-read-only@example.com
+calypr_admin collaborators add user-read-only@example.com
 ```
 
 
