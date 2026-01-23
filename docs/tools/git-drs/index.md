@@ -6,7 +6,9 @@ description: Overview of Git DRS architecture and its role in extending Git LFS 
 # Why Git DRS?
 
 Git DRS exists to **extend Git LFS with a scalable, standards-based data access layer**
-without changing the Git user experience.
+without changing the Git user experience. It is explicitly aligned with the
+[GA4GH Data Repository Service (DRS)](https://www.ga4gh.org/product/data-repository-service-drs/)
+specification so Git-native workflows can interoperate with the broader GA4GH ecosystem.
 
 At a high level, every data flow follows the same model:
 
@@ -60,6 +62,13 @@ Git LFS solves *how* large files integrate with Git, but it intentionally does *
 - How metadata, lineage, and reuse are tracked at scale
 
 Git DRS fills these gaps while remaining fully compatible with Git LFS.
+
+By leveraging the GA4GH DRS standard, Git DRS also unlocks common DRS use cases:
+
+- **Federated discovery and access** across multiple data repositories
+- **Controlled-access datasets** with consistent authN/authZ patterns
+- **Cross-institution data sharing** for genomics and other biomedical data
+- **Stable identifiers** that survive repo moves and lifecycle changes
 
 ---
 
