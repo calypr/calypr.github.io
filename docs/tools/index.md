@@ -1,1 +1,3 @@
---8<-- "docs/_tools.md"
+---
+template: tools.html
+---

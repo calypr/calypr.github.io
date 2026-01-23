@@ -5,3 +5,4 @@ mkdocs-linkcheck
 mkdocs-awesome-nav
 termynal
 mkdocs-mermaid2-plugin
+markdown-include

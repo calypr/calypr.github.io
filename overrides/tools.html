@@ -1,9 +1,15 @@
-Included cards ...
+{% extends "main.html" %}
+
+{% block tabs %}
+{{ super() }}
+{% endblock %}
+
+
+{% block content %}
+{{ super() }}
 <div class="product-grid">
-  inside  product-grid ...
   <!-- GRIP -->
   <a href="/tools/grip/" class="product-card">
-    inside  product-card ...
     <div class="product-card__image-wrap">
       <img src="/assets/grip.png" alt="GRIP" class="product-card__image" />
     </div>
@@ -41,3 +47,7 @@ Included cards ...
     </div>
   </a>
 </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
