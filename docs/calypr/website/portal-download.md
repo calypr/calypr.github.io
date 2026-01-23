@@ -13,7 +13,7 @@ This guide will walk you through both methods below.
 
 ### Explorer Page
 
-The easiest way to download a single file is through the [Explorer page](https://calypr.ohsu.edu.org/Explorer). This page will show all files belonging to projects that you have access to.
+The easiest way to download a single file is through the [Explorer page](https://calypr.ohsu.edu/Explorer). This page will show all files belonging to projects that you have access to.
 
 To download a single file:
 

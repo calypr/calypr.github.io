@@ -87,5 +87,4 @@ This process would be useful for individuals who want to use the system to track
 
 ## Next Steps
 
-* See the  <a href="/workflows/tabular/">tabular metadata section</a> for more information on working with metadata.
-* See the  <a href="/workflows/commit-push/">commit and push section</a> for more information on publishing.
+See the [data management section](../data-management/meta-data.md) for more information on working with metadata and publishing.

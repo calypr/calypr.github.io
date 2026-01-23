@@ -23,7 +23,7 @@ calypr_admin ping
 
 - For new setup or renew of gen3 credentials - Follow steps to configure/re-configure a profile with credentials: 
 
-    - Download an API Key from the [Profile page](https://calypr.ohsu.edu.org/identity) and save it to `~/.gen3/credentials.json`
+    - Download an API Key from the [Profile page](https://calypr.ohsu.edu/identity) and save it to `~/.gen3/credentials.json`
 
     ![Gen3 Profile page](../../images/api-key.png)
 
