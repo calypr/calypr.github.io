@@ -40,6 +40,8 @@ Depending on if a `patient` or `specimen` flag was specified, other resources ca
   - Make sure to either `git add META/` or use the `-a` flag in `g3t commit` to ensure that your FHIR metadata changes are staged.
 
 ### Example
+`TODO - rewrite for git-drs`
+
 To add a cram file that's associated with a subject, sample, and particular task
 
 ```sh
@@ -51,6 +53,8 @@ This will produce metadata with the following relationships:
 <img src="/images/create-meta-graph.png" width="100%">
 
 When the project is committed, the system will validate new or changed records. You may validate the metadata on demand by:
+
+`TODO - rewrite for git-drs`
 
 ```sh
 $ forge meta validate --help
@@ -83,5 +87,4 @@ This process would be useful for individuals who want to use the system to track
 
 ## Next Steps
 
-* See the  <a href="/workflows/tabular/">tabular metadata section</a> for more information on working with metadata.
-* See the  <a href="/workflows/commit-push/">commit and push section</a> for more information on publishing.
+See the [data management section](../data-management/meta-data.md) for more information on working with metadata and publishing.

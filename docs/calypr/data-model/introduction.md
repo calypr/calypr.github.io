@@ -21,7 +21,7 @@ The following "file focused" example illustrates how CALYPR uses FHIR resources 
 
 Examine [resource](https://www.hl7.org/fhir/resource.html) definitions [here](http://www.hl7.org/fhir/resource.html):
 
-* Details on [uploaded files](https://calypr.github.io/workflows/upload/) are captured as [DocumentReference](http://www.hl7.org/fhir/documentreference.html)
+* Details on uploaded files are captured as [DocumentReference](http://www.hl7.org/fhir/documentreference.html)
 
 * DocumentReference.[subject](https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.subject) indicates who or what the document is about:  
   * Can simply point to the [ResearchStudy](https://hl7.org/fhir/researchstudy.html), to indicate the file is part of the study

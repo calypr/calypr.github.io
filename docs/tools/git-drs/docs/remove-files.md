@@ -8,7 +8,9 @@ When removing data files from your project, it's crucial to also update the mani
 
 ### 1. Remove File(s) Using `git rm`
 
-Use the `git rm` command to delete files and automatically update the manifest and metadata:
+`TODO - rewrite for git-drs`
+
+Use the `g3t rm` command to delete files and automatically update the manifest and metadata:
 
 ```bash
 git rm DATA/subject-123/vcf/sample1.vcf.gz
@@ -35,6 +37,7 @@ g3t status
 This will display the files marked for deletion and any updates to the manifest and metadata.
 
 ### 3. Update Metadata
+`TODO - rewrite for git-drs`
 
 If you need to regenerate the metadata after file deletions, use the `g3t meta init` command:
 

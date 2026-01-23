@@ -13,7 +13,7 @@ This guide will walk you through both methods below.
 
 ### Explorer Page
 
-The easiest way to download a single file is through the [Explorer page](https://calypr-public.ohsu.edu/Explorer). This page will show all files belonging to projects that you have access to.
+The easiest way to download a single file is through the [Explorer page](https://calypr.ohsu.edu/Explorer). This page will show all files belonging to projects that you have access to.
 
 To download a single file:
 
@@ -36,6 +36,8 @@ gen3-client download-single --profile=calypr --guid=f623df8f-5dad-5bce-a8ca-a7b6
 ```
 
 ### Download All Files
+
+`TODO - rewrite for git-drs`
 
 To retrieve the actual data files described by manifest as opposed to just the file metadata, use the pull command.
 

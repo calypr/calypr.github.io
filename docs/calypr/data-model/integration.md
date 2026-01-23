@@ -76,7 +76,7 @@ Identifiers in FHIR references typically include the following components: [see 
 
 > A string, typically numeric or alphanumeric, that is associated with a single object or entity within a given system. Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
 
-System: Indicates the system or namespace to which the identifier belongs. By default the namespace is `http://calypr-public.ohsu.edu/<project-id>`.
+System: Indicates the system or namespace to which the identifier belongs. By default the namespace is `http://calypr.ohsu.edu/<project-id>`.
 
 Value: The actual value of the identifier within the specified system. For instance, a lab controlled subject identifier or a specimen identifier.
 
@@ -109,4 +109,4 @@ By using identifiers in references, FHIR ensures that data can be accurately lin
 > A reference to a document of any kind for any purpose. [see more](https://hl7.org/fhir/documentreference.html)
 
 
-See the  <a href="/workflows/metadata/">metadata workflow section</a> for more information on how to create and upload metadata.
+See the [data management section](../data-management/meta-data.md) for more information on how to create and upload metadata.
