@@ -1,27 +1,26 @@
 # Publishing a Project
 
-`TODO - rewrite for git-drs`
 
 The following page will outline how to publish your project to the data platform.
 
 ## Committing Changes
 
-The `g3t commit` command saves your changes to the local repository. Here's a brief explanation of what happens when you use g3t commit:
+The `git-drs commit` command saves your changes to the local repository. Here's a brief explanation of what happens when you use git-drs commit:
 
 - Like git, this command bundles the staged files into a single set of changes.
   - The `-m` flag provides a commit message detailing the changes 
   - If the commit is successful, you will see a summary of the changes logged
 - As a reminder, the files committed to git are the FHIR metadata in `META/` and the file metadata entries in `MANIFEST/`, not the data files themselves.
-- See `g3t commit --help` for more info
+- See `git-drs commit --help` for more info
 
-You can confirm all your changes have been staged and committed using `g3t status`. This will ensure that your manifest data and FHIR metadata is up to date.
+You can confirm all your changes have been staged and committed using `git-drs status`. This will ensure that your manifest data and FHIR metadata is up to date.
 
 ## Pushing Changes
 
 ### How to Push Changes
 
-The `g3t push` command uploads your changes to the data platform.
-Here's a brief explanation of what happens when you use `g3t push`:
+The `git-drs push` command uploads your changes to the data platform.
+Here's a brief explanation of what happens when you use `git-drs push`:
 
 1. Checks that all files are committed before pushing
 2. Checks that the FHIR metadata in `META/` is valid
@@ -34,10 +33,10 @@ Here's a brief explanation of what happens when you use `g3t push`:
 
 ### Updating Files
 
-When pushing data, `g3t` checks the manifest (`MANIFEST/` directory) to see if there are any new files to index. If no new files have been added, then the push will not go through. To update the metadata for a file that has already been pushed or update the FHIR metadata, use the `--overwrite` flag:
+When pushing data, `git-drs` checks the manifest (`MANIFEST/` directory) to see if there are any new files to index. If no new files have been added, then the push will not go through. To update the metadata for a file that has already been pushed or update the FHIR metadata, use the `--overwrite` flag:
 
 ```console
-$ g3t push --overwrite
+$ git-drs push --overwrite
 ```
 
 ### Logging

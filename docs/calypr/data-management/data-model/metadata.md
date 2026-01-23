@@ -2,7 +2,6 @@
 
 ### Create Metadata
 
-`TODO - rewrite for git-drs`
 
 Create basic, minimal metadata for the project:
 
@@ -66,4 +65,4 @@ gen3_util meta publish /tmp/$PROJECT_ID
 
 This final step uploads the metadata associated with the project and makes the files visible on the [Explorer page](https://calypr.ohsu.edu/explorer).
 
-<a href="https://calypr.ohsu.edu/explorer">![Gen3 File Explorer](../website/explorer.png)</a>
+<a href="https://calypr.ohsu.edu/explorer">![Gen3 File Explorer](../../portal/explorer.png)</a>

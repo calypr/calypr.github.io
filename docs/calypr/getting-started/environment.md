@@ -24,9 +24,9 @@ git lfs install
 Once these elements are set up, you'll need to copy in the API credentials you obtained in section 2\. 
 
 # Initialize git-drs  
-git drs init \--cred \~/Downloads/calypr-credentials.json \--profile calypr
+git-drs init \--cred \~/Downloads/calypr-credentials.json \--profile calypr
 
-| g3t\_etl | Given spreadsheets-style metadata, convert it into a standardized graph model |
+| git-drs\_etl | Given spreadsheets-style metadata, convert it into a standardized graph model |
 | :---- | :---- |
 | git-drs  | Given a set of files, register them with CALYPR  |
 | forge  | Given a set of metadata, publish it to users on the CALYPR platform  |
@@ -53,7 +53,7 @@ git clone https://github.com/your-org/new-calypr-repo.git
 cd new-calypr-repo
 
 # Initialize with full configuration  
-git drs init \--profile calypr \\  
+git-drs init \--profile calypr \\  
              \--url https://calypr-public.ohsu.edu/ \\  
              \--cred \~/Downloads/calypr-credentials.json \\  
              \--project my-project-id \\  
@@ -99,7 +99,7 @@ my-project/
 You'll want to double check your storage settings, to ensure you know where files are being stored. First, use the DRS config list command:
 
 ```
-git drs list-config
+git-drs list-config
 ```
 
 The expected output would be:
@@ -170,14 +170,14 @@ Using Environment Variables
 export AWS\_ACCESS\_KEY\_ID="your-access-key"  
 export AWS\_SECRET\_ACCESS\_KEY="your-secret-key"  
 # Register file  
-git drs add-url s3://bucket-name/path/to/file.bam \
+git-drs add-url s3://bucket-name/path/to/file.bam \
   --sha256 abc123def456…  
 ``` 
 
 Using Command Flags  
 ```
 # Register file with inline credentials  
-git drs add-url s3://bucket-name/path/to/file.bam \
+git-drs add-url s3://bucket-name/path/to/file.bam \
   --sha256 abc123def456... \
   --aws-access-key "your-access-key" \
   --aws-secret-key "your-secret-key"

@@ -1,0 +1,9 @@
+title: Data Management
+
+nav:
+ - index.md
+ - managing-metadata.md
+ - metadata.md
+ - data-model
+ - custom-views.md
+ - common-errors.md

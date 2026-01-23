@@ -66,12 +66,12 @@ git lfs pull -I "*.bam"
 
 For detailed setup and usage information:
 
-- **[Getting Started](docs/getting-started.md)** - Repository setup and basic workflows
-- **[Commands Reference](docs/commands.md)** - Complete command documentation
-- **[Installation Guide](docs/installation.md)** - Platform-specific installation
-- **[Troubleshooting](docs/troubleshooting.md)** - Common issues and solutions
-- **[S3 Integration](docs/adding-s3-files.md)** - Adding files via S3 URLs
-- **[Developer Guide](docs/developer-guide.md)** - Internals and development
+- **[Getting Started](../getting-started.md)** - Repository setup and basic workflows
+- **[Commands Reference](../commands.md)** - Complete command documentation
+- **[Installation Guide](../installation.md)** - Platform-specific installation
+- **[Troubleshooting](../troubleshooting.md)** - Common issues and solutions
+- **[S3 Integration](../adding-s3-files.md)** - Adding files via S3 URLs
+- **[Developer Guide](../developer-guide.md)** - Internals and development
 
 ## Supported Servers
 
@@ -98,7 +98,7 @@ For detailed setup and usage information:
 | `git drs fetch`        | Fetch metadata from DRS server        |
 | `git drs push`         | Push objects to DRS server            |
 
-Use `--help` with any command for details. See [Commands Reference](docs/commands.md) for complete documentation.
+Use `--help` with any command for details. See [Commands Reference](../commands.md) for complete documentation.
 
 ## Requirements
 

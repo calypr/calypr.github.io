@@ -5,7 +5,7 @@ title: Download
 There are two main ways to download files:
 
 1. Individually through the browser or through the command line with the `gen3-client`
-2. Batch downloads through the command line with `g3t`
+2. Batch downloads through the command line with `git-drs`
 
 This guide will walk you through both methods below.
 
@@ -37,12 +37,11 @@ gen3-client download-single --profile=calypr --guid=f623df8f-5dad-5bce-a8ca-a7b6
 
 ### Download All Files
 
-`TODO - rewrite for git-drs`
 
 To retrieve the actual data files described by manifest as opposed to just the file metadata, use the pull command.
 
 ```bash
-g3t clone calypr-myproject
+git-drs clone calypr-myproject
 cd calypr-myproject
-g3t pull
+git-drs pull
 ```

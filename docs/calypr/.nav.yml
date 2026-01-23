@@ -1,1 +1,9 @@
 title: CALYPR Platform
+
+nav:
+  - index.md
+  - getting-started
+  - projects
+  - data-management
+  - tools
+  - portal
