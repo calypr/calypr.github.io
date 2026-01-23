@@ -12,22 +12,38 @@ At a high level, every data flow follows the same model:
 
 > **Git → Git LFS → Git DRS → Object Store**
 
-```text
-+-----+      +---------+      +---------+      +------------+
-| Git | ---> | Git LFS | ---> | Git DRS | ---> | Object     |
-|     |      |         |      |         |      | Store      |
-+-----+      +---------+      +---------+      +------------+
-  ^             |               |                  |
-  |             | pointers       | auth + resolve   | blobs
-  |             v               v                  v
- commits     transfer queue   signed URLs / DRS   S3/GCS/Azure/on-prem
-```
-
 ```mermaid
 flowchart LR
-  A[Git\n(commits + pointers)] --> B[Git LFS\n(clean/smudge + transfers)]
-  B --> C[Git DRS\n(resolve + authorize)]
-  C --> D[Object Store\n(S3/GCS/Azure/on‑prem)]
+%% Top row: main components
+    Git[Git] --> LFS[Git LFS] --> DRS[Git DRS] --> Store[Object Store]
+
+%% Second row: responsibilities (aligned under each box)
+    Git_r[commits]
+    LFS_r[pointers]
+    DRS_r[auth + resolve]
+    Store_r[blobs]
+
+%% Third row: concrete artifacts
+    Git_a[data files]
+    LFS_a[transfer queue]
+    DRS_a[signed URLs / DRS]
+    Store_a[S3 / GCS / Azure / on-prem]
+
+%% Vertical alignment
+    Git_a --> Git_r --> Git 
+    LFS --> LFS_r --> LFS_a
+    DRS --> DRS_r --> DRS_a
+    Store --> Store_r --> Store_a
+
+%% Styling to mimic ASCII boxes
+    classDef main fill:#ffffff,stroke:#333,stroke-width:1px;
+    classDef note fill:#f9f9f9,stroke:#999,stroke-dasharray:3 3;
+    classDef artifact fill:#eef2ff,stroke:#4c6ef5;
+
+    class Git,LFS,DRS,Store main
+    class Git_r,LFS_r,DRS_r,Store_r note
+    class Git_a,LFS_a,DRS_a,Store_a artifact
+
 ```
 
 This separation of concerns is intentional.

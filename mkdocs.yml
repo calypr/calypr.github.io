@@ -16,6 +16,7 @@ plugins:
       prompt_literal_start:
         - "$"
         - ">"
+  - mermaid2
 
 theme:
   name: material
@@ -27,6 +28,7 @@ theme:
   features:
     - navigation.indexes 
     # - navigation.footer
+    - content.code.annotate
     - content.code.copy
     - navigation.tabs
     # - navigation.sections
@@ -51,6 +53,12 @@ markdown_extensions:
   - pymdownx.details
   - toc:
       permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
 
 extra_css:
   - stylesheets/extra.css
