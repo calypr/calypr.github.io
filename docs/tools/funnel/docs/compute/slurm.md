@@ -1,10 +1,8 @@
 ---
 title: Slurm
-menu:
-  main:
-    parent: Compute
-    weight: 20
+render_macros: false
 ---
+
 # Slurm
 
 Funnel can be configured to submit workers to [Slurm][slurm] by making calls

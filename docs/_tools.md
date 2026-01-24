@@ -40,4 +40,21 @@ Included cards ...
       <span class="product-card__link">Learn more <i>→</i></span>
     </div>
   </a>
+
+  <!-- Sifter -->
+  <a href="/tools/sifter/" class="product-card">
+    <div class="product-card__image-wrap">
+      <!-- img src="/assets/git-drs.png" alt="Git-DRS" class="product-card__image" / -->
+    </div>
+    <div class="product-card__content">
+      <h2 class="product-card__title">Sifter</h2>
+      <p class="product-card__summary">Simple data transformation pipelines</p>
+      <p class="product-card__description">Extract and Transform data while ensuring schema conformance.</p>
+      <span class="product-card__link">Learn more <i>→</i></span>
+    </div>
+  </a>
+
+
 </div>
+
+

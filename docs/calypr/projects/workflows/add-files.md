@@ -1,8 +1,8 @@
 ---
 title: Adding Files
+render_macros: false
 ---
 
-{% include '/note.md' %}
 
 ## Background
 

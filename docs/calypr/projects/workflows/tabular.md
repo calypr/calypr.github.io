@@ -1,8 +1,8 @@
 ---
 title: Create Tabular Metadata
+render_macros: false
 ---
 
-{% include '/note.md' %}
 
 ## Creating Tabular Data
 

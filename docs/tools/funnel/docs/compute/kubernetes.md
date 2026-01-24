@@ -1,9 +1,6 @@
 ---
 title: Kubernetes
-menu:
-  main:
-    parent: Compute
-    weight: 20
+render_macros: false
 ---
 
 > Funnel on Kubernetes is in active development and may involve frequent updates
@@ -37,11 +34,9 @@ kubectl apply -f funnel-service.yml
 Get the clusterIP:
 
 ```sh
-{% raw %}
 export HOSTNAME=$(kubectl get services funnel --output=jsonpath='{.spec.clusterIP}')
 
 sed -i "s|\${HOSTNAME}|${HOSTNAME}|g" funnel-worker.yaml
-{% endraw %}
 ```
 
 ### 3. Create a ConfigMap
@@ -79,8 +74,7 @@ kubectl apply -f funnel-storage-pvc.yml
 ```sh
 kubectl apply -f funnel-deployment.yml
 ```
-
-{% raw %}{{< /details >}}{% endraw %}
+{{< /details >}}
 
 # 2. Proxy the Service for local testing
 

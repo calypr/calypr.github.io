@@ -1,9 +1,6 @@
 ---
 title: PBS/Torque
-menu:
-  main:
-    parent: Compute
-    weight: 20
+render_macros: false
 ---
 # PBS/Torque
 

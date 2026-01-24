@@ -1,7 +1,6 @@
 
 # Quickstart Guide
 
-{% include '/note.md' %}
 
 ## About
 
