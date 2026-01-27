@@ -1,4 +1,6 @@
-# Environment Initialization
+---
+title: Requirements
+---
 
 All tools can be installed via pip, conda, or binary releases.  
 The following steps assume a Unix‑like shell (bash/zsh).

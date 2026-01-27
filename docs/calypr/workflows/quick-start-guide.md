@@ -1,17 +1,16 @@
 
-# Quickstart Guide
+```
+title: Quickstart Guide
+```
 
-
-## About
-
-gen3 tracker, or git-drs, is a command line tool for the CALYPR platform. It provides a set of utilities for users to upload data to and download data from the platform. The following tutorial will walk you through the steps for two different use cases:
+`git-drs` is a command line tool for the CALYPR platform. It provides a set of utilities for users to upload data to and download data from the platform. The following tutorial will walk you through the steps for two different use cases:
 
 1. Uploading files for a new project to the platform
 2. Downloading an existing project from the platform
 
 Each step will outline the command to execute followed by a brief description of the command's functionality.
 
-## Requirements
+# Requirements
 
 Please ensure you have completed the following setup from the [Requirements](/requirements) page:
 
@@ -34,8 +33,7 @@ username: someone@example.com
 
 along with the set of projects you have been provided access to.
 
-## General Usage
-
+# General Usage
 
 ```sh
 git-drs [OPTIONS] COMMAND [ARGS]...

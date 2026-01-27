@@ -54,7 +54,7 @@ h3 {
 }
 
 /* Hides the title */
-/* .md-content h1 {
+/* .md-content h1:first-of-type {
   display: none;
 } */
 

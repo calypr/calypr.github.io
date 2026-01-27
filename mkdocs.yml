@@ -8,15 +8,16 @@ site_name: CALYPR
 site_url: https://calypr.org
 
 plugins:
-  - search
-  - macros
   - awesome-nav
-  - open-in-new-tab # automatically open ext links in new tab
+  - gh-admonitions
+  - macros
+  - mermaid2
+  - open-in-new-tab
+  - search
   - termynal:
       prompt_literal_start:
         - "$"
         - ">"
-  - mermaid2
 
 theme:
   name: material
@@ -27,39 +28,35 @@ theme:
       primary: custom
   features:
     - navigation.indexes 
-    # - navigation.footer
     - content.code.annotate
     - content.code.copy
     - navigation.tabs
-    # - navigation.sections
     - navigation.top
     - header.autohide
     - navigation.tabs
 
 markdown_extensions:
-  - attr_list
-  - md_in_html
   - admonition
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
+  - attr_list
+  - markdown_include.include:
+      base_path: docs
+  - md_in_html
+  - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.details
-  - toc:
-      permalink: true
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - markdown_include.include:
-      base_path: docs
+  - toc:
+      permalink: true
 
 extra_css:
   - stylesheets/extra.css

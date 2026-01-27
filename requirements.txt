@@ -1,8 +1,9 @@
-mkdocs-material
-mkdocs-macros-plugin
-mkdocs-open-in-new-tab
-mkdocs-linkcheck
-mkdocs-awesome-nav
-termynal
-mkdocs-mermaid2-plugin
 markdown-include
+mkdocs-awesome-nav
+mkdocs-github-admonitions-plugin
+mkdocs-linkcheck
+mkdocs-macros-plugin
+mkdocs-material
+mkdocs-mermaid2-plugin
+mkdocs-open-in-new-tab
+termynal
