@@ -62,3 +62,6 @@ $ git-drs push
 ```
 
 Note that `git add` is used here rather than `git-drs add` because `git add` will update the project's FHIR metadata while `git-drs add` only updates the project's manifest. If you want to commit multiple file changes, you can also use `git-drs commit -am "update all files"`, where all changes get committed to the project.
+
+---
+*Last reviewed: January 2026*

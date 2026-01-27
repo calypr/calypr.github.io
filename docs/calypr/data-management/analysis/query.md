@@ -1,11 +1,11 @@
 
-# Data Querying + Gen3 SDK
+# Data Querying with GRIP
 
-`TODO - rewrite for grip and dataframer`
+GRIP provides powerful querying capabilities for FHIR data stored in the CALYPR graph database. This guide covers how to query and analyze your integrated data.
 
 ## Overview ⚙️
 
-Gen3 supports API access to Files and Metadata, allowing users to download and query their data via the Gen3 SDK and GraphQL queries.
+GRIP supports API access to FHIR data, allowing users to download and query their data via the GRIP CLI and GRIPQL queries.
 
 ## Quick Start ⚡️
 
@@ -13,255 +13,150 @@ Gen3 supports API access to Files and Metadata, allowing users to download and q
 
 ## 1. Dependency and Credentials 
 
+Prior to using GRIP, ensure you have proper authentication:
 
-Prior to installing, check a profile credentials. 
-Test:
 ```bash
-calypr_admin ping 
+# Test connection to GRIP server
+grip list
 ```
-- will return a list of projects that a profile has access to.
 
-- For new setup or renew of gen3 credentials - Follow steps to configure/re-configure a profile with credentials: 
+This will return a list of available graphs you have access to.
 
-    - Download an API Key from the [Profile page](https://calypr.ohsu.edu/identity) and save it to `~/.gen3/credentials.json`
+For new setup or credential refresh:
+- Download API credentials from the [CALYPR Profile page](https://calypr.ohsu.edu/identity)
+- Configure credentials according to GRIP documentation
 
-    ![Gen3 Profile page](../../../images/api-key.png)
-
-    ![Gen3 Credentials](../../../images/credentials.png)
-
+![CALYPR Profile page](../../../images/api-key.png)
+![GRIP Credentials](../../../images/credentials.png)
 
 ## 2. Install
 
-The Gen3 SDK is available for installation via PyPi:
+GRIP is available for installation via package managers:
 
-```sh
-pip install gen3
+```bash
+# Install via pip (if available)
+pip install grip
+
+# Or download binary from releases
+# See GRIP documentation for installation instructions
 ```
 
 ## 3. Query
 
-The following query examples provide a high-level overview on how to use Gen3 python SDK to authenticate, use the authentication to fetch column/metadata names, retrieve entity ids, and then use the ids to make nested queries. Each project would have a graph schema or definition with relations associated that are defined during data transformation or harmonization. The queries would depend on each project's graph definition traversals.   
+The following query examples provide a high-level overview on how to use GRIP to authenticate, fetch graph schema, retrieve entity information, and make complex queries. Each project would have a graph schema defined during data transformation and loading. The queries depend on your project's specific graph structure.
 
-### 3.0 Authenticate 
+### 3.0 List Available Graphs
 
-```python
-from gen3.auth import Gen3Auth
-from gen3.query import Gen3Query
+```bash
+# List all graphs you have access to
+grip list
 
-auth = Gen3Auth() 
-```
-### 3.1 List available fields on an entity to query on
-
-{% raw %}
-```python
-def get_entity_fields(entity_name, auth):
-    """Retrieve all field names for a given entity from the Gen3 GraphQL schema."""
-    query_template = f"""
-    {{
-      __type(name: "{entity_name}") {{
-        fields {{
-          name
-        }}
-      }}
-    }}
-    """
-
-    response = Gen3Query.graphql_query(
-        Gen3Query(auth),
-        query_string=query_template
-    )
-
-    if response and response.get("data", {}).get("__type", {}):
-        fields = response["data"]["__type"]["fields"]
-        field_names = [field["name"] for field in fields]
-        return field_names
-    else:
-        print(f"Failed to retrieve fields for {entity_name}:", response)
-        return []
-
-entity_name = "Specimen"  
-field_names = get_entity_fields(entity_name, auth)
-print(f"Available fields for {entity_name}:", field_names)
-```
-{% endraw %}
-
-### 3.2 Filter Patients of Interest (ResearchSubject Participants)
-
-```python
-researchsubject_query = """
-query ($filter: JSON) {
-  researchsubject(filter: $filter, first: 10000) {
-            id
-            patient_id
-            condition_diagnosis
-  }
-}
-"""
-
-researchsubject_variables = {
-    "filter": {
-        "IN": {
-            "condition_diagnosis": ["Infiltrating duct carcinoma, NOS"]
-        }
-    }
-}
-researchsubject_response = Gen3Query.graphql_query(
-    Gen3Query(auth),
-    query_string=researchsubject_query,
-    variables=researchsubject_variables
-)
-patient_ids = [p["patient_id"] for p in researchsubject_response["data"]["researchsubject"]]
+# Get information about a specific graph
+grip info <graph-name>
 ```
 
-### 3.3 Filter Specimens of Interest from Patient Ids
+### 3.1 Basic GRIPQL Queries
 
-```python
-def execute_query(auth, query_string, variables=None):
-    """perform guppy query"""
-    return Gen3Query.graphql_query(Gen3Query(auth), query_string=query_string, variables=variables)
+GRIP uses GRIPQL (Gremlin-inspired query language) for graph traversals:
 
-def get_specimens(auth, patient_ids):
-    """Fetch specimens associated with patient ids"""
-    query = """
-    query ($filter: JSON) {
-        specimen (filter: $filter, first: 10000) {
-            id
-            patient_id
-            specimen_id
-            <other_sample_metadata>
-        }
-    }
-    """
-    variables = {"filter": {"IN": {"patient_id": patient_ids}}}
-    response = execute_query(auth, query, variables)
-    specimens = defaultdict(list)
-    for specimen in response["data"]["specimen"]:
-        if specimen["gene"]:
-            specimens[specimen["patient_id"]].append(specimen)
-    return specimens
-dat = get_specimens(auth, patient_ids)
-specimen_ids = [d[1][0]['id'] for d in dat.items()]
+```bash
+# Get all vertices with a specific label
+grip query <graph-name> 'V().hasLabel("Patient")'
+
+# Get vertices with specific properties
+grip query <graph-name> 'V().hasLabel("Specimen").has("specimen_type","Primary Tumor")'
+
+# Traverse relationships
+grip query <graph-name> 'V().hasLabel("Patient").out("hasSpecimen")'
+```
+### 3.2 Get Graph Schema
+
+```bash
+# Get schema for entire graph
+grip schema get <graph-name>
+
+# Get schema for specific vertex types
+grip schema get <graph-name> --label Patient
 ```
 
-### 3.4 Filter Files Associated with Specimens of Interest
+### 3.3 Example Query Patterns
 
-```python
-def get_files(auth, specimen_ids):
-    """Fetch files associated with specimens."""
-    query = """
-    query ($filter: JSON) {
-        file (filter: $filter, first: 10000) {
-            id
-            specimen_id
-            sample_type
-        }
-    }
-    """
-    """
-    variables = {
-    "filter": {
-        "AND": [
-            {
-                "IN": {
-                    "specimen_id": specimen_ids
-                }
-            },
-            {
-                "LIKE": {
-                    "sample_type": ["%Primary Tumor%"]
+#### Find Patients with Specific Conditions
 
-                }
-            }
-        ]
-    }}
-    """
-    
-    variables = {"filter": {"IN": {"specimen_id": specimen_ids}}}
-    response = execute_query(auth, query, variables)
-    return response["data"]["file"]
-
-file_data = get_files(auth, specimen_ids)
+```bash
+grip query <graph-name> '
+V().hasLabel("ResearchSubject")
+  .has("condition_diagnosis","Infiltrating duct carcinoma, NOS")
+  .out("hasPatient")
+'
 ```
 
-## Simple end to end workflow: 
-### Query (`example.graphql`)
-```js
-query ExampleQuery {
-  files: file(first: 1000) {
-    file_name
-    project_id
-    id
-  }
-  patients: patient(first: 1000) {
-    name
-    project_id
-    id
-  }
-  observations: observation(first: 1000) {
-    code
-    project_id
-    id
-  }
-}
+#### Find Specimens for Patients of Interest
+
+```bash
+# First get patient IDs of interest
+grip query <graph-name> '
+V().hasLabel("ResearchSubject")
+  .has("condition_diagnosis","Infiltrating duct carcinoma, NOS")
+  .out("hasPatient")
+  .id()
+' > patient_ids.txt
+
+# Then find associated specimens
+grip query <graph-name> '
+V().hasLabel("Patient")
+  .has("patient_id",IN("P001","P002","P003"))
+  .out("hasSpecimen")
+'
 ```
 
-### Script (`example.py`)
-```sh
-from gen3.auth import Gen3Auth
-from gen3.query import Gen3Query
-import json
+#### Find Files for Specific Specimens
 
-auth = Gen3Auth()
-
-query = ''
-
-# Read in Example Query
-with open('example.graphql') as f:
-    query = f.read()
-
-response = Gen3Query.graphql_query(Gen3Query(auth), query_string=query)
-
-formatted = json.dumps(response, indent=2)
-
-print(formatted)
-
-# >>> Example Output
+```bash
+grip query <graph-name> '
+V().hasLabel("Specimen")
+  .has("specimen_type","Primary Tumor")
+  .out("hasDocumentReference")
+  .has("content.attachment.url",CONTAINING(".cram"))
+'
 ```
 
-### Output
+## Simple End-to-End Workflow
 
-```sh
-$ python example.py
-{
-  "data": {
-    "files": [
-      {
-        "file_name": "example.bam",
-        "project_id": "cbds-example",
-      },...
-    ],
-    "patients": [
-      {
-        "name": "Example Name",
-        "project_id": "cbds-example",
-      },...
-    ],
-    "observations": [
-      {
-        "code": "Example Code",
-        "project_id": "cbds-example",
-      },...
-    ]
-  }
-}
+### Basic Data Exploration
+
+```bash
+# Get vertex and edge counts
+grip info <graph-name>
+
+# List all vertex types
+grip query <graph-name> 'V().label().dedup()'
+
+# Get sample data for each type
+grip query <graph-name> 'V().hasLabel("Patient").limit(5)'
+grip query <graph-name> 'V().hasLabel("DocumentReference").limit(5)'
+grip query <graph-name> 'V().hasLabel("Specimen").limit(5)'
+```
+
+### Export Data for Analysis
+
+```bash
+# Export all vertices to file
+grip dump <graph-name> --vertex > all_vertices.txt
+
+# Export specific vertex types
+grip query <graph-name> 'V().hasLabel("DocumentReference")' > documents.txt
+
+# Export relationship data
+grip dump <graph-name> --edge > all_edges.txt
 ```
 
 ## Additional Resources 📚
 
-- [Gen3 SDK Documentation](https://uc-cdis.github.io/gen3sdk-python/_build/html/index.html)
+- [GRIP Documentation](../../tools/grip/index.md)
+- [GRIP Query Guide](../../tools/grip/docs/commands/query.md)
+- [GRIP Schema Documentation](../../tools/grip/docs/graphql/graph_schemas.md)
+- [GRIP Commands Reference](../../tools/grip/docs/commands.md)
 
-- [Gen3 SDK Repo](https://github.com/uc-cdis/gen3sdk-python)
-
-- [Gen3 SDK PyPi](https://pypi.org/project/gen3)
-
-- [Guppy Syntax Docs](https://github.com/uc-cdis/guppy/blob/master/doc/queries.md)
+---
+*Last reviewed: January 2026*

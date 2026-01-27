@@ -76,9 +76,9 @@ Example DocumentReference linking to S3 file:
 
 ## Validating Metadata
 
-To ensure that the FHIR files you have added to the project are correct and pass schema checking, you can use the forge software.
+To ensure that the FHIR files you have added to the project are correct and pass schema checking, you can use the git-drs validation commands.
 
-forge validate
+git-drs meta validate
 
 Successful output:
 
@@ -91,19 +91,19 @@ All metadata files are valid.
 Fix any validation errors and re-run until all files pass.
 
 
-### Forge Data Quality Assurance Command Line Commands
+### git-drs Data Quality Assurance Command Line Commands
 
 If you have provided your own FHIR resources there are two commands that might be useful to you for ensuring that your FHIR metadata will appear on the CALYPR data platform as expected. These commands are validate and check-edge
 
 **Validate-** Example: 
 
-\`\`\`forge validate META\`\`\` or \`\`\`forge validate META/DocumentReference.ndjson\`\`\`
+\`\`\`git-drs meta validate META\`\`\` or \`\`\`git-drs meta validate META/DocumentReference.ndjson\`\`\`
 
 Validate checks to see if the provided directory or file will be accepted by the CALYPR data platform or whether there are validation errors that make it not accepted into the data platform. Validation errors range from improper JSON formatting to FHIR schema validation errors. We are currently using FHIR version R5 so the earlier version will not validate against our schema. 
 
 **Check-edge-** Example:
 
-\`\`\`forge check-edge META\`\`\` or \`\`\`forge validate META/DocumentReference.ndjson\`\`\`
+\`\`\`git-drs meta check-edge META\`\`\` or \`\`\`git-drs meta validate META/DocumentReference.ndjson\`\`\`
 
 Check edge emulates exactly what will happen during data submission to your FHIR files. Your FHIR files will be loaded into a graph database. In order to create the graph edges must be generated from the references specified in your FHIR data to connect your vertices, which are essentially the rest of the NDJSON FHIR files that have been provided.
 
@@ -172,3 +172,4 @@ Automated tools or CI processes must:
 * Check proper .ndjson formatting.
 
 ---
+*Last reviewed: January 2026*

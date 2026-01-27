@@ -1,36 +1,74 @@
 
-# FHIR for Researchers
+# CALYPR Data Management
 
-Given all of the intricacies healthcare and experimental data, we use Fast Healthcare Interoperability Resources (FHIR) as a data model to ensure informaticians and analysts can concentrate on science, not data structures.  This document introduces model for Research Analysts and describes how an analyst can shape and query FHIR resources.
+CALYPR uses Fast Healthcare Interoperability Resources (FHIR) as a standardized data model to enable seamless integration and analysis of healthcare and experimental data. This guide introduces the data management workflow for research analysts and describes how to work with FHIR resources using CALYPR's tool suite.
 
-## What is FHIR?
+## CALYPR Tool Ecosystem
 
-In an era where healthcare information is abundant yet diverse and often siloed, FHIR emerges as a standard, empowering research analysts to navigate, aggregate, and interpret health data seamlessly. This guide aims to unravel the intricacies of FHIR, equipping research analysts with the knowledge and tools needed to harness the potential of interoperable healthcare data for insightful analysis and impactful research outcomes in the context of CALYPR collaborations.
+CALYPR provides a comprehensive suite of tools for data management:
 
-## Graph Model
+- **git-drs**: Git-based data management system that extends Git LFS with scalable, standards-based data access
+- **grip**: Graph Resource Integration Platform for querying and analyzing FHIR data
+- **funnel**: Workflow execution engine for distributed computing
+- **sifter**: Data transformation and processing framework
 
-FHIR has certain aspects that can align with graph-like structures or facilitate graph-based analysis:
+## Data Management Workflow
 
-Resource Relationships: FHIR resources often have relationships with other resources. For instance, a Patient resource can be associated with multiple Observation resources, which in turn might be linked to Condition or Procedure resources. These relationships create a network-like structure, similar to a graph.
+The typical data management workflow follows these stages:
 
-References and Linkages: FHIR resources utilize references to establish connections between related entities. These references can be leveraged to create graph-like representations when modeling relationships between patients, specimens, observations, etc.
+1. **File Management**: Use `git-drs` to add, version, and track large data files
+2. **Metadata Creation**: Generate FHIR-compliant metadata for your files
+3. **Validation**: Validate metadata and ensure compliance with FHIR standards
+4. **Query & Analysis**: Use `grip` to query and analyze your integrated data
+5. **Customization**: Configure explorer views and custom data presentations
 
-### Example
+## FHIR Data Model Overview
 
-The following "file focused" example illustrates how CALYPR uses FHIR resources a DocumentReference's ancestors within a study.
+FHIR resources in CALYPR form a graph-like structure that captures complex relationships:
 
-Examine [resource](https://www.hl7.org/fhir/resource.html) definitions [here](http://www.hl7.org/fhir/resource.html):
+### Core Resource Types
 
-* Details on uploaded files are captured as [DocumentReference](http://www.hl7.org/fhir/documentreference.html)
+- **ResearchStudy**: Defines the research project or study
+- **ResearchSubject**: Links participants to studies
+- **Patient**: Demographics and administrative information
+- **Specimen**: Biological samples and their processing information
+- **DocumentReference**: Links to actual data files (genomic data, images, etc.)
+- **Observation**: Measurements, lab results, and clinical findings
+- **Task**: Provenance information about data creation processes
 
-* DocumentReference.[subject](https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.subject) indicates who or what the document is about:  
-  * Can simply point to the [ResearchStudy](https://hl7.org/fhir/researchstudy.html), to indicate the file is part of the study
-  * Can point to [Patient](https://hl7.org/fhir/patient.html), or [Specimen](https://hl7.org/fhir/specimen.html), to indicate the file is based on them
-* An [Observation](https://hl7.org/fhir/observation.html) can point to any entity    
-* A [Task](https://hl7.org/fhir/task.html) can provide [provenance](https://en.wikipedia.org/wiki/Provenance#Data_provenance) on how the file was created 
+### Resource Relationships
 
-Each resource has at least one study controlled [official](https://hl7.org/fhir/codesystem-identifier-use.html#identifier-use-official) [Identifier](https://hl7.org/fhir/datatypes.html#Identifier).  Child resources have [Reference](http://www.hl7.org/fhir/references.html) fields to point to their parent.
+FHIR resources are interconnected through references, creating a rich graph that captures:
 
+- Files linked to patients and specimens
+- Measurements connected to specific samples
+- Provenance tracking through task relationships
+- Study-level organization of all resources
+
+### Example Workflow
+
+When you add a genomic sequencing file using `git-drs`:
+
+```bash
+git-drs add sample.cram --patient P001 --specimen P001-BM --task P001-SEQ
+```
+
+This creates relationships where:
+- `sample.cram` (DocumentReference) points to Patient P001
+- The file is associated with Specimen P001-BM  
+- Task P001-SEQ provides provenance about how the file was created
+
+## Getting Started
+
+To begin working with CALYPR data management:
+
+1. **Install tools**: See [git-drs installation](../../tools/git-drs/installation.md)
+2. **Initialize your project**: [Getting started guide](../../tools/git-drs/getting-started.md)
+3. **Add files and metadata**: [Managing metadata](managing-metadata.md)
+4. **Query your data**: [Data querying](analysis/query.md)
 
 <img src="/images/fhir-graph-model.png" width="100%">
+
+---
+*Last reviewed: January 2026*
 

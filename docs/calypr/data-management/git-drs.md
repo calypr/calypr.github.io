@@ -1,74 +1,107 @@
 ---
-title: Managing projects git-drs
+title: Managing projects with git-drs
 ---
 
-git-drs is used to managed project data. It connects git projects to the DRS datalake, allowing users to create new versions of projects, incorporating large scale data objects, without dupicating storage.
+git-drs is used to manage project data. It connects git projects to the DRS datalake, allowing users to create new versions of projects, incorporating large scale data objects, without duplicating storage.
 
-## Commit and Upload you files
+## Basic Workflow
 
-# Commit files (creates DRS records via pre-commit hook)  
+### 1. Adding Files
+
+Use git-drs to add files with metadata associations:
+
+```bash
+# Add a genomic file with patient and specimen associations
+git-drs add sample.cram --patient P001 --specimen P001-BM --task P001-SEQ
+
+# Add multiple files
+git-drs add *.bam --patient P001
 ```
-git commit -m "Add genomic data files"
+
+### 2. Generate Metadata
+
+Create FHIR metadata from the file manifest:
+
+```bash
+git-drs meta init
 ```
 
-# Upload to object store  
+This creates FHIR resources in the `META/` directory:
+- `ResearchStudy.ndjson` - Project description
+- `DocumentReference.ndjson` - File information
+- Additional resources based on flags (Patient, Specimen, Task, etc.)
+
+### 3. Commit and Upload
+
+Commit files and metadata to create DRS records:
+
+```bash
+# Stage all changes (including metadata)
+git add META/
+git-drs commit -m "Add genomic data with FHIR metadata"
 ```
-git push
+
+Upload to object store and register DRS records:
+
+```bash
+git-drs push
 ```
 
-What happens during push:
+## What Happens During Push
 
-1. Git-DRS creates DRS records for each tracked file  
-2. Files are uploaded to the configured S3 bucket  
-3. DRS URIs are registered in the Gen3 system  
-4. Pointer files are committed to the repository
+1. **DRS Record Creation**: git-drs creates DRS records for each tracked file
+2. **File Upload**: Files are uploaded to the configured S3 bucket
+3. **URI Registration**: DRS URIs are registered in the CALYPR system
+4. **Pointer Management**: LFS pointer files are committed to the repository
 
-## 
+## Verifying Upload
 
-### Verifying upload
+Check the status of tracked files:
 
-```
+```bash
 git lfs ls-files
 ```
 
-Files should now show \* prefix (localized/uploaded):
+Files show different prefixes:
+- `*` prefix: Files are localized/uploaded
+- `-` prefix: Files are staged but not yet committed
 
+Example output:
 ```
 * data/sample1.bam  
 * data/sample2.bam  
 * results/analysis.vcf.gz
 ```
 
-The \- prefix means files are staged but not yet committed.
+## Working with Custom FHIR Metadata
+
+If you have existing FHIR metadata, you can supply it directly:
+
+```bash
+# Copy your FHIR data to META directory
+cp ~/my-data/patients.ndjson META/
+cp ~/my-data/specimens.ndjson META/
+cp ~/my-data/document-references.ndjson META/
+
+# Stage and commit
+git add META/
+git-drs commit -m "Add custom FHIR metadata"
+git-drs push
+```
+
+## Data Access After Upload
 
 After completing the workflow:
 
-*  Files visible in Git repository (as LFS pointers)  
-*  DRS records created (check .drs/ logs)  
-*  Files accessible via git lfs pull  
-*  Can share DRS URIs with collaborators  
-*  Files NOT searchable in CALYPR web interface (expected)
+- **Files** are visible in Git repository (as LFS pointers)  
+- **DRS records** are created and accessible via CALYPR
+- **Download** available via `git lfs pull`
+- **Sharing** possible through DRS URIs with collaborators
+- **Discovery** files become searchable in CALYPR web interface after processing
 
-## Committing Changes
+## Troubleshooting
 
-```
-# Stage all changes  
-git add .
-```
+Common issues are covered in the [Common Errors guide](common-errors.md).
 
-```
-# Commit (triggers forge precommit hook)  
-git commit \-m "Register S3 files with custom FHIR metadata"
-```
-
-```
-# Push to register DRS records  
-git push
-```
-
-What happens during push:
-
-1. Git-DRS creates DRS records pointing to S3  
-2. DRS URIs are registered  
-3. No file upload occurs  
-4. Pointer files committed to repository
+---
+*Last reviewed: January 2026*

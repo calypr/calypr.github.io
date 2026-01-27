@@ -196,3 +196,5 @@ This document applies once you’ve begun organizing data files for a research s
 This guide focuses on stage 2,3 — converting well-structured TSV metadata files into standard FHIR resources, while validating that every entity’s identifier corresponds to the entries defined in META/identifiers.tsv.
 
 ---
+---
+*Last reviewed: January 2026*

@@ -55,8 +55,8 @@ When the project is committed, the system will validate new or changed records. 
 
 
 ```sh
-$ forge meta validate --help
-Usage: forge meta validate [OPTIONS] DIRECTORY
+$ git-drs meta validate --help
+Usage: git-drs meta validate [OPTIONS] DIRECTORY
 
   Validate FHIR data in DIRECTORY.
 
@@ -85,4 +85,9 @@ This process would be useful for individuals who want to use the system to track
 
 ## Next Steps
 
-See the [data management section](meta-data.md) for more information on working with metadata and publishing.
+See the [managing metadata section](managing-metadata.md) for more information on working with metadata and validation.
+
+For information on querying your data, see the [data analysis section](analysis/query.md).
+
+---
+*Last reviewed: January 2026*

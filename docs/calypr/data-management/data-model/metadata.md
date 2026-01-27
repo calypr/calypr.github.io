@@ -2,67 +2,77 @@
 
 ### Create Metadata
 
+The recommended approach is to use git-drs to generate metadata automatically:
 
-Create basic, minimal metadata for the project:
+```bash
+# Add files with metadata associations
+git-drs add *.cram --patient P001 --specimen P001-BM
 
-```sh
-gen3_util meta create /tmp/$PROJECT_ID
-
-ls -1 /tmp/$PROJECT_ID
-DocumentReference.ndjson
-Observation.ndjson
-Patient.ndjson
-ResearchStudy.ndjson
-ResearchSubject.ndjson
-Specimen.ndjson
-Task.ndjson
+# Generate FHIR metadata
+git-drs meta init
 ```
 
-### Retrieve existing metadata
-Retrieve the existing metadata from the portal.
+This creates metadata files in the `META/` directory:
+- `ResearchStudy.ndjson` - Project description
+- `DocumentReference.ndjson` - File information
+- Additional resources based on specified flags (Patient, Specimen, etc.)
 
-```sh
+### Retrieve Existing Metadata
 
-gen3_util meta cp
+Retrieve metadata from existing projects:
 
-TODO
+```bash
+# Export current metadata from the graph
+grip dump <graph-name> --vertex > vertices.txt
+grip dump <graph-name> --edge > edges.txt
+
+# Or export specific resource types
+grip query <graph-name> 'V().hasLabel("DocumentReference")'
 ```
 
-### Integrate your data
+### Integrate Your Data
 
-Convert the FHIR data to tabular form.
+For custom data integration workflows:
 
-```sh
-TODO
+1. **Convert tabular data to FHIR format**
+2. **Validate the FHIR resources**
+3. **Load into the graph database**
+
+```bash
+# Validate FHIR metadata
+git-drs meta validate META/
+
+# Check reference integrity
+git-drs meta check-edge META/
 ```
 
-Convert the tabular data to FHIR.
+### Alternative: Direct Graph Loading
 
-```sh
-TODO
+For advanced users who prefer working directly with the graph database:
+
+```bash
+# Load vertices and edges directly
+grip load <graph-name> --vertex vertices.txt --edge edges.txt
+
+# Validate graph integrity
+grip info <graph-name>
 ```
 
-Validate the data
+### Publishing Data
 
-```sh
-$ gen3_util meta validate --help
-Usage: gen3_util meta validate [OPTIONS] DIRECTORY
+Make your data visible in the CALYPR platform:
 
-  Validate FHIR data in DIRECTORY.
-
-```
-
-
-
-### Publish the Metadata
-
-```text
-# copy the metadata to the bucket and publish the metadata to the portal
-gen3_util meta publish /tmp/$PROJECT_ID
+```bash
+# Commit and push to register metadata
+git-drs commit -m "Add project metadata"
+git-drs push
 ```
 
 ## View the Files
 
-This final step uploads the metadata associated with the project and makes the files visible on the [Explorer page](https://calypr.ohsu.edu/explorer).
+This final step uploads the metadata and makes the files visible on the [CALYPR Explorer page](https://calypr.ohsu.edu/explorer).
 
-<a href="https://calypr.ohsu.edu/explorer">![Gen3 File Explorer](../../portal/explorer.png)</a>
+<a href="https://calypr.ohsu.edu/explorer">![CALYPR File Explorer](../../portal/explorer.png)</a>
+
+---
+*Last reviewed: January 2026*
