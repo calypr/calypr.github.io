@@ -27,7 +27,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # Check all markdown files in docs/ and README.md
-          args: --verbose --no-progress --exclude-mail --exclude-private 'docs/**/*.md' 'README.md' '**/*.md'
+          args: --verbose --no-progress --exclude-private 'docs/**/*.md' 'README.md' '**/*.md'
           # Fail on broken links but allow exclusions
           fail: true
         env:
