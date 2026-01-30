@@ -1,5 +1,6 @@
-# Build and publish the site on every push to the main branch
+# Build and publish the site on every push to main branch
 # Adapted from https://squidfunk.github.io/mkdocs-material/publishing-your-site/
+# Link checking is done separately in .github/workflows/link-check.yml
 
 name: Build and Publish 
 on:
@@ -26,3 +27,4 @@ jobs:
             mkdocs-material-
       - run: pip install -r requirements.txt 
       - run: mkdocs gh-deploy --force
+

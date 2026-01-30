@@ -1,0 +1,57 @@
+# Lychee configuration file
+# https://github.com/lycheeverse/lychee
+
+# Don't check these links - known issues or expected to fail
+exclude = [
+  # TODO: Remove these once fixed from the documentation audit
+  "https://app.codeimage.dev/*",  # CodeImage URLs from README
+  "https://calypr.ohsu.edu.org/*", # Domain typo (should be .edu)
+  "*/img/gripper_architecture.png", # Missing image
+  "*/img/k8s-pvc.png",             # Missing image
+  "/docs/queries/operations",      # Missing reference
+  
+  # Expected to fail - local/development links
+  "http://localhost:*",
+  "http://127.0.0.1:*",
+  "https://dev.calypr.ohsu.edu/*",  # Development environment
+  
+  # External services that may be unreliable
+  "https://bmeg.io/*",              # Service appears down
+  "https://www.alliancegenome.org/*", # May have rate limits
+  
+  # Example/test domains
+  "https://example.com",
+  "https://*.test",
+  "https://*.local",
+  
+  # GitHub-specific links that can be flaky
+  "https://raw.githubusercontent.com/*/fix/*",  # Feature branch refs
+  
+  # Some DOI/academic links that may require special handling
+  "doi:*",
+]
+
+# Accept these status codes as success
+accept = [200, 201, 202, 204, 429]
+
+# Request timeout in seconds
+timeout = 20
+
+# Maximum number of redirects to follow
+max_redirects = 10
+
+# Number of threads to use (default: number of CPU cores)
+threads = 4
+
+# Include/exclude patterns for files
+include = ["docs/**/*.md", "README.md", "**/*.md"]
+exclude_file = ["node_modules/**", ".git/**", "site/**"]
+
+# Don't check mailto links
+exclude_mail = true
+
+# Verbose output
+verbose = true
+
+# Don't show progress
+no_progress = true
