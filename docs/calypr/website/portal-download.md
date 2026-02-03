@@ -5,42 +5,27 @@ title: Download
 There are two main ways to download files:
 
 1. Individually through the browser or through the command line with the `gen3-client`
-2. Batch downloads through the command line with `g3t`
+2. Batch downloads through the command line with `git-drs` and `git-lfs`
 
 This guide will walk you through both methods below.
 
-## Download a Single File
+---
 
-### Explorer Page
+### Batch Download with Git-DRS
 
-The easiest way to download a single file is through the [Explorer page](https://calypr-public.ohsu.edu/Explorer). This page will show all files belonging to projects that you have access to.
-
-To download a single file:
-
-1. Select the **File tab** and scroll down to the list of files
-2. Select the row for the file of interest
-3. Select **File Download** on the file page
-
-### gen3-client
-
-Alternatively, if you already know the GUID of the file of interest, simply pass it to the gen3-client:
-
-```sh
-gen3-client download-single --profile=calypr --guid=<GUID>
-```
-
-For example, to download the file with GUID `f623df8f-5dad-5bce-a8ca-a7b69b7805a5`:
-
-```sh
-gen3-client download-single --profile=calypr --guid=f623df8f-5dad-5bce-a8ca-a7b69b7805a5
-```
-
-### Download All Files
-
-To retrieve the actual data files described by manifest as opposed to just the file metadata, use the pull command.
+To retrieve the actual data files described by a repository, you must clone the repository and use `git lfs pull`.
 
 ```bash
-g3t clone calypr-myproject
-cd calypr-myproject
-g3t pull
+# 1. Clone the repository
+git clone <GITHUB_REPO_URL>
+cd <repository-name>
+
+# 2. Initialize Git-DRS
+git drs init
+
+# 3. Add the DRS remote (see Quick Start for details)
+git drs remote add gen3 calypr --project <project-id> --bucket <bucket-name> --cred ~/.gen3/credentials.json
+
+# 4. Pull the files
+git lfs pull
 ```

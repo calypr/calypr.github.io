@@ -39,7 +39,7 @@ The \- prefix means files are staged but not yet committed.
 After completing the workflow:
 
 *  Files visible in Git repository (as LFS pointers)  
-*  DRS records created (check .drs/ logs)  
+*  DRS records created
 *  Files accessible via git lfs pull  
 *  Can share DRS URIs with collaborators  
 *  Files NOT searchable in CALYPR web interface (expected)

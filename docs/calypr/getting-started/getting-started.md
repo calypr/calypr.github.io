@@ -22,4 +22,4 @@ For the CALYPR data commons, we have created a data dictionary based on the FHIR
 > In a Gen3 Data Commons, programs and projects are two administrative nodes in the graph database that serve as the most upstream nodes. A program must be created first, followed by a project. Any subsequent data submission and data access, along with control of access to data, is done through the project scope.
 > [more](https://gen3.org/resources/operator/#6-programs-and-projects)
 
-For the following examples, we will use the `calypr` program with a project called `myproject`, please use the `g3t projects ls` command to verify what programs you have access to.
+For the following examples, we will use the `calypr` program with a project called `myproject`. Please use the `git drs remote list` command to verify what programs and projects you have access to.

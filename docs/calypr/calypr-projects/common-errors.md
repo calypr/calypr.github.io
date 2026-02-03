@@ -7,18 +7,16 @@ $ git add file.txt
 $ git commit -m "adding file.txt"
 $ git push
 Please correct issues before pushing.
-Command `g3t status` failed with error code 1, stderr: WARNING: DocumentReference.ndjson is out of date 1969-12-31T16:00:00. The most recently changed file is MANIFEST/file.txt.dvc 2025-02-28T09:24:46.283870.  Please check DocumentReferences.ndjson
+Command `git drs status` failed with error code 1, stderr: WARNING: DocumentReference.ndjson is out of date 1969-12-31T16:00:00. The most recently changed file is MANIFEST/file.txt.dvc 2025-02-28T09:24:46.283870.  Please check DocumentReferences.ndjson
 No data file changes.
 ```
 
-**Resolution:** As well as checking that all files are committed, `g3t status` also ensures that FHIR metadata in `META/` is up to date. This means that you likely missed a crucial step in the process, updating the FHIR metadata using the file manifest! The general flow for adding file metadata is `g3t add` > `g3t meta init` > `g3t commit`. To resolve this, update and commit the FHIR metadata:
-
-```sh
-$ g3t meta init
-Updated 2 metadata files.
-resources={'summary': {'DocumentReference': 1, 'ResearchStudy': 1}} exceptions=[]
-
-$ g3t push
+```
+$ forge meta init
+DocumentReference file not found at META/DocumentReference.ndjson. Creating a new one with new records.
+Processed 600 records
+Finished writing all DocumentReference records.
+Finished writing all Directory records.
 ```
 
 To better understand the process of adding file metadata through the manifest, see [adding file metadata](add-files.md) and [adding FHIR metadata](metadata.md).
@@ -27,24 +25,24 @@ To better understand the process of adding file metadata through the manifest, s
 
 **Error:**
 ```sh
-$ g3t push
+$ git drs push
 No new files to index.  Use --overwrite to force
 ```
 
-**Resolution:** When pushing data, `g3t` checks the manifest (`MANIFEST/` directory) to see if there are any files to update, including new files or modified files. If no files have been modified, then the push will not go through. To push up the same file data or push up new FHIR metadata (`META/`), use `g3t push --overwrite`
+**Resolution:** When pushing data, `git-drs` checks the manifest (`MANIFEST/` directory) to see if there are any files to update, including new files or modified files. If no files have been modified, then the push will not go through. To push up the same file data or push up new FHIR metadata (`META/`), use `git drs push --overwrite`
 
 ## Uncommitted changes
 
 **Error:** On the subsequent rounds of adding files, updating FHIR metadata, and committing the changes, you are unable to push up those new changes
 ```
-$ g3t add hello.txt
-$ g3t meta init
-$ g3t commit -m "add hello file"
+$ git drs add hello.txt
+$ forge meta init
+$ git commit -m "add hello file"
 
-$ g3t push
+$ git drs push
 Uncommitted changes found.  Please commit or stash them first.
 
-$ g3t status
+$ git drs status
 No data file changes.
 On branch main
 Changes not staged for commit:
@@ -56,8 +54,8 @@ Changes not staged for commit:
 
 ```sh
 $ git add META/
-$ g3t commit -m "update DocumentReference.json"
-$ g3t push
+$ git commit -m "update DocumentReference.json"
+$ git drs push
 ```
 
-Note that `git add` is used here rather than `g3t add` because `git add` will update the project's FHIR metadata while `g3t add` only updates the project's manifest. If you want to commit multiple file changes, you can also use `g3t commit -am "update all files"`, where all changes get committed to the project.
+Note that `git add` is used here rather than `git drs add` because `git add` will update the project's FHIR metadata while `git drs add` only updates the project's manifest. If you want to commit multiple file changes, you can also use `git commit -am "update all files"`, where all changes get committed to the project.

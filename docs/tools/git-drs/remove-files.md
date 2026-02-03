@@ -29,24 +29,22 @@ This command performs the following actions:
 After removing files, check the status of your project to see the staged changes:
 
 ```bash
-g3t status
+git status
 ```
 
-This will display the files marked for deletion and any updates to the manifest and metadata.
+This will display the files marked for deletion and any updates to the manifest.
 
 ### 3. Update Metadata
 
-If you need to regenerate the metadata after file deletions, use the `g3t meta init` command:
+If you need to regenerate the metadata after file deletions, use the `forge meta init` command:
 
-```
-g3t meta init
+```bash
+forge meta init
 ```
 
 !!! note
-    This command rebuilds the `META/` directory based on the current state of the `MANIFEST/`, ensuring that your metadata accurately reflects the existing data files.
-    
-    This command will re-create all metadata in the `META/` directory.
-    
+    This command rebuilds the `META/` directory based on the current state of the repository, ensuring that your metadata accurately reflects the existing data files.
+
     If you have customized the metadata, you will need to manually remove the affected DocumentReference entries before running this command to avoid conflicts or inconsistencies.
 
 ### 4. Commit Changes
@@ -54,56 +52,32 @@ g3t meta init
 Once you've reviewed the changes, commit them to your local repository:
 
 ```bash
-g3t commit -m "Removed sample1.vcf.gz and updated associated metadata"
+git commit -m "Removed sample1.vcf.gz and updated associated metadata"
 ```
-This command records the deletion of the file and the updates to the manifest and metadata.
 
 ---
 
 ## 🚀 Pushing Updates to the Platform
 
-After committing your changes, push them to the CALYPR platform to update the remote repository.
+After committing your changes, push them to the CALYPR platform.
 
 ### 1. Push Changes
 
-Use the `g3t push` command to upload your changes:
+Use the `git push` command (which triggers the `git-drs` transfer hooks) to upload your changes:
 
 ```bash
-g3t push
+git push
 ```
 
-This command performs the following actions:
-
-- Validates the updated manifest and metadata.
-- Uploads the changes to the remote repository.
-- Provides logs detailing the outcome of the push operation.
-
-### 2. Using the `--bundle` and `--overwrite` Option
-
-If you have previously pushed changes and want to ensure that the metadata is up-to-date, you can use the `--bundle` option with the `g3t push` command:
-
-```bash
-g3t push --bundle --overwrite
-```
-
----
-
-## 🧾 Reviewing Logs
-
-After pushing your changes, review the logs to confirm that the operation was successful:
-
-- Logs are stored in the `.logs/` directory.
-- Each log entry is a JSON object detailing the status of the submission (e.g., success or error).
-- Example of a successful deletion log entry:
+If you need to perform metadata registration specifically, you can use `git drs push`.
 
 ---
 
 ## 📌 Best Practices
 
-- Always use `g3t rm` to delete files to ensure that the manifest and metadata are properly updated.
-- Use `g3t meta init` to regenerate metadata when necessary, especially after significant changes to your data files.
-- Utilize the `--bundle` option with `g3t push` when you need to create a cohesive, versioned set of changes for distribution or archival purposes.
-- Regularly review logs after pushing changes to confirm successful updates.
+- Always use `git rm` to delete files to ensure that the Git state is properly updated.
+- Use `forge meta init` to regenerate metadata when necessary, especially after significant changes to your data files.
+- Regularly review your remote repository after pushing changes to confirm successful updates.
 
 ---
 

@@ -1,17 +1,21 @@
-
 ## 4.6: Publishing changes to Gen3
 
-In order to publish metadata to CALYPR, regardless of whether you have provided your own metadata or you are simply uploading files to the system, if you want these files to be viewable in the CALYPR site, you will need to publish your data. Publishing data is done with the Forge command line utility.
+In order to publish metadata to CALYPR, regardless of whether you have provided your own metadata or you are simply uploading files to the system, you will need to publish your data. Publishing data is done with the **Forge** command line utility.
 
-Since forge relies on your Github repository in order to know which files should have metadata records on the CALYPR platform, a Github personal access token is needed for [source.ohsu.edu](http://source.ohsu.edu) . To create your own personal access token login to [https://source.ohsu.edu/settings/tokens](https://source.ohsu.edu/settings/tokens)  click “generate new token”. Make sure the token has clone permissions at the minimum.
+Since Forge relies on your GitHub repository to know which files should have metadata records on the CALYPR platform, a GitHub Personal Access Token (PAT) is needed. To create your own PAT, login to [https://source.ohsu.edu](https://source.ohsu.edu), go to Settings > Tokens, and click "Generate new token". Make sure the token has `clone` permissions at the minimum.
 
-Then run the forge publish command:
+To publish, run:
+```bash
+forge publish [your_PAT]
+```
 
-\`\`\`forge publish \[your\_generated\_access\_token\]\`\`\`
+### Publishing Process
 
-\[Insert Basic information on explorer page and what it is used for here\]
+To publish your metadata, run the following command:
 
-forge publish \<your-github-token\>
+```bash
+forge publish <your-github-token>
+```
 
 What happens:
 
@@ -40,7 +44,7 @@ Get all job ids: forge list
 After completing the workflow:
 
 *  LFS pointer files in Git repository  
-*  DRS records created (check .drs/ logs)  
+*  DRS records created
 *  DRS URIs point to S3 locations  
 *  Metadata files validated successfully  
 *  Sower job completed without errors  

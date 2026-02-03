@@ -1,46 +1,33 @@
-# Environment Initialization
+## Install Git, Git-LFS, & Git-DRS
 
-All tools can be installed via pip, conda, or binary releases.  
-The following steps assume a Unix‑like shell (bash/zsh).
+CALYPR project management is handled using standard Git workflows. You will need the **Large File Storage (LFS)** plugin to track genomic data files and the **Git-DRS** plugin to interface with CALYPR's storage and indexing systems.
 
-## Install Git & Git‑LFS & Git-DRS
+Visit the [Quick Start Guide](../quick-start.md) for detailed, OS-specific installation instructions for these tools.
 
-Calypr project management is handled using git. If you already have that installed, you'll need the Large File Storage (LFS) plugin that allows git to track files that are bigger than the standard text source code it was originally designed to work with. You'll also need the git-drs plugin, that talks directly to Calyp's storage and indexing system.   
-```
-# Install Git  
-sudo apt-get update && sudo apt-get install \-y git
+Once these elements are set up, you'll need to configure your API credentials.
 
-# Install Git‑LFS  
-curl \-s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash  
-sudo apt-get install \-y git-lfs
-
-# Enable Git‑LFS for the repo  
-git lfs install
-
-#  Install git-drs  
-\[TODO\] Put instructions here  
+# Initialize Git-DRS
+```bash
+git drs remote add gen3 calypr --cred ~/Downloads/credentials.json --url https://calypr-public.ohsu.edu --project <project-id> --bucket <bucket-name>
 ```
 
-Once these elements are set up, you'll need to copy in the API credentials you obtained in section 2\. 
+| Tool | Purpose |
+| :--- | :--- |
+| **git-drs** | Manages large file tracking, storage, and DRS indexing. |
+| **forge** | Handles metadata validation, transformation (ETL), and publishing. |
+| **data-client** | Administrative tool for managing [collaborators and access requests](../../tools/data-client/access_requests.md). |
 
-# Initialize git-drs  
-git drs init \--cred \~/Downloads/calypr-credentials.json \--profile calypr
+Table: Core CALYPR Command-Line Tools
 
-| g3t\_etl | Given spreadsheets-style metadata, convert it into a standardized graph model |
-| :---- | :---- |
-| git-drs  | Given a set of files, register them with CALYPR  |
-| forge  | Given a set of metadata, publish it to users on the CALYPR platform  |
-| configurator | Given a set of metadata, customize how it’s displayed on the platform |
+To ensure that you don't automatically download all the large files associated with the project (which could take a long time), ensure you use the `--skip-smudge` flag:
 
-Table: Tools that are part of Calypr project management
+```bash
+# Clone repository
+git clone https://github.com/your-org/your-calypr-repo.git
+cd your-calypr-repo
 
-## Clone project repository 
-
-With your environment set up, you can clone in the project. To ensure that you don't automatically download all of the large files associated with the project (which could be several TBs and takes days to complete) make sure that you've run \[TODO: add git-lfs command here\]  
-```  
-# Clone repository  
-git clone https://github.com/your-org/your-calypr-repo.git  
-cd your-calypr-repo  
+# Initialize Git LFS but skip downloading large files
+git lfs install --skip-smudge
 ```
 
 ### Formatting a new project
@@ -96,21 +83,23 @@ my-project/
 
 ## Verify configuration
 
-You'll want to double check your storage settings, to ensure you know where files are being stored. First, use the DRS config list command:
+You'll want to double check your storage settings, to ensure you know where files are being stored. Use the DRS remote list command:
 
 ```
-git drs list-config
+git drs remote list
 ```
 
 The expected output would be:
 
 ```
-current\_server: gen3  
-servers:  
-  gen3:  
-    endpoint: https://calypr-public.ohsu.edu/  
-    project\_id: my-project-id  
-    bucket: my-bucket-name
+default_remote: origin
+remotes:
+  origin:
+    gen3:
+      endpoint: https://caliper-public.ohsu.edu
+      project_id: cbds-git_drs_test
+      bucket: cbds
+
 ```
 
 Next you'll need check with files LFS is tracking. If LFS doesn't track a file, it could be uploaded to Github. This should be avoided because it isn't managed by the Calypr project access control system and it isn't designed to store large files. 

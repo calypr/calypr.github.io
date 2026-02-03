@@ -13,31 +13,35 @@ Each file must contain only one type of FHIR resource type, for example META/Res
 ## META/DocumentReference.ndjson
 
 * Contains one FHIR DocumentReference resource per Git LFS-managed file.  
-* Each DocumentReference.content.attachment.url field:  
-  * Must exactly match the relative path of the corresponding file in the repository.  
+* Each `DocumentReference.content.attachment.url` field:
+  * Must exactly match the relative path of the corresponding file in the repository.
   * Example:
 
-{  
-  "resourceType": "DocumentReference",  
-  "id": "docref-file1",  
-  "status": "current",  
-  "content": \[  
-    {  
-      "attachment": {  
-        "url": "data/file1.bam",  
-        "title": "BAM file for Sample X"  
-      }  
-    }  
-  \]  
+```json
+{
+  "resourceType": "DocumentReference",
+  "id": "docref-file1",
+  "status": "current",
+  "content": [
+    {
+      "attachment": {
+        "url": "data/file1.bam",
+        "title": "BAM file for Sample X"
+      }
+    }
+  ]
 }
+```
 
-Place your custom FHIR ndjson files in the META/ directory:
+Place your custom FHIR `.ndjson` files in the `META/` directory:
 
-\# Copy your prepared FHIR metadata  
-cp \~/my-data/patients.ndjson META/  
-cp \~/my-data/observations.ndjson META/  
-cp \~/my-data/specimens.ndjson META/  
-cp \~/my-data/document-references.ndjson META/
+```bash
+# Copy your prepared FHIR metadata
+cp ~/my-data/patients.ndjson META/
+cp ~/my-data/observations.ndjson META/
+cp ~/my-data/specimens.ndjson META/
+cp ~/my-data/document-references.ndjson META/
+```
 
 ## Other FHIR data 
 
@@ -49,36 +53,38 @@ cp \~/my-data/document-references.ndjson META/
 * Observation.ndjson: Measurements or results.  
 * Other valid FHIR resource types as required.
 
-## Link Files to Metadata
+Ensure your FHIR `DocumentReference` resources reference the DRS URIs:
 
-Ensure your FHIR DocumentReference resources reference the DRS URIs:
+Example `DocumentReference` linking to S3 file:
 
-Example DocumentReference linking to S3 file:
-
-{  
-  "resourceType": "DocumentReference",  
-  "id": "doc-001",  
-  "status": "current",  
-  "content": \[{  
-    "attachment": {  
-      "url": "drs://calypr-public.ohsu.edu/your-drs-id",  
-      "title": "sample1.bam",  
-      "contentType": "application/octet-stream"  
-    }  
-  }\],  
-  "subject": {  
-    "reference": "Patient/patient-001"  
-  }  
+```json
+{
+  "resourceType": "DocumentReference",
+  "id": "doc-001",
+  "status": "current",
+  "content": [{
+    "attachment": {
+      "url": "drs://calypr-public.ohsu.edu/your-drs-id",
+      "title": "sample1.bam",
+      "contentType": "application/octet-stream"
+    }
+  }],
+  "subject": {
+    "reference": "Patient/patient-001"
+  }
 }
+```
 
 
 ---
 
 ## Validating Metadata
 
-To ensure that the FHIR files you have added to the project are correct and pass schema checking, you can use the forge software.
+To ensure that the FHIR files you have added to the project are correct and pass schema checking, you can use the [Forge tool](../../tools/forge/index.md).
 
+```bash
 forge validate
+```
 
 Successful output:
 
@@ -95,19 +101,21 @@ Fix any validation errors and re-run until all files pass.
 
 If you have provided your own FHIR resources there are two commands that might be useful to you for ensuring that your FHIR metadata will appear on the CALYPR data platform as expected. These commands are validate and check-edge
 
-**Validate-** Example: 
+**Validate:**
+```bash
+forge validate META
+# or
+forge validate META/DocumentReference.ndjson
+```
+Validation checks if the provided directory or file will be accepted by the CALYPR data platform. It catches improper JSON formatting and FHIR schema errors.
 
-\`\`\`forge validate META\`\`\` or \`\`\`forge validate META/DocumentReference.ndjson\`\`\`
-
-Validate checks to see if the provided directory or file will be accepted by the CALYPR data platform or whether there are validation errors that make it not accepted into the data platform. Validation errors range from improper JSON formatting to FHIR schema validation errors. We are currently using FHIR version R5 so the earlier version will not validate against our schema. 
-
-**Check-edge-** Example:
-
-\`\`\`forge check-edge META\`\`\` or \`\`\`forge validate META/DocumentReference.ndjson\`\`\`
-
-Check edge emulates exactly what will happen during data submission to your FHIR files. Your FHIR files will be loaded into a graph database. In order to create the graph edges must be generated from the references specified in your FHIR data to connect your vertices, which are essentially the rest of the NDJSON FHIR files that have been provided.
-
-Check edge aims to ensure that the references that have been specified in the files do connect to known vertices and aren’t ‘orphaned’. Check edge does not take into account existing vertices that are already in the CALYPR graph and could potentially claim certain edges do not connect to anything if they are connecting to vertices that are in CALYPR but outside of the data that is provided when doing an edge check.
+**Check-edge:**
+```bash
+forge check-edge META
+# or
+forge validate META/DocumentReference.ndjson
+```
+Check-edge ensures that references within your files (e.g., a Patient ID in an Observation) connect to known vertices and aren't "orphaned".
 
 ### Validation Process
 

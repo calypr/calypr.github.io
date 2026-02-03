@@ -16,8 +16,8 @@
 * Ony users with the steward role can approve and sign a request
 
 ```text
-calypr-admin collaborator approve --help
-Usage: calypr-admin collaborator approve [OPTIONS]
+./data-client collaborator approve --help
+Usage: ./data-client collaborator approve [OPTIONS]
 
   Sign an existing request (privileged).
 
@@ -40,9 +40,9 @@ Note: This example uses the ohsu program, but the same process applies to all pr
 
 ```text
 ## As an admin, I need to grant data steward privileges add the requester reader and updater role on a program to an un-privileged user
-calypr-admin collaborator add  add data_steward_example@<institution>.edu --resource_path /programs/<program_name>/projects  --steward
+./data-client collaborator add  add data_steward_example@<institution>.edu --resource_path /programs/<program_name>/projects  --steward
 # As an admin, approve that request
-calypr-admin collaborator approve
+./data-client collaborator approve
 
 
 

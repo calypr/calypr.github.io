@@ -12,12 +12,12 @@ Gen3 supports API access to Files and Metadata, allowing users to download and q
 ## 1. Dependency and Credentials 
 
 
-Prior to installing, check a profile credentials. 
+Prior to querying, ensure your DRS remotes are configured.
 Test:
 ```bash
-g3t ping 
+git drs remote list
 ```
-- will return a list of projects that a profile has access to.
+- will return a list of configured DRS remotes and projects you have access to.
 
 - For new setup or renew of gen3 credentials - Follow steps to configure/re-configure a profile with credentials: 
 

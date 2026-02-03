@@ -56,29 +56,34 @@ exclude_docs: |
 nav:
   - Home: index.md
   - CALYPR Platform:
-    - calypr/index.md
-    - Getting Started:
-      - calypr/requirements.md
-      - calypr/getting-started/getting-started.md
-      - calypr/getting-started/login.md
-      - calypr/getting-started/environment.md
-    - Data Model:
-      - calypr/data-model/introduction.md
-      - calypr/data-model/metadata.md
-      - calypr/data-model/integration.md
-    - Data Management:
-      - calypr/data-management/git-drs.md
-      - calypr/data-management/meta-data.md
-    - Project Management:
-      - calypr/project-management/create-project.md
-      - calypr/project-management/custom-views.md
-      - calypr/project-management/publishing-project.md
+    - Quick Start: calypr/quick-start.md
+    - Overview: calypr/index.md
+    - Data Model & Metadata:
+      - Introduction: calypr/data-model/introduction.md
+      - FHIR Schema: calypr/data-management/meta-data.md
+      - Integration (ETL): calypr/data-model/integration.md
+    - Analysis:
+      - calypr/analysis/query.md
     - Web Portal:
       - calypr/website/portal-explore.md
       - calypr/website/portal-download.md
-    - Analysis:
-      - calypr/analysis/query.md
+    - Troubleshooting: calypr/troubleshooting.md
   - Tools:
+    - tools/index.md
+    - Git-DRS:
+      - tools/git-drs/index.md
+      - Getting Started:
+        - tools/git-drs/installation.md
+        - tools/git-drs/getting-started.md
+      - User Guide:
+        - tools/git-drs/adding-s3-files.md
+        - tools/git-drs/remove-files.md
+        - tools/git-drs/commands.md
+      - Development:
+        - tools/git-drs/developer-guide.md
+        - tools/git-drs/troubleshooting.md
+    - Forge:
+      - tools/forge/index.md
     - Funnel:
       - tools/funnel/index.md
       - Getting Started:
@@ -131,18 +136,12 @@ nav:
         - tools/grip/gripper/proxy.md
         - tools/grip/jobs_api.md
         - tools/grip/security.md
-    - Git-DRS:
-      - tools/git-drs/index.md
-      - Getting Started:
-        - tools/git-drs/installation.md
-        - tools/git-drs/getting-started.md
-      - User Guide:
-        - tools/git-drs/adding-s3-files.md
-        - tools/git-drs/remove-files.md
-        - tools/git-drs/commands.md
-      - Development:
-        - tools/git-drs/developer-guide.md
-        - tools/git-drs/troubleshooting.md
   - Workflows:
     - workflows/upload.md
     - workflows/restrict-access.md
+  - Administration:
+    - Data Client:
+      - tools/data-client/index.md
+      - tools/data-client/authentication.md
+      - tools/data-client/data_management.md
+      - tools/data-client/access_requests.md

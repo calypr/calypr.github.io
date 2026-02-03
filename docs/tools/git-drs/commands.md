@@ -28,7 +28,7 @@ git drs init
 
 **What it does:**
 
-- Creates `.drs/` directory structure
+- Initializes local configuration
 - Configures Git LFS custom transfer agent
 - Updates `.gitignore` to exclude DRS cache files
 - Stages `.gitignore` changes automatically
@@ -166,7 +166,7 @@ git drs fetch production
 **What it does:**
 
 - Identifies remote and project from configuration
-- Transfers all DRS records for a given project from the server to the local `.drs/lfs/objects/` directory
+- Synchronizes all DRS records for a given project from the server to the local repository
 
 ### `git drs push [remote-name]`
 
@@ -185,7 +185,7 @@ git drs push production
 
 **What it does:**
 
-- Checks local `.drs/lfs/objects/` for DRS metadata
+- Checks local repository for DRS metadata
 - For each object, uploads file to bucket if file exists locally
 - If file doesn't exist locally (metadata only), registers metadata without upload
 - This enables cross-remote promotion workflows

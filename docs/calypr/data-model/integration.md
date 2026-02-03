@@ -5,9 +5,9 @@ Converting tabular data (CSV, TSV, spreadsheet, database table) into FHIR (Fast 
 
 As you create a upload files, you can tag them with identifiers which by default will create minimal, skeleton graph.
 
-You can retrieve that data using the g3t command line tool, and update the metadata to create a more complete graph representing your study.
+You can retrieve that data using the [git-drs](../../tools/git-drs/index.md) command line tool, and update the metadata using [forge](../../tools/forge/index.md) to create a more complete graph representing your study.
 
-You may choose to work with the data in it's "native" json format, or convert it to a tabular format for integration.  The system will re-convert tabular data back to json for submittal.
+You may choose to work with the data in its "native" JSON format, or convert it to a tabular format for integration. The system will re-convert tabular data back to JSON for submittal.
 
 The process of integrating your data into the graph involves several steps:
 
@@ -24,12 +24,12 @@ The process of integrating your data into the graph involves several steps:
     * Normalize Data: Split the spreadsheet data into FHIR-compliant resources.
 
 * Step 4: Utilize provided FHIR Tooling or Libraries
-    * FHIR Tooling: Use `g3t  meta dataframe ` and associated libraries to support data conversion and validation.
-    * Validation: Use `g3t  meta validate` to validate the transformed data against FHIR specifications to ensure compliance and accuracy.
+    * FHIR Tooling: Use `forge meta` and associated libraries to support data conversion and validation.
+    * Validation: Use `forge validate` to validate the transformed data against FHIR specifications to ensure compliance and accuracy.
 
 * Step 5: Import into FHIR-Compatible System
-    * Load Data: Use `g3t commit` to load the transformed data into the calypr system.
-    * Testing and Verification: Use `g3t push` to ensure your data appears correctly in the portal and analysis tools.
+    * Load Data: Use `git commit` and `git push` to manage your local data state.
+    * Testing and Verification: Ensure your data appears correctly in the portal and analysis tools after a successful push.
 
 * Step 6: Iterate and Refine
     * Review and Refine: Check for any discrepancies or issues during the import process. Refine the conversion process as needed.
