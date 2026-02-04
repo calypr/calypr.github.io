@@ -9,7 +9,7 @@ menu:
 
 # Nextflow
 
-[Nextflow](https://nextflow.io/) is a workflow engine with a [rich ecosystem]() of pipelines centered around biological analysis.
+[Nextflow](https://nextflow.io/) is a workflow engine with a rich ecosystem of pipelines centered around biological analysis.
 
 > Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages.
 

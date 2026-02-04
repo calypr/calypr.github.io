@@ -28,7 +28,7 @@ calypr_admin --profile <your_CALYPR_PROFILE_name> ping
 You should get a message like this
 
 > msg: 'Configuration OK: Connected using profile:calypr'
-endpoint: https://calypr.ohsu.edu.org
+endpoint: https://calypr.ohsu.edu
 username: someone@example.com
 
 along with the set of projects you have been provided access to.
@@ -199,7 +199,7 @@ git-drs push
 
 ### View the Data on the Platform
 
-Congratulations, you have submitted data to the platform! To check that your data was uploaded, login and navigate to the Exploration page on [calypr.ohsu.edu.org](https://calypr.ohsu.edu.org)!
+Congratulations, you have submitted data to the platform! To check that your data was uploaded, login and navigate to the Exploration page on [calypr.ohsu.edu](https://calypr.ohsu.edu)!
 
 ## 2. Bulk Download Data from a Project on CALYPR
 

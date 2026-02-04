@@ -2,7 +2,7 @@
 title: Sifter
 ---
 
-Sifter is a Extract Tranform Load (ETL) engine.
+Sifter is a Extract Transform Load (ETL) engine.
 
 It can be used to Extract from a number of different data resources, including TSV files, SQLDump files and external databases.
 

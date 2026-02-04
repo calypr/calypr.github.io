@@ -3,7 +3,6 @@ title: Adding Files
 render_macros: false
 ---
 
-
 ## Background
 
 Adding files to a project is a two-step process:
