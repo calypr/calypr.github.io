@@ -3,6 +3,3 @@ mkdocs-macros-plugin
 mkdocs-open-in-new-tab
 mkdocs-linkcheck
 mkdocs-awesome-nav
-termynal
-mkdocs-mermaid2-plugin
-markdown-include

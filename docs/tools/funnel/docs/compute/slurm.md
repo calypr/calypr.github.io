@@ -1,8 +1,10 @@
 ---
 title: Slurm
-render_macros: false
+menu:
+  main:
+    parent: Compute
+    weight: 20
 ---
-
 # Slurm
 
 Funnel can be configured to submit workers to [Slurm][slurm] by making calls
@@ -16,27 +18,7 @@ It is recommended to update the submit file template so that the
 (e.g. `funnel worker run --config /opt/funnel_config.yml --taskID {% raw %}{{.TaskId}}{% endraw %}`)
 
 ```YAML
-Compute: slurm
-
-Slurm:
-    Template: |
-    #!/bin/bash
-    #SBATCH --job-name {{.TaskId}}
-    #SBATCH --ntasks 1
-    #SBATCH --error {{.WorkDir}}/funnel-stderr
-    #SBATCH --output {{.WorkDir}}/funnel-stdout
-    {{if ne .Cpus 0 -}}
-    {{printf "#SBATCH --cpus-per-task %d" .Cpus}}
-    {{- end}}
-    {{if ne .RamGb 0.0 -}}
-    {{printf "#SBATCH --mem %.0fGB" .RamGb}}
-    {{- end}}
-    {{if ne .DiskGb 0.0 -}}
-    {{printf "#SBATCH --tmp %.0fGB" .DiskGb}}
-    {{- end}}
-
-    funnel worker run --taskID {{.TaskId}}
-
+{% raw %}{{< slurm-template >}}{% endraw %}
 ```
 The following variables are available for use in the template:
 

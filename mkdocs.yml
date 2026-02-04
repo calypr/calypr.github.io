@@ -12,11 +12,6 @@ plugins:
   - macros
   - awesome-nav
   - open-in-new-tab # automatically open ext links in new tab
-  - termynal:
-      prompt_literal_start:
-        - "$"
-        - ">"
-  - mermaid2
 
 theme:
   name: material
@@ -28,13 +23,11 @@ theme:
   features:
     - navigation.indexes 
     # - navigation.footer
-    - content.code.annotate
     - content.code.copy
     - navigation.tabs
-    # - navigation.sections
+    - navigation.sections
     - navigation.top
     - header.autohide
-    - navigation.tabs
 
 markdown_extensions:
   - attr_list
@@ -53,16 +46,10 @@ markdown_extensions:
   - pymdownx.details
   - toc:
       permalink: true
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - markdown_include.include:
-      base_path: docs
 
 extra_css:
   - stylesheets/extra.css
 
 exclude_docs: |
   **/_*.md
+# Navigation is handled by .nav.yaml files in the docs/ directory via awesome-nav plugin.

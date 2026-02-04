@@ -1,8 +1,10 @@
-title: CALYPR Platform
-
+title: Calypr
 nav:
-  - index.md
-  - getting-started
-  - projects
-  - data-management
-  - portal
+  - Quick Start Guide: quick-start.md
+  - Troubleshooting & FAQ: troubleshooting.md
+  - Data Management: data-management/
+  - Analysis: analysis/
+  - Data Model: data-model/
+  - Project Management: project-management/
+  - Calypr Admin: calypr-admin/
+  - Website: website/

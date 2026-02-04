@@ -159,7 +159,7 @@ git commit -m "Track large file with LFS"
 
 ```bash
 # confirm repo has complete configuration
-git drs list-config
+git drs remote list
 
 # init your git drs project
 git drs init --cred /path/to/cred/file --profile <name>
@@ -178,13 +178,13 @@ git lfs pull -I path/to/file
 
 ```bash
 # Check repository status
-git drs list-config
+git drs remote list
 
 # Try pulling with verbose output
 git lfs pull -I "problematic-file*" --verbose
 
 # Check logs
-cat .drs/*.log
+cat .git/drs/*.log
 ```
 
 ### Configuration Issues
@@ -379,9 +379,8 @@ git lfs ls-files
 ### View Logs
 
 ```bash
-# Git DRS logs (in repository)
-ls -la .drs/
-cat .drs/*.log
+# Git DRS configuration
+git drs remote list
 ```
 
 ### Test Connectivity
@@ -408,9 +407,6 @@ git --version
 
 # Configuration
 git drs remote list
-
-# Recent logs
-tail -50 .drs/*.log
 ```
 
 ## Prevention Best Practices

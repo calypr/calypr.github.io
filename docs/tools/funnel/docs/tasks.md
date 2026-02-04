@@ -19,7 +19,7 @@ A task defines a unit of work:
 
 The example task below downloads a file named `hello.txt` from S3 and calls `cat hello.txt` using the [alpine][alpine] container. This task also writes the executor's stdout to a file, and uploads the stdout to s3.
 
-```yaml
+```
 {
   "name": "Hello world",
   "inputs": [{
@@ -49,7 +49,7 @@ Tasks have multiple "executors"; containers and commands run in a sequence.
 Funnel runs executors via Docker.
 
 Tasks also have state and logs:
-```yaml
+```
 {
   "id": "b85khc2rl6qkqbhg8vig",
   "state": "COMPLETE",

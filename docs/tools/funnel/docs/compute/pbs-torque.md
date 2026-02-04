@@ -1,6 +1,9 @@
 ---
 title: PBS/Torque
-render_macros: false
+menu:
+  main:
+    parent: Compute
+    weight: 20
 ---
 # PBS/Torque
 
@@ -15,27 +18,8 @@ It is recommended to update the submit file template so that the
 (e.g. `funnel worker run --config /opt/funnel_config.yml --taskID {% raw %}{{.TaskId}}{% endraw %}`)
 
 ```YAML
-Compute: pbs
-
-PBS:
-    Template: |
-    #!/bin/bash
-    #PBS -N {{.TaskId}}
-    #PBS -o {{.WorkDir}}/funnel-stdout
-    #PBS -e {{.WorkDir}}/funnel-stderr
-    {{if ne .Cpus 0 -}}
-    {{printf "#PBS -l nodes=1:ppn=%d" .Cpus}}
-    {{- end}}
-    {{if ne .RamGb 0.0 -}}
-    {{printf "#PBS -l mem=%.0fgb" .RamGb}}
-    {{- end}}
-    {{if ne .DiskGb 0.0 -}}
-    {{printf "#PBS -l file=%.0fgb" .DiskGb}}
-    {{- end}}
-
-    funnel worker run --taskID {{.TaskId}}
+{% raw %}{{< pbs-template >}}{% endraw %}
 ```
-
 The following variables are available for use in the template:
 
 | Variable    |  Description |

@@ -276,10 +276,7 @@ git drs remote add gen3 production \
 git drs remote set staging
 ```
 
-### View Logs
-
-- Logs location: `.drs/` directory
-
+#
 ## Command Summary
 
 | Action             | Commands                                    |

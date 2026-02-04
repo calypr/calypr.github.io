@@ -1,9 +1,6 @@
-title: Data Management
-
 nav:
- - index.md
- - managing-metadata.md
- - metadata.md
- - data-model
- - custom-views.md
- - common-errors.md
+  - Git-DRS: git-drs.md
+  - Managing Metadata: meta-data.md
+  - Adding FHIR metadata: metadata.md
+  - Common Errors: common-errors.md
+

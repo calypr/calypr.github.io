@@ -26,38 +26,6 @@ h3 {
   letter-spacing: -0.02em;
 }
 
-.md-header {
-  z-index: 100
-}
-
-/* Logo background color */
-.md-header__button.md-logo {
-  background-color: var(--md-primary-fg-color);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.md-header__button.md-logo:hover {
-  background-color: var(--md-primary-fg-color--light);
-  transform: scale(1.05);
-}
-
-.md-header__button.md-logo img {
-  background-color: white;
-  border-radius: 4px;
-  display: block;
-  height: 4em;
-}
-
-.md-header__topic {
-  font-size: larger;
-}
-
-/* Hides the title */
-/* .md-content h1 {
-  display: none;
-} */
-
 /* horizontal dividers */
 .md-content h2::before {
   content: "";
@@ -126,9 +94,6 @@ h3 {
   border: 1px solid rgba(226, 232, 240, 0.8);
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
 }
 
 .product-card:hover {
@@ -268,14 +233,23 @@ h3 {
   font-size: 0.95rem;
   text-decoration: none;
   transition: var(--transition);
-  pointer-events: auto;
-  position: relative;
-  z-index: 1;
+}
+
+.product-card__link i {
+  margin-left: 0.25rem;
+  transition: var(--transition);
 }
 
 .product-card__link:hover {
   color: #1a73e8;
-  text-decoration: underline;
+}
+
+.product-card__link:hover i {
+  transform: translateX(4px);
+}
+
+.product-card--featured .product-card__link:hover i {
+  transform: none;
 }
 
 /* Responsive */
@@ -308,4 +282,23 @@ h3 {
   .product-card--featured .product-card__title {
     font-size: 1.75rem;
   }
+}
+
+/* Sidebar Navigation Styles */
+/* Target top-level section headers, nested collapsible headers, and index links */
+.md-nav__item--section>.md-nav__link,
+.md-nav__item--section>label.md-nav__link,
+.md-nav__item--section>.md-nav__link--index,
+.md-nav__link[for],
+.md-nav__item--nested>.md-nav__link,
+.md-nav__link--index {
+  font-weight: 700 !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Adjust top-level sidebar items that are links to follow a similar weight */
+.md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link {
+  font-weight: 700;
+  color: #000000;
 }
