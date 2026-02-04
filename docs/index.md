@@ -20,7 +20,7 @@ hide:
     Built on open-source standards, CALYPR provides GA4GH-compliant tools for seamless data integration, analysis, and biological insights. Based on the <a style="color: var(--md-primary-fg-color);" href="https://gen3.org">Gen3</a> Data Commons architecture, CALYPR empowers analysts to manage large-scale genomic datasets and integrate data to build new predictive models.
   </p>
   <div style="margin-top: 2rem;">
-    <a href="calypr/quick-start.html" class="md-button md-button--primary" style="font-size: 1.1rem; padding: 0.8rem 2rem; border-radius: 8px;">🚀 Get Started Quickly</a>
+    <a href="calypr/quick-start/" class="md-button md-button--primary" style="font-size: 1.1rem; padding: 0.8rem 2rem; border-radius: 8px;">🚀 Get Started Quickly</a>
   </div>
 </div>
 

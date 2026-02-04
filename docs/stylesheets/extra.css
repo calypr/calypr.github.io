@@ -283,3 +283,22 @@ h3 {
     font-size: 1.75rem;
   }
 }
+
+/* Sidebar Navigation Styles */
+/* Target top-level section headers, nested collapsible headers, and index links */
+.md-nav__item--section>.md-nav__link,
+.md-nav__item--section>label.md-nav__link,
+.md-nav__item--section>.md-nav__link--index,
+.md-nav__link[for],
+.md-nav__item--nested>.md-nav__link,
+.md-nav__link--index {
+  font-weight: 700 !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Adjust top-level sidebar items that are links to follow a similar weight */
+.md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link {
+  font-weight: 700;
+  color: #000000;
+}

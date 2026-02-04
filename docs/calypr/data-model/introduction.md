@@ -5,6 +5,12 @@ Given all of the intricacies healthcare and experimental data, we use Fast Healt
 
 ## What is FHIR?
 
+> In a Gen3 data commons, a semantic distinction is made between two types of data: "data files" and "metadata". [more](https://gen3.org/resources/user/dictionary/#understanding-data-representation-in-gen3)
+
+A "data file" could be information like tabulated data values in a spreadsheet or a fastq/bam file containing DNA sequences. The contents of the file are not exposed to the API as queryable properties, so the file must be downloaded to view its content.
+
+"Metadata" are variables that help to organize or convey additional information about corresponding data files so that they can be queried via the Gen3 data commons’ API or viewed in the Gen3 data commons’ data exploration tool. In a Gen3 data dictionary, variable names are termed "properties", and data contributors provide the values for these pre-defined properties in their data submissions.
+
 In an era where healthcare information is abundant yet diverse and often siloed, FHIR emerges as a standard, empowering research analysts to navigate, aggregate, and interpret health data seamlessly. This guide aims to unravel the intricacies of FHIR, equipping research analysts with the knowledge and tools needed to harness the potential of interoperable healthcare data for insightful analysis and impactful research outcomes in the context of CALYPR collaborations.
 
 ## Graph Model

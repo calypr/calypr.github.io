@@ -1,15 +1,14 @@
-## Quick Start Guide
+---
+title: Quick Start Guide
+---
 
-This guide describes the **"Happy Path"** for getting up and running with CALYPR. By the end of this page, you will have installed the necessary tools and initialized your first project.
+# Quick Start Guide
 
-For a deeper dive into the system architecture, visit the [Platform Overview](index.md).
+To get started with CALYPR, you will need to install [git-lfs](https://git-lfs.github.com/) and [git-drs](https://github.com/calypr/git-drs), a "git" like command line tool for uploading and downloading files to the [gen3 platform](https://gen3.org/).
 
-### 1. Install Core Tools
+### Git-LFS Installation Instructions
 
-To get started, you need to install **Git-LFS** (for large file handling) and **Git-DRS** (for CALYPR integration).
-
-#### Git-LFS Installation
-[Git Large File Storage (LFS)](https://git-lfs.github.com/) is required to track genomic data files effectively.
+To use CALYPR, you must first install [Git Large File Storage (LFS)](https://git-lfs.github.com/) on your system. This allows Git to efficiently handle the large genomic data files.
 
 === "macOS"
     **Install using Homebrew**
@@ -40,26 +39,11 @@ Run the following command in your terminal to complete the setup:
 git lfs install --skip-smudge
 ```
 
-#### Git-DRS Installation
-[Git-DRS](../tools/git-drs/index.md) is the primary gateway to the CALYPR ecosystem.
+## Project Setup
 
-=== "macOS / Linux"
-    **Install via Homebrew**
-    ```bash
-    brew install calypr/tap/git-drs
-    ```
-    *Alternatively, download the binaries from the [Releases page](https://github.com/calypr/git-drs/releases).*
+You first need to set up a project and initialize it:
 
-=== "Windows"
-    Download the latest executable from the [GitHub Releases](https://github.com/calypr/git-drs/releases) and add it to your PATH.
-
----
-
-### 2. Project Initialization
-
-Once the tools are installed, you can set up your first CALYPR-enabled repository.
-
-```bash
+```
 mkdir MyNewCalyprProject
 cd MyNewCalyprProject
 git init
@@ -72,11 +56,13 @@ Now that you have initialized your project you have created a very primitive Git
 
 To use the git-drs, you need to configure `git-drs` with API credentials downloaded from the [Profile page](https://calypr-public.ohsu.edu/Profile).
 
-![Gen3 Profile page](images/profile.png)
+![Gen3 Profile page](../images/profile.png)
 
 Log into the website. Then, download the access key from the portal and save it in the standard location `~/.gen3/credentials.json`
 
-![Gen3 Credentials](images/credentials.png)
+![Gen3 API Key](../images/api-key.png)
+
+![Gen3 Credentials](../images/credentials.png)
 
 ### Configure a git-drs repository with a Gen3 Credential.
 
