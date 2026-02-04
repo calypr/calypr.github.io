@@ -1,5 +1,6 @@
 ---
 title: PBS/Torque
+render_macros: true
 menu:
   main:
     parent: Compute
@@ -17,6 +18,7 @@ It is recommended to update the submit file template so that the
 `funnel worker run` command takes a config file as an argument 
 (e.g. `funnel worker run --config /opt/funnel_config.yml --taskID {% raw %}{{.TaskId}}{% endraw %}`)
 
+{% raw %}
 ```YAML
 Compute: pbs
 
@@ -38,7 +40,7 @@ PBS:
 
     funnel worker run --taskID {{.TaskId}}
 ```
-
+{% endraw %}
 The following variables are available for use in the template:
 
 | Variable    |  Description |
