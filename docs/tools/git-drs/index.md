@@ -1,129 +1,69 @@
 ---
-title: Git Large Data Repository System (Git DRS)
-description: Overview of Git DRS architecture and its role in extending Git LFS for scalable data
+title: Git-DRS
 ---
 
-# Why Git DRS?
+# Git-DRS
 
-Git DRS exists to **extend Git LFS with a scalable, standards-based data access layer**
-without changing the Git user experience. It is explicitly aligned with the
-[GA4GH Data Repository Service (DRS)](https://www.ga4gh.org/product/data-repository-service-drs/)
-specification so Git-native workflows can interoperate with the broader GA4GH ecosystem.
+Git-DRS is a Git extension for managing large files in a Gen3 Data Commons using the **Data Repository Service (DRS)** content-addressable storage model. It essentially serves as a Git-LFS (Large File Storage) replacement tailored for Gen3.
 
-At a high level, every data flow follows the same model:
+It allows you to:
+- Track large files in your git repository without bloating it.
+- Store the actual file contents in a Gen3 data commons (indexed via DRS).
+- Seamlessly synchronize files between your local environment and the commons.
 
-> **Git → Git LFS → Git DRS → Object Store**
+## Installation
 
-```mermaid
-flowchart LR
-%% Top row: main components
-    Git[Git] --> LFS[Git LFS] --> DRS[Git DRS] --> Store[Object Store]
+Ensure `git-drs` is installed and in your PATH.
 
-%% Second row: responsibilities (aligned under each box)
-    Git_r[commits]
-    LFS_r[pointers]
-    DRS_r[auth + resolve]
-    Store_r[blobs]
+## Initialization
 
-%% Third row: concrete artifacts
-    Git_a[data files]
-    LFS_a[transfer queue]
-    DRS_a[signed URLs / DRS]
-    Store_a[S3 / GCS / Azure / on-prem]
+Initialize a repository to use Git-DRS. This sets up the necessary hooks and configuration.
 
-%% Vertical alignment
-    Git_a --> Git_r --> Git 
-    LFS --> LFS_r --> LFS_a
-    DRS --> DRS_r --> DRS_a
-    Store --> Store_r --> Store_a
-
-%% Styling to mimic ASCII boxes
-    classDef main fill:#ffffff,stroke:#333,stroke-width:1px;
-    classDef note fill:#f9f9f9,stroke:#999,stroke-dasharray:3 3;
-    classDef artifact fill:#eef2ff,stroke:#4c6ef5;
-
-    class Git,LFS,DRS,Store main
-    class Git_r,LFS_r,DRS_r,Store_r note
-    class Git_a,LFS_a,DRS_a,Store_a artifact
-
+```bash
+git-drs init
 ```
 
-This separation of concerns is intentional.
+## Basic Workflow
 
----
+1.  **Add a file**: Track a large file with Git-DRS.
+    ```bash
+    git-drs add <filename>
+    ```
+    This replaces the large file with a small pointer file in your working directory.
 
-## The Problem Git DRS Solves
+2.  **Push**: Upload the tracked files to the Gen3 Commons.
+    ```bash
+    git-drs push
+    ```
 
-Git LFS solves *how* large files integrate with Git, but it intentionally does **not** define:
+3.  **Fetch**: Download file contents (resolving pointer files) from the Commons.
+    ```bash
+    git-drs fetch
+    ```
 
-- How objects are globally identified beyond a repository
-- How access is authorized across organizations and environments
-- How storage backends are abstracted (S3, GCS, Azure, on‑prem)
-- How metadata, lineage, and reuse are tracked at scale
+## Command Reference
 
-Git DRS fills these gaps while remaining fully compatible with Git LFS.
+### `init`
+Initializes `git-drs` in the current git repository. Recommended to run at the root of the repo.
 
-By leveraging the GA4GH DRS standard, Git DRS also unlocks common DRS use cases:
+### `add <file>`
+Tracks a file using Git-DRS. The file content is moved to a local cache, and replaced with a pointer file containing its hash and size.
 
-- **Federated discovery and access** across multiple data repositories
-- **Controlled-access datasets** with consistent authN/authZ patterns
-- **Cross-institution data sharing** for genomics and other biomedical data
-- **Stable identifiers** that survive repo moves and lifecycle changes
+### `push`
+Uploads the contents of tracked files to the configured Gen3 Commons. This usually happens automatically during `git push` if hooks are configured, but can be run manually.
 
----
+### `fetch`
+Downloads the contents of tracked files from the Gen3 Commons, replacing the local pointer files with the actual data.
 
-## Architecture Overview
+### `add-url <guid> <url>`
+Associates a specific URL with a GUID in the local cache or for registration purposes.
 
-### 1. Git (Source Control)
-- Tracks commits, branches, and history
-- Stores **Git LFS pointer files** in the repository
-- Remains unaware of large object storage details
+### `list`
+Lists the files currently tracked by Git-DRS in the project.
 
-### 2. Git LFS (User Experience Layer)
-- Replaces large files with SHA‑256 pointer files
-- Manages clean/smudge filters
-- Schedules uploads and downloads
-- Invokes a **custom transfer adapter**
+### `remote`
+Manage remote DRS server configurations.
 
-Git LFS defines *when* data moves — not *where* or *how it is authorized*.
-
-### 3. Git DRS (Resolution & Authorization)
-- Implements a **Git LFS custom transfer adapter**
-- Resolves SHA‑256 OIDs to **DRS objects**
-- Enforces authorization and access policy
-- Issues signed URLs or delegated credentials
-- Records metadata and lineage when required
-
-Git DRS is where platform policy lives.
-
-### 4. Object Store (Persistence)
-- Stores immutable, content‑addressed blobs
-- Typically S3, GCS, Azure Blob, or on‑prem equivalents
-- Optimized for durability and throughput, not Git semantics
-
----
-
-## Why This Matters
-
-This layered design enables:
-
-- **Content‑addressed deduplication** across repos and projects
-- **Cross‑environment portability** (dev → staging → prod)
-- **Standards alignment** with GA4GH DRS
-- **Clear security boundaries** between Git users and storage credentials
-- **Future extensibility** without breaking Git workflows
-
-Most importantly, it preserves the developer experience:
-
-> From the user’s perspective, it’s still just `git add`, `git commit`, and `git push`.
-
----
-
-## Summary
-
-Git DRS is not a replacement for Git or Git LFS.
-
-It is the missing architectural layer that allows Git LFS to operate safely,
-portably, and at scale in regulated and multi‑tenant environments.
-
-**Git → Git LFS → Git DRS → Object Store** is the contract.
+```bash
+git-drs remote add <name> <url>
+```

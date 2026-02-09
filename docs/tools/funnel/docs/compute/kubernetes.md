@@ -1,13 +1,16 @@
 ---
 title: Kubernetes
-render_macros: false
+menu:
+  main:
+    parent: Compute
+    weight: 20
 ---
 
-> Funnel on Kubernetes is in active development and may involve frequent updates
+> Funnel on Kubernetes is in active development and may involve frequent updates 🚧
 
 # Quick Start
 
-## 1. Deploying with Helm
+## 1. Deploying with Helm ⚡️
 
 ```sh
 helm repo add ohsu https://ohsu-comp-bio.github.io/helm-charts
@@ -15,7 +18,7 @@ helm repo update
 helm upgrade --install ohsu funnel
 ```
 
-## Alternative: Deploying with `kubectl` ⚙️"
+{% raw %}{{< details title="(Alternative) Deploying with `kubectl` ⚙️" >}}{% endraw %}
 
 ### 1. Create a Service:
 
@@ -74,7 +77,8 @@ kubectl apply -f funnel-storage-pvc.yml
 ```sh
 kubectl apply -f funnel-deployment.yml
 ```
-{{< /details >}}
+
+{% raw %}{{< /details >}}{% endraw %}
 
 # 2. Proxy the Service for local testing
 

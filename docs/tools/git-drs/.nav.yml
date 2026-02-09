@@ -1,9 +1,4 @@
-title: git-drs
-
+title: Git-DRS
 nav:
- - index.md
- - getting-started.md
- - installation.md
- - commands.md
- - remove-files.md
- - troubleshooting.md
+  - Overview: index.md
+  - Commands: commands.md
