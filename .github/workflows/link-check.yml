@@ -1,0 +1,46 @@
+# Check links in documentation on every push and pull request
+# Uses Lychee link checker to find broken links
+
+name: Check Links
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    # Run weekly on Sunday at 0 AM UTC to catch external link changes
+    - cron: '0 9 * * 0'
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Lychee link checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Check all markdown files in docs/ and README.md
+          args: --verbose --no-progress --exclude-private 'docs/**/*.md' 'README.md' '**/*.md'
+          # Fail on broken links but allow exclusions
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Create Issue from Failures
+        if: steps.lychee.outputs.exit_code != 0 && github.event_name == 'schedule'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: 'Link Checker Report - Broken Links Found'
+          body-file: lychee/out.md
+          labels: |
+            documentation
+            broken-links
+            automated-report
+

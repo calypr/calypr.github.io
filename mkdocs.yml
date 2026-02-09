@@ -54,3 +54,5 @@ extra_css:
 exclude_docs: |
   **/_*.md
 # Navigation is handled by .nav.yaml files in the docs/ directory via awesome-nav plugin.
+
+copyright: Copyright &copy; <script>document.write(new Date().getFullYear())</script> CALYPR
