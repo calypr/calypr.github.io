@@ -4,7 +4,8 @@
 name: Check Links
 
 on:
-  push:
+  # TODO: Re-enable link checks on push ahead of "stable" release
+  #push:
   workflow_dispatch:
   schedule:
     # Run weekly on Sunday at 0 AM UTC to catch external link changes
