@@ -4,54 +4,35 @@
 #   https://www.mkdocs.org/
 #   https://mkdocstrings.github.io/recipes/
 
-site_name: CALYPR Documentation
-
-nav:
-- index.md
-- Getting Started:
-  - requirements.md
-  - workflows/quick-start-guide.md
-- CLI Reference:
-  - workflows/creating-project.md
-  - workflows/add-files.md
-  - Adding FHIR Metadata:
-      - data-model/introduction.md
-      - workflows/metadata.md
-      - workflows/remove-files.md
-      - data-model/integration.md
-  - workflows/commit-push.md
-  - workflows/clone.md
-  - Exploring the Platform:
-    - workflows/portal-explore.md
-    - workflows/portal-download.md
-    - workflows/query.md
-  - Utilities:
-    - workflows/approve-requests.md
-    - workflows/add-users.md
-  - Experimental Features:
-    - workflows/tabular.md
-  - workflows/common-errors.md
-- Status Monitor ↗: https://calypr.github.io/status-monitor
+site_name: CALYPR
+site_url: https://calypr.org
 
 plugins:
   - search
   - macros
+  - awesome-nav
   - open-in-new-tab # automatically open ext links in new tab
+  - termynal
 
-repo_url: https://github.com/calypr/calypr.github.io
-repo_name: calypr.github.io
-  
 theme:
   name: material
+  logo: assets/logo.png
+  custom_dir: overrides
   palette:
     - scheme: default
       primary: custom
   features:
     - navigation.indexes 
-    - navigation.footer
+    # - navigation.footer
     - content.code.copy
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - header.autohide
 
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - admonition
   - pymdownx.superfences
   - pymdownx.tabbed:
@@ -69,3 +50,7 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+exclude_docs: |
+  **/_*.md
+# Navigation is handled by .nav.yaml files in the docs/ directory via awesome-nav plugin.
