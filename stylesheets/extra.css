@@ -1,0 +1,25 @@
+/* Prevent the '$' character in shell blocks from being copied */
+.gp {
+  user-select: none;
+}
+
+h1, h2, h3 {
+  font-weight: bold !important;
+}
+
+/* horizontal dividers */
+.md-content h2::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: lightgrey;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+/* colors */
+:root  > * {
+  --md-primary-fg-color: #0057B7;
+  --md-primary-fg-color--light: #4698CA;
+}
