@@ -1,0 +1,9 @@
+title: Sifter
+nav:
+ - index.md
+ - docs/example.md
+ - docs/schema.md
+ - docs/config.md
+ - docs/inputs
+ - docs/transforms
+ - docs/outputs
