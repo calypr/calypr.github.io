@@ -2,5 +2,5 @@ nav:
   - Git-DRS: git-drs.md
   - Managing Metadata: meta-data.md
   - Adding FHIR metadata: metadata.md
-  - Common Errors: common-errors.md
+  # - Common Errors: common-errors.md
 
