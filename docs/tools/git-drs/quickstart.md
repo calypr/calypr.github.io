@@ -69,10 +69,18 @@ Use the project installer after Git LFS is installed:
 
 To use Git DRS, you need to configure it with API credentials downloaded from the [Profile page](https://calypr-public.ohsu.edu/Profile).
 
+![Gen3 Profile page](../../images/profile.png)
+
 1. Log into the Gen3 data commons at [https://calypr-public.ohsu.edu/](https://calypr-public.ohsu.edu/)
 2. Navigate to your Profile page
 3. Click "Create API Key"
+
+![Gen3 API Key](../../images/api-key.png)
+
 4. Download the JSON credentials file
+
+![Gen3 Credentials](../../images/credentials.png)
+
 5. Save it in a secure location (e.g., `~/.gen3/credentials.json`)
 
 !!! warning "Credential Expiration"
@@ -155,6 +163,73 @@ An initialized project will look something like this:
 │   ├── file1.bam
 │   └── file2.fastq.gz
 ```
+
+## Track, Add, Commit, and Push
+
+### Track Large Files with Git LFS
+
+Use Git LFS to select which files should be stored as LFS objects. Git DRS works with the tracking patterns you configure via Git LFS:
+
+```bash
+git lfs track "*.bam"
+git add .gitattributes
+git commit -m "Track BAM files with Git LFS"
+```
+
+For more details, see the [Git LFS tracking documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-track.adoc).
+
+### Add, Commit, and Push Data
+
+Once files are tracked with Git LFS, use standard Git commands to add and commit. During `git push`, Git LFS uploads large objects to the LFS server while **Git DRS automatically registers them with the configured DRS server** via its pre-push hook.
+
+```bash
+# Add your file
+git add myfile.bam
+
+# Verify LFS is tracking it
+git lfs ls-files
+
+# Commit and push
+git commit -m "Add data file"
+git push
+```
+
+!!! note "What Happens Behind the Scenes"
+    The `git push` triggers Git LFS transfer hooks. Git DRS intercepts this flow to register each LFS object with your DRS server (e.g., gen3/indexd), making the file discoverable via DRS IDs. You don't need to run any extra commands. The process:
+    
+    1. Git DRS creates DRS records for each tracked file
+    2. Files are uploaded to the configured S3 bucket
+    3. DRS URIs are registered in the Gen3 system
+    4. Pointer files are committed to the repository
+
+For background on the Git LFS transfer flow, see the [Git LFS overview](https://git-lfs.com/) and the [Git LFS push documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-push.adoc).
+
+### Download Files
+
+Use Git LFS to download files on demand:
+
+```bash
+# Download all files
+git lfs pull
+
+# Download specific pattern
+git lfs pull -I "*.bam"
+
+# Download specific directory
+git lfs pull -I "data/**"
+```
+
+Refer to the [Git LFS pull documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-pull.adoc) for filters and options.
+
+### Check Status and Tracked Files
+
+To see which files are tracked and their status, rely on Git LFS tooling:
+
+```bash
+git lfs ls-files
+```
+
+The [Git LFS ls-files documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-ls-files.adoc) explains the available flags and output format.
 
 ## Clone an Existing Repository
 
@@ -240,73 +315,6 @@ git drs remote add gen3 production \
 git lfs pull
 git lfs ls-files
 ```
-
-## Track, Add, Commit, and Push
-
-### Track Large Files with Git LFS
-
-Use Git LFS to select which files should be stored as LFS objects. Git DRS works with the tracking patterns you configure via Git LFS:
-
-```bash
-git lfs track "*.bam"
-git add .gitattributes
-git commit -m "Track BAM files with Git LFS"
-```
-
-For more details, see the [Git LFS tracking documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-track.adoc).
-
-### Add, Commit, and Push Data
-
-Once files are tracked with Git LFS, use standard Git commands to add and commit. During `git push`, Git LFS uploads large objects to the LFS server while **Git DRS automatically registers them with the configured DRS server** via its pre-push hook.
-
-```bash
-# Add your file
-git add myfile.bam
-
-# Verify LFS is tracking it
-git lfs ls-files
-
-# Commit and push
-git commit -m "Add data file"
-git push
-```
-
-!!! note "What Happens Behind the Scenes"
-    The `git push` triggers Git LFS transfer hooks. Git DRS intercepts this flow to register each LFS object with your DRS server (e.g., gen3/indexd), making the file discoverable via DRS IDs. You don't need to run any extra commands. The process:
-    
-    1. Git DRS creates DRS records for each tracked file
-    2. Files are uploaded to the configured S3 bucket
-    3. DRS URIs are registered in the Gen3 system
-    4. Pointer files are committed to the repository
-
-For background on the Git LFS transfer flow, see the [Git LFS overview](https://git-lfs.com/) and the [Git LFS push documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-push.adoc).
-
-### Download Files
-
-Use Git LFS to download files on demand:
-
-```bash
-# Download all files
-git lfs pull
-
-# Download specific pattern
-git lfs pull -I "*.bam"
-
-# Download specific directory
-git lfs pull -I "data/**"
-```
-
-Refer to the [Git LFS pull documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-pull.adoc) for filters and options.
-
-### Check Status and Tracked Files
-
-To see which files are tracked and their status, rely on Git LFS tooling:
-
-```bash
-git lfs ls-files
-```
-
-The [Git LFS ls-files documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-ls-files.adoc) explains the available flags and output format.
 
 ## Managing Remotes
 
