@@ -197,8 +197,8 @@ To interact with CALYPR, you need API credentials from the Gen3 data commons.
    forge publish
    ```
 
-!!! note "Metadata Before Files"
-    While you can upload files first, metadata makes your data discoverable. Consider validating metadata early in your workflow.
+!!! note "Flexible Workflow"
+    While this guide shows uploading files before metadata, you can perform these steps in any order. However, metadata makes your data discoverable and queryable, so consider validating and publishing metadata early in your workflow to maximize the value of your data.
 
 **Learn More:** [Forge Documentation](../tools/forge/index.md)
 
