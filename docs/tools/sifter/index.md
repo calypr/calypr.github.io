@@ -108,36 +108,36 @@ Various fields in the script file will be be parsed using a [Mustache](https://m
 # Inputs
 The input block defines the various data extractors that will be used to open resources and create streams of JSON messages for processing. The possible input engines include:
 
- - [AVRO](./docs/inputs/avro)
- - [JSON](./docs/inputs/json)
- - [XML](./docs/inputs/xml)
- - [SQL-dump](./docs/inputs/xml)
- - [SQLite](./docs/inputs/sqlite)
- - [TSV/CSV](./docs/inputs/table)
- - [GLOB](./docs/inputs/glob)
+ - [AVRO](./docs/inputs/avro.md)
+ - [JSON](./docs/inputs/json.md)
+ - [XML](./docs/inputs/xml.md)
+ - [SQL-dump](./docs/inputs/xml.md)
+ - [SQLite](./docs/inputs/sqlite.md)
+ - [TSV/CSV](./docs/inputs/table.md)
+ - [GLOB](./docs/inputs/glob.md)
 
 For any other file types, there is also a plugin option to allow the user to call their own code for opening files.
 
 # Pipeline
 The `pipelines` defined a set of named processing pipelines that can be used to transform data. Each pipeline starts with a `from` statement that defines where data comes from. It then defines a linear set of transforms that are chained togeather to do processing. Pipelines may used `emit` steps to output messages to disk. The possible data transform steps include:
 
-- [Accumulate](./docs/transforms/accumulate)
-- [Clean](./docs/transforms/clean)
-- [Distinct](./docs/transforms/distinct)
-- [Field Parse](./docs/transforms/fieldParse)
-- [Field Process](./docs/transforms/fieldProcess)
-- [Field Type](./docs/transforms/fieldType)
-- [Filter](./docs/transforms/filter)
-- [FlatMap](./docs/transforms/flatmap)
-- [Hash](./docs/transforms/hash)
-- [Lookup](./docs/transforms/lookup)
-- [Value Mapping](./docs/transforms/map)
-- [Object Validation](./docs/transforms/objectValidate)
-- [Project](./docs/transforms/project)
-- [Reduce](./docs/transforms/reduce)
-- [Regex](./docs/transforms/reduce)
-- [Split](./docs/transforms/split)
-- [UUID Generation](./docs/transforms/uuid)
+- [Accumulate](./docs/transforms/accumulate.md)
+- [Clean](./docs/transforms/clean.md)
+- [Distinct](./docs/transforms/distinct.md)
+- [Field Parse](./docs/transforms/fieldParse.md)
+- [Field Process](./docs/transforms/fieldProcess.md)
+- [Field Type](./docs/transforms/fieldType.md)
+- [Filter](./docs/transforms/filter.md)
+- [FlatMap](./docs/transforms/flatmap.md)
+- [Hash](./docs/transforms/hash.md)
+- [Lookup](./docs/transforms/lookup.md)
+- [Value Mapping](./docs/transforms/map.md)
+- [Object Validation](./docs/transforms/objectValidate.md)
+- [Project](./docs/transforms/project.md)
+- [Reduce](./docs/transforms/reduce.md)
+- [Regex](./docs/transforms/reduce.md)
+- [Split](./docs/transforms/split.md)
+- [UUID Generation](./docs/transforms/uuid.md)
 
 Additionally, users are able to define their one transform step types using the `plugin` step.
 

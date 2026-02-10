@@ -31,5 +31,5 @@ $ make
 Funnel requires Go 1.21+. Check out the [development docs][dev] for more detail.
 
 
-[dev]: /docs/development/developers/
+[dev]: ./docs/development/developers.md
 [docker]: https://docker.io

@@ -95,7 +95,7 @@ funnel task list
 # {}
 ```
 
-A task can then be submitted following the [standard workflow](../../tasks):
+A task can then be submitted following the [standard workflow](../tasks.md):
 
 ```sh
 funnel examples hello-world > hello-world.json

@@ -20,7 +20,7 @@ The following guide details the steps a data contributor must take to submit a p
 
 CALYPR project management is handled using standard Git workflows. you will need the **Large File Storage (LFS)** plugin to track genomic data files and the **Git-DRS** plugin to interface with CALYPR's storage and indexing systems.
 
-Visit the [Quick Start Guide](../../quick-start.md) for detailed, OS-specific installation instructions for these tools.
+Visit the [Quick Start Guide](../quick-start.md) for detailed, OS-specific installation instructions for these tools.
 
 | Tool | Purpose |
 | :--- | :--- |
@@ -31,7 +31,7 @@ Visit the [Quick Start Guide](../../quick-start.md) for detailed, OS-specific in
 
 ## 2. Initialize Project
 
-Once tools are installed and credentials are configured (see [Quick Start](../../quick-start.md)), initialize your project.
+Once tools are installed and credentials are configured (see [Quick Start](../quick-start.md)), initialize your project.
 
 ### Formatting a new project
 

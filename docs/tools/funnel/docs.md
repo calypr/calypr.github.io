@@ -19,7 +19,7 @@ output files to upload, state, and logs. The API allows you to create, get, list
 Tasks are accessed via the `funnel task` command. There's an HTTP client in the [client package][clientpkg],
 and a set of utilities and a gRPC client in the [proto/tes package][tespkg].
 
-There's a lot more you can do with the task API. See the [tasks docs](/docs/tasks/) for more.
+There's a lot more you can do with the task API. See the [tasks docs](./docs/tasks.md) for more.
 
 ### Server
 
@@ -34,7 +34,7 @@ Storage provides access to file systems such as S3, Google Storage, and local fi
 Tasks define locations where files should be downloaded from and uploaded to. Workers handle
 the downloading/uploading.
 
-See the [storage docs](/docs/storage/) for more information on configuring storage backends.
+See the [storage docs](./docs/storage.md) for more information on configuring storage backends.
 The storage clients are available in the [storage package][storagepkg].
 
 ### Worker
@@ -69,7 +69,7 @@ external system for scheduling tasks and managing cluster resources, such as AWS
 or HPC systems like HTCondor, Slurm, Grid Engine, etc. Funnel provides integration with
 these services that doesn't include nodes or scheduling by Funnel.
 
-See [Deploying a cluster](/docs/compute/deployment/) for more information about running a cluster of nodes.
+See [Deploying a cluster](./docs/compute/deployment.md) for more information about running a cluster of nodes.
 
 The node is accessible via the `funnel node` command and the [scheduler package][schedpkg].
 
