@@ -65,142 +65,29 @@ To interact with CALYPR, you need API credentials from the Gen3 data commons.
 
 **Git-DRS** is CALYPR's data file management tool. It extends Git LFS to version and track large genomic files while automatically registering them with the DRS (Data Repository Service).
 
-#### What Git-DRS Does
+Git-DRS lets you:
+- Version large data files (BAM, FASTQ, VCF, etc.) like you version code
+- Track file lineage and share data with collaborators
+- Automatically register files with DRS for global discovery
 
-- Versions large data files (BAM, FASTQ, VCF, etc.) without bloating your Git repository
-- Tracks file lineage and provenance
-- Registers files with DRS for global discovery
-- Enables data sharing with collaborators
+When you push files, Git-DRS uploads them to S3, registers DRS records in Gen3, and stores only lightweight pointer files in your Git repository.
 
-#### Quick Setup
-
-1. **Install Git-LFS** (required dependency):
-
-   === "macOS"
-       ```bash
-       brew install git-lfs
-       git lfs install --skip-smudge
-       ```
-
-   === "Linux"
-       ```bash
-       # Debian/Ubuntu
-       sudo apt-get install git-lfs
-       git lfs install --skip-smudge
-       
-       # RHEL/CentOS
-       sudo yum install git-lfs
-       git lfs install --skip-smudge
-       ```
-
-   === "Windows"
-       Download from [git-lfs.com](https://git-lfs.com/) and run:
-       ```bash
-       git lfs install --skip-smudge
-       ```
-
-2. **Install Git-DRS**:
-
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/calypr/git-drs/refs/heads/main/install.sh)"
-   ```
-
-3. **Set up your project**:
-
-   ```bash
-   # Create or clone your repository
-   git clone https://github.com/your-org/your-project.git
-   cd your-project
-   
-   # Initialize Git-DRS
-   git drs init
-   
-   # Add your DRS remote (using the credentials from Step 1)
-   git drs remote add gen3 production \
-       --cred ~/.gen3/credentials.json \
-       --url https://calypr-public.ohsu.edu \
-       --project your-project-id \
-       --bucket your-bucket-name
-   ```
-
-4. **Upload data files**:
-
-   ```bash
-   # Track file types with Git LFS
-   git lfs track "*.bam"
-   git lfs track "*.fastq.gz"
-   
-   # Add files
-   git add .gitattributes
-   git add data/sample1.bam
-   
-   # Commit and push (automatically registers with DRS)
-   git commit -m "Add genomic data"
-   git push
-   ```
-
-!!! tip "What Happens During Push"
-    When you push, Git-DRS automatically:
-    
-    1. Uploads files to your S3 bucket
-    2. Registers DRS records in Gen3
-    3. Creates unique DRS IDs for global access
-    4. Stores only pointer files in Git
-
-**Learn More:** [Git-DRS Complete Documentation](../tools/git-drs/quickstart.md)
+**Learn More:** [Git-DRS Complete Documentation](../tools/git-drs/quickstart.md) — Installation, setup, and detailed workflows
 
 ---
 
 ### Step 3: Add Metadata (Forge)
 
-**Forge** is CALYPR's metadata management tool. It helps you validate and publish structured metadata about your samples, ensuring your data is discoverable and queryable.
+**Forge** is CALYPR's metadata management tool. It validates and publishes structured metadata about your samples, making your data discoverable and queryable.
 
-#### What Forge Does
+Forge helps you:
+- Validate metadata against Gen3 data models
+- Publish metadata to make your data searchable
+- Manage relationships between samples, subjects, and files
 
-- Validates metadata against Gen3 data models
-- Publishes metadata to make data searchable
-- Manages relationships between samples, subjects, and files
-- Ensures data quality and consistency
+While you can upload files before metadata, adding metadata early maximizes the value of your data by making it discoverable and queryable.
 
-#### Quick Setup
-
-1. **Install Forge**:
-
-   ```bash
-   pip install gen3forge
-   ```
-
-2. **Prepare your metadata**:
-
-   Create a TSV or JSON file with your sample metadata following the Gen3 data model:
-
-   ```json
-   {
-     "sample_id": "SAMPLE001",
-     "subject_id": "SUBJECT001",
-     "tissue_type": "blood",
-     "collection_date": "2024-01-15"
-   }
-   ```
-
-3. **Validate your metadata**:
-
-   ```bash
-   # Validate against the schema
-   forge validate data metadata.json
-   ```
-
-4. **Publish to Gen3**:
-
-   ```bash
-   # Publish validated metadata
-   forge publish
-   ```
-
-!!! note "Flexible Workflow"
-    While this guide shows uploading files before metadata, you can perform these steps in any order. However, metadata makes your data discoverable and queryable, so consider validating and publishing metadata early in your workflow to maximize the value of your data.
-
-**Learn More:** [Forge Documentation](../tools/forge/index.md)
+**Learn More:** [Forge Documentation](../tools/forge/index.md) — Installation, validation, and publishing workflows
 
 ---
 
@@ -208,43 +95,14 @@ To interact with CALYPR, you need API credentials from the Gen3 data commons.
 
 **Funnel** is CALYPR's task execution service. It runs computational workflows across cloud and HPC environments using the GA4GH Task Execution Service (TES) standard.
 
-#### What Funnel Does
+Funnel enables you to:
+- Execute containerized workflows (Docker/Singularity)
+- Manage resources across AWS, GCP, and HPC clusters
+- Track task status and integrate with workflow engines (Nextflow, WDL)
 
-- Executes containerized workflows (Docker/Singularity)
-- Manages resources across AWS, GCP, and HPC clusters
-- Tracks task status and logs
-- Integrates with workflow engines (Nextflow, WDL)
+Funnel is typically used for production pipelines and large-scale analysis. For exploratory work, you might run analyses locally first.
 
-#### Quick Start
-
-1. **Define a task** (JSON format):
-
-   ```json
-   {
-     "name": "Variant Calling",
-     "executors": [{
-       "image": "broadinstitute/gatk",
-       "command": ["gatk", "HaplotypeCaller", "-I", "sample.bam"]
-     }]
-   }
-   ```
-
-2. **Submit the task**:
-
-   ```bash
-   funnel task create task.json
-   ```
-
-3. **Check status**:
-
-   ```bash
-   funnel task get <task-id>
-   ```
-
-!!! info "Advanced Use"
-    Funnel is typically used for production pipelines and large-scale analysis. For exploratory work, you might run analyses locally first.
-
-**Learn More:** [Funnel Documentation](../tools/funnel/index.md)
+**Learn More:** [Funnel Documentation](../tools/funnel/index.md) — Task definitions, execution, and cluster integration
 
 ---
 
@@ -252,27 +110,14 @@ To interact with CALYPR, you need API credentials from the Gen3 data commons.
 
 **GRIP** (Graph Resource Integration Platform) enables powerful graph-based queries across integrated datasets.
 
-#### What GRIP Does
+GRIP allows you to:
+- Query relationships between samples, subjects, and files
+- Perform complex graph traversals and aggregations
+- Run federated queries across data commons
 
-- Queries relationships between samples, subjects, and files
-- Performs complex graph traversals
-- Aggregates data across multiple projects
-- Enables federated queries across data commons
+GRIP is most useful after you've integrated metadata and established relationships between entities.
 
-#### Quick Example
-
-```bash
-# Query all samples from a specific subject
-grip query my-project 'V().hasLabel("Subject").has("id", "SUBJ001").out("samples")'
-
-# Find all BAM files for a tissue type
-grip query my-project 'V().hasLabel("Sample").has("tissue", "blood").out("files").hasLabel("BAM")'
-```
-
-!!! info "Advanced Querying"
-    GRIP is most useful after you've integrated metadata and established relationships between entities.
-
-**Learn More:** [GRIP Documentation](../tools/grip/index.md)
+**Learn More:** [GRIP Documentation](../tools/grip/index.md) — Query syntax, graph traversals, and examples
 
 ---
 
