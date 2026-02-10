@@ -40,24 +40,11 @@ Before you begin, make sure you have:
 
 ### Step 1: Get Your API Credentials
 
-To interact with CALYPR, you need API credentials from the Gen3 data commons.
+To interact with CALYPR, you need API credentials from the Gen3 data commons. You'll download these from your profile page on the CALYPR portal as a JSON file.
 
-1. **Log in** to the CALYPR portal at [https://calypr-public.ohsu.edu/](https://calypr-public.ohsu.edu/)
+API credentials expire after 30 days, so you'll need to download fresh credentials regularly.
 
-2. **Navigate to your Profile page** and click "Create API Key"
-
-   ![Gen3 Profile page](../images/profile.png)
-
-3. **Download the JSON credentials file**
-
-   ![Gen3 API Key](../images/api-key.png)
-   
-   ![Gen3 Credentials](../images/credentials.png)
-
-4. **Save the file** in a secure location (recommended: `~/.gen3/credentials.json`)
-
-!!! warning "Credential Expiration"
-    API credentials expire after 30 days. You'll need to download fresh credentials regularly.
+**Learn More:** [Download Gen3 API Credentials](../tools/git-drs/quickstart.md#download-gen3-api-credentials) — Step-by-step instructions with screenshots
 
 ---
 
