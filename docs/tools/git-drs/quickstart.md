@@ -124,7 +124,7 @@ This configures Git hooks and prepares the repository for DRS-backed files — s
 
 ### 3. Get Project Details
 
-Contact your data coordinator for:
+Contact your data coordinator at `support@calypr.org` for:
 
 - DRS server URL (e.g., `https://calypr-public.ohsu.edu`)
 - Project ID (format: `<program>-<project>`)
