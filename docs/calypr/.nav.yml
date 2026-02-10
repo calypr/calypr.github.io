@@ -1,10 +1,8 @@
 title: Calypr
 nav:
   - Quick Start Guide: quick-start.md
-  # - Troubleshooting & FAQ: troubleshooting.md
   - Data Management: data-management/
   - Data Model: data-model/
   - Project Management: project-management/
-    - Calypr Admin: project-management/calypr-admin
   - Analysis: analysis/
   - Website: website/
