@@ -520,8 +520,8 @@ Integration tests are being developed to test end-to-end workflows with real DRS
 
 ## Further Reading
 
-- [Git DRS Quick Start](quickstart.md) — User guide for getting started
-- [Troubleshooting](troubleshooting.md) — Common issues and solutions
-- [Git LFS Custom Transfer Agents](https://github.com/git-lfs/git-lfs/blob/main/docs/custom-transfers.md) — Understanding the transfer protocol
-- [Git LFS Specification](https://github.com/git-lfs/git-lfs/blob/main/docs/spec.md) — Pointer file format details
-- [Git Hooks Documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) — Understanding Git hooks
+- [Git DRS Quick Start](quickstart.md) -- User guide for getting started
+- [Troubleshooting](troubleshooting.md) -- Common issues and solutions
+- [Git LFS Custom Transfer Agents](https://github.com/git-lfs/git-lfs/blob/main/docs/custom-transfers.md) -- Understanding the transfer protocol
+- [Git LFS Specification](https://github.com/git-lfs/git-lfs/blob/main/docs/spec.md) -- Pointer file format details
+- [Git Hooks Documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) -- Understanding Git hooks

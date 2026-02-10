@@ -430,15 +430,15 @@ git drs remote list
 
 ## Prevention Best Practices
 
-1. **Refresh credentials regularly** — Credentials expire after 30 days. Set a calendar reminder to download and configure new credentials before they expire.
+1. **Refresh credentials regularly** -- Credentials expire after 30 days. Set a calendar reminder to download and configure new credentials before they expire.
 
-2. **Test in small batches** — Don't commit hundreds of files at once. Start with a few files to ensure your configuration works correctly.
+2. **Test in small batches** -- Don't commit hundreds of files at once. Start with a few files to ensure your configuration works correctly.
 
-3. **Verify tracking** — Always check `git lfs ls-files` after adding files to ensure they're being tracked by LFS.
+3. **Verify tracking** -- Always check `git lfs ls-files` after adding files to ensure they're being tracked by LFS.
 
-4. **Use .gitignore** — Prevent accidental commits of temporary files, build artifacts, and other files that shouldn't be in the repository.
+4. **Use .gitignore** -- Prevent accidental commits of temporary files, build artifacts, and other files that shouldn't be in the repository.
 
-5. **Monitor repository size** — Keep an eye on `.git` directory size. If it grows unexpectedly, you may have committed large files directly to Git instead of through LFS.
+5. **Monitor repository size** -- Keep an eye on `.git` directory size. If it grows unexpectedly, you may have committed large files directly to Git instead of through LFS.
 
 ## Getting Help
 
