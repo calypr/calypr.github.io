@@ -81,7 +81,7 @@ From the command line from within your new porject, run the git-drs remote add c
     ```sh
     git-drs remote add gen3 <profile_name> \
         --cred=<path_to_credential.json> \
-        --project <project_name>
+        --project <project_name> \
         --bucket <bucket_name>
     ```
 
