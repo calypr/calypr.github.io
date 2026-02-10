@@ -207,7 +207,5 @@ git drs remote list
 
 After installation, see:
 
-> **Navigation:** [Installation](installation.md) → [Getting Started](getting-started.md) → [Commands Reference](commands.md)
-
-- **[Getting Started](getting-started.md)** - Repository setup and basic workflows
-- **[Commands Reference](commands.md)** - Complete command documentation
+- **[Quick Start](quickstart.md)** — Repository setup and basic workflows
+- **[Developer Guide](developer-guide.md)** — Complete command documentation and internals
