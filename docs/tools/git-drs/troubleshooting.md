@@ -1,63 +1,20 @@
-# Troubleshooting
+# Git DRS — Troubleshooting
 
 Common issues and solutions when working with Git DRS.
-
-> **Navigation:** [Getting Started](getting-started.md) → [Commands Reference](commands.md) → **Troubleshooting**
 
 ## When to Use Which Tool
 
 Understanding when to use Git, Git LFS, or Git DRS commands:
 
-### Git DRS Commands
+| Tool | Commands | When to Use |
+|------|----------|-------------|
+| **Git DRS** | `git drs init`<br>`git drs remote add`<br>`git drs remote list`<br>`git drs add-url`<br>`git drs fetch`<br>`git drs push` | Repository and remote configuration<br>Setting up a new repository<br>Adding/managing DRS remotes<br>Refreshing expired credentials<br>Adding external file references<br>Cross-remote promotion |
+| **Git LFS** | `git lfs track`<br>`git lfs ls-files`<br>`git lfs pull`<br>`git lfs untrack` | File tracking and management<br>Defining which files to track<br>Downloading specific files<br>Checking file localization status |
+| **Standard Git** | `git add`<br>`git commit`<br>`git push`<br>`git pull` | Version control operations<br>Normal development workflow<br>Git DRS runs automatically in background |
 
-**Use for**: Repository and remote configuration
+## Authentication Errors
 
-- `git drs init` - Initialize Git LFS hooks
-- `git drs remote add` - Configure DRS server connections
-- `git drs remote list` - View configured remotes
-- `git drs add-url` - Add S3 file references
-
-**When**:
-
-- Setting up a new repository
-- Adding/managing DRS remotes
-- Refreshing expired credentials
-- Adding external file references
-
-### Git LFS Commands
-
-**Use for**: File tracking and management
-
-- `git lfs track` - Define which files to track
-- `git lfs ls-files` - See tracked files and status
-- `git lfs pull` - Download specific files
-- `git lfs untrack` - Stop tracking file patterns
-
-**When**:
-
-- Managing which files are stored externally
-- Downloading specific files
-- Checking file localization status
-
-### Standard Git Commands
-
-**Use for**: Version control operations
-
-- `git add` - Stage files for commit
-- `git commit` - Create commits
-- `git push` - Upload commits and trigger file uploads
-- `git pull` - Get latest commits
-
-**When**:
-
-- Normal development workflow
-- Git DRS runs automatically in the background
-
-## Common Error Messages
-
-### Authentication Errors
-
-**Error**: `Upload error: 403 Forbidden` or `401 Unauthorized`
+### Error: `Upload error: 403 Forbidden` or `401 Unauthorized`
 
 **Cause**: Expired or invalid credentials
 
@@ -78,9 +35,7 @@ git drs remote add gen3 production \
 - Credentials expire after 30 days
 - Set a reminder to refresh them regularly
 
----
-
-**Error**: `Upload error: 503 Service Unavailable`
+### Error: `Upload error: 503 Service Unavailable`
 
 **Cause**: DRS server is temporarily unavailable or credentials expired
 
@@ -97,9 +52,9 @@ git drs remote add gen3 production \
    ```
 3. If persistent, download new credentials from the data commons
 
-### Network Errors
+## Network Errors
 
-**Error**: `net/http: TLS handshake timeout`
+### Error: `net/http: TLS handshake timeout`
 
 **Cause**: Network connectivity issues
 
@@ -108,9 +63,7 @@ git drs remote add gen3 production \
 - Simply retry the command
 - These are usually temporary network issues
 
----
-
-**Error**: Git push timeout during large file uploads
+### Error: Git push timeout during large file uploads
 
 **Cause**: Long-running operations timing out
 
@@ -122,9 +75,9 @@ Host github.com
     ServerAliveInterval 30
 ```
 
-### File Tracking Issues
+## File Tracking Issues
 
-**Error**: Files not being tracked by LFS
+### Files Not Being Tracked by LFS
 
 **Symptoms**:
 
@@ -147,9 +100,7 @@ git add large-file.bam
 git commit -m "Track large file with LFS"
 ```
 
----
-
-**Error**: `[404] Object does not exist on the server`
+### Error: `[404] Object does not exist on the server`
 
 **Symptoms**:
 
@@ -158,19 +109,24 @@ git commit -m "Track large file with LFS"
 **Solution**:
 
 ```bash
-# confirm repo has complete configuration
+# Confirm repo has complete configuration
 git drs remote list
 
-# init your git drs project
-git drs init --cred /path/to/cred/file --profile <name>
+# Initialize your git drs project
+git drs init
 
-# attempt git pull again
+# Add remote configuration
+git drs remote add gen3 production \
+    --cred /path/to/credentials.json \
+    --url https://calypr-public.ohsu.edu \
+    --project my-project \
+    --bucket my-bucket
+
+# Attempt git pull again
 git lfs pull -I path/to/file
 ```
 
----
-
-**Error**: `git lfs ls-files` shows files but they won't download
+### Files Won't Download
 
 **Cause**: Files may not have been properly uploaded or DRS records missing
 
@@ -187,7 +143,9 @@ git lfs pull -I "problematic-file*" --verbose
 cat .git/drs/*.log
 ```
 
-### Configuration Issues
+## Configuration Issues
+
+### Empty or Incomplete Configuration
 
 **Error**: `git drs remote list` shows empty or incomplete configuration
 
@@ -206,16 +164,11 @@ git drs remote add gen3 production \
     --project my-project \
     --bucket my-bucket
 
-# For AnVIL
-git drs remote add anvil development --terraProject <project-id>
-
 # Verify configuration
 git drs remote list
 ```
 
----
-
-**Error**: Configuration exists but commands fail
+### Configuration Exists but Commands Fail
 
 **Cause**: Mismatched configuration between global and local settings, or expired credentials
 
@@ -233,9 +186,9 @@ git drs remote add gen3 production \
     --bucket my-bucket
 ```
 
-### Remote Configuration Issues
+## Remote Configuration Issues
 
-**Error**: `no default remote configured`
+### Error: `no default remote configured`
 
 **Cause**: Repository initialized but no remotes added yet
 
@@ -250,9 +203,7 @@ git drs remote add gen3 production \
     --bucket my-bucket
 ```
 
----
-
-**Error**: `default remote 'X' not found`
+### Error: `default remote 'X' not found`
 
 **Cause**: Default remote was deleted or configuration is corrupted
 
@@ -273,9 +224,7 @@ git drs remote add gen3 production \
     --bucket my-bucket
 ```
 
----
-
-**Error**: Commands using wrong remote
+### Commands Using Wrong Remote
 
 **Cause**: Default remote is not the one you want to use
 
@@ -292,6 +241,85 @@ git drs remote set production
 git drs push staging
 git drs fetch production
 ```
+
+## S3 / `add-url` Errors
+
+### Error: "file is not tracked by LFS"
+
+**Cause**: Git LFS tracking not configured for the file pattern
+
+**Solution**:
+
+```bash
+# Track the file pattern
+git lfs track "*.bam"
+git add .gitattributes
+git commit -m "Configure LFS tracking"
+
+# Then retry add-url
+git drs add-url s3://bucket/path/to/file.bam --sha256 <hash>
+```
+
+### Error: "Unable to get bucket details"
+
+**Cause**: The bucket is not registered in Gen3
+
+**Solution**:
+
+Provide `--region` and `--endpoint-url` flags or configure them in your AWS config file:
+
+```bash
+git drs add-url s3://my-bucket/path/to/file \
+  --sha256 <hash> \
+  --region us-west-2 \
+  --endpoint-url https://s3.custom-provider.com
+```
+
+### Error: "unable to load AWS SDK config"
+
+**Cause**: AWS configuration is missing or invalid
+
+**Solution**:
+
+Check your AWS configuration:
+
+- Verify credentials are set (via flags, environment, or `~/.aws/credentials`)
+- Ensure `~/.aws/config` file is valid if you're using it
+- Check that IAM roles are properly configured if running on EC2/ECS
+
+Example using environment variables:
+
+```bash
+export AWS_ACCESS_KEY_ID=myAccessKey
+export AWS_SECRET_ACCESS_KEY=mySecretKey
+git drs add-url s3://bucket/path/file --sha256 <hash>
+```
+
+### Error: "failed to head object"
+
+**Cause**: Usually means one of the following:
+
+- Credentials don't have permission to access the object
+- The S3 URL is incorrect
+- The endpoint or region is misconfigured
+- Network connectivity issues
+
+**Solution**:
+
+1. Verify the S3 URL is correct
+2. Check your AWS credentials have read permissions for the bucket
+3. Verify region and endpoint settings:
+   ```bash
+   # Specify region and endpoint explicitly
+   git drs add-url s3://bucket/path/file \
+     --sha256 <hash> \
+     --region us-west-2 \
+     --endpoint-url https://s3.amazonaws.com
+   ```
+4. Test connectivity to the S3 bucket using AWS CLI:
+   ```bash
+   aws s3 ls s3://bucket/path/
+   ```
 
 ## Undoing Changes
 
@@ -376,13 +404,6 @@ git status
 git lfs ls-files
 ```
 
-### View Logs
-
-```bash
-# Git DRS configuration
-git drs remote list
-```
-
 ### Test Connectivity
 
 ```bash
@@ -392,8 +413,6 @@ git lfs pull --dry-run
 # Test DRS configuration
 git drs remote list
 ```
-
-## Getting Help
 
 ### Log Analysis
 
@@ -411,7 +430,21 @@ git drs remote list
 
 ## Prevention Best Practices
 
-1. **Test in small batches** - Don't commit hundreds of files at once
-2. **Verify tracking** - Always check `git lfs ls-files` after adding files
-3. **Use .gitignore** - Prevent accidental commits of temporary files
-4. **Monitor repository size** - Keep an eye on `.git` directory size
+1. **Refresh credentials regularly** — Credentials expire after 30 days. Set a calendar reminder to download and configure new credentials before they expire.
+
+2. **Test in small batches** — Don't commit hundreds of files at once. Start with a few files to ensure your configuration works correctly.
+
+3. **Verify tracking** — Always check `git lfs ls-files` after adding files to ensure they're being tracked by LFS.
+
+4. **Use .gitignore** — Prevent accidental commits of temporary files, build artifacts, and other files that shouldn't be in the repository.
+
+5. **Monitor repository size** — Keep an eye on `.git` directory size. If it grows unexpectedly, you may have committed large files directly to Git instead of through LFS.
+
+## Getting Help
+
+For issues not covered in this guide:
+
+- Check the [Git DRS Quick Start](quickstart.md) for setup instructions
+- Review the [Developer Guide](developer-guide.md) for advanced usage
+- Consult the [Git LFS FAQ](https://github.com/git-lfs/git-lfs/wiki/FAQ)
+- See [GitHub's Git LFS documentation](https://docs.github.com/en/repositories/working-with-files/managing-large-files)
