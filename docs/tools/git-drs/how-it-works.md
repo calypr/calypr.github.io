@@ -1,26 +1,49 @@
-# Git DRS — Developer Guide
+# Git DRS — How It Works
 
-This guide covers Git DRS internals, architecture, complete command reference, and development information.
+This document describes the internal architecture, pointer file format, and supported cloud backends for Git DRS. For the user-facing command reference and getting started guide, see the [Git DRS Quickstart](quickstart.md).
 
-## Architecture Overview
+## How It Works
 
-Git DRS integrates with Git through several mechanisms to provide seamless DRS functionality.
+Git DRS leverages the same **clean / smudge filter** mechanism and **custom transfer agent** protocol used by [Git LFS](https://git-lfs.com/). If you're familiar with [how Git LFS works under the hood](https://github.com/git-lfs/git-lfs/blob/main/docs/spec.md), the following diagram shows where Git DRS fits in:
 
-### File Processing Flow Diagram
+```mermaid
+sequenceDiagram
+    actor User
+    participant WD as Working Directory
+    participant Git as Git (Index)
+    participant LFS as LFS Server
+    participant DRS as DRS Server
+    participant Cloud as Cloud Storage
 
+    Note over User,Cloud: Push workflow
+    User->>WD: git add my-file.bam
+    WD->>Git: clean filter (replace content with pointer)
+    User->>Git: git commit
+    User->>Git: git push
+    Git->>LFS: upload file content
+    Git->>DRS: register object (pre-push hook)
+    DRS->>Cloud: record access URL
+
+    Note over User,Cloud: Clone / pull workflow
+    User->>Git: git clone / git fetch
+    Git->>WD: checkout pointer files
+    User->>WD: git drs init
+    User->>DRS: git drs remote add ...
+    User->>LFS: git lfs pull
+    LFS->>WD: smudge filter (restore full content)
+
+    Note over User,Cloud: Query workflow
+    User->>DRS: git drs query <drs-id>
+    DRS-->>User: access URLs + metadata
 ```
-1. Developer: git add file.bam
-2. Developer: git commit -m "Add data"
-3. Git Hook: git drs precommit
-   - Creates DRS object metadata
-   - Stores metadata in repository local state
-4. Developer: git push
-5. Git LFS: Initiates custom transfer
-6. Git DRS: 
-   - Registers file with DRS server (indexd record)
-   - Uploads file to configured bucket
-   - Updates transfer logs
-```
+
+**The workflow step by step:**
+
+1. **`git lfs track "*.bam"`** — Registers file patterns in `.gitattributes`. See [Git LFS track](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-track.adoc).
+2. **`git add` / `git commit`** — Standard Git operations. The clean filter replaces file content with a small pointer file.
+3. **`git push`** — Git LFS uploads objects to the LFS server. Git DRS hooks automatically register each object with the configured DRS server, making it discoverable by DRS ID.
+4. **`git clone` / `git lfs pull`** — Git LFS downloads objects on demand. The smudge filter restores pointer files to their full content. See [Git LFS pull](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-pull.adoc).
+5. **`git drs query <drs-id>`** — Look up any registered object by its DRS ID to retrieve access URLs and metadata.
 
 ### Hooks Integration Table
 
@@ -29,7 +52,7 @@ Git DRS integrates with Git through several mechanisms to provide seamless DRS f
 | **Pre-commit Hook** | `git drs precommit` | Triggered automatically before each commit<br>Processes all staged LFS files<br>Creates DRS records for new files<br>Only processes files that don't already exist on the DRS server<br>Prepares metadata for later upload during push |
 | **Custom Transfer (upload)** | `git drs transfer` | Handles upload operations during `git push`<br>Creates indexd record on DRS server<br>Uploads file to Gen3-registered S3 bucket<br>Updates DRS object with access URLs |
 | **Custom Transfer (download)** | `git drs transfer` | Handles download operations during `git lfs pull`<br>Retrieves file metadata from DRS server<br>Downloads file from configured storage<br>Validates checksums |
-| **Reference Transfer** | `git drs transferref` | Handles S3 URL references without data movement<br>Links existing S3 objects to DRS records<br>Used for AnVIL/Terra workflows |
+
 
 ### Protocol Communication
 
@@ -134,31 +157,6 @@ git drs remote add gen3 staging \
 !!! note
     The first remote you add automatically becomes the default remote.
 
-### `git drs remote add anvil <name>`
-
-Add an AnVIL/Terra DRS server configuration.
-
-!!! warning "AnVIL Support Status"
-    AnVIL support is under active development. For production use, we recommend Gen3 workflows or version 0.2.2 for AnVIL functionality.
-
-**Usage:**
-
-```bash
-git drs remote add anvil <remote-name> --terraProject <project-id>
-```
-
-**Options:**
-
-| Parameter | Description | Required |
-|-----------|-------------|----------|
-| `<remote-name>` | Identifier for this DRS remote | Yes |
-| `--terraProject <id>` | Terra/Google Cloud project ID | Yes |
-
-**Example:**
-
-```bash
-git drs remote add anvil development --terraProject my-terra-project
-```
 
 ### `git drs remote list`
 
@@ -337,46 +335,7 @@ Git DRS respects these environment variables:
 | `AWS_REGION` | AWS region for S3 operations |
 | `AWS_ENDPOINT_URL` | Custom S3 endpoint URL |
 
-### Google/AnVIL Configuration
 
-| Variable | Description |
-|----------|-------------|
-| `GOOGLE_PROJECT` | Google Cloud project ID (for AnVIL) |
-| `WORKSPACE_BUCKET` | Terra workspace bucket (for AnVIL) |
-
-## Source Code Structure
-
-### Core Components
-
-```
-cmd/                    # CLI command implementations
-├── initialize/         # Repository initialization
-├── transfer/          # Custom transfer handlers
-├── precommit/         # Pre-commit hook
-├── addurl/            # S3 URL reference handling
-└── ...
-
-client/                # DRS client implementations
-├── interface.go       # Client interface definitions
-├── indexd.go         # Gen3/indexd client
-├── anvil.go          # AnVIL client
-└── drs-map.go        # File mapping utilities
-
-config/                # Configuration management
-└── config.go         # Config file handling
-
-drs/                   # DRS object utilities
-├── object.go         # DRS object structures
-└── util.go           # Utility functions
-
-lfs/                   # Git LFS integration
-└── messages.go       # LFS protocol messages
-
-utils/                 # Shared utilities
-├── common.go         # Common functions
-├── lfs-track.go      # LFS tracking utilities
-└── util.go           # General utilities
-```
 
 ## Configuration System
 
@@ -394,57 +353,6 @@ servers:
     bucket: "data-bucket"
 ```
 
-### DRS Object Management
-
-Objects are managed as local Git state during pre-commit and referenced during transfers.
-
-## Development Setup
-
-### Prerequisites
-
-- Go 1.24+
-- Git LFS installed
-- Access to a DRS server for testing
-
-### Building from Source
-
-```bash
-# Clone repository
-git clone https://github.com/calypr/git-drs.git
-cd git-drs
-
-# Install dependencies
-go mod download
-
-# Build
-go build
-
-# Install locally
-export PATH=$PATH:$(pwd)
-```
-
-### Development Workflow
-
-1. **Make changes** to source code
-2. **Build and test**:
-   ```bash
-   go build
-   go test ./...
-   ```
-3. **Test with real repository**:
-   ```bash
-   cd /path/to/test-repo
-   /path/to/git-drs/git-drs --help
-   ```
-
-### Debugging and Logging
-
-**Log Locations:**
-
-- **Commit logs**: Repository system logs
-- **Transfer logs**: Repository system logs
-
-## Testing
 
 ### Unit Tests
 
