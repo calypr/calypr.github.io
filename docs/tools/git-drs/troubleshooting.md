@@ -8,7 +8,7 @@ Understanding when to use Git, Git LFS, or Git DRS commands:
 
 | Tool | Commands | When to Use |
 |------|----------|-------------|
-| **Git DRS** | `git drs init`<br>`git drs remote add`<br>`git drs remote list`<br>`git drs add-url`<br>`git drs fetch`<br>`git drs push` | Repository and remote configuration<br>Setting up a new repository<br>Adding/managing DRS remotes<br>Refreshing expired credentials<br>Adding external file references<br>Cross-remote promotion |
+| **Git DRS** | `git drs init`<br>`git drs remote add`<br>`git drs remote list`<br>`git drs fetch`<br>`git drs push` | Repository and remote configuration<br>Setting up a new repository<br>Adding/managing DRS remotes<br>Refreshing expired credentials<br>Cross-remote promotion |
 | **Git LFS** | `git lfs track`<br>`git lfs ls-files`<br>`git lfs pull`<br>`git lfs untrack` | File tracking and management<br>Defining which files to track<br>Downloading specific files<br>Checking file localization status |
 | **Standard Git** | `git add`<br>`git commit`<br>`git push`<br>`git pull` | Version control operations<br>Normal development workflow<br>Git DRS runs automatically in background |
 
@@ -241,85 +241,6 @@ git drs remote set production
 git drs push staging
 git drs fetch production
 ```
-
-## S3 / `add-url` Errors
-
-### Error: "file is not tracked by LFS"
-
-**Cause**: Git LFS tracking not configured for the file pattern
-
-**Solution**:
-
-```bash
-# Track the file pattern
-git lfs track "*.bam"
-git add .gitattributes
-git commit -m "Configure LFS tracking"
-
-# Then retry add-url
-git drs add-url s3://bucket/path/to/file.bam --sha256 <hash>
-```
-
-### Error: "Unable to get bucket details"
-
-**Cause**: The bucket is not registered in Gen3
-
-**Solution**:
-
-Provide `--region` and `--endpoint-url` flags or configure them in your AWS config file:
-
-```bash
-git drs add-url s3://my-bucket/path/to/file \
-  --sha256 <hash> \
-  --region us-west-2 \
-  --endpoint-url https://s3.custom-provider.com
-```
-
-### Error: "unable to load AWS SDK config"
-
-**Cause**: AWS configuration is missing or invalid
-
-**Solution**:
-
-Check your AWS configuration:
-
-- Verify credentials are set (via flags, environment, or `~/.aws/credentials`)
-- Ensure `~/.aws/config` file is valid if you're using it
-- Check that IAM roles are properly configured if running on EC2/ECS
-
-Example using environment variables:
-
-```bash
-export AWS_ACCESS_KEY_ID=myAccessKey
-export AWS_SECRET_ACCESS_KEY=mySecretKey
-git drs add-url s3://bucket/path/file --sha256 <hash>
-```
-
-### Error: "failed to head object"
-
-**Cause**: Usually means one of the following:
-
-- Credentials don't have permission to access the object
-- The S3 URL is incorrect
-- The endpoint or region is misconfigured
-- Network connectivity issues
-
-**Solution**:
-
-1. Verify the S3 URL is correct
-2. Check your AWS credentials have read permissions for the bucket
-3. Verify region and endpoint settings:
-   ```bash
-   # Specify region and endpoint explicitly
-   git drs add-url s3://bucket/path/file \
-     --sha256 <hash> \
-     --region us-west-2 \
-     --endpoint-url https://s3.amazonaws.com
-   ```
-4. Test connectivity to the S3 bucket using AWS CLI:
-   ```bash
-   aws s3 ls s3://bucket/path/
-   ```
 
 ## Undoing Changes
 

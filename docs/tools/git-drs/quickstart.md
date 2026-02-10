@@ -308,63 +308,6 @@ git lfs ls-files
 
 The [Git LFS ls-files documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-ls-files.adoc) explains the available flags and output format.
 
-## Register Existing S3 Files
-
-The `git drs add-url` command allows you to associate an S3 URL with a Git DRS repository without moving the actual data. This command registers the S3 file location in the Gen3 indexd service and creates a Git LFS pointer file.
-
-### Basic Usage
-
-```bash
-# Track the file pattern first
-git lfs track "myfile.txt"
-git add .gitattributes
-
-# Add S3 reference
-git drs add-url s3://bucket/path/to/file \
-  --sha256 <file-hash> \
-  --aws-access-key <key> \
-  --aws-secret-key <secret>
-
-# Commit and push
-git commit -m "Add S3 file reference"
-git push
-```
-
-### Gen3-Registered vs Non-Registered Buckets
-
-**Gen3-Registered Bucket**: If the S3 bucket is already registered in Gen3, the system can automatically retrieve the region and endpoint information. You only need to supply AWS credentials.
-
-```bash
-git drs add-url s3://my-registered-bucket/path/to/file \
-  --sha256 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef \
-  --aws-access-key myAccessKey \
-  --aws-secret-access-key mySecretKey
-```
-
-**Non-Registered Bucket**: If the S3 bucket is not registered in Gen3, you must provide both AWS credentials and bucket configuration (region and endpoint URL).
-
-```bash
-git drs add-url s3://my-custom-bucket/path/to/file \
-  --sha256 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef \
-  --region us-west-2 \
-  --endpoint-url https://s3.custom-provider.com
-```
-
-### AWS Credential Precedence
-
-Git DRS follows the standard AWS CLI authentication and configuration precedence as documented in the [AWS CLI Authentication Guide](https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-authentication.html):
-
-| Priority | Method | Example |
-|----------|--------|---------|
-| 1 | Command-line flags | `--aws-access-key-id`, `--aws-secret-access-key`, `--region`, `--endpoint-url` |
-| 2 | Environment variables | `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `AWS_ENDPOINT_URL` |
-| 3 | AWS configuration files | `~/.aws/credentials`, `~/.aws/config` |
-| 4 | Gen3 bucket registration | For registered buckets, region and endpoint retrieved from Gen3 |
-| 5 | IAM roles | For EC2 instances or containers with attached IAM roles |
-
-!!! tip
-    Avoid putting credentials directly in command-line history. Use environment variables or AWS configuration files for better security.
-
 ## Managing Remotes
 
 ### Add Multiple Remotes
@@ -424,7 +367,6 @@ This is useful when files are already in the production bucket with matching SHA
 | **Commit** | `git commit -m "message"` |
 | **Push** | `git push` |
 | **Download** | `git lfs pull -I "pattern"` |
-| **Add S3 reference** | `git drs add-url s3://bucket/path --sha256 <hash>` |
 | **Fetch from remote** | `git drs fetch [remote-name]` |
 | **Push to remote** | `git drs push [remote-name]` |
 | **Query DRS object** | `git drs query <drs-id>` |

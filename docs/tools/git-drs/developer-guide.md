@@ -278,59 +278,6 @@ git drs push production
 
 This is useful when files are already in the production bucket with matching SHA256 hashes. It can also be used to re-upload files given that the files are pulled to the repo first.
 
-### `git drs add-url`
-
-Add a file reference via S3 URL without copying the data.
-
-**Usage:**
-
-```bash
-# Use default remote
-git drs add-url s3://bucket/path/file --sha256 <hash>
-
-# Use specific remote
-git drs add-url s3://bucket/path/file --sha256 <hash> --remote staging
-```
-
-**With AWS Credentials:**
-
-```bash
-git drs add-url s3://bucket/path/file \
-  --sha256 <hash> \
-  --aws-access-key <key> \
-  --aws-secret-key <secret>
-```
-
-**Options Table:**
-
-| Option | Description | Required |
-|--------|-------------|----------|
-| `--sha256 <hash>` | SHA256 hash of the file (64-character hexadecimal string) | Yes |
-| `--remote <name>` | Target remote | No (default: default_remote) |
-| `--aws-access-key-id <key>` | AWS access key for authentication | No* |
-| `--aws-secret-access-key <key>` | AWS secret key for authentication | No* |
-| `--endpoint-url <url>` | Custom S3 endpoint URL | No** |
-| `--region <region>` | AWS region (e.g., `us-west-2`) | No** |
-
-*Required if not using environment variables or AWS config files  
-**Required for buckets not registered in Gen3 (unless configured in AWS config file)
-
-**Example:**
-
-```bash
-# Gen3-registered bucket with credentials
-git drs add-url s3://my-bucket/file.bam \
-  --sha256 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef \
-  --aws-access-key myAccessKey \
-  --aws-secret-access-key mySecretKey
-
-# Non-registered bucket with region and endpoint
-git drs add-url s3://custom-bucket/file.bam \
-  --sha256 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef \
-  --region us-west-2 \
-  --endpoint-url https://s3.custom-provider.com
-```
-
 ### `git drs query <drs-id>`
 
 Query a DRS server by DRS ID to retrieve object metadata.
