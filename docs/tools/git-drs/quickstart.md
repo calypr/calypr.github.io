@@ -65,6 +65,15 @@ Use the project installer after Git LFS is installed:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/calypr/git-drs/refs/heads/main/install.sh)" -- $GIT_DRS_VERSION
 ```
 
+### Update PATH
+
+Ensure git-drs is on your path:
+
+```bash
+echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bash_profile
+source ~/.bash_profile
+```
+
 ## Download Gen3 API Credentials
 
 To use Git DRS, you need to configure it with API credentials downloaded from the [Profile page](https://calypr-public.ohsu.edu/Profile).
