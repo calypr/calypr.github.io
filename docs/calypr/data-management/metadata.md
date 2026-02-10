@@ -18,9 +18,9 @@ To submit metadata from the manifest to the platform, that metadata needs to be 
 Using the file metadata entries created by the `git drs add` command, `forge meta init` creates FHIR-compliant metadata files in the `META/` directory, where each file corresponds to a [FHIR resource](https://build.fhir.org/resourcelist.html). At a minimum, this directory will create:
 
 | File                     | Contents                   |
-22: |--------------------------|----------------------------|
-23: | ResearchStudy.ndjson     | Description of the project |
-24: | DocumentReference.ndjson | File information           |
+|--------------------------|----------------------------|
+| ResearchStudy.ndjson     | Description of the project |
+| DocumentReference.ndjson | File information           |
 
 
 Depending on if a `patient` or `specimen` flag was specified, other resources can be added to the metadata files:
