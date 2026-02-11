@@ -45,6 +45,6 @@ cli.cancel_task(task_id)
 
 - [py-tes Homepage](https://github.com/ohsu-comp-bio/py-tes)
 
-- [py-tes Documentation](https://ohsu-comp-bio.github.io/py-tes/)
+- [py-tes Documentation](https://py-tes.readthedocs.io)
 
-- [py-tes on PyPi](https://pypi.org/project/py-tes/)
+- [py-tes on PyPi](https://pypi.org/project/py-tes)

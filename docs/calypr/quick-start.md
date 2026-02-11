@@ -11,6 +11,7 @@ Welcome to CALYPR! This guide will walk you through the essential workflow for m
 CALYPR is a genomic data science platform that combines the best of cloud-based data commons with familiar version control tools. Think of it as "Git for genomic data" — you can version, track, and collaborate on massive datasets while maintaining full reproducibility.
 
 **Key Benefits:**
+
 - **Version Control**: Track genomic data files like you track code
 - **Interoperability**: Built on GA4GH standards (DRS, TES) for seamless data sharing
 - **Scalability**: From a few samples to petabyte-scale cohorts
