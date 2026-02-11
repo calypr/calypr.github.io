@@ -268,32 +268,31 @@ Tasks cannot be modified by the user after creation, with one exception – they
 POST /v1/tasks/b85l8tirl6qkqbhg8vj0:cancel
 ```
 
-
 ### Full task spec
 
 Here's a more detailed description of a task.  
-For a full, in-depth spec, read the TES standard's [task_execution.proto](https://github.com/ga4gh/task-execution-schemas/blob/master/task_execution.proto).
+For a full, in-depth spec, read the TES standard's [task_execution_service.openapi.yaml](https://github.com/ga4gh/task-execution-schemas/blob/master/openapi/task_execution_service.openapi.yaml).
 
-```
+```jsonc
 {
-    # The task's ID. Set by the server.
-    # Output only.
+    // The task's ID. Set by the server.
+    // Output only.
     "id": "1234567",
 
-    # The task's state. Possible states:
-    #   QUEUED
-    #   INITILIZING
-    #   RUNNING
-    #   PAUSED
-    #   COMPLETE
-    #   EXECUTOR_ERROR
-    #   SYSTEM_ERROR
-    #   CANCELED
-    #
-    # Output only.
+    // The task's state. Possible states:
+    //   QUEUED
+    //   INITIALIZING
+    //   RUNNING
+    //   PAUSED
+    //   COMPLETE
+    //   EXECUTOR_ERROR
+    //   SYSTEM_ERROR
+    //   CANCELED
+    //
+    // Output only.
     "state": "QUEUED",
 
-    # Metadata
+    // Metadata
     "name":        "Task name.",
     "description": "Task description.",
     "tags": {
@@ -301,35 +300,35 @@ For a full, in-depth spec, read the TES standard's [task_execution.proto](https:
       "custom-tag-2": "tag-value-2",
     },
 
-    # Resource requests
+    // Resource requests
     "resources": {
-      # Number of CPU cores requested.
+      // Number of CPU cores requested.
       "cpuCores": 1,
 
-      # RAM request, in gigabytes.
+      // RAM request, in gigabytes.
       "ramGb":    1.0,
 
-      # Disk space request, in gigabytes.
+      // Disk space request, in gigabytes.
       "diskGb":   100.0,
 
-      # Request preemptible machines,
-      # e.g. preemptible VM in Google Cloud, an instance from the AWS Spot Market, etc.
+      // Request preemptible machines,
+      // e.g. preemptible VM in Google Cloud, an instance from the AWS Spot Market, etc.
       "preemptible": false,
 
-       # Request that the task run in these compute zones.
-       "zones": ["zone1", "zone2"],
+      // Request that the task run in these compute zones.
+      "zones": ["zone1", "zone2"],
     },
 
-    # Input files will be downloaded by the worker.
-    # This example uses s3, but Funnel supports multiple filesystems.
+    // Input files will be downloaded by the worker.
+    // This example uses s3, but Funnel supports multiple filesystems.
     "inputs": [
       {
         "name": "Input file.",
         "description": "Input file description.",
 
-        # URL to download file from.
+        // URL to download file from.
         "url":  "s3://my-bucket/object/path/file.txt",
-        # Path to download file to.
+        // Path to download file to.
         "path": "/container/input.txt"
       },
       {
@@ -340,16 +339,16 @@ For a full, in-depth spec, read the TES standard's [task_execution.proto](https:
         "type": "DIRECTORY"
       },
 
-      # A task may include the file content directly in the task message.
-      # This is sometimes useful for small files such as scripts,
-      # which you want to include without talking directly to the filesystem.
+      // A task may include the file content directly in the task message.
+      // This is sometimes useful for small files such as scripts,
+      // which you want to include without talking directly to the filesystem.
       {
         "path": "/inputs/script.py",
         "content": "import socket; print socket.gethostname()"
       }
     ],
 
-    # Output files will be uploaded to storage by the worker.
+    // Output files will be uploaded to storage by the worker.
     "outputs": [
       {
         "name": "Output file.",
@@ -366,38 +365,38 @@ For a full, in-depth spec, read the TES standard's [task_execution.proto](https:
       }
     ],
 
-    # Executors define a sequence of containers + commands to run.
-    # Execution stop on the first non-zero exit code.
+    // Executors define a sequence of containers + commands to run.
+    // Execution stops on the first non-zero exit code.
     "executors": [
       {
-        # Container image name.
-        # Funnel supports running executor containers via Docker.
+        // Container image name.
+        // Funnel supports running executor containers via Docker.
         "image": "ubuntu",
 
-        # Command arguments (argv).
-        # The first item is the executable to run.
+        // Command arguments (argv).
+        // The first item is the executable to run.
         "command": ["my-tool-1", "/container/input"],
 
-        # Local file path to read stdin from.
+        // Local file path to read stdin from.
         "stdin": "/inputs/stdin.txt",
 
-        # Local file path to write stdout to.
+        // Local file path to write stdout to.
         "stdout": "/container/output",
 
-        # Local file path to write stderr to.
+        // Local file path to write stderr to.
         "stderr": "/container/stderr",
 
-        # Set the working directory before executing the command.
+        // Set the working directory before executing the command.
         "workdir": "/data/workdir",
 
-        # Environment variables
+        // Environment variables
         "env": {
           "ENV1": "value1",
           "ENV2": "value2",
         }
       },
 
-      # Second executor runs after the first completes, on the same machine.
+      // Second executor runs after the first completes, on the same machine.
       {
         "image": "ubuntu",
         "command": ["cat", "/container/input"],
@@ -407,36 +406,36 @@ For a full, in-depth spec, read the TES standard's [task_execution.proto](https:
       }
     ]
 
-    # Date/time the task was created.
-    # Set the the server.
-    # Output only.
+    // Date/time the task was created.
+    // Set by the server.
+    // Output only.
     "creationTime": "2017-11-14T11:49:04.427163701-08:00"
 
-    # Task logs.
-    # Output only.
-    #
-    # If there's a system error, the task may be attempted multiple times,
-    # so this field is a list of attempts. In most cases, there will be only
-    # one or zero entries here.
+    // Task logs.
+    // Output only.
+    //
+    // If there's a system error, the task may be attempted multiple times,
+    // so this field is a list of attempts. In most cases, there will be only
+    // one or zero entries here.
     "logs": [
 
-      # Attempt start/end times, in RFC3339 format.
+      // Attempt start/end times, in RFC3339 format.
       "startTime": "2017-11-14T11:49:04.433593468-08:00",
       "endTime": "2017-11-14T11:49:08.487707039-08:00"
 
-      # Arbitrary metadata set by Funnel.
+      // Arbitrary metadata set by Funnel.
       "metadata": {
         "hostname": "worker-1",
       },
 
-      # Arbitrary system logs which Funnel thinks are useful to the user.
+      // Arbitrary system logs which Funnel thinks are useful to the user.
       "systemLogs": [
         "task was assigned to worker 1",
         "docker command: docker run -v /vol:/data alpine cmd arg1 arg2",
       ],
 
-      # Log of files uploaded to storage by the worker,
-      # including all files in directories, with file sizes.
+      // Log of files uploaded to storage by the worker,
+      // including all files in directories, with file sizes.
       "outputs": [
         {
           "url": "s3://my-bucket/output-data/results.txt",
@@ -460,24 +459,24 @@ For a full, in-depth spec, read the TES standard's [task_execution.proto](https:
         }
       ],
 
-      # Executor logs. One entry per executor.
+      // Executor logs. One entry per executor.
       "logs": [
         {
-          # Executor start/end time, in RFC3339 format.
+          // Executor start/end time, in RFC3339 format.
           "startTime": "2017-11-14T11:49:05.127885125-08:00",
           "endTime": "2017-11-14T11:49:08.484461502-08:00",
 
-          # Executor stdout/err. Only available in the FULL task view.
-          #
-          # There is a size limit for these fields, which is configurable
-          # and defaults to 10KB. If more than 10KB is generated, only the
-          # tail will be logged. If the full output is needed, the task
-          # may use Executor.stdout and an output to upload the full content
-          # to storage.
+          // Executor stdout/err. Only available in the FULL task view.
+          //
+          // There is a size limit for these fields, which is configurable
+          // and defaults to 10KB. If more than 10KB is generated, only the
+          // tail will be logged. If the full output is needed, the task
+          // may use Executor.stdout and an output to upload the full content
+          // to storage.
           "stdout": "Hello, Funnel!",
           "stderr": "",
 
-          # Exit code
+          // Exit code
           "exit_code": 0,
         },
         {
