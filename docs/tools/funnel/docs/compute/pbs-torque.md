@@ -54,4 +54,4 @@ The following variables are available for use in the template:
 
 See https://golang.org/pkg/text/template for information on creating templates.
 
-[pbs]: http://www.adaptivecomputing.com/products/open-source/torque/
+[pbs]: https://hpc-wiki.info/hpc/Torque

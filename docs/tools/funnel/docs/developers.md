@@ -1,13 +1,6 @@
 ---
-title: Funnel Developers
-
-menu:
-  main:
-    parent: Development
-    weight: 30
+title: Developers
 ---
-
-# Developers
 
 This page contains a rough collection of notes for people wanting to build Funnel from source and/or edit the code.
 

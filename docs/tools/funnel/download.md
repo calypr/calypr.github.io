@@ -22,7 +22,8 @@ brew install funnel@0.11
 ## Build the lastest development version
 
 In order to build the latest code, run:
-```shell
+
+```sh
 $ git clone https://github.com/ohsu-comp-bio/funnel.git
 $ cd funnel
 $ make
@@ -30,6 +31,5 @@ $ make
 
 Funnel requires Go 1.21+. Check out the [development docs][dev] for more detail.
 
-
-[dev]: /docs/development/developers/
+[dev]: docs/developers.md
 [docker]: https://docker.io

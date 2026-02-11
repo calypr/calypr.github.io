@@ -1,0 +1,20 @@
+exclude_private = true
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+# Status codes to ignore (429 is Rate Limited, 999 is LinkedIn specific)
+accept = [200, 429, 999]
+
+# Domains to skip (rejecting automated requests)
+exclude = [
+    "bioportal.bioontology.org",
+    "ceph.com",
+    "gridscheduler.sourceforge.net",
+    "hub.docker.com/_/alpine",
+    "linkedin.com",
+    "npmjs.com",
+    "openstack.org",
+]
+
+exclude_path = [
+    "venv",
+]
