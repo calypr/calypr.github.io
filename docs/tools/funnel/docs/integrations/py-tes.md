@@ -47,4 +47,4 @@ cli.cancel_task(task_id)
 
 - [py-tes Documentation](https://py-tes.readthedocs.io)
 
-- [py-tes on PyPi](https://pypi.org/project/py-tes)
+- [py-tes on PyPI](https://pypi.org/project/py-tes)

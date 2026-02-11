@@ -281,7 +281,7 @@ For a full, in-depth spec, read the TES standard's [task_execution_service.opena
 
     // The task's state. Possible states:
     //   QUEUED
-    //   INITILIZING
+    //   INITIALIZING
     //   RUNNING
     //   PAUSED
     //   COMPLETE
@@ -315,8 +315,8 @@ For a full, in-depth spec, read the TES standard's [task_execution_service.opena
       // e.g. preemptible VM in Google Cloud, an instance from the AWS Spot Market, etc.
       "preemptible": false,
 
-       // Request that the task run in these compute zones.
-       "zones": ["zone1", "zone2"],
+      // Request that the task run in these compute zones.
+      "zones": ["zone1", "zone2"],
     },
 
     // Input files will be downloaded by the worker.
@@ -366,7 +366,7 @@ For a full, in-depth spec, read the TES standard's [task_execution_service.opena
     ],
 
     // Executors define a sequence of containers + commands to run.
-    // Execution stop on the first non-zero exit code.
+    // Execution stops on the first non-zero exit code.
     "executors": [
       {
         // Container image name.
@@ -407,7 +407,7 @@ For a full, in-depth spec, read the TES standard's [task_execution_service.opena
     ]
 
     // Date/time the task was created.
-    // Set the the server.
+    // Set by the server.
     // Output only.
     "creationTime": "2017-11-14T11:49:04.427163701-08:00"
 
