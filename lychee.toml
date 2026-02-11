@@ -14,7 +14,3 @@ exclude = [
     "npmjs.com",
     "openstack.org",
 ]
-
-exclude_path = [
-    "venv",
-]
