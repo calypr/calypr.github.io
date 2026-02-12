@@ -19,7 +19,7 @@ Finished writing all DocumentReference records.
 Finished writing all Directory records.
 ```
 
-To better understand the process of adding file metadata through the manifest, see [adding file metadata](add-files.md) and [adding FHIR metadata](metadata.md).
+To better understand the process of adding file metadata through the manifest, see [adding file metadata](../data-model/introduction.md) and [adding FHIR metadata](../data-model/metadata.md).
 
 ## No new files to index
 

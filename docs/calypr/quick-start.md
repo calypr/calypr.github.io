@@ -2,6 +2,9 @@
 title: Quick Start Guide
 ---
 
+!!! info "Private Beta"
+    CALYPR platform is currently in a private beta phase. We are actively working with a select group of research partners to refine the platform. If you encounter any issues or have feature requests, please reach out to the team. The individual [tools](../tools/index.md) are available for public use.
+
 # Quick Start Guide
 
 To get started with CALYPR, you will need to install [git-lfs](https://git-lfs.github.com/) and [git-drs](https://github.com/calypr/git-drs), a "git" like command line tool for uploading and downloading files to the [gen3 platform](https://gen3.org/).

@@ -45,4 +45,4 @@ While you can work with an initialized repository locally, **an authorized user 
 
 ## Next steps
 
-- [Adding data to a project](../calypr-projects/add-files.md)
+- [Adding data to a project](../data-management/git-drs.md)

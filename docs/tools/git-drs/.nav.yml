@@ -3,3 +3,6 @@ nav:
   - Overview: index.md
   - Installation: installation.md
   - Commands: commands.md
+  - Getting Started: getting-started.md
+  - Developer Guide: developer-guide.md
+  - Trouble shooting: troubleshooting.md
