@@ -74,9 +74,8 @@ See [Deploying a cluster](./docs/compute/deployment.md) for more information abo
 The node is accessible via the `funnel node` command and the [scheduler package][schedpkg].
 
 [tes]: https://github.com/ga4gh/task-execution-schemas
-[serverpkg]: https://github.com/ohsu-comp-bio/funnel/tree/master/server
-[workerpkg]: https://github.com/ohsu-comp-bio/funnel/tree/master/worker
-[schedpkg]: https://github.com/ohsu-comp-bio/funnel/tree/master/compute/scheduler
-[clientpkg]: https://github.com/ohsu-comp-bio/funnel/tree/master/client
-[tespkg]: https://github.com/ohsu-comp-bio/funnel/tree/master/proto/tes
-[storagepkg]: https://github.com/ohsu-comp-bio/funnel/tree/master/storage
+[serverpkg]: https://github.com/ohsu-comp-bio/funnel/tree/main/server
+[workerpkg]: https://github.com/ohsu-comp-bio/funnel/tree/main/worker
+[schedpkg]: https://github.com/ohsu-comp-bio/funnel/tree/main/compute/scheduler
+[tespkg]: https://github.com/ohsu-comp-bio/funnel/tree/main/tes
+[storagepkg]: https://github.com/ohsu-comp-bio/funnel/tree/main/storage
