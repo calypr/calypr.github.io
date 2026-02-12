@@ -4,7 +4,7 @@
 
 Adding files to a project is a two-step process:
 
-1. Adding file metadata entries to the manifest (see [adding files](../data-management/git-drs.md))
+1. Adding file metadata entries to the manifest
 2. Creating FHIR-compliant metadata using the manifest
 
 This page will guide you through the second step of generating FHIR metadata in your `git-drs` project. To understand the FHIR data model, see [FHIR for Researchers](../data-model/introduction.md)
@@ -18,9 +18,9 @@ To submit metadata from the manifest to the platform, that metadata needs to be 
 Using the file metadata entries created by the `git drs add` command, `forge meta init` creates FHIR-compliant metadata files in the `META/` directory, where each file corresponds to a [FHIR resource](https://build.fhir.org/resourcelist.html). At a minimum, this directory will create:
 
 | File                     | Contents                   |
-22: |--------------------------|----------------------------|
-23: | ResearchStudy.ndjson     | Description of the project |
-24: | DocumentReference.ndjson | File information           |
+|--------------------------|----------------------------|
+| ResearchStudy.ndjson     | Description of the project |
+| DocumentReference.ndjson | File information           |
 
 
 Depending on if a `patient` or `specimen` flag was specified, other resources can be added to the metadata files:

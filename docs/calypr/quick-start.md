@@ -2,141 +2,151 @@
 title: Quick Start Guide
 ---
 
-!!! info "Private Beta"
-    CALYPR platform is currently in a private beta phase. We are actively working with a select group of research partners to refine the platform. If you encounter any issues or have feature requests, please reach out to the team. The individual [tools](../tools/index.md) are available for public use.
+# CALYPR Quick Start Guide
 
-# Quick Start Guide
+Welcome to CALYPR! This guide will walk you through the essential workflow for managing and analyzing genomic data on the CALYPR platform.
 
-To get started with CALYPR, you will need to install [git-lfs](https://git-lfs.github.com/) and [git-drs](https://github.com/calypr/git-drs), a "git" like command line tool for uploading and downloading files to the [gen3 platform](https://gen3.org/).
+## What is CALYPR?
 
-### Git-LFS Installation Instructions
+CALYPR is a genomic data science platform that combines the best of cloud-based data commons with familiar version control tools. Think of it as "Git for genomic data" — you can version, track, and collaborate on massive datasets while maintaining full reproducibility.
 
-To use CALYPR, you must first install [Git Large File Storage (LFS)](https://git-lfs.github.com/) on your system. This allows Git to efficiently handle the large genomic data files.
+**Key Benefits:**
 
-=== "macOS"
-    **Install using Homebrew**
-    ```bash
-    brew install git-lfs
-    ```
+- **Version Control**: Track genomic data files like you track code
+- **Interoperability**: Built on GA4GH standards (DRS, TES) for seamless data sharing
+- **Scalability**: From a few samples to petabyte-scale cohorts
+- **Reproducibility**: Every analysis tied to specific versions of data and metadata
 
-=== "Linux"
-    **Install via Package Manager**
+## What You'll Learn
 
-    === "Debian/Ubuntu"
-        `sudo apt-get install git-lfs`
+This guide covers the essential CALYPR workflow:
 
-    === "RHEL/CentOS"
-        `sudo yum install git-lfs`
+1. **Getting access** to the CALYPR platform
+2. **Uploading data files** with Git-DRS
+3. **Adding metadata** with Forge
+4. **Running analyses** with Funnel (optional)
+5. **Querying data** with GRIP (optional)
 
-    === "Fedora"
-        `sudo dnf install git-lfs`
+## Prerequisites
 
-=== "Windows"
-    **Download and Run Installer**
-    Download the latest [Git LFS Windows installer](https://github.com/git-lfs/git-lfs/releases/latest) and follow the setup instructions.
+Before you begin, make sure you have:
 
+- **Git** installed on your system ([download](https://git-scm.com))
+- **Access to CALYPR** - contact your project administrator for an account
+- **Basic command-line experience** - familiarity with terminal/shell commands
 
-**Initialize Git LFS**
-Run the following command in your terminal to complete the setup:
-```bash
-git lfs install --skip-smudge
-```
+---
 
-## Project Setup
+## The CALYPR Workflow
 
-You first need to set up a project and initialize it:
+### Step 1: Get Your API Credentials
 
-```
-mkdir MyNewCalyprProject
-cd MyNewCalyprProject
-git init
-git drs init
-```
+To interact with CALYPR, you need API credentials from the Gen3 data commons. You'll download these from your profile page on the CALYPR portal as a JSON file.
 
-Now that you have initialized your project you have created a very primitive Git Large File Support (LFS) backed git repository.
+API credentials expire after 30 days, so you'll need to download fresh credentials regularly.
 
-## Download Gen3 API Credentials
+**Learn More:** [Download Gen3 API Credentials](../tools/git-drs/quickstart.md#download-gen3-api-credentials) — Step-by-step instructions with screenshots
 
-To use the git-drs, you need to configure `git-drs` with API credentials downloaded from the [Profile page](https://calypr-public.ohsu.edu/Profile).
+---
 
-![Gen3 Profile page](../images/profile.png)
+### Step 2: Upload Your Data Files (Git-DRS)
 
-Log into the website. Then, download the access key from the portal and save it in the standard location `~/.gen3/credentials.json`
+**Git-DRS** is CALYPR's data file management tool. It extends Git LFS to version and track large genomic files while automatically registering them with the DRS (Data Repository Service).
 
-![Gen3 API Key](../images/api-key.png)
+Git-DRS lets you:
+- Version large data files (BAM, FASTQ, VCF, etc.) like you version code
+- Track file lineage and share data with collaborators
+- Automatically register files with DRS for global discovery
 
-![Gen3 Credentials](../images/credentials.png)
+When you push files, Git-DRS uploads them to S3, registers DRS records in Gen3, and stores only lightweight pointer files in your Git repository.
 
-### Configure a git-drs repository with a Gen3 Credential.
+**Learn More:** [Git-DRS Complete Documentation](../tools/git-drs/quickstart.md) — Installation, setup, and detailed workflows
 
-Now that you have a Gen3 API credential, you can attach the credential to your git-drs
-repository by adding it as a drs remote.
+---
 
-git-drs requires a bucket name and a project id to defined in this command.
+### Step 3: Add Metadata (Forge)
 
-The bucket name is the name of the s3 bucket that you plan to upload your data to. This bucket must be configured inside the calypr instance. contact <fillinthisemailaddres> to setup a calypr bucket.
+**Forge** is CALYPR's metadata management tool. It validates and publishes structured metadata about your samples, making your data discoverable and queryable.
 
-the project id must be in the form ORGANIZATION-PROJECTNAME.
+Forge helps you:
+- Validate metadata against Gen3 data models
+- Publish metadata to make your data searchable
+- Manage relationships between samples, subjects, and files
 
-From the command line from within your new porject, run the git-drs remote add command:
+While you can upload files before metadata, adding metadata early maximizes the value of your data by making it discoverable and queryable.
 
-=== "Example Command"
-    ```sh
-    git-drs remote add gen3 <profile_name> \
-        --cred=<path_to_credential.json> \
-        --project <project_name> \
-        --bucket <bucket_name>
-    ```
+**Learn More:** [Forge Documentation](../tools/forge/index.md) — Installation, validation, and publishing workflows
 
-=== "Mac/Linux"
-    ```sh
-    git-drs remote add gen3 cbds \
-        --cred=~/Downloads/credentials.json \
-        --project testProgram-testProject \
-        --bucket testBucket
+---
 
-    ```
-=== "Windows"
-    ```sh
-    git-drs remote add gen3 cbds \
-        --cred=C:\Users\demo\Downloads\credentials.json \
-        --project testProgram-testProject \
-        --bucket testBucket
-    ```
+### Step 4: Run Analysis Workflows (Funnel) — Optional
 
-You can confirm your configuration and access by listing your remotes:
+**Funnel** is CALYPR's task execution service. It runs computational workflows across cloud and HPC environments using the GA4GH Task Execution Service (TES) standard.
 
-```sh
-git drs remote list
-```
+Funnel enables you to:
+- Execute containerized workflows (Docker/Singularity)
+- Manage resources across AWS, GCP, and HPC clusters
+- Track task status and integrate with workflow engines (Nextflow, WDL)
 
-This will show your configured profiles and the projects you have access to.
+Funnel is typically used for production pipelines and large-scale analysis. For exploratory work, you might run analyses locally first.
 
+**Learn More:** [Funnel Documentation](../tools/funnel/index.md) — Task definitions, execution, and cluster integration
 
-## Remaining Execution
+---
 
-From this point forward, git-drs functions exactly like git-lfs, see [git-lfs documentation](https://github.com/git-lfs/git-lfs/tree/main/docs?utm_source=gitlfs_site&utm_medium=docs_link&utm_campaign=gitlfs) for more in depth documentation.
+### Step 5: Query Your Data (GRIP) — Optional
 
-An example of uploading a file to calypr and downloading it can be viewed below:
+**GRIP** (Graph Resource Integration Platform) enables powerful graph-based queries across integrated datasets.
 
-### Upload Files 
+GRIP allows you to:
+- Query relationships between samples, subjects, and files
+- Perform complex graph traversals and aggregations
+- Run federated queries across data commons
 
-```
-# Track files
-git lfs track "*.bam"
-git add .gitattributes
+GRIP is most useful after you've integrated metadata and established relationships between entities.
 
-# Add and commit files
-git add my-file.bam
-git commit -m "Add data file"
-git push
-```
-### Downloading existing files
+**Learn More:** [GRIP Documentation](../tools/grip/index.md) — Query syntax, graph traversals, and examples
 
-```
-git clone mylfsrepo
-cd mylfsrepo
-git drs init
-git drs remote add gen3 myProfile --cred ~/.gen3/credentials.json --project cbds-my_lfs_repo --bucket cbds
-git lfs pull -I "*.bam"
-```
+---
+
+## Next Steps
+
+Now that you understand the basic CALYPR workflow, here are some recommended next steps:
+
+### 📚 Dive Deeper
+
+- **[Data Management](data-management/git-drs.md)** - Advanced Git-DRS workflows
+- **[Metadata Guide](data-management/metadata.md)** - Data modeling and metadata best practices
+- **[Project Management](project-management/create-project.md)** - Creating and managing CALYPR projects
+
+### 🔧 Tool Documentation
+
+- **[Git-DRS Complete Guide](../tools/git-drs/quickstart.md)** - Comprehensive Git-DRS documentation
+- **[Forge Reference](../tools/forge/index.md)** - Metadata validation and publishing
+- **[Funnel Workflows](../tools/funnel/index.md)** - Task execution and pipeline management
+- **[GRIP Queries](../tools/grip/index.md)** - Graph-based data queries
+
+### 🆘 Get Help
+
+- **[Troubleshooting](troubleshooting.md)** - Common issues and solutions
+- **[Platform Overview](index.md)** - Learn more about CALYPR architecture
+
+### 💬 Community
+
+CALYPR is in active development. Have questions or feedback? Reach out to the CALYPR team or your project administrator.
+
+---
+
+## Summary
+
+You've learned the essential CALYPR workflow:
+
+✅ **Access** - Get Gen3 API credentials  
+✅ **Upload** - Use Git-DRS to version and track data files  
+✅ **Annotate** - Use Forge to add and validate metadata  
+✅ **Analyze** - Use Funnel to run computational workflows (optional)  
+✅ **Query** - Use GRIP to explore data relationships (optional)
+
+Each tool builds on the previous step, creating a complete data lifecycle from upload to analysis. Start with the basics (access, upload, annotate) and add advanced features as your needs grow.
+
+Happy analyzing! 🧬
