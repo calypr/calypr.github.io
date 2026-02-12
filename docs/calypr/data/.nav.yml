@@ -1,0 +1,6 @@
+nav:
+  - FHIR for Researchers: introduction.md
+  - Integrating Your Data: integration.md
+  - Git-DRS: git-drs.md
+  - Adding FHIR Metadata: adding-metadata.md
+  - Managing Metadata: managing-metadata.md
