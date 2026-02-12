@@ -21,7 +21,8 @@ In this way this Wrapper can manage the bucket and the keys (the Wrapper would
 
 Stay tuned for this feature's development! This feature is being tracked with the following:
 
-- Milestone: https://github.com/ohsu-comp-bio/funnel/milestone/10
+- GitHub Branch: https://github.com/ohsu-comp-bio/funnel/tree/feature/credentials
+- Pull Request: https://github.com/ohsu-comp-bio/funnel/pull/1098
 
 # Credits 🙌
 
