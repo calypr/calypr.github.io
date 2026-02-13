@@ -356,6 +356,23 @@ git drs remote set production
 git drs remote list
 ```
 
+### Remove a Remote
+
+If a remote is no longer needed, remove it by name:
+
+```bash
+git drs remote remove staging
+```
+
+After removal, confirm your remaining remotes:
+
+```bash
+git drs remote list
+```
+
+!!! warning
+    If you remove the default remote, run `git drs remote set <name>` to pick a new default before pushing or fetching.
+
 ### Cross-Remote Promotion
 
 Transfer DRS records from one remote to another (e.g., staging to production) without re-uploading files:
@@ -378,6 +395,7 @@ This is useful when files are already in the production bucket with matching SHA
 | **Add remote** | `git drs remote add gen3 <name> --cred...` |
 | **View remotes** | `git drs remote list` |
 | **Set default** | `git drs remote set <name>` |
+| **Remove remote** | `git drs remote remove <name>` |
 | **Track files** | `git lfs track "pattern"` |
 | **Check tracked** | `git lfs ls-files` |
 | **Add files** | `git add file.ext` |
