@@ -7,7 +7,7 @@ Adding files to a project is a two-step process:
 1. Adding file metadata entries to the manifest
 2. Creating FHIR-compliant metadata using the manifest
 
-This page will guide you through the second step of generating FHIR metadata in your `git-drs` project. To understand the FHIR data model, see [FHIR for Researchers](../data-model/introduction.md)
+This page will guide you through the second step of generating FHIR metadata in your `git-drs` project. To understand the FHIR data model, see [FHIR for Researchers](introduction.md)
 
 ## Generating FHIR Data using git-drs
 
@@ -82,4 +82,4 @@ This process would be useful for individuals who want to use the system to track
 
 ## Next Steps
 
-See the [data management section](../data-management/meta-data.md) for more information on working with metadata and publishing.
+See the [data management section](managing-metadata.md) for more information on working with metadata and publishing.

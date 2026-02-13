@@ -115,8 +115,8 @@ Now that you understand the basic CALYPR workflow, here are some recommended nex
 
 ### 📚 Dive Deeper
 
-- **[Data Management](data-management/git-drs.md)** - Advanced Git-DRS workflows
-- **[Metadata Guide](data-management/metadata.md)** - Data modeling and metadata best practices
+- **[Data Management](data/git-drs.md)** - Advanced Git-DRS workflows
+- **[Metadata Guide](data/adding-metadata.md)** - Data modeling and metadata best practices
 - **[Project Management](project-management/create-project.md)** - Creating and managing CALYPR projects
 
 ### 🔧 Tool Documentation

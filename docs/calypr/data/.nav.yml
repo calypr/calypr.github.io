@@ -1,0 +1,5 @@
+nav:
+  - FHIR for Researchers: introduction.md
+  - Adding FHIR Metadata: adding-metadata.md
+  - Managing Metadata: managing-metadata.md
+  - Integrating Your Data: integration.md
