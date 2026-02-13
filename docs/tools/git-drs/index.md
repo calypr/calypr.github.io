@@ -63,4 +63,7 @@ Manage remote DRS server configurations.
 
 ```bash
 git-drs remote add <name> <url>
+git-drs remote list
+git-drs remote set <name>
+git-drs remote remove <name>
 ```
