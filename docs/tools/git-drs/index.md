@@ -55,9 +55,6 @@ Uploads the contents of tracked files to the configured Gen3 Commons. This usual
 ### `fetch`
 Downloads the contents of tracked files from the Gen3 Commons, replacing the local pointer files with the actual data.
 
-### `add-url <guid> <url>`
-Associates a specific URL with a GUID in the local cache or for registration purposes.
-
 ### `list`
 Lists the files currently tracked by Git-DRS in the project.
 
@@ -66,4 +63,7 @@ Manage remote DRS server configurations.
 
 ```bash
 git-drs remote add <name> <url>
+git-drs remote list
+git-drs remote set <name>
+git-drs remote remove <name>
 ```

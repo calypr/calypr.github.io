@@ -40,4 +40,4 @@ CALYPR acts as the "connective tissue" between your research environment and the
 To get started:
 
 1.  **[Quick Start Guide](quick-start.md):** The fastest way to install tools and start tracking data.
-2.  **[Data & Metadata](data-management/meta-data.md):** Learn how to associate your biological metadata with the files you've uploaded.
+2.  **[Data & Metadata](data/managing-metadata.md):** Learn how to associate your biological metadata with the files you've uploaded.

@@ -37,6 +37,4 @@ Examine [resource](https://www.hl7.org/fhir/resource.html) definitions [here](ht
 
 Each resource has at least one study controlled [official](https://hl7.org/fhir/codesystem-identifier-use.html#identifier-use-official) [Identifier](https://hl7.org/fhir/datatypes.html#Identifier).  Child resources have [Reference](http://www.hl7.org/fhir/references.html) fields to point to their parent.
 
-
 <img src="/images/fhir-graph-model.png" width="100%">
-

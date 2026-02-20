@@ -35,7 +35,7 @@ Successful output:
 Check job status: forge status \<job-id\>  
 Get all job ids: forge list
 
-📖 More details: [Forge Publish Command](https://github.com/copilot/tools/forge/commands.md#forge-publish)
+📖 More details: [Forge](../../tools/forge/index.md)
 
 ---
 
