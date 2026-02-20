@@ -1,5 +1,6 @@
 title: Calypr
 nav:
+  - index.md
   - Quick Start Guide: quick-start.md
   - Website: website/
   - Data Management: data-management/
