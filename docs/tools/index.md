@@ -18,7 +18,7 @@ GRIP (Graph Resource Integration Platform) is a high-performance graph database 
 
 ### [Forge](forge/index.md)
 **Project formatting**
-Forge scans a data repository to build an integrated FHIR based graph of samples and all the files connected to the project. It is resposible for schema checking and database loading. You can use it client side to verify and debug your project and on the server side, it is used to load databases.
+Forge scans a data repository to build an integrated FHIR based graph of samples and all the files connected to the project. It is responsible for schema checking and database loading. You can use it client side to verify and debug your project and on the server side, it is used to load databases.
 
 ### [Data Client](data-client/index.md)
 A client command line interface for interfacing with the Calypr system.
