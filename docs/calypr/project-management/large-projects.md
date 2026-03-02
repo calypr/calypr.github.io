@@ -1,257 +1,224 @@
 
-# Large scale project management
+# Working with Large Projects
 
-How to manage a Git LFS Repositories with Thousands of Files. 
+How to work efficiently with Git LFS repositories that track thousands of files.
 
-## 1. Context and Problem Statement
+## Overview
 
-In large projects, it’s common for a Git repository to track **thousands to hundreds of thousands** of files via Git LFS. Typical use cases:
+Large Calypr projects can contain **thousands to hundreds of thousands** of LFS-tracked files—VCFs, BAMs, images, and other genomic assets across many samples. Working with a repository this size requires a different approach than smaller projects.
 
-* A research study with many samples (VCFs, BAMs, images, etc.)
-* A data lake-ish repo where each commit adds more LFS pointers
-* Monorepos that aggregate multiple datasets or experiments
-
-In these cases, standard Git LFS introspection commands become **painfully slow**. A concrete example:
+The most common issue analysts encounter is that standard LFS enumeration becomes very slow:
 
 ```bash
 git lfs ls-files --json
 ```
 
-On a repo with thousands of LFS pointers, this can take **several minutes**. That’s a non-starter for:
+On a large repository, this can take **several minutes** and is not practical for day-to-day work. The sections below describe the patterns that work well at scale.
 
-* Interactive CLI tools
-* Editor/IDE integrations
-* CI/CD steps that run frequently
+---
 
-This note describes architectural patterns to **avoid global enumeration** and keep operations fast and predictable as your LFS population grows.
+## What Works: Sparse Checkout
 
-## 2. Why `git lfs ls-files` is Slow in Large Repos
+If you only need a subset of the repository—for example, files from a single study or cohort—use Git's sparse checkout to avoid downloading the entire working tree. This is especially valuable when working with large project mirrors (such as a GDC mirror) where the full dataset is far larger than what you need for a given analysis.
 
-Conceptually, `git lfs ls-files` must:
-
-1. Walk the Git index / working tree to identify LFS-tracked files.
-2. For each file, resolve and hydrate metadata (pointer, OID, size, etc.).
-3. Optionally serialize to JSON.
-
-Even if the LFS objects are local, this is **O(N)** over every matching file visible to the command. When N = 10,000+, you’re essentially asking Git + Git LFS to do a full scan and re-derive information that:
-
-* Doesn’t change very often, and
-* Could be cached or maintained elsewhere.
-
-From an architecture perspective, the problem is:
-
-> We’re using `git lfs ls-files` as a **query engine and index**, when it’s really just a **dumb enumerator** over the current state.
-
-
-## 3. Design Goals
-
-For a repository with many LFS objects, we want:
-
-1. **Predictable latency**
-   Operations that touch “all LFS files” should be rare and explicit; routine commands should be sub-second, even as the repo grows.
-
-2. **Incremental updates**
-   Avoid full scans of N files when only a handful are new or changed.
-
-3. **Subset operations by default**
-   Most tasks only need a **subset** (by path, tag, type, or commit range), not the full universe.
-
-4. **Separation of metadata from Git internals**
-   Use Git (and Git LFS) as the *transport and integrity layer*, not as a full-featured metadata store.
-
-## 4. Core Architectural Pattern: External LFS Metadata Index
-
-Instead of deriving everything on demand from `git lfs ls-files`, maintain a **separate index** of LFS metadata that is:
-
-* **Versioned** alongside the repo (e.g., tracked TSV/JSON),
-* **Derived incrementally** from Git/LFS events, and
-* **Fast to query** (path lookup, OID lookup, tags, etc.).
-
-### 4.1. Example: `META/lfs_index.tsv`
-
-A simple pattern:
-
-* Maintain a tracked file such as `META/lfs_index.tsv` with columns like:
-
-  ```text
-  path    oid_sha256                             size    tags    logical_id
-  data/a.bam  1a2b3c...                          12345   tumor   sample:XYZ
-  data/b.bam  4d5e6f...                          67890   normal  sample:ABC
-  ```
-
-* This TSV becomes your **primary, fast, queryable index**, *not* `git lfs ls-files`.
-
-Pros:
-
-* Constant-time query by path via grep / awk / Python / SQL.
-* Easy to join with other metadata tables (specimens, assays, etc.).
-* Can be regenerated in a controlled, explicit operation (like `make rebuild-index`).
-
-### 4.2. How to Keep It Up-to-Date
-
-You don’t want manual edits. Use **automation on “add” paths**:
-
-*   use a **pre-commit hook**:
-
-  * For newly staged LFS pointer files, update the index before commit.
-
-This shifts expensive work into the **write path** where it is amortized and expected, and keeps the **read path** (queries) fast.
-
-
-## 5. Avoiding `git lfs ls-files` in Common Operations
-
-### 5.1. Don’t use `ls-files` as your data plane
-
-Refactor any tools that currently:
+### Initial setup
 
 ```bash
-git lfs ls-files --json | jq ...
+# Clone without checking out any files
+git clone --no-checkout https://github.com/your-org/your-project.git
+cd your-project
+
+# Enable sparse checkout in cone mode (faster, path-based)
+git sparse-checkout init --cone
+
+# Check out only the cohorts or studies you need, plus any metadata
+git sparse-checkout set data/TCGA-BRCA data/TCGA-LUAD
 ```
 
-to instead read from your **external index** (TSV/JSON/SQLite). For example:
+After this, only LFS pointer files under `data/TCGA-BRCA/` and `data/TCGA-LUAD/` will be present in your working tree. Git LFS objects themselves are downloaded on demand.
+
+### Selectively pulling LFS objects
+
+After sparse checkout, pull only the LFS objects for your checked-out paths:
 
 ```bash
-# Old, slow:
-git lfs ls-files --json | jq '.[] | select(.name|test("VCF$"))'
-
-# New, fast:
-awk -F'\t' '$1 ~ /\.vcf$/ {print $0}' META/lfs_index.tsv
+# Pull LFS objects for the paths you've checked out
+git lfs pull --include "data/TCGA-BRCA/**"
+git lfs pull --include "data/TCGA-LUAD/**"
 ```
 
-or in Python:
+This avoids downloading LFS objects for the rest of the repository.
 
-```python
-import csv
-
-with open("META/lfs_index.tsv") as f:
-    for row in csv.DictReader(f, delimiter="\t"):
-        if row["path"].endswith(".vcf.gz"):
-            ...
-```
-
-### 5.2. Use `ls-files` only for rare “rebuild index” operations
-
-When you first introduce the index, you may need a **one-time or occasional** rebuild:
+### Adding more paths later
 
 ```bash
-git lfs ls-files --all --json > /tmp/lfs_files.json
-# transform into META/lfs_index.tsv
+git sparse-checkout add data/TCGA-KIRC
+git lfs pull --include "data/TCGA-KIRC/**"
 ```
 
-This can take minutes in huge repos—and that’s fine, *as long as it is rare* and documented as a heavy operation (like `npm install`, `docker build`, etc.).
+### Scoping LFS commands to your checkout
 
-
-## 6. Subset-First Design: Operate on Paths, Tags, or Commits
-
-If you must derive state from Git directly, design your commands to **start with a subset**, not the full repo.
-
-### 6.1. Path-based subsets
-
-For example, instead of:
+When working within a sparse checkout, scope LFS introspection to the paths you care about:
 
 ```bash
-# Scans entire repo
+# Fast: only examines files in your scoped paths
+git lfs ls-files --include "data/TCGA-BRCA/**" --json
+
+# Slow: scans all pointer files across the full repo history
 git lfs ls-files --json
 ```
 
-use:
+Structuring your data directory around project subtrees (`data/studyA/`, `data/studyB/`, etc.) makes all path-scoped operations faster and more predictable.
+
+### Restoring the full working tree
 
 ```bash
-# Only data under a project or cohort
+git sparse-checkout disable
+```
+
+---
+
+## What Works: Path-Scoped LFS Commands
+
+When you do need to use Git LFS commands directly, scope them to a specific path or study:
+
+```bash
+# Instead of scanning everything:
+git lfs ls-files --json
+
+# Scope to a specific study or cohort:
 git lfs ls-files --include "data/StudyX/**" --json
 ```
 
-and structure your tooling around the concept of **project subtrees** (`data/studyA/`, `data/studyB/`, etc.) so most operations are scoped.
+This keeps operations fast and predictable as the repository grows.
 
-### 6.2. Commit-range subsets
+---
 
-For incremental workflows (ETL, indexing, sync), use git to find changed files:
+## What Works: Incremental Updates
+
+To identify only the files that changed between two commits (useful for ETL pipelines and sync jobs):
 
 ```bash
-git diff --name-only <old-commit> <new-commit> \
-  | git check-attr --stdin filter \
-  | awk '$2 == "lfs"' # or similar
+git diff --name-only <old-commit> <new-commit>
 ```
 
-Then only examine LFS metadata for **changed files**, merging that into your external index.
+This avoids scanning the entire repository on every run. Use the resulting list to pull only the LFS objects that changed:
 
-
-## 7. Caching and Incremental Computation
-
-If you really want a “`git lfs ls-files --json`-like view,” you can implement your own **cached snapshot**:
-
-1. Keep a file like `.cache/lfs_snapshot.json` keyed by commit hash (`HEAD`).
-2. On invocation:
-
-   * If `HEAD` has not changed, just read the cache.
-   * If `HEAD` changed, compute the diff from the last snapshot and patch the cached JSON.
-
-This means you only pay full-scan costs **when the diff is large**, and usually pay a small, incremental cost.
-
-
-## 8. CI/CD Considerations
-
-In CI, naive patterns like:
-
-```yaml
-- run: git lfs ls-files --json | jq ...
+```bash
+# Pull LFS objects for each changed path prefix
+git diff --name-only <old-commit> <new-commit> | while read -r path; do
+    git lfs pull --include "$path"
+done
 ```
 
-will slow your builds significantly once the LFS population grows.
+---
 
-Better patterns:
+## Working on Network-Mounted Storage (NFS / HPC)
 
-* For **linting** or **validation**:
+If your project repository or working tree lives on a network-mounted drive (NFS, GPFS, Lustre, or similar shared storage common in HPC environments), you will experience significantly worse performance than on a local disk. This is because Git and Git LFS make many small metadata reads and writes that are fast on local SSDs but slow over a network filesystem.
 
-  * Operate on `META/*.tsv` and cross-check with a small sample of pointers.
-* For **publishing** or **sync** steps:
+### Recommended: Keep `.git` local, use NFS only for data
 
-  * Use `git diff` between the last deployed commit and current one to identify only the LFS files that changed.
-* For **health checks**:
+The best setup is to keep the Git internals on a local disk and use NFS only for your working data:
 
-  * Schedule a periodic “heavy” job (nightly or weekly) that runs `git lfs ls-files` to verify repo consistency, rather than doing it on every push.
+```bash
+# Clone to local scratch storage on your compute node
+git clone https://github.com/your-org/your-project.git /local/scratch/my-project
+cd /local/scratch/my-project
 
+# Enable sparse checkout—only pull the data you need
+git sparse-checkout init --cone
+git sparse-checkout set data/TCGA-BRCA
 
-## 9. Git + LFS as Transport, Not Primary Index
+# Pull LFS objects into a local LFS cache
+git lfs pull --include "data/TCGA-BRCA/**"
+```
 
-The underlying architectural theme:
+If you need results to persist on NFS, copy only the outputs:
 
-* **Git** is an excellent tool for content addressing, branching, merging, and history.
-* **Git LFS** is an excellent tool for large object transport and storage.
+```bash
+cp -r results/ /nfs/shared/project-results/
+```
 
-Neither is optimized as a **high-level metadata query system** for tens of thousands of objects.
+### If `.git` must live on NFS: redirect LFS storage locally
 
-So:
+You can configure Git LFS to store large object files on a local path even when `.git` itself is on NFS. This means binary files are cached locally while pointer blobs remain on NFS:
 
-* Let Git/LFS handle **integrity** and **distribution**.
-* Let a simple, explicit index (TSV/JSON/SQLite, or an external service like Indexd) handle **queries**, **tags**, and **relationships**.
+```bash
+# Create the local storage directory first
+mkdir -p /local/scratch/lfs-storage
 
-You can always **rebuild** your index from Git LFS if needed, but you shouldn’t be doing that implicitly on every command.
+# In .lfsconfig or via git config
+git config lfs.storage /local/scratch/lfs-storage
+```
 
+Or set it in `.lfsconfig` in the repo root:
 
-## 10. Practical Recommendations / Checklist
+```ini
+[lfs]
+    storage = /local/scratch/lfs-storage
+```
 
-When you notice `git lfs ls-files --json` taking minutes:
+Git objects (pointer blobs) may still be on NFS, but large binaries live locally—which is usually where the bulk of the I/O cost is.
 
-1. **Audit your tools**
-    * Search for any use of `git lfs ls-files` in scripts, CI configs, and CLIs.
-    * Replace them with operations over an **external index**.
+### Scope commands aggressively on NFS
 
-2. **Introduce a canonical LFS index**
-    * Add `META/lfs_index.tsv` (or similar) to the repo.
-    * Define columns: `path`, `oid_sha256`, `size`, `tags`, `logical_id`, etc.
-    * Commit it and treat it as the primary query surface.
+On NFS, treat `git lfs ls-files` as a slow indexer and avoid running it over the full repository:
 
-3. **Automate index maintenance**
-    * Add a wrapper command or pre-commit hook that updates the index on `git add`.
-    * Provide a “heavy” `rebuild-lfs-index` command that users run explicitly when necessary.
+```bash
+# Avoid this on NFS—scans every pointer file
+git lfs ls-files --json
 
-4. **Scope operations by default**
-    * Design new commands to accept `--path`, `--tag`, `--study`, or `--since <commit>` flags.
-    * Document that global “scan everything” commands are expensive and should be infrequent.
+# Prefer scoped commands
+git lfs ls-files --include "data/TCGA-BRCA/**"
+git lfs ls-files --include "data/TCGA-BRCA/**" --json
+```
 
-5. **Use CI wisely**
-    * Only operate on changed LFS files between commits.
-    * Reserve full LFS integrity checks for scheduled jobs, not every PR.
+### Tune NFS mount options (if you control them)
 
+If you have access to NFS mount options, these settings can reduce latency for Git workloads. Discuss with your storage or infrastructure team:
 
+- **`noatime`** — avoids extra write operations when reading files (Git reads many files)
+- **`rsize`/`wsize`** — increase to allow larger I/O chunks (e.g., `rsize=1048576,wsize=1048576`)
+- **`actimeo`** — for a mostly read-only `.git` directory, you can often afford more aggressive attribute caching without breaking consistency
+
+### Use a local mirror for automation
+
+For CI jobs or automated pipelines that run on shared NFS storage:
+
+1. Clone the repository to ephemeral local storage at the start of the job.
+2. Run all Git and LFS operations locally.
+3. Write only the results back to NFS.
+
+```bash
+# At the start of a CI/automation job
+git clone https://github.com/your-org/your-project.git /tmp/job-workspace
+cd /tmp/job-workspace
+git sparse-checkout init --cone
+git sparse-checkout set data/TCGA-BRCA
+git lfs pull --include "data/TCGA-BRCA/**"
+
+# ... do your analysis ...
+
+# Write results back to NFS
+cp -r results/ /nfs/shared/outputs/
+```
+
+---
+
+## What Doesn't Work at Scale
+
+| Pattern | Why it's slow | What to do instead |
+|---|---|---|
+| `git lfs ls-files --json` on the full repo | Scans every LFS pointer | Use `--include` to scope by path |
+| Running LFS validation on every CI push | Reads the full LFS object list each time | Diff between commits; run full checks on a schedule |
+| Downloading all LFS objects at clone time | Pulls every large file regardless of need | Use sparse checkout + `git lfs pull` for specific paths |
+| Running Git commands on NFS without scoping | NFS amplifies metadata I/O cost | Clone to local scratch; use sparse checkout; scope all commands |
+
+---
+
+## CI/CD Recommendations
+
+- **Lint/validate**: Spot-check a small sample of LFS pointers scoped to recently changed paths.
+- **Publish/sync steps**: Use `git diff` between the last deployed commit and the current one to identify only changed LFS files.
+- **Full integrity checks**: Schedule as a periodic job (nightly or weekly) rather than running on every push.

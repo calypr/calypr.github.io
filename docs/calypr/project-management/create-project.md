@@ -3,7 +3,7 @@
 # Create a Project (gen3 \+ GitHub)
 
 !!! info "Private Beta"
-    Project creation is currently is a admin operation and not avalible to users. You will need to request 
+    Project creation is currently an admin operation and not available to users. You will need to request 
     a new project to be created for you.
 
 The standard way to start a new Calypr project is to create a Git repository that will hold your FHIR NDJSON files and a set of Git‑LFS tracked files.
