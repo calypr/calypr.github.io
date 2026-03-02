@@ -6,7 +6,7 @@ title: Data Client
 
 The `data-client` is the modern CALYPR client library and CLI tool. It serves two primary purposes:
 1.  **Data Interaction**: A unified interface for uploading, downloading, and managing data in Gen3 Data Commons.
-2.  **Permissions Management**: It handles user access and project collaboration, replacing older tools like `calypr_admin`.
+2.  **Permissions Management**: It handles user access and project collaboration.
 
 ## Architecture
 

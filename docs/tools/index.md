@@ -1,4 +1,4 @@
-# CALYPR Tools Ecosystem
+# CALYPR Tool Ecosystem
 
 The CALYPR platform provides a suite of powerful, open-source tools designed to handle every stage of the genomic data lifecycle—from ingestion and versioning to distributed analysis and graph-based discovery.
 
@@ -16,17 +16,17 @@ Funnel is a distributed task execution engine that implements the GA4GH Task Exe
 **The Discovery Layer.**  
 GRIP (Graph Resource Integration Platform) is a high-performance graph database and query engine designed for complex biological data. It enables analysts to integrate heterogeneous datasets into a unified knowledge graph and perform sophisticated queries that reveal deep relational insights across multi-omic cohorts.
 
+### [Forge](forge/index.md)
+**Project formatting**
+Forge scans a data repository to build an integrated FHIR based graph of samples and all the files connected to the project. It is responsible for schema checking and database loading. You can use it client side to verify and debug your project and on the server side, it is used to load databases.
 
----
+### [Data Client](data-client/index.md)
+A client command line interface for interfacing with the Calypr system.
 
-## Choosing the Right Tool
+### [Sifter](sifter/index.md)
+**Data Transformation**
+Sifter is a tool for rapid data extraction and transformation. 
 
-| If you want to... | Use this tool |
-| --- | --- |
-| Version and share large genomic files | **Git-DRS** |
-| Run batch analysis or Nextflow pipelines | **Funnel** |
-| Query complex relationships between datasets | **GRIP** |
-| Access Gen3 data from the command line | **Data Client** |
 
 ---
 
