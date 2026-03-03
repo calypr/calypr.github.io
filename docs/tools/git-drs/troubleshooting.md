@@ -45,7 +45,7 @@ git drs remote add gen3 production \
 2. Refresh credentials:
    ```bash
    git drs remote add gen3 production \
-       --cred /path/to/credentials.json \
+       --cred ~/.gen3/credentials.json \
        --url https://calypr-public.ohsu.edu \
        --project my-project \
        --bucket my-bucket
@@ -117,7 +117,7 @@ git drs init
 
 # Add remote configuration
 git drs remote add gen3 production \
-    --cred /path/to/credentials.json \
+    --cred ~/.gen3/credentials.json \
     --url https://calypr-public.ohsu.edu \
     --project my-project \
     --bucket my-bucket
@@ -159,7 +159,7 @@ git drs init
 
 # Add Gen3 remote
 git drs remote add gen3 production \
-    --cred /path/to/credentials.json \
+    --cred ~/.gen3/credentials.json \
     --url https://calypr-public.ohsu.edu \
     --project my-project \
     --bucket my-bucket
@@ -197,7 +197,7 @@ git drs remote add gen3 production \
 ```bash
 # Add your first remote (automatically becomes default)
 git drs remote add gen3 production \
-    --cred /path/to/credentials.json \
+    --cred ~/.gen3/credentials.json \
     --url https://calypr-public.ohsu.edu \
     --project my-project \
     --bucket my-bucket
@@ -218,7 +218,7 @@ git drs remote set staging
 
 # Or add a new remote
 git drs remote add gen3 production \
-    --cred /path/to/credentials.json \
+    --cred ~/.gen3/credentials.json \
     --url https://calypr-public.ohsu.edu \
     --project my-project \
     --bucket my-bucket

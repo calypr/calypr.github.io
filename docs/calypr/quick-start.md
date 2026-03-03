@@ -54,7 +54,7 @@ API credentials expire after 30 days, so you'll need to download fresh credentia
 **Git-DRS** is CALYPR's data file management tool. It extends Git LFS to version and track large genomic files while automatically registering them with the DRS (Data Repository Service).
 
 Git-DRS lets you:
-- Version large data files (BAM, FASTQ, VCF, etc.) like you version code
+- Version large data files (BAM, FASTQ, VCF, etc.)
 - Track file lineage and share data with collaborators
 - Automatically register files with DRS for global discovery
 

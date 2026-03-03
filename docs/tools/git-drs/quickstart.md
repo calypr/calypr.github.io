@@ -78,8 +78,6 @@ source ~/.bash_profile
 
 To use Git DRS, you need to configure it with API credentials downloaded from the [Profile page](https://calypr-public.ohsu.edu/Profile).
 
-![Gen3 Profile page](../../images/profile.png)
-
 1. Log into the Gen3 data commons at [https://calypr-public.ohsu.edu/](https://calypr-public.ohsu.edu/)
 2. Navigate to your Profile page
 3. Click "Create API Key"
@@ -95,22 +93,15 @@ To use Git DRS, you need to configure it with API credentials downloaded from th
 !!! warning "Credential Expiration"
     API credentials expire after 30 days. You'll need to download new credentials and refresh your Git DRS configuration regularly.
 
-## New Repository Setup
 
-If you're creating a new project or setting up a repository for the first time:
+## Repository setup
 
-### 1. Clone or Create Repository
+[Clone an Existing Repository](#clone-an-existing-repository) or [Create a New Repository](#create-a-new-repository)
 
+## Create a new repository:
 ```bash
-git clone https://github.com/your-org/your-data-repo.git
+mkdir your-data-repo
 cd your-data-repo
-```
-
-Or create a new repository:
-
-```bash
-mkdir MyNewCalyprProject
-cd MyNewCalyprProject
 git init
 ```
 
@@ -134,7 +125,7 @@ Contact your data coordinator at `support@calypr.org` for:
 
 ```bash
 git drs remote add gen3 production \
-    --cred /path/to/credentials.json \
+    --cred ~/.gen3/credentials.json \
     --url https://calypr-public.ohsu.edu \
     --project my-project \
     --bucket my-bucket
@@ -232,13 +223,32 @@ Refer to the [Git LFS pull documentation](https://github.com/git-lfs/git-lfs/blo
 
 ### Check Status and Tracked Files
 
-To see which files are tracked and their status, rely on Git LFS tooling:
+To see all files that are tracked in your repository as well as their status use the Git LFS tooling:
 
 ```bash
 git lfs ls-files
 ```
 
 The [Git LFS ls-files documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-ls-files.adoc) explains the available flags and output format.
+
+example output: 
+
+```
+4344054835 - WCDT-MCRPC/rna-seq/fdd8fe6d-584d-4d1c-acce-d592f3472e06.rna_seq.augmented_star_gene_counts.tsv
+```
+and when --json flag is specified: 
+
+```
+{
+  "name": "WCDT-MCRPC/rna-seq/fdd8fe6d-584d-4d1c-acce-d592f3472e06.rna_seq.augmented_star_gene_counts.tsv",
+  "size": 4216144,
+  "checkout": false,
+  "downloaded": false,
+  "oid_type": "sha256",
+  "oid": "43440548350b2994b0e100433dd0180be85f684f4729564616f2e0813ea0a7f3",
+  "version": "https://git-lfs.github.com/spec/v1"
+}
+```
 
 ## Clone an Existing Repository
 
@@ -276,7 +286,7 @@ Set up the DRS server connection. Your team or project documentation should prov
 
 ```bash
 git drs remote add gen3 production \
-    --cred /path/to/credentials.json \
+    --cred ~/.gen3/credentials.json \
     --url https://calypr-public.ohsu.edu \
     --project my-project \
     --bucket my-bucket
@@ -309,6 +319,15 @@ git lfs ls-files
 
 A `*` next to a file indicates its content is present locally. A `-` means only the pointer is checked out.
 
+Files that have been properly added, tracked, committed and pushed will be uploaded to github as LFS pointer files in the format:
+
+```
+version https://git-lfs.github.com/spec/v1
+oid sha256:4cac19622fc3ada9c0fdeadb33f88f367b541f38b89102a3f1261ac81fd5bcb5
+size 84977953
+```
+
+
 ### Quick Reference
 
 ```bash
@@ -317,7 +336,7 @@ git clone https://github.com/your-org/your-data-repo.git
 cd your-data-repo
 git drs init
 git drs remote add gen3 production \
-    --cred /path/to/credentials.json \
+    --cred ~/.gen3/credentials.json \
     --url https://calypr-public.ohsu.edu \
     --project my-project \
     --bucket my-bucket
