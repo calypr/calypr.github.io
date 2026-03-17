@@ -1,0 +1,6 @@
+title: Data Client
+nav:
+  - Welcome: index.md
+  - Authentication: authentication.md
+  - Data Management: data_management.md
+  - Access Requests: access_requests.md

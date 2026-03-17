@@ -1,0 +1,9 @@
+title: Git-DRS
+nav:
+  - Overview: index.md
+  - Installation: installation.md
+  - Quick Start: quickstart.md
+  - Getting Started: getting-started.md
+  - Commands: commands.md
+#  - Developer Guide: developer-guide.md
+  - Troubleshooting: troubleshooting.md
