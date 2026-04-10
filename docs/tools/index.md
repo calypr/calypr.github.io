@@ -30,5 +30,54 @@ Sifter is a tool for rapid data extraction and transformation.
 
 ---
 
+## Quickstart: Common Workflows
+
+This section covers the three most common tasks. Choose your path based on your workflow:
+
+### 1. Create a Project
+
+Project creation is currently admin-mediated. Contact your data coordinator at `support@calypr.org` to request a new project. You'll receive:
+
+* GitHub repository URL
+* Calypr project ID  
+* DRS server credentials
+
+### 2. Upload & Download Data
+
+**Use Git-DRS** for version-controlled data workflows (recommended for research teams):
+
+* Track files with Git LFS — files are registered with DRS automatically on push
+* Full version history alongside your data
+* Collaborate via standard Git workflows
+
+[See Git-DRS Quickstart](git-drs/quickstart.md)
+
+**Use Data Client** for direct file transfers without Git:
+
+* Simple upload/download of individual files
+* Useful for bulk transfers or non-versioned data
+* Programmatic access via CLI
+
+[See Data Client Data Management](data-client/data_management.md)
+
+### 3. Manage Collaborators
+
+Add or remove team members from your project:
+
+```sh
+# Add a collaborator with read access
+data-client collaborator add [project_id] colleague@example.com
+
+# Add a collaborator with write access
+data-client collaborator add [project_id] colleague@example.com --write
+
+# Remove a collaborator
+data-client collaborator remove [project_id] colleague@example.com
+```
+
+See [Add Users](../calypr/project-management/calypr-admin/add-users.md) for detailed documentation.
+
+---
+
 !!! tip "Getting Started"
     If you are new to the platform, we recommend starting with the [Quick Start Guide](../calypr/quick-start.md) to install the necessary binaries and set up your first workspace.

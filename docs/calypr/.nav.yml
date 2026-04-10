@@ -2,6 +2,7 @@ title: Calypr
 nav:
   - index.md
   - Quick Start Guide: quick-start.md
+  - Quickstart: quickstart/
   - Data: data/
   - Project Management: project-management/
   - Analysis: analysis/

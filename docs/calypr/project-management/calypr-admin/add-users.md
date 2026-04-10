@@ -23,3 +23,11 @@ data-client collaborator add [project_id] user-read-only@example.com
 
 ## 2.  Approvals
 In order to implement these requests, **an authorized user will need to sign** the request before the user can use the remote repository. See `data-client collaborator approve --help`
+
+## 3. Remove a Collaborator
+
+To remove a user from a project:
+
+```sh
+data-client collaborator remove [project_id] user@example.com
+```

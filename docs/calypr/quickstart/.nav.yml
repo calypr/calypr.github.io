@@ -1,0 +1,7 @@
+title: Quickstart
+
+nav:
+  - index.md
+  - Create a Project: create-project.md
+  - Upload & Download Files: upload-download.md
+  - Manage Collaborators: collaborators.md
