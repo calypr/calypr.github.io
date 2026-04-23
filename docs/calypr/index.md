@@ -2,6 +2,10 @@
 
 Welcome to the **CALYPR Platform**. CALYPR is a next-generation genomic data science ecosystem designed to bridge the gap between massive, centralized data commons and the agile, distributed workflows of modern researchers.
 
+!!! info "Private Beta"
+    CALYPR platform is currently in a private beta phase. We are actively working with a select group of research partners to refine the platform. If you encounter any issues or have feature requests, please reach out to the team. The individual [tools](../tools/index.md) are available for public use.
+
+---
 
 ## The CALYPR Philosophy
 
@@ -28,11 +32,6 @@ CALYPR acts as the "connective tissue" between your research environment and the
 *   **Metadata Orchestration ([Forge](../tools/forge/index.md)):** Streamlines the validation, publishing, and harmonizing of genomic metadata.
 *   **Compute ([Funnel](../tools/funnel/index.md)):** Executes complex pipelines across distributed environments using standardized task definitions.
 *   **Graph Insights ([GRIP](../tools/grip/index.md)):** Enables high-performance queries across heterogeneous datasets once integrated.
-
----
-
-!!! info "Private Beta"
-    CALYPR platform is currently in a private beta phase. We are actively working with a select group of research partners to refine the platform. If you encounter any issues or have feature requests, please reach out to the team. The individual [tools](../tools/index.md) are available for public use.
 
 ---
 

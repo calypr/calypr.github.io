@@ -1,39 +1,59 @@
 
 # Integrating your data
 
-Converting tabular data (CSV, TSV, spreadsheet, database table) into FHIR (Fast Healthcare Interoperability Resources) involves several steps to map the data in the spreadsheet to FHIR's resource structure. Here is what you need to know to get started:
+Converting tabular data (CSV, TSV, spreadsheet, database table) into FHIR (Fast Healthcare Interoperability Resources) involves mapping your data to FHIR's resource structure. This guide walks you through the integration process from data preparation to validation.
 
-As you create a upload files, you can tag them with identifiers which by default will create minimal, skeleton graph.
+## Overview
 
-You can retrieve that data using the [git-drs](../../tools/git-drs/index.md) command line tool, and update the metadata using [forge](../../tools/forge/index.md) to create a more complete graph representing your study.
+When you create and upload files, you can tag them with identifiers to establish an initial skeleton graph. You can then retrieve that data using the [git-drs](../../tools/git-drs/index.md) command line tool and enhance the metadata using [forge](../../tools/forge/index.md) to create a more complete graph representing your study.
 
-You may choose to work with the data in its "native" JSON format, or convert it to a tabular format for integration. The system will re-convert tabular data back to JSON for submittal.
+You may work with data in its "native" JSON format or convert it to a tabular format for integration. The system automatically re-converts tabular data back to JSON for submission.
 
-The process of integrating your data into the graph involves several steps:
+## Integration process
 
-* Step 1: Identify Data and FHIR Resources
-    * Inventory tabular data: Review the spreadsheet to understand the types of data it contains (e.g., patient demographics, lab results, medications).
-    * Understand FHIR Resources: Familiarize yourself with FHIR resources relevant to the data in your spreadsheet (e.g., Patient, Observation, Specimen, etc.).
+The process of integrating your data into the graph involves six key steps:
 
-* Step 2: Mapping Spreadsheet Columns to FHIR Fields
-    * Analyze Columns: Map each column in the spreadsheet to corresponding fields in FHIR resources. For instance, you may have a field called biopsy_anatomical_location with content of "Prostate needle biopsies", that would map to Specimen.collection.method and Specimen.collection.bodySite.
-    * Handle Relationships: Identify how different pieces of data relate to each other and how they map to FHIR resource relationships (e.g., linking patients to their observations).
+### Step 1: Identify Data and FHIR Resources
+
+Before mapping, understand what data you have and which FHIR resources it should map to.
+
+* **Inventory your tabular data**: Review your spreadsheet to understand the types of data it contains (e.g., patient demographics, lab results, medications, specimen information).
+* **Understand relevant FHIR resources**: Familiarize yourself with FHIR resources that match your data types (e.g., [Patient](https://hl7.org/fhir/patient.html), [Observation](https://hl7.org/fhir/observation.html), [Specimen](https://hl7.org/fhir/specimen.html), [DocumentReference](https://hl7.org/fhir/documentreference.html)).
+
+### Step 2: Map Spreadsheet Columns to FHIR Fields
+
+Create a mapping between your data columns and FHIR resource fields.
+
+* **Analyze your columns**: Systematically map each column to corresponding FHIR resource fields. For example, if you have a `biopsy_anatomical_location` field with values like "Prostate needle biopsies", map it to the appropriate FHIR Specimen fields such as `collection.method` and `collection.bodySite`.
+* **Handle relationships**: Identify how different data pieces relate to each other and map them to FHIR resource references (e.g., linking Patient resources to their Observation resources).
  
-* Step 3: Data Transformation and Structure
-    * Prepare Data: Ensure data consistency and format alignment. Dates, codes, and identifiers should comply with FHIR standards.
-    * Normalize Data: Split the spreadsheet data into FHIR-compliant resources.
+### Step 3: Transform and Structure Your Data
 
-* Step 4: Utilize provided FHIR Tooling or Libraries
-    * FHIR Tooling: Use `forge meta` and associated libraries to support data conversion and validation.
-    * Validation: Use `forge validate` to validate the transformed data against FHIR specifications to ensure compliance and accuracy.
+Prepare your data to comply with FHIR standards.
 
-* Step 5: Import into FHIR-Compatible System
-    * Load Data: Use `git commit` and `git push` to manage your local data state.
-    * Testing and Verification: Ensure your data appears correctly in the portal and analysis tools after a successful push.
+* **Ensure consistency**: Validate data formats, especially dates (ISO 8601 format), codes (use appropriate code systems), and identifiers. Remove duplicates and address missing values.
+* **Normalize into resources**: Split your spreadsheet data into separate FHIR resources. For example, separate patient demographics into Patient resources and test results into Observation resources.
 
-* Step 6: Iterate and Refine
-    * Review and Refine: Check for any discrepancies or issues during the import process. Refine the conversion process as needed.
-    * Feedback Loop: Gather feedback from users or stakeholders to improve the mapping and conversion process.
+### Step 4: Use FHIR Tooling and Validation
+
+Leverage provided tools to convert and validate your data.
+
+* **Convert your data**: Use `forge meta` to transform your data into FHIR-compliant JSON format.
+* **Validate compliance**: Use `forge validate` to check that your transformed data conforms to FHIR specifications. This catches errors before submission and ensures your data is valid.
+
+### Step 5: Commit and Deploy Your Data
+
+Submit your validated data to the system.
+
+* **Version and commit**: Use `git commit` to track your changes with descriptive messages.
+* **Deploy**: Use `git push` to submit your data. Verify that your data appears correctly in the portal and analysis tools after deployment.
+
+### Step 6: Iterate and Improve
+
+Refine your data based on feedback and validation results.
+
+* **Review and validate**: Check for discrepancies or issues in how your data appears in the system. Review user feedback.
+* **Refine mappings**: Make adjustments to your data transformations and FHIR mappings as needed to improve accuracy and completeness.
 
 
 ## Ontologies
@@ -72,19 +92,22 @@ The mapping process typically involves several steps:
 
 ## Identifiers
 
-Identifiers in FHIR references typically include the following components: [see more](https://hl7.org/fhir/datatypes.html#Identifier)
+[Identifiers in FHIR](https://hl7.org/fhir/datatypes.html#Identifier) are strings (typically numeric or alphanumeric) that uniquely identify an object or entity within a system. They are essential for connecting resources within FHIR to external systems and maintaining data integrity across platforms.
 
-> A string, typically numeric or alphanumeric, that is associated with a single object or entity within a given system. Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
+Identifiers have two key components:
 
-System: Indicates the system or namespace to which the identifier belongs. By default the namespace is `http://calypr-public.ohsu.edu/<project-id>`.
+* **System**: The namespace or system to which the identifier belongs. The default namespace is `http://calypr-public.ohsu.edu/<project-id>`. This ensures your identifiers don't conflict with identifiers from other systems.
+* **Value**: The actual identifier string (e.g., a subject ID like "SUBJ-001" or a specimen ID like "SPEC-12345").
 
-Value: The actual value of the identifier within the specified system. For instance, a lab controlled subject identifier or a specimen identifier.
+**Example**: A patient identifier might be represented as:
+- System: `http://calypr-public.ohsu.edu/study-123`
+- Value: `PAT-00542`
 
 
 
 ## References
 
-By using identifiers in references, FHIR ensures that data can be accurately linked, retrieved, and interpreted across different systems and contexts within the healthcare domain, promoting interoperability and consistency in data exchange. [see more](https://hl7.org/fhir/references.html)
+By using [identifiers in references](https://hl7.org/fhir/references.html), FHIR ensures that data can be accurately linked, retrieved, and interpreted across different systems and contexts within the healthcare domain, promoting interoperability and consistency in data exchange.
 
 > Many of the defined elements in a resource are references to other resources. Using these references, the resources combine to build a web of information about healthcare.
 
@@ -92,21 +115,25 @@ By using identifiers in references, FHIR ensures that data can be accurately lin
 ## Key resources
 
 ### ResearchStudy
-> A scientific study of nature that sometimes includes processes involved in health and disease. [see more](https://hl7.org/fhir/researchstudy.html)
+A [scientific study](https://hl7.org/fhir/researchstudy.html) of nature that sometimes includes processes involved in health and disease.
 
 ### ResearchSubject
-> A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study. [see more](https://hl7.org/fhir/researchsubject.html)
+A [ResearchSubject](https://hl7.org/fhir/researchsubject.html) is a participant or object which is the recipient of investigative activities in a research study.
 
 
 ### Patient 
-> Demographics and other administrative information about an individual or animal receiving care or other health-related services. [see more](https://hl7.org/fhir/patient.html)
+A [Patient](https://hl7.org/fhir/patient.html) connects to Demographics and other administrative information about an individual or animal receiving care or other health-related services.
 
 ### Specimen
 
-> A sample to be used for analysis. [see more](https://hl7.org/fhir/specimen.html)
+A [Specimen](https://hl7.org/fhir/specimen.html) represents a sample collected during a healthcare event and used for analysis or testing. It includes information about the sample type, collection method, and processing.
 
 ### DocumentReference
-> A reference to a document of any kind for any purpose. [see more](https://hl7.org/fhir/documentreference.html)
+A [DocumentReference](https://hl7.org/fhir/documentreference.html) is a reference to a document of any kind for any purpose.
 
 
-See the [data management section](managing-metadata.md) for more information on how to create and upload metadata.
+## Next steps
+
+With your data integrated into FHIR format, you can now manage and enhance your metadata. See the [data management section](managing-metadata.md) for detailed guidance on creating, updating, and maintaining your metadata.
+
+For more information on ontologies and how SNOMED CT codes enhance your data, see the [Ontologies](#ontologies) section above.

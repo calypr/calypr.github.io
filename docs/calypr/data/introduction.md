@@ -5,7 +5,7 @@ Given all of the intricacies healthcare and experimental data, we use Fast Healt
 
 ## What is FHIR?
 
-> In a Gen3 data commons, a semantic distinction is made between two types of data: "data files" and "metadata". [more](https://gen3.org/resources/user/dictionary/#understanding-data-representation-in-gen3)
+In a Gen3 data commons, a semantic distinction is made between two types of data: ["data files" and "metadata"](https://gen3.org/resources/user/dictionary/#understanding-data-representation-in-gen3)
 
 A "data file" could be information like tabulated data values in a spreadsheet or a fastq/bam file containing DNA sequences. The contents of the file are not exposed to the API as queryable properties, so the file must be downloaded to view its content.
 

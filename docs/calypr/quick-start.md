@@ -2,6 +2,11 @@
 title: Quick Start Guide
 ---
 
+!!! info "Private Beta"
+    CALYPR platform is currently in a private beta phase. We are actively working with a select group of research partners to refine the platform. If you encounter any issues or have feature requests, please reach out to the team. The individual [tools](../tools/index.md) are available for public use.
+
+---
+
 # CALYPR Quick Start Guide
 
 Welcome to CALYPR! This guide will walk you through the essential workflow for managing and analyzing genomic data on the CALYPR platform.
