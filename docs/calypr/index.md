@@ -28,10 +28,10 @@ Whether you are working with a few genomes or petabyte-scale cohorts, CALYPR's a
 CALYPR acts as the "connective tissue" between your research environment and the cloud:
 
 *   **Data Commons ([Gen3](https://gen3.org)):** Provides the robust backend for metadata management, indexing, and authentication.
-*   **Version Control ([Git-DRS](../tools/git-drs/index.md)):** Manages the check-in and check-out operations for large files, allowing you to treat remote DRS objects as local files.
-*   **Metadata Orchestration ([Forge](../tools/forge/index.md)):** Streamlines the validation, publishing, and harmonizing of genomic metadata.
-*   **Compute ([Funnel](../tools/funnel/index.md)):** Executes complex pipelines across distributed environments using standardized task definitions.
-*   **Graph Insights ([GRIP](../tools/grip/index.md)):** Enables high-performance queries across heterogeneous datasets once integrated.
+*   **Version Control ([Git-DRS](../tools/git-drs/docs/index.md)):** Manages the check-in and check-out operations for large files, allowing you to treat remote DRS objects as local files.
+*   **Metadata Orchestration ([Forge](../tools/forge/docs/index.md)):** Streamlines the validation, publishing, and harmonizing of genomic metadata.
+*   **Compute ([Funnel](../tools/funnel/docs/index.md)):** Executes complex pipelines across distributed environments using standardized task definitions.
+*   **Graph Insights ([GRIP](../tools/grip/docs/index.md)):** Enables high-performance queries across heterogeneous datasets once integrated.
 
 ---
 
