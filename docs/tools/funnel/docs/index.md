@@ -2,9 +2,9 @@
 title: Funnel
 ---
 
-## Funnel Tool Documentation
+## Funnel
 
-The Funnel tool is designed to streamline data processing workflows, enabling efficient data transformation and analysis. Key features include:
+Funnel is designed to streamline data processing workflows, enabling efficient data transformation and analysis. Key features include:
 
 - **S3 Integration**: Seamlessly add and manage files from Amazon S3.
 - **Data Transformation**: Predefined pipelines for common data processing tasks.
@@ -17,16 +17,9 @@ A task describes metadata, state, input/output files, resource requests, command
 
 The task API has four actions: create, get, list, and cancel.
 
-Funnel serves both HTTP/JSON and gRPC/Protobuf.
-
 ##Standards based
 
-The Task API is developed via an open standard effort.
-
-## Workers
-Given a task, Funnel will queue it, schedule it to a worker, and track its state and logs.
-
-A worker will download input files, run a sequence of Docker containers, upload output files, and emits events and logs along the way.
+The Task API is developed via an open standard effort. The TES API was developed as part of the Global Alliance for Genomics and Health (GA4GH).
 
 ## Cross platform
 We use Funnel on AWS, Google Cloud, OpenStack, and the good ol' university HPC cluster.
@@ -143,7 +136,7 @@ $ funnel task get b8581farl6qjjnvdhqn0
 
 ---
 
-List the tasks
+# List the tasks
 
 <!-- termynal -->
 ```
