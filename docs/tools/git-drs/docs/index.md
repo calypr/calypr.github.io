@@ -4,66 +4,68 @@ title: Git-DRS
 
 # Git-DRS
 
-Git-DRS is a Git extension for managing large files in a Gen3 Data Commons using the **Data Repository Service (DRS)** content-addressable storage model. It essentially serves as a Git-LFS (Large File Storage) replacement tailored for Gen3.
+Git-DRS is a Git extension for managing large files using the **Data Repository Service (DRS)** content-addressable storage model.
+It serves as a Git LFS (Large File Storage) replacement tailored for the GA4GH Data Repository Service specification.
 
 It allows you to:
-- Track large files in your git repository without bloating it.
+
+- Track large files in your Git repository without bloating it.
 - Store the actual file contents in a Gen3 data commons (indexed via DRS).
 - Seamlessly synchronize files between your local environment and the commons.
 
 ## Installation
 
-Ensure `git-drs` is installed and in your PATH.
+Ensure `git-drs` is installed and available in your `PATH`.
 
 ## Initialization
 
-Initialize a repository to use Git-DRS. This sets up the necessary hooks and configuration.
+Initialize a repository to use Git-DRS. This command sets up the necessary hooks and configuration.
 
 ```bash
-git-drs init
+git drs init
 ```
 
 ## Basic Workflow
 
 1.  **Add a file**: Track a large file with Git-DRS.
     ```bash
-    git-drs add <filename>
+    git drs add <filename>
     ```
-    This replaces the large file with a small pointer file in your working directory.
+    This replaces the large file with a small pointer file in your working tree.
 
-2.  **Push**: Upload the tracked files to the Gen3 Commons.
+2.  **Push**: Upload the tracked files to the DRS server.
     ```bash
-    git-drs push
+    git drs push
     ```
 
-3.  **Fetch**: Download file contents (resolving pointer files) from the Commons.
+3.  **Fetch**: Download file contents (resolving pointer files) from the DRS server.
     ```bash
-    git-drs fetch
+    git drs fetch
     ```
 
 ## Command Reference
 
 ### `init`
-Initializes `git-drs` in the current git repository. Recommended to run at the root of the repo.
+Initialize `git-drs` in the current Git repository. Run this at the repository root.
 
 ### `add <file>`
-Tracks a file using Git-DRS. The file content is moved to a local cache, and replaced with a pointer file containing its hash and size.
+Track a file using Git-DRS. The file contents are moved to a local cache and replaced with a pointer file containing its hash and size.
 
 ### `push`
-Uploads the contents of tracked files to the configured Gen3 Commons. This usually happens automatically during `git push` if hooks are configured, but can be run manually.
+Upload tracked file contents to the configured DRS server. This usually happens automatically during `git push` if hooks are configured, but you can run it manually.
 
 ### `fetch`
-Downloads the contents of tracked files from the Gen3 Commons, replacing the local pointer files with the actual data.
+Download tracked file contents from the DRS server, replacing local pointer files with the actual data.
 
 ### `list`
-Lists the files currently tracked by Git-DRS in the project.
+List files currently tracked by Git-DRS in the project.
 
 ### `remote`
-Manage remote DRS server configurations.
+Manage remote DRS server configurations:
 
 ```bash
-git-drs remote add <name> <url>
-git-drs remote list
-git-drs remote set <name>
-git-drs remote remove <name>
+git drs remote add <name> <url>
+git drs remote list
+git drs remote set <name>
+git drs remote remove <name>
 ```
