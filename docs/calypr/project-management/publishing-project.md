@@ -1,4 +1,4 @@
-## 4.6: Publishing changes to Gen3
+## Publishing changes
 
 In order to publish metadata to CALYPR, regardless of whether you have provided your own metadata or you are simply uploading files to the system, you will need to publish your data. Publishing data is done with the **Forge** command line utility.
 
