@@ -26,9 +26,9 @@ Visit the [Quick Start Guide](../quick-start.md) for detailed, OS-specific insta
 | :--- | :--- |
 | **git-drs** | Manages large file tracking, storage, and DRS indexing. |
 | **forge** | Handles metadata validation, transformation (ETL), and publishing. |
-| **data-client** | Administrative tool for managing [collaborators and access requests](../../tools/data-client/access_requests.md). |
+| **data-client** | Administrative tool for managing [collaborators and access requests](../../tools/data-client/docs/access_requests.md). |
 {: .caption }
 
 ## Git DRS Workflows
 
-For complete Git DRS documentation including project initialization, file management, and upload workflows, see the [Git DRS Quick Start](../../tools/git-drs/quickstart.md).
+For complete Git DRS documentation including project initialization, file management, and upload workflows, see the [Git DRS Quick Start](../../tools/git-drs/docs/quickstart.md).

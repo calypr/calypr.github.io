@@ -82,11 +82,11 @@ To use Git DRS, you need to configure it with API credentials downloaded from th
 2. Navigate to your Profile page
 3. Click "Create API Key"
 
-![Gen3 API Key](../../images/api-key.png)
+![Gen3 API Key](../../../images/api-key.png)
 
 4. Download the JSON credentials file
 
-![Gen3 Credentials](../../images/credentials.png)
+![Gen3 Credentials](../../../images/credentials.png)
 
 5. Save it in a secure location (e.g., `~/.gen3/credentials.json`)
 
