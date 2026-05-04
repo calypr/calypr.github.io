@@ -1,9 +1,5 @@
 ---
 title: server
-menu:
-  main:
-    parent: commands
-    weight: 1
 ---
 
 # `server`
@@ -17,6 +13,7 @@ By default the GRIP server operates on 2 ports, `8201` is the HTTP based interfa
 
 ## CLI Usage
 The `server` command can take several flags for configuration:
+
 - `--config` or `-c` - Specifies a YAML config file with server settings. This overwrites all other settings. Defaults to "" (empty string).
 - `--http-port` - Sets the port used by the HTTP interface. Defaults to "8201".
 - `--rpc-port` - Sets the port used by the GRPC interface. Defaults to "8202".

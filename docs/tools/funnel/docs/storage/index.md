@@ -1,8 +1,5 @@
 ---
 title: Storage
-menu:
-	main:
-		parent: docs
 ---
 
 # Storage

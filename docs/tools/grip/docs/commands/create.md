@@ -1,11 +1,5 @@
-
 ---
 title: create
-
-menu:
-  main:
-    parent: commands
-    weight: 2
 ---
 
 # `create`
