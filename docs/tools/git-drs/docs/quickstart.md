@@ -62,7 +62,7 @@ For more details, see [Getting Started with Git LFS](https://docs.github.com/en/
 Use the project installer after Git LFS is installed:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/calypr/git-drs/refs/heads/main/install.sh)" -- $GIT_DRS_VERSION
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/calypr/git-drs/development/heads/main/install.sh)" -- $GIT_DRS_VERSION
 ```
 
 ### Update PATH
