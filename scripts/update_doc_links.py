@@ -33,9 +33,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DOC_PATHS = [ROOT / "docs", ROOT / "overrides"]
 CONFIG_PATHS = [ROOT / "scripts" / "branch_config.json", ROOT / "branch_config.json"]
 
-GITHUB_BASE = r"https://github.com/calypr/{repo}/"
-RAW_BASE = r"https://raw.githubusercontent.com/calypr/{repo}/{branch}/"
-
 def get_remote_branches(repo: str):
     """Return a set of branch names available in the remote repo.
     Uses `git ls-remote --heads` to avoid needing GitHub API tokens.
@@ -71,15 +68,14 @@ def update_file(path: Path, repo: str, branch: str):
     pattern1 = re.compile(rf"(https://github\.com/calypr/{re.escape(repo)}/(?:tree|blob)/)([^/\s]+)")
     text = pattern1.sub(rf"\1{branch}", text)
 
-    # Handle raw.githubusercontent links. Two common patterns exist:
+    # Handle raw.githubusercontent links in a single pass for both:
     #  - .../{repo}/refs/heads/<branch>/...  (sometimes used)
     #  - .../{repo}/<branch>/...
-    pattern_ref = re.compile(rf"(https://raw\.githubusercontent\.com/calypr/{re.escape(repo)}/)refs/heads/([^/\s]+)")
-    text = pattern_ref.sub(rf"\1{branch}", text)
-
-    pattern2 = re.compile(rf"(https://raw\.githubusercontent\.com/calypr/{re.escape(repo)}/)([^/\s]+)")
-    # Avoid double-replacing refs/heads handled above; this will replace simple branch names
-    text = pattern2.sub(rf"\1{branch}", text)
+    # Using one pattern avoids treating the literal "refs" path segment as a branch name.
+    pattern_raw = re.compile(
+        rf"(https://raw\.githubusercontent\.com/calypr/{re.escape(repo)}/)(?:refs/heads/)?([^/\s]+)"
+    )
+    text = pattern_raw.sub(rf"\1{branch}", text)
 
     # Also replace bare repository links (exact) to point to the chosen branch tree view
     # but only when the link is the repo root (no trailing path)

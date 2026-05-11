@@ -64,5 +64,6 @@ Contact
 -------
 
 If you need changes to the update behavior (different URL patterns, different directories,
-or automatic commits), reply with the desired behavior and I will implement it.
+or automatic commits), open an issue or pull request describing the desired behavior so
+the maintainers can review it.
 
