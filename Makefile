@@ -60,7 +60,7 @@ sync-syfon-docs:
 			echo "  warning: $$f not found in $(SYFON_TMP)/docs/"; \
 		fi; \
 	done
-	@printf "%s\n" "" "title: Syfon" "" "nav:" "  - index.md" "  - getting-started.md" "  - installation.md" "  - commands.md" "  - troubleshooting.md" > docs/tools/syfon/.nav.yml
+	@printf "%s\n" "" "title: Syfon" "" "nav:" "  - deployment.md" "  - troubleshooting.md" "  - installation.md" "  - local-authz-csv.md" "  - encryption.md" > docs/tools/syfon/.nav.yml
 	@rm -rf $(SYFON_TMP)
 	@echo "Done. Files copied to docs/tools/syfon/. Review and commit the changes."
 

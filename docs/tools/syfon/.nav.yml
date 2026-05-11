@@ -2,8 +2,8 @@
 title: Syfon
 
 nav:
-  - index.md
-  - getting-started.md
-  - installation.md
-  - commands.md
+  - deployment.md
   - troubleshooting.md
+  - installation.md
+  - local-authz-csv.md
+  - encryption.md
