@@ -81,7 +81,7 @@ For development or custom builds:
 
 ```bash
 # Clone repository
-git clone https://github.com/calypr/git-drs/tree/development.git
+git clone https://github.com/calypr/git-drs/tree/development
 cd git-drs
 
 # Build

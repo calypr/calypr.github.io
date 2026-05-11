@@ -41,8 +41,12 @@ def get_remote_branches(repo: str):
     try:
         out = subprocess.check_output(["git", "ls-remote", "--heads", repo_url], text=True)
     except subprocess.CalledProcessError as e:
-        print(f"ERROR: failed to query remote for {repo}: {e}")
-        return set()
+        # Return None to indicate an unexpected failure querying the remote
+        print(f"ERROR: failed to query remote for {repo}: {repr(e)}")
+        return None
+    except Exception as e:
+        print(f"ERROR: unexpected error querying remote for {repo}: {repr(e)}")
+        return None
     branches = set()
     for line in out.splitlines():
         parts = line.strip().split()
@@ -106,6 +110,7 @@ def find_files(root: Path):
 
 def main():
     any_changes = False
+    any_errors = False
     # Load configuration from JSON if present
     repos = DEFAULT_REPOS
     for p in CONFIG_PATHS:
@@ -120,6 +125,11 @@ def main():
     for repo, prefs in repos.items():
         print(f"Processing repo: {repo}")
         branches = get_remote_branches(repo)
+        if branches is None:
+            # get_remote_branches logged the error already
+            any_errors = True
+            print(f"  Error: remote branch query failed for {repo}; skipping")
+            continue
         if not branches:
             print(f"  Warning: no remote branches found for {repo}; skipping")
             continue
@@ -137,15 +147,19 @@ def main():
                 try:
                     changed = update_file(f, repo, chosen)
                     any_changes = any_changes or changed
-                except Exception:
-                    print(f"  ERROR updating file {f}")
+                except Exception as e:
+                    any_errors = True
+                    print(f"  ERROR updating file {f}: {repr(e)}")
 
     if any_changes:
         print("Done. Files were modified. Review .bak files created next to edited files.")
-        return 0
     else:
         print("Done. No changes necessary.")
-        return 0
+
+    if any_errors:
+        print("Completed with errors. See messages above.")
+        return 2
+    return 0
 
 if __name__ == '__main__':
     sys.exit(main())
