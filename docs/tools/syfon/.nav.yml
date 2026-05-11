@@ -1,5 +1,5 @@
 
-title: Git-DRS
+title: Syfon
 
 nav:
   - index.md
@@ -7,4 +7,3 @@ nav:
   - installation.md
   - commands.md
   - troubleshooting.md
-  - docs/

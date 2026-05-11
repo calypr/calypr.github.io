@@ -4,6 +4,7 @@ nav:
  - index.md
  - "Data Lake Tools":
    - git-drs
+   - syfon
  - "Compute": funnel
  - "Graph Database": grip
  - "Data Transformation": 
