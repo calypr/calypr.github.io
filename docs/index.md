@@ -91,6 +91,19 @@ hide:
     </div>
   </div>
 
+  <!-- Syfon -->
+  <div class="product-card">
+    <div class="product-card__image-wrap">
+      <img src="tools/syfon/images/syfon-logo.png" alt="Syfon" class="product-card__image" />
+    </div>
+    <div class="product-card__content">
+      <h2 class="product-card__title">Syfon</h2>
+      <p class="product-card__summary">DRS-native storage and transfer service for CALYPR data flows.</p>
+      <p class="product-card__description">Server-side data service for object registration, presigned upload and download URLs, bucket routing, and storage access control across local and Gen3-backed environments.</p>
+      <a href="tools/syfon/" class="product-card__link">Learn more <i>→</i></a>
+    </div>
+  </div>
+
   <!-- Git-DRS -->
   <div class="product-card">
     <div class="product-card__image-wrap">

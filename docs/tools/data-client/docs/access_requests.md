@@ -4,65 +4,70 @@ title: Access & Collaboration
 
 # Access & Collaboration
 
-The `data-client` includes tools to manage user access and collaboration through the **Requestor** service. This allows project administrators to invite users (collaborators) to projects and manage access requests.
+The current collaborator command is `collaborators`, not `collaborator`.
+
+Use it to list requests, add users to projects, remove users, and approve pending requests.
 
 ## Managing Collaborators
 
-The `collaborator` command suite is used to add or remove users from projects.
-
-### Add a User
-
-To give a user access to a project:
+### Add a User to One Project
 
 ```bash
-./data-client collaborator add [project_id] [username] --profile=<profile-name>
+./data-client collaborators add mycommons user@example.org program project
 ```
 
-- **project_id**: Format `program-project` (e.g., `SEQ-Res`).
-- **username**: The user's email address.
+Useful flags:
 
-**Options:**
-- `--write` (`-w`): Grant write access.
-- `--approve` (`-a`): Automatically approve the request (if you have admin permissions).
+- `--write` or `-w`: request write access as well as read access
+- `--guppy` or `-g`: include Guppy-related permissions
+- `--approve` or `-a`: immediately approve the generated requests if your account is allowed to do that
+
+### Add a User to Multiple Projects
+
+```bash
+./data-client collaborators bulk-add \
+  mycommons \
+  user@example.org \
+  /programs/program1/projects/projectA \
+  /programs/program1/projects/projectB
+```
+
+`bulk-add` also accepts `organization/project` resource forms and turns them into the project requests internally.
 
 ### Remove a User
 
-To revoke access:
-
 ```bash
-./data-client collaborator rm [project_id] [username] --profile=<profile-name>
+./data-client collaborators rm mycommons user@example.org program project
 ```
 
-**Options:**
-- `--approve` (`-a`): Automatically approve the revocation.
+`--approve` works here too when you want to create and sign the revoke requests in one step.
 
 ## Managing Requests
 
 ### List Requests
 
-List access requests associated with you or a user.
-
 ```bash
-./data-client collaborator ls --profile=<profile-name>
+./data-client collaborators ls mycommons
 ```
 
-**Options:**
-- `--mine`: List your requests.
-- `--active`: List only active requests.
-- `--username`: List requests for a specific user (admin only).
+Useful flags:
+
+| Flag | Meaning |
+| --- | --- |
+| `--mine` | Show requests associated with the current user |
+| `--active` | Show only active requests |
+| `--username` | Filter for a specific user |
 
 ### List Pending Requests
 
-See requests waiting for approval.
-
 ```bash
-./data-client collaborator pending --profile=<profile-name>
+./data-client collaborators pending mycommons
 ```
 
 ### Approve a Request
 
-If you are a project administrator, you can approve pending requests.
-
 ```bash
-./data-client collaborator approve [request_id] --profile=<profile-name>
+./data-client collaborators approve mycommons <request-id>
 ```
+
+Project administrators can use this to sign a pending request after reviewing it.
