@@ -44,7 +44,6 @@ theme:
     # - navigation.footer
     - content.code.copy
     - navigation.tabs
-    - navigation.sections
     - navigation.top
     - header.autohide
 
@@ -71,6 +70,9 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/nav-open-level1.js
 
 exclude_docs: |
   **/_*.md

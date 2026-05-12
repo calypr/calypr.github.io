@@ -50,7 +50,7 @@ To interact with CALYPR, you need API credentials from the Gen3 data commons. Yo
 
 API credentials expire after 30 days, so you'll need to download fresh credentials regularly.
 
-**Learn More:** [Download Gen3 API Credentials](../tools/git-drs/docs/quickstart.md#download-gen3-api-credentials) — Step-by-step instructions with screenshots
+**Learn More:** [Download Gen3 API Credentials](../tools/git-drs/quickstart.md#get-credentials) — Step-by-step instructions and setup context
 
 ---
 
@@ -65,7 +65,7 @@ Git-DRS lets you:
 
 When you push files, Git-DRS uploads them to S3, registers DRS records in Gen3, and stores only lightweight pointer files in your Git repository.
 
-**Learn More:** [Git-DRS Complete Documentation](../tools/git-drs/docs/quickstart.md) — Installation, setup, and detailed workflows
+**Learn More:** [Git-DRS Complete Documentation](../tools/git-drs/quickstart.md) — Installation, setup, and detailed workflows
 
 ---
 
@@ -126,7 +126,7 @@ Now that you understand the basic CALYPR workflow, here are some recommended nex
 
 ### 🔧 Tool Documentation
 
-- **[Git-DRS Complete Guide](../tools/git-drs/docs/quickstart.md)** - Comprehensive Git-DRS documentation
+- **[Git-DRS Complete Guide](../tools/git-drs/quickstart.md)** - Comprehensive Git-DRS documentation
 - **[Forge Reference](../tools/forge/docs/index.md)** - Metadata validation and publishing
 - **[Funnel Workflows](../tools/funnel/docs/index.md)** - Task execution and pipeline management
 - **[GRIP Queries](../tools/grip/docs/index.md)** - Graph-based data queries
