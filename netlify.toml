@@ -2,6 +2,6 @@
   command = "mkdocs build"
   publish = "site"
 
-[context.experiment-zensical]
+[context."experiment/zensical"]
   command = "zensical build --clean"
 
