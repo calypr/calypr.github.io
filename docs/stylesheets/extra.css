@@ -27,7 +27,7 @@ h3 {
 }
 
 /* horizontal dividers */
-.md-content h2::before {
+body.home   .md-content h2::before {
   content: "";
   display: block;
   width: 100%;
