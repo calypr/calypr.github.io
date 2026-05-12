@@ -1,6 +1,7 @@
 [build]
-  command = "pip install -r requirements.txt && mkdocs build"
+  command = "mkdocs build"
   publish = "site"
 
 [context.experiment-zensical]
-  command = "pip install zensical && zensical build --clean"
+  command = "zensical build --clean"
+
