@@ -4,3 +4,5 @@ mkdocs-open-in-new-tab
 mkdocs-linkcheck
 mkdocs-awesome-nav
 termynal
+zensical
+
