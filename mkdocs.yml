@@ -40,6 +40,11 @@ markdown_extensions:
       anchor_linenums: false
       line_spans: __span
       pygments_lang_class: true
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: calypr
+      repo: calypr.github.io
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences:
