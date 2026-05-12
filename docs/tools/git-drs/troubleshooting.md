@@ -6,65 +6,16 @@ Common issues and solutions for the cleaned `git-drs` CLI.
 
 ## Frequently Asked Questions
 
-### Do I need to run `git drs init` each time?
+### How does repo-local setup happen now?
 
-No.
+In the normal workflow, `git drs remote add ...` bootstraps the repo-local `git-drs` wiring if it is missing.
 
-`git drs init` is repository setup. In most cases you do not need to run it manually at all, because `git drs remote add ...` now bootstraps that setup automatically when it is missing.
-
-Run it when:
-
-- you want to initialize repo-local `git-drs` state before adding any remote
-- you want to repair hooks/config wiring explicitly
-
-Do not run it every session:
-
-- not at the start of normal daily work
-- not after refreshing credentials
-- not after `git pull`
-
-What it changes:
-
-- creates `.git/drs/` repository-local state
-- sets up `git-drs` repository configuration and hooks
-- prepares the repo for managed pointer/register/hydration behavior
-
-### What if I run `git drs init` again?
-
-Usually nothing catastrophic, but it is unnecessary.
-
-If you did it accidentally:
-
-1. inspect what changed
-
-   ```bash
-   git status
-   git diff
-   ```
-
-2. if the changes are harmless, leave them alone or commit what you intended
-
-3. if you want to discard the uncommitted changes, use normal Git restore/reset flow carefully
-
-4. if hooks or repo-local state were repaired intentionally, keep the changes
-
-The right default is: inspect first, then decide whether anything actually needs to be reverted.
-
-### What does `git drs init` actually change?
-
-It prepares repository-local `git-drs` state:
-
-- `.git/drs/` metadata/state
-- hook/config wiring for `git-drs` workflows
-- the repo-local setup needed for pointer/register/hydration behavior
-
-Those changes persist in the clone. They are not something you redo per session.
+That means you generally should not need a separate setup command before everyday use. If a clone is missing hooks or repo-local config, the first `git drs remote add ...` is the right repair path.
 
 ## When to Use Which Tool
 
 ### Use `git-drs` for
 
-- repository-local `git-drs` setup
 - remote configuration
 - tracking rules
 - object hydration
@@ -74,7 +25,6 @@ Examples:
 
 - `git drs remote add gen3 ...`
 - `git drs remote remove ...`
-- `git drs init`
 - `git drs track`
 - `git drs ls-files`
 - `git drs pull`
@@ -290,8 +240,6 @@ Refresh by re-adding the remote with a new credential file or token:
 ```bash
 git drs remote add gen3 production HTAN_INT/BForePC --cred /path/to/new-credentials.json
 ```
-
-You do not need to run `git drs init` again.
 
 What `git-drs` does automatically:
 

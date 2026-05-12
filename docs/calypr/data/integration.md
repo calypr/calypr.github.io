@@ -5,7 +5,7 @@ Converting tabular data (CSV, TSV, spreadsheet, database table) into FHIR (Fast 
 
 ## Overview
 
-When you create and upload files, you can tag them with identifiers to establish an initial skeleton graph. You can then retrieve that data using the [git-drs](../../tools/git-drs/docs/index.md) command line tool and enhance the metadata using [forge](../../tools/forge/docs/index.md) to create a more complete graph representing your study.
+When you create and upload files, you can tag them with identifiers to establish an initial skeleton graph. You can then retrieve that data using the [git-drs](../../tools/git-drs/index.md) command line tool and enhance the metadata using [forge](../../tools/forge/docs/index.md) to create a more complete graph representing your study.
 
 You may work with data in its "native" JSON format or convert it to a tabular format for integration. The system automatically re-converts tabular data back to JSON for submission.
 

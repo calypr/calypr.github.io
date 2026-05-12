@@ -1,65 +1,25 @@
 # Git DRS — Quick Start
 
-Git DRS extends [Git LFS](https://git-lfs.com/) to register and retrieve large data files from DRS-enabled platforms while keeping the familiar Git workflow. Use **Git LFS** for file tracking, fetching, and local cache management. Use **Git DRS** to configure the DRS server connection and manage cloud-backed object references for your repository.
+This page is a deeper walkthrough of the current `git-drs` workflow.
 
-!!! note "Relationship to Git LFS"
-    `git-drs` is built *on top of* Git LFS. It uses the same [clean and smudge filter](https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes) architecture, the same `.gitattributes` tracking patterns, and a compatible [pointer file format](https://github.com/git-lfs/git-lfs/blob/main/docs/spec.md). If you already know [`git lfs track`](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-track.adoc) and [`git lfs pull`](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-pull.adoc), the `git drs` equivalents will feel natural.
+!!! note "Git LFS is optional"
+    `git-drs` does not require Git LFS for normal setup, tracking, push, or pull workflows.
+
+    Git LFS compatibility is still supported for older repos and mixed environments. See [Git LFS Compatibility](git-lfs.md) if you need that mode.
 
 ## Prerequisites
 
-Before installing Git DRS, you need **Git** and **Git LFS** installed and configured on your system.
+Before installing Git DRS, you need **Git** installed on your system.
 
 ### Install Git
 
 Visit [https://git-scm.com](https://git-scm.com) to download and install Git for your operating system.
 
-### Install Git LFS
-
-=== "macOS"
-    **Install using Homebrew**
-    ```bash
-    brew install git-lfs
-    ```
-
-=== "Linux"
-    **Install via Package Manager**
-
-    === "Debian/Ubuntu"
-        ```bash
-        sudo apt-get install git-lfs
-        ```
-
-    === "RHEL/CentOS"
-        ```bash
-        sudo yum install git-lfs
-        ```
-
-    === "Fedora"
-        ```bash
-        sudo dnf install git-lfs
-        ```
-
-=== "Windows"
-    **Download and Run Installer**
-    
-    Download the latest [Git LFS Windows installer](https://github.com/git-lfs/git-lfs/releases/latest) and follow the setup instructions.
-
-**Initialize Git LFS**
-
-Run the following command in your terminal to complete the setup:
-
-```bash
-git lfs install --skip-smudge
-```
-
-!!! tip
-    The `--skip-smudge` option prevents automatic downloading of all LFS files during clone/checkout, giving you control over which files to download.
-
-For more details, see [Getting Started with Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage) on GitHub Docs.
-
 ## Install Git DRS
 
-Use the project installer after Git LFS is installed:
+Use the project installer or release workflow described in the main [Quick Start](../quickstart.md) and [Installation Guide](../installation.md).
+
+One installer path is:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/calypr/git-drs/development/install.sh)" -- $GIT_DRS_VERSION
@@ -105,36 +65,18 @@ cd your-data-repo
 git init
 ```
 
-### 2. Initialize Git DRS
+### 2. Add Remote Configuration
+
+Get the target scope from your team or steward in the form `<organization/project>`.
 
 ```bash
-git drs init
-```
-
-This configures Git hooks and prepares the repository for DRS-backed files — similar to running [`git lfs install`](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-install.adoc) at the repo level.
-
-### 3. Get Project Details
-
-Contact your data coordinator at `support@calypr.org` for:
-
-- DRS server URL (e.g., `https://calypr-public.ohsu.edu`)
-- Project ID (format: `<program>-<project>`)
-- Bucket name
-
-### 4. Add Remote Configuration
-
-```bash
-git drs remote add gen3 production \
-    --cred ~/.gen3/credentials.json \
-    --url https://calypr-public.ohsu.edu \
-    --project my-project \
-    --bucket my-bucket
+git drs remote add gen3 production <organization/project> --cred ~/.gen3/credentials.json
 ```
 
 !!! note
-    Since this is your first remote, it automatically becomes the default. No need to run `git drs remote set`.
+    `git drs remote add ...` bootstraps the repo-local hooks and config if they are missing. Since this is your first remote, it also becomes the default automatically.
 
-### 5. Verify Configuration
+### 3. Verify Configuration
 
 ```bash
 git drs remote list
@@ -166,28 +108,28 @@ An initialized project will look something like this:
 
 ## Track, Add, Commit, and Push
 
-### Track Large Files with Git LFS
+### Track Large Files
 
-Use Git LFS to select which files should be stored as LFS objects. Git DRS works with the tracking patterns you configure via Git LFS:
+Use `git-drs` tracking rules to select which files should be managed:
 
 ```bash
-git lfs track "*.bam"
+git drs track "*.bam"
 git add .gitattributes
-git commit -m "Track BAM files with Git LFS"
+git commit -m "Track BAM files"
 ```
 
-For more details, see the [Git LFS tracking documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-track.adoc).
+If you are working in a legacy mixed setup that still depends on Git LFS concepts, see [Git LFS Compatibility](git-lfs.md).
 
 ### Add, Commit, and Push Data
 
-Once files are tracked with Git LFS, use standard Git commands to add and commit. During `git push`, Git LFS uploads large objects to the LFS server while **Git DRS automatically registers them with the configured DRS server** via its pre-push hook.
+Once files are tracked, use standard Git commands to add and commit. During `git push`, `git-drs` uploads large objects and registers them with the configured DRS server.
 
 ```bash
 # Add your file
 git add myfile.bam
 
-# Verify LFS is tracking it
-git lfs ls-files
+# Verify tracking state
+git drs ls-files
 
 # Commit and push
 git commit -m "Add data file"
@@ -195,41 +137,29 @@ git push
 ```
 
 !!! note "What Happens Behind the Scenes"
-    The `git push` triggers Git LFS transfer hooks. Git DRS intercepts this flow to register each LFS object with your DRS server (e.g., gen3/indexd), making the file discoverable via DRS IDs. You don't need to run any extra commands. The process:
+    The `git push` triggers the `git-drs` upload and registration flow automatically. You do not need to run extra registration commands. The process:
     
     1. Git DRS creates DRS records for each tracked file
     2. Files are uploaded to the configured S3 bucket
     3. DRS URIs are registered in the Gen3 system
     4. Pointer files are committed to the repository
 
-For background on the Git LFS transfer flow, see the [Git LFS overview](https://git-lfs.com/) and the [Git LFS push documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-push.adoc).
-
 ### Download Files
 
-Use Git LFS to download files on demand:
+Use `git-drs` to hydrate files on demand:
 
 ```bash
-# Download all files
-git lfs pull
-
-# Download specific pattern
-git lfs pull -I "*.bam"
-
-# Download specific directory
-git lfs pull -I "data/**"
+# Download tracked files
+git drs pull
 ```
-
-Refer to the [Git LFS pull documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-pull.adoc) for filters and options.
 
 ### Check Status and Tracked Files
 
-To see all files that are tracked in your repository as well as their status use the Git LFS tooling:
+To see all files that are tracked in your repository as well as their status use:
 
 ```bash
-git lfs ls-files
+git drs ls-files
 ```
-
-The [Git LFS ls-files documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-ls-files.adoc) explains the available flags and output format.
 
 example output: 
 
@@ -252,72 +182,43 @@ and when --json flag is specified:
 
 ## Clone an Existing Repository
 
-When you clone a repository that already uses Git DRS, the repo will contain small **pointer files** instead of full file content. You need to install Git DRS, initialize it in the clone, configure the DRS remote, and then pull file content.
+When you clone a repository that already uses Git DRS, the repo will contain small **pointer files** instead of full file content. You need to install Git DRS, configure the DRS remote for your local clone, and then pull file content.
 
 ### Step 1 — Clone the Repository
 
-Clone as you normally would. Git LFS pointer files are checked out automatically, but large file content is **not** downloaded yet.
+Clone as you normally would. Pointer files are checked out automatically, but large file content is **not** downloaded yet.
 
 ```bash
 git clone https://github.com/your-org/your-data-repo.git
 cd your-data-repo
 ```
 
-!!! tip "Skip LFS Downloads During Clone"
-    If you want to skip downloading *any* LFS content during clone (useful for large repos), use the `GIT_LFS_SKIP_SMUDGE` environment variable:
-    
-    ```bash
-    GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/your-org/your-data-repo.git
-    ```
-    
-    See [`git lfs install --skip-smudge`](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-install.adoc) for details.
+### Step 2 — Configure the DRS Remote
 
-### Step 2 — Initialize Git DRS
-
-Run `git drs init` inside the cloned repo to configure the DRS hooks and filters:
+Set up the DRS server connection. Your team or project documentation should provide the target `<organization/project>` scope:
 
 ```bash
-git drs init
-```
-
-### Step 3 — Configure the DRS Remote
-
-Set up the DRS server connection. Your team or project documentation should provide the server URL, credentials, project, and bucket:
-
-```bash
-git drs remote add gen3 production \
-    --cred ~/.gen3/credentials.json \
-    --url https://calypr-public.ohsu.edu \
-    --project my-project \
-    --bucket my-bucket
+git drs remote add gen3 production <organization/project> --cred ~/.gen3/credentials.json
 ```
 
 !!! note
     This step is required even if the original repository author already configured a DRS remote — remote configurations are local to each clone and are not committed to Git.
 
-### Step 4 — Pull File Content
+### Step 3 — Pull File Content
 
-Download the actual file content using Git LFS:
+Download the actual file content using `git-drs`:
 
 ```bash
-# Pull all LFS-tracked files
-git lfs pull
-
-# Or pull specific files by pattern
-git lfs pull -I "*.bam"
+git drs pull
 ```
 
-Refer to the [Git LFS pull documentation](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-pull.adoc) for filters and options.
-
-### Step 5 — Verify
+### Step 4 — Verify
 
 Confirm that pointer files have been replaced with full content and that DRS-tracked files are recognized:
 
 ```bash
-git lfs ls-files
+git drs ls-files
 ```
-
-A `*` next to a file indicates its content is present locally. A `-` means only the pointer is checked out.
 
 Files that have been properly added, tracked, committed and pushed will be uploaded to github as LFS pointer files in the format:
 
@@ -334,14 +235,9 @@ size 84977953
 # Full clone workflow — copy and paste
 git clone https://github.com/your-org/your-data-repo.git
 cd your-data-repo
-git drs init
-git drs remote add gen3 production \
-    --cred ~/.gen3/credentials.json \
-    --url https://calypr-public.ohsu.edu \
-    --project my-project \
-    --bucket my-bucket
-git lfs pull
-git lfs ls-files
+git drs remote add gen3 production <organization/project> --cred ~/.gen3/credentials.json
+git drs pull
+git drs ls-files
 ```
 
 ## Managing Remotes
@@ -352,11 +248,7 @@ You can configure multiple DRS remotes for working with development, staging, an
 
 ```bash
 # Add staging remote
-git drs remote add gen3 staging \
-    --cred /path/to/staging-credentials.json \
-    --url https://staging.calypr.ohsu.edu \
-    --project staging-project \
-    --bucket staging-bucket
+git drs remote add gen3 staging <organization/project> --cred /path/to/staging-credentials.json
 
 # View all remotes
 git drs remote list
@@ -394,34 +286,22 @@ git drs remote list
 
 ### Cross-Remote Promotion
 
-Transfer DRS records from one remote to another (e.g., staging to production) without re-uploading files:
-
-```bash
-# Fetch metadata from staging
-git drs fetch staging
-
-# Push metadata to production (no file upload since files don't exist locally)
-git drs push production
-```
-
-This is useful when files are already in the production bucket with matching SHA256 hashes. It can also be used to re-upload files given that the files are pulled to the repo first.
+Transfer and promotion workflows depend on the current command surface and deployment conventions. Use the main [Commands Reference](../commands.md) and your environment-specific process rather than older `fetch`-based examples.
 
 ## Command Quick Reference
 
 | Action | Command |
 |--------|---------|
-| **Initialize** | `git drs init` |
 | **Add remote** | `git drs remote add gen3 <name> --cred...` |
 | **View remotes** | `git drs remote list` |
 | **Set default** | `git drs remote set <name>` |
 | **Remove remote** | `git drs remote remove <name>` |
-| **Track files** | `git lfs track "pattern"` |
-| **Check tracked** | `git lfs ls-files` |
+| **Track files** | `git drs track "pattern"` |
+| **Check tracked** | `git drs ls-files` |
 | **Add files** | `git add file.ext` |
 | **Commit** | `git commit -m "message"` |
 | **Push** | `git push` |
-| **Download** | `git lfs pull -I "pattern"` |
-| **Fetch from remote** | `git drs fetch [remote-name]` |
+| **Download** | `git drs pull` |
 | **Push to remote** | `git drs push [remote-name]` |
 | **Query DRS object** | `git drs query <drs-id>` |
 | **Check version** | `git drs version` |
@@ -430,9 +310,4 @@ This is useful when files are already in the production bucket with matching SHA
 
 - [Troubleshooting](troubleshooting.md) — Common issues and solutions
 - [Developer Guide](developer-guide.md) — Architecture, command reference, and internals
-- [Git LFS Official Site](https://git-lfs.com/)
-- [Git LFS Man Pages](https://github.com/git-lfs/git-lfs/tree/main/docs/man) — Complete command reference
-- [Git LFS Specification](https://github.com/git-lfs/git-lfs/blob/main/docs/spec.md) — Pointer file format and protocol
-- [Git LFS Custom Transfer Agents](https://github.com/git-lfs/git-lfs/blob/main/docs/custom-transfers.md) — How Git DRS hooks into the LFS transfer flow
-- [GitHub Docs: About Git Large File Storage](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage)
-- [Git Attributes — Clean & Smudge Filters](https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes)
+- [Git LFS Compatibility](git-lfs.md) — Optional compatibility notes for legacy mixed setups

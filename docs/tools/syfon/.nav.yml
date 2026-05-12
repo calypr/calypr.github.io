@@ -1,9 +1,10 @@
-
 title: Syfon
 
 nav:
-  - deployment.md
-  - troubleshooting.md
-  - installation.md
-  - local-authz-csv.md
+  - index.md
+  - quickstart.md
+  - local-deployment.md
+  - kubernetes-deployment.md
+  - configuration.md
   - encryption.md
+  - troubleshooting.md
