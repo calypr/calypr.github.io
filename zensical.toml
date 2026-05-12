@@ -1,0 +1,45 @@
+[project]
+site_name = "CALYPR"
+site_url = "https://calypr.org"
+
+extra_css = ["stylesheets/extra.css"]
+
+[project.theme]
+logo = "assets/logo.png"
+custom_dir = "overrides"
+language = "en"
+features = [
+    "content.code.copy",
+    "navigation.indexes",
+    "navigation.sections",
+    "navigation.tabs",
+    "navigation.top",
+    "header.autohide",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.tracking",
+    "search.highlight",
+]
+
+[[project.theme.palette]]
+scheme = "default"
+primary = "custom"
+
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = false
+line_spans = "__span"
+pygments_lang_class = true
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.snippets]
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
