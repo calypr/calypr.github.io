@@ -1,43 +1,35 @@
 # CALYPR Docs
 
-This mkdocs-based codebase deploys documentation to [calypr.org](https://calypr.org)
+This Zensical-based codebase deploys documentation to [calypr.org](https://calypr.org).
 
 <a href="https://calypr.org">![CALYPR Homepage](./docs/images/website_header.png)</a>
 
 ## Local Development
 
 ```sh
-➜ python -m venv venv
-
-➜ source venv/bin/activate
-
-➜ pip install -r requirements.txt
-
-➜ mkdocs serve
-
-INFO     -  Building documentation...
-INFO     -  Cleaning site directory
-INFO     -  Documentation built in 0.25 seconds
-INFO     -  [13:45:40] Watching paths for changes: 'docs', 'mkdocs.yml'
-INFO     -  [13:45:40] Serving on http://127.0.0.1:8000/
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+make serve
 ```
 
-Running on a port other than 8000 is possible with the `--dev-addr <IP:PORT>` flag (e.g. `mkdocs serve --dev-addr 8181` will start the server on localhost:8181).
+The local build contract is:
+
+- `make prepare` stages repo-authored docs plus imported upstream tool docs into `.generated/docs`
+- `make build` runs a clean Zensical build
+- `make serve` stages the docs and starts the local Zensical server
+
+For repo maintenance details, navigation ownership, and import behavior, see [DEVELOPING.md](./DEVELOPING.md).
+
+If you prefer the raw commands:
+
+```sh
+python scripts/prepare_docs.py
+zensical serve
+```
 
 ## Publishing to [calypr.org](https://calypr.org)
 
-The site is automatically built and published on every push to the main branch (using the Github Actions workflow file in [publish.yml](.github/workflows/publish.yml)).
+The site is automatically built and published on every push to `main` using the GitHub Actions workflow in [publish.yml](.github/workflows/publish.yml). Netlify uses the same Zensical build pipeline.
 
-To skip this workflow add `[skip ci]` (or any [equivalent variation](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)) anywhere in the commit message.
-
-To manually update the site run the `mkdocs gh-deploy --force` command:
-
-```sh
-➜ mkdocs gh-deploy --force
-
-INFO     -  Cleaning site directory
-INFO     -  Building documentation to directory: calypr.org/site
-INFO     -  Documentation built in 0.49 seconds
-INFO     -  Copying 'calypr.org/site' to 'gh-pages' branch and pushing to GitHub.
-INFO     -  Your documentation should shortly be available at: https://calypr.org/
-```
+To skip CI for a commit, add `[skip ci]` (or any [equivalent variation](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)) to the commit message.

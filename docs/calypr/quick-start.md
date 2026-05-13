@@ -50,7 +50,7 @@ To interact with CALYPR, you need API credentials from the Gen3 data commons. Yo
 
 API credentials expire after 30 days, so you'll need to download fresh credentials regularly.
 
-**Learn More:** [Download Gen3 API Credentials](../tools/git-drs/quickstart.md#get-credentials) — Step-by-step instructions and setup context
+**Learn More:** [Download Gen3 API Credentials](../tools/git-drs/quickstart.md#2-get-credentials) — Step-by-step instructions and setup context
 
 ---
 

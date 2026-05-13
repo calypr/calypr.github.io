@@ -1,5 +1,6 @@
 venv
 .DS_Store
+.generated/
 site/
 .idea/
 attic/

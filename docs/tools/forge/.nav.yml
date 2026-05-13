@@ -1,7 +1,0 @@
-title: Forge
-
-nav:
- - index.md
- - Configuration: docs/configuration.md
- - Validation: docs/validation.md
- - Publishing: docs/publishing.md

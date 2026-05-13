@@ -1,0 +1,243 @@
+[project]
+site_name = "CALYPR"
+site_url = "https://calypr.org"
+docs_dir = ".generated/docs"
+
+nav = [
+  { "Home" = "index.md" },
+  { "Calypr" = [
+    "calypr/index.md",
+    { "Quick Start Guide" = "calypr/quick-start.md" },
+    { "Data" = [
+      { "FHIR for Researchers" = "calypr/data/introduction.md" },
+      { "Adding FHIR Metadata" = "calypr/data/adding-metadata.md" },
+      { "Managing Metadata" = "calypr/data/managing-metadata.md" },
+      { "Integrating Your Data" = "calypr/data/integration.md" },
+    ] },
+    { "Project Management" = [
+      { "Project Customization" = "calypr/project-management/custom-views.md" },
+      { "Publishing project" = "calypr/project-management/publishing-project.md" },
+      { "Large Scale Project Management" = "calypr/project-management/large-projects.md" },
+      { "Calypr Admin" = [
+        { "Add users" = "calypr/project-management/calypr-admin/add-users.md" },
+        { "Role Based Access Control" = "calypr/project-management/calypr-admin/approve-requests.md" },
+      ] },
+    ] },
+    { "Analysis" = [
+      { "Data Querying + Gen3 SDK" = "calypr/analysis/query.md" },
+    ] },
+    { "Website" = [
+      { "Explore" = "calypr/website/portal-explore.md" },
+      { "Download" = "calypr/website/portal-download.md" },
+    ] },
+  ] },
+  { "Tools" = [
+    "tools/index.md",
+    { "Data Lake Tools" = [
+      { "Git-DRS" = [
+        { "Overview" = "tools/git-drs/index.md" },
+        { "Quick Start" = "tools/git-drs/quickstart.md" },
+        { "Getting Started" = "tools/git-drs/getting-started.md" },
+        { "Installation" = "tools/git-drs/installation.md" },
+        { "Commands Reference" = "tools/git-drs/commands.md" },
+        { "Troubleshooting" = "tools/git-drs/troubleshooting.md" },
+        { "Reference" = [
+          { "Bucket Mapping" = "tools/git-drs/docs/bucket-mapping.md" },
+          { "Git LFS Compatibility" = "tools/git-drs/docs/git-lfs.md" },
+          { "How It Works" = "tools/git-drs/docs/index.md" },
+          { "Developer Guide" = "tools/git-drs/docs/developer-guide.md" },
+          { "Removing Files" = "tools/git-drs/docs/remove-files.md" },
+          { "Legacy Troubleshooting" = "tools/git-drs/docs/troubleshooting.md" },
+        ] },
+      ] },
+      { "Syfon" = [
+        { "Overview" = "tools/syfon/index.md" },
+        { "Quick Start" = "tools/syfon/quickstart.md" },
+        { "Local Deployment" = "tools/syfon/local-deployment.md" },
+        { "Kubernetes Deployment" = "tools/syfon/kubernetes-deployment.md" },
+        { "Configuration" = "tools/syfon/configuration.md" },
+        { "Encryption" = "tools/syfon/encryption.md" },
+        { "Troubleshooting" = "tools/syfon/troubleshooting.md" },
+      ] },
+    ] },
+    { "Workflow Execution" = [
+      { "Funnel" = [
+        "tools/funnel/index.md",
+        { "Overview" = "tools/funnel/docs/docs.md" },
+        { "Download" = "tools/funnel/docs/download.md" },
+        { "Tasks" = "tools/funnel/docs/tasks.md" },
+        { "Storage" = [
+          "tools/funnel/docs/storage/index.md",
+          { "Local" = "tools/funnel/docs/storage/local.md" },
+          { "S3" = "tools/funnel/docs/storage/s3.md" },
+          { "Google Storage" = "tools/funnel/docs/storage/google-storage.md" },
+          { "OpenStack Swift" = "tools/funnel/docs/storage/swift.md" },
+          { "HTTP(S)" = "tools/funnel/docs/storage/http.md" },
+          { "FTP" = "tools/funnel/docs/storage/ftp.md" },
+        ] },
+        { "Compute" = [
+          { "Deploying a Cluster" = "tools/funnel/docs/compute/deployment.md" },
+          { "AWS Batch" = "tools/funnel/docs/compute/aws-batch.md" },
+          { "Kubernetes" = "tools/funnel/docs/compute/kubernetes.md" },
+          { "HTCondor" = "tools/funnel/docs/compute/htcondor.md" },
+          { "Slurm" = "tools/funnel/docs/compute/slurm.md" },
+          { "PBS/Torque" = "tools/funnel/docs/compute/pbs-torque.md" },
+          { "Grid Engine" = "tools/funnel/docs/compute/grid-engine.md" },
+        ] },
+        { "Databases" = [
+          { "Embedded" = "tools/funnel/docs/databases/boltdb.md" },
+          { "MongoDB" = "tools/funnel/docs/databases/mongodb.md" },
+          { "Elasticsearch" = "tools/funnel/docs/databases/elasticsearch.md" },
+          { "DynamoDB" = "tools/funnel/docs/databases/dynamodb.md" },
+          { "Datastore" = "tools/funnel/docs/databases/datastore.md" },
+        ] },
+        { "Security" = [
+          { "Basic Auth" = "tools/funnel/docs/security/basic.md" },
+          { "OAuth2" = "tools/funnel/docs/security/oauth2.md" },
+          { "Advanced Auth" = "tools/funnel/docs/security/advanced.md" },
+        ] },
+        { "Integrations" = [
+          { "Nextflow" = "tools/funnel/docs/integrations/nextflow.md" },
+          { "py-tes" = "tools/funnel/docs/integrations/py-tes.md" },
+        ] },
+        { "Events" = [
+          { "Kafka" = "tools/funnel/docs/events/kafka.md" },
+        ] },
+        { "Metrics" = [
+          { "Prometheus" = "tools/funnel/docs/metrics/prometheus.md" },
+        ] },
+        { "Development" = [
+          { "Funnel Developers" = "tools/funnel/docs/development/developers.md" },
+        ] },
+      ] },
+    ] },
+    { "Graph Database" = [
+      { "GRIP" = [
+        "tools/grip/index.md",
+        { "Database Configuration" = "tools/grip/docs/databases.md" },
+        { "Client Library" = "tools/grip/docs/clients.md" },
+        { "Jobs API" = "tools/grip/docs/jobs_api.md" },
+        { "Commands" = [
+          { "Server" = "tools/grip/docs/commands/server.md" },
+          { "Query" = "tools/grip/docs/commands/query.md" },
+          { "Create" = "tools/grip/docs/commands/create.md" },
+          { "Delete" = "tools/grip/docs/commands/delete.md" },
+          { "Drop" = "tools/grip/docs/commands/drop.md" },
+          { "List" = "tools/grip/docs/commands/list.md" },
+          { "MongoLoad" = "tools/grip/docs/commands/mongoload.md" },
+          { "ER" = "tools/grip/docs/commands/er.md" },
+        ] },
+        { "Queries" = [
+          { "Start a Traversal" = "tools/grip/docs/queries/traversal_start.md" },
+          { "Referencing Fields" = "tools/grip/docs/queries/jsonpath.md" },
+          { "Traverse the Graph" = "tools/grip/docs/queries/traverse_graph.md" },
+          { "Filtering" = "tools/grip/docs/queries/filtering.md" },
+          { "Record Transforms" = "tools/grip/docs/queries/record_transforms.md" },
+          { "Aggregation" = "tools/grip/docs/queries/aggregation.md" },
+          { "Output Control" = "tools/grip/docs/queries/output.md" },
+          { "Iteration" = "tools/grip/docs/queries/iterations.md" },
+          { "Jobs" = "tools/grip/docs/queries/jobs.md" },
+        ] },
+        { "GraphQL" = [
+          { "GraphQL" = "tools/grip/docs/graphql/graphql.md" },
+          { "Graph Schemas" = "tools/grip/docs/graphql/graph_schemas.md" },
+        ] },
+        { "Gripper" = [
+          { "Intro" = "tools/grip/docs/gripper/gripper.md" },
+          { "External Resource Proxies" = "tools/grip/docs/gripper/proxy.md" },
+          { "Graph Model" = "tools/grip/docs/gripper/graphmodel.md" },
+        ] },
+        { "Tutorials" = [
+          { "Amazon Purchase Network" = "tools/grip/docs/tutorials/amazon.md" },
+          { "Pathway Commons" = "tools/grip/docs/tutorials/pathway-commons.md" },
+          { "TCGA RNA Expression" = "tools/grip/docs/tutorials/tcga-rna.md" },
+        ] },
+        { "Security" = [
+          { "Basic Auth" = "tools/grip/docs/security/basic.md" },
+        ] },
+      ] },
+    ] },
+    { "Data Transformation" = [
+      { "Sifter" = [
+        "tools/sifter/index.md",
+        { "Parameters" = "tools/sifter/docs/config.md" },
+        { "Example Pipeline" = "tools/sifter/docs/example.md" },
+        { "Playbook Schema" = "tools/sifter/docs/schema.md" },
+      ] },
+      { "Forge" = [
+        "tools/forge/index.md",
+        { "Configuration" = "tools/forge/docs/configuration.md" },
+        { "Validation" = "tools/forge/docs/validation.md" },
+        { "Publishing" = "tools/forge/docs/publishing.md" },
+      ] },
+    ] },
+    { "Management Software" = [
+      { "Data Client" = [
+        "tools/data-client/index.md",
+        { "Authentication" = "tools/data-client/docs/authentication.md" },
+        { "Data Management" = "tools/data-client/docs/data_management.md" },
+        { "Access Requests" = "tools/data-client/docs/access_requests.md" },
+      ] },
+    ] },
+  ] },
+]
+
+extra_css = [
+  "stylesheets/extra.css",
+  "termynal.css",
+]
+
+extra_javascript = [
+  "javascripts/nav-open-level1.js",
+  "termynal.js",
+]
+
+[project.theme]
+logo = "assets/logo.png"
+custom_dir = "overrides"
+language = "en"
+features = [
+    "content.code.copy",
+    "navigation.indexes",
+    "navigation.sections",
+    "navigation.tabs",
+    "navigation.top",
+    "header.autohide",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.tracking",
+    "search.highlight",
+]
+
+[[project.theme.palette]]
+scheme = "default"
+primary = "custom"
+
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.termynal]
+title = "bash"
+buttons = "macos"
+prompt_literal_start = ["$"]
+include_assets = false
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = false
+line_spans = "__span"
+pygments_lang_class = true
+[project.markdown_extensions.pymdownx.magiclink]
+normalize_issue_symbols = true
+repo_url_shorthand = true
+user = "calypr"
+repo = "calypr.github.io"
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.snippets]
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }
+]
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
