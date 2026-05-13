@@ -1,0 +1,10 @@
+title: Syfon
+
+nav:
+  - index.md
+  - quickstart.md
+  - local-deployment.md
+  - kubernetes-deployment.md
+  - configuration.md
+  - encryption.md
+  - troubleshooting.md

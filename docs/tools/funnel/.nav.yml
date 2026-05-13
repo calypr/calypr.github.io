@@ -1,5 +1,42 @@
-
 title: Funnel
 
 nav:
- - docs/
+ - index.md
+ - Overview: docs/docs.md
+ - Download: docs/download.md
+ - Tasks: docs/tasks.md
+ - Storage:
+   - docs/storage/index.md
+   - Local: docs/storage/local.md
+   - S3: docs/storage/s3.md
+   - Google Storage: docs/storage/google-storage.md
+   - OpenStack Swift: docs/storage/swift.md
+   - HTTP(S): docs/storage/http.md
+   - FTP: docs/storage/ftp.md
+ - Compute:
+   - Deploying a Cluster: docs/compute/deployment.md
+   - AWS Batch: docs/compute/aws-batch.md
+   - Kubernetes: docs/compute/kubernetes.md
+   - HTCondor: docs/compute/htcondor.md
+   - Slurm: docs/compute/slurm.md
+   - PBS/Torque: docs/compute/pbs-torque.md
+   - Grid Engine: docs/compute/grid-engine.md
+ - Databases:
+   - Embedded: docs/databases/boltdb.md
+   - MongoDB: docs/databases/mongodb.md
+   - Elasticsearch: docs/databases/elasticsearch.md
+   - DynamoDB: docs/databases/dynamodb.md
+   - Datastore: docs/databases/datastore.md
+ - Security:
+   - Basic Auth: docs/security/basic.md
+   - OAuth2: docs/security/oauth2.md
+   - Advanced Auth: docs/security/advanced.md
+ - Integrations:
+   - Nextflow: docs/integrations/nextflow.md
+   - py-tes: docs/integrations/py-tes.md
+ - Events:
+   - Kafka: docs/events/kafka.md
+ - Metrics:
+   - Prometheus: docs/metrics/prometheus.md
+ - Development:
+   - Funnel Developers: docs/development/developers.md

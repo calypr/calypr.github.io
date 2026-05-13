@@ -31,4 +31,4 @@ Visit the [Quick Start Guide](../quick-start.md) for detailed, OS-specific insta
 
 ## Git DRS Workflows
 
-For complete Git DRS documentation including project initialization, file management, and upload workflows, see the [Git DRS Quick Start](../../tools/git-drs/docs/quickstart.md).
+For complete Git DRS documentation including project initialization, file management, and upload workflows, see the [Git DRS Quick Start](../../tools/git-drs/quickstart.md).
