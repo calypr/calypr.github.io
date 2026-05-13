@@ -5,4 +5,4 @@ mkdocs-linkcheck
 mkdocs-awesome-nav
 termynal
 zensical
-
+mkdocs-multirepo-plugin

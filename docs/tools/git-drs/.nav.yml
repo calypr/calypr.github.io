@@ -2,4 +2,16 @@
 title: Git-DRS
 
 nav:
-  - docs/
+  - index.md
+  - quickstart.md
+  - getting-started.md
+  - installation.md
+  - commands.md
+  - troubleshooting.md
+  - Reference:
+    - Bucket Mapping: docs/bucket-mapping.md
+    - Git LFS Compatibility: docs/git-lfs.md
+    - How It Works: docs/index.md
+    - Developer Guide: docs/developer-guide.md
+    - Removing Files: docs/remove-files.md
+    - Legacy Troubleshooting: docs/troubleshooting.md

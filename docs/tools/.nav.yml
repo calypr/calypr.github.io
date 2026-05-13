@@ -4,10 +4,14 @@ nav:
  - index.md
  - "Data Lake Tools":
    - git-drs
- - "Compute": funnel
- - "Graph Database": grip
+   - syfon
+ - "Workflow Execution":
+   - funnel
+ - "Graph Database":
+   - grip
  - "Data Transformation": 
    - sifter
    - forge
- - "Management Software": data-client
+ - "Management Software":
+   - data-client
  
