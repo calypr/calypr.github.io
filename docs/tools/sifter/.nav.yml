@@ -1,7 +1,0 @@
-title: Sifter
-
-nav:
- - index.md
- - Parameters: docs/config.md
- - Example Pipeline: docs/example.md
- - Playbook Schema: docs/schema.md

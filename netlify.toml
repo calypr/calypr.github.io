@@ -1,7 +1,3 @@
 [build]
-  command = "mkdocs build"
+  command = "python scripts/prepare_docs.py && zensical build --clean"
   publish = "site"
-
-[context."experiment/zensical"]
-  command = "zensical build --clean"
-
