@@ -19,16 +19,25 @@ plugins:
         - name: git-drs
           import_url: https://github.com/calypr/git-drs?branch=development
           imports:
+            - docs/quickstart.md
             - docs/getting-started.md
             - docs/installation.md
             - docs/commands.md
             - docs/troubleshooting.md
+            - docs/bucket-mapping.md
+            - docs/git-lfs.md
+            - docs/index.md
+            - docs/developer-guide.md
+            - docs/remove-files.md
         - name: syfon
           import_url: https://github.com/calypr/syfon?branch=development
           imports:
             - docs/index.md
-            - docs/local-authz-csv.md
+            - docs/quickstart.md
+            - docs/configuration.md
             - docs/deployment.md
+            - docs/kubernetes-deployment.md
+            - docs/local-deployment.md
             - docs/encryption.md
             - docs/troubleshooting.md
 

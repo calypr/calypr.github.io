@@ -4,7 +4,7 @@ nav:
  - index.md
  - Overview: docs/docs.md
  - Download: docs/download.md
-  - Tasks: docs/tasks.md
+ - Tasks: docs/tasks.md
  - Storage:
    - docs/storage/index.md
    - Local: docs/storage/local.md
