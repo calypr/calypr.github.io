@@ -5,8 +5,10 @@ nav:
  - "Data Lake Tools":
    - git-drs
    - syfon
- - funnel
- - grip
+ - "Workflow Execution":
+   - funnel
+ - "Graph Database":
+   - grip
  - "Data Transformation": 
    - sifter
    - forge
