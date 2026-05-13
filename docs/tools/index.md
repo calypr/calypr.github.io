@@ -1,32 +1,37 @@
-# CALYPR Tool Ecosystem
+# Open-Source Tool Docs
 
-The CALYPR platform provides a suite of powerful, open-source tools designed to handle every stage of the genomic data lifecycle—from ingestion and versioning to distributed analysis and graph-based discovery.
+This is the technical reference area for the CALYPR toolchain. It is intentionally behind the product and solution pages so non-technical readers do not have to start with implementation detail.
 
----
+## Data Lake Tools
 
 ### [Git-DRS](git-drs/index.md)
-**The Version Control Layer.**  
-Git-DRS is a specialized extension for Git that manages massive genomic datasets using the GA4GH Data Repository Service (DRS) standard. It allows researchers to track, version, and share petabyte-scale files as easily as code, replacing heavy binaries with lightweight pointer files that resolve to immutable cloud objects.
+
+Git-DRS provides Git-style versioning for large DRS-backed research data. Use it when teams need reproducible data references without committing large binaries to Git.
 
 ### [Syfon](syfon/index.md)
-**The Data Service Layer.**  
-Syfon is CALYPR's DRS and storage mediation service. It handles object registration, presigned upload and download URLs, bucket routing, authentication modes, and the server-side configuration that lets higher-level tools move data cleanly between repositories, commons services, and object storage.
+
+Syfon is the DRS and storage mediation service. It handles object registration, presigned upload and download URLs, bucket routing, and server-side storage access.
+
+## Workflow And Discovery
 
 ### [Funnel](funnel/index.md)
-**The Compute Layer.**  
-Funnel is a distributed task execution engine that implements the GA4GH Task Execution Service (TES) API. It provides a standardized way to run Docker-based analysis pipelines across diverse environments—including Kubernetes, AWS, and Google Cloud—ensuring that your workflows are portable and independent of the underlying infrastructure.
+
+Funnel implements the GA4GH Task Execution Service API for portable workflow execution across distributed compute environments.
 
 ### [GRIP](grip/index.md)
-**The Discovery Layer.**  
-GRIP (Graph Resource Integration Platform) is a high-performance graph database and query engine designed for complex biological data. It enables analysts to integrate heterogeneous datasets into a unified knowledge graph and perform sophisticated queries that reveal deep relational insights across multi-omic cohorts.
+
+GRIP provides graph database and query capabilities for complex biomedical relationships and integrated project data.
+
+## Data Preparation And Operations
 
 ### [Forge](forge/index.md)
-**Project formatting**
-Forge scans a data repository to build an integrated FHIR based graph of samples and all the files connected to the project. It is responsible for schema checking and database loading. You can use it client side to verify and debug your project and on the server side, it is used to load databases.
 
-### [Data Client](data-client/index.md)
-A client command line interface for interfacing with the Calypr system.
+Forge validates, publishes, and harmonizes project metadata before it is loaded into shared research systems.
 
 ### [Sifter](sifter/index.md)
-**Data Transformation**
-Sifter is a tool for rapid data extraction and transformation. 
+
+Sifter supports data extraction and transformation workflows.
+
+### [Data Client](data-client/index.md)
+
+The data client provides command-line operations for CALYPR data workflows, authentication, and project interactions.
