@@ -4,8 +4,19 @@ site_url = "https://calypr.org"
 docs_dir = ".generated/docs"
 
 nav = [
-  { "Home" = "index.md" },
-  { "Calypr" = [
+  { "Solutions" = [
+    "solutions/index.md",
+  ] },
+  { "Products" = [
+    "products/index.md",
+    { "Manage Data" = "products/manage-data.md" },
+    { "Manage Compute" = "products/manage-compute.md" },
+    { "Integrate Data" = "products/integrate-data.md" },
+    { "Manage Models" = "products/manage-models.md" },
+  ] },
+  { "Developers" = [
+    "developers/index.md",
+    { "CALYPR Product Docs" = [
     "calypr/index.md",
     { "Quick Start Guide" = "calypr/quick-start.md" },
     { "Data" = [
@@ -30,8 +41,8 @@ nav = [
       { "Explore" = "calypr/website/portal-explore.md" },
       { "Download" = "calypr/website/portal-download.md" },
     ] },
-  ] },
-  { "Tools" = [
+    ] },
+    { "Open Source Tool Docs" = [
     "tools/index.md",
     { "Data Lake Tools" = [
       { "Git-DRS" = [
@@ -179,6 +190,7 @@ nav = [
         { "Access Requests" = "tools/data-client/docs/access_requests.md" },
       ] },
     ] },
+    ] },
   ] },
 ]
 
@@ -200,7 +212,6 @@ features = [
     "content.code.copy",
     "navigation.indexes",
     "navigation.sections",
-    "navigation.tabs",
     "navigation.top",
     "header.autohide",
     "navigation.instant",
