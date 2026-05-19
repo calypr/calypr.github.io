@@ -64,7 +64,7 @@ We use Gen3's role based access control (RBAC) to manage access to data.
   * /programs/ucl
   * /programs/manchester
 
-Designated users within each institution have privileges to update requests. "Update" in this context means setting the status of a user's request to [SIGNED].
+Designated users within each institution have privileges to update requests. "Update" in this context means setting the status of a user's request to `SIGNED`.
 
 Since this approach relies on Gen3's [Requestor](https://github.com/uc-cdis/requestor/blob/master/docs/functionality_and_flow.md#example-backend-flow) for all assignments of policies to users we get  the following benefits:
 

@@ -10,12 +10,12 @@ Each input/output URL in a task is resolved by its URL scheme (for example `s3:/
 
 ### Choosing a storage backend
 
-- Use [Local](./local.md) for files on worker-accessible disks.
-- Use [HTTP(S)](./http.md) for public URLs and presigned object links.
-- Use [FTP](./ftp.md) for FTP-hosted files.
-- Use [S3](./s3.md) for Amazon S3 and S3-compatible object stores.
-- Use [OpenStack Swift](./swift.md) for Swift object storage.
-- Use [Google Storage](./google-storage.md) for Google Cloud Storage.
+- Use [Local](/tools/funnel/docs/storage/local/) for files on worker-accessible disks.
+- Use [HTTP(S)](/tools/funnel/docs/storage/http/) for public URLs and presigned object links.
+- Use [FTP](/tools/funnel/docs/storage/ftp/) for FTP-hosted files.
+- Use [S3](/tools/funnel/docs/storage/s3/) for Amazon S3 and S3-compatible object stores.
+- Use [OpenStack Swift](/tools/funnel/docs/storage/swift/) for Swift object storage.
+- Use [Google Storage](/tools/funnel/docs/storage/google-storage/) for Google Cloud Storage.
 
 ### URL schemes
 

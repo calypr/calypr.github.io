@@ -12,8 +12,8 @@ Populate row with templated values
 
 | name | Type | Description |
 | --- | --- | --- |
-| mapping | map[string]any | New fields to be generated from template |
-| rename | map[string]string | Rename field (no template engine) |
+| mapping | `map[string]any` | New fields to be generated from template |
+| rename | `map[string]string` | Rename field (no template engine) |
 
 
 # Example

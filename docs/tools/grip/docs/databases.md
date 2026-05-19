@@ -104,7 +104,7 @@ Drivers:
 
 # SQLite
 
-GRIP supports storing vertices and edges in [SQLite]
+GRIP supports storing vertices and edges in [SQLite](https://sqlite.org/)
 
 Config:
 
@@ -116,5 +116,3 @@ Drivers:
     Sqlite:
       DBName: tester/sqliteDB
 ```
-
-[psql]: https://sqlite.org/

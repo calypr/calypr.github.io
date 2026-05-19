@@ -54,4 +54,3 @@ The following variables are available for use in the template:
 
 See https://golang.org/pkg/text/template for information on creating templates.
 
-[ge]: http://gridscheduler.sourceforge.net/documentation.html

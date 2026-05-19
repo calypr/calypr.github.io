@@ -20,15 +20,15 @@ The following guide details the steps a data contributor must take to submit a p
 
 CALYPR project management is handled using standard Git workflows. you will need the **Large File Storage (LFS)** plugin to track genomic data files and the **Git-DRS** plugin to interface with CALYPR's storage and indexing systems.
 
-Visit the [Quick Start Guide](../quick-start.md) for detailed, OS-specific installation instructions for these tools.
+Visit the [Quick Start Guide](/calypr/quick-start/) for detailed, OS-specific installation instructions for these tools.
 
 | Tool | Purpose |
 | :--- | :--- |
 | **git-drs** | Manages large file tracking, storage, and DRS indexing. |
 | **forge** | Handles metadata validation, transformation (ETL), and publishing. |
-| **data-client** | Administrative tool for managing [collaborators and access requests](../../tools/data-client/docs/access_requests.md). |
+| **data-client** | Administrative tool for managing [collaborators and access requests](/tools/data-client/docs/access_requests/). |
 {: .caption }
 
 ## Git DRS Workflows
 
-For complete Git DRS documentation including project initialization, file management, and upload workflows, see the [Git DRS Quick Start](../../tools/git-drs/quickstart.md).
+For complete Git DRS documentation including project initialization, file management, and upload workflows, see the [Git DRS Quick Start](/tools/git-drs/quickstart/).
