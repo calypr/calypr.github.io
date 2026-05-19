@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Standards / Architecture Lead">
+  <title>Standards / Architecture Lead</title>
+  <g stroke="#0891b2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="32" y="42" width="56" height="56" rx="12"/>
+    <rect x="112" y="42" width="56" height="56" rx="12"/>
+    <rect x="72" y="132" width="56" height="56" rx="12"/>
+    <path d="M88 70 H112"/>
+    <path d="M60 98 L88 132"/>
+    <path d="M140 98 L116 132"/>
+    <path d="M52 70 H68 M132 70 H148 M92 160 H108"/>
+  </g>
+</svg>
+
