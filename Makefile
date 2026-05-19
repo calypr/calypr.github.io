@@ -1,5 +1,5 @@
 PYTHON ?= python3
-ZENSICAL ?= zensical
+ZENSICAL ?= $(if $(wildcard ./venv/bin/zensical),./venv/bin/zensical,zensical)
 
 .PHONY: update-branches
 update-branches:
