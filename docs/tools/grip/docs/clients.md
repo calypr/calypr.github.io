@@ -18,7 +18,7 @@ related_tools:
 
 # Getting Started
 
-GRIP has an API for making graph queries using structured data. Queries are defined using a series of step [operations](./queries/index.md).
+GRIP has an API for making graph queries using structured data. Queries are defined using a series of step [operations](/tools/grip/docs/queries/).
 
 ## Install the Python Client
 
@@ -143,7 +143,7 @@ Additionally, we have provided `TranscriptFor` as an argument to `.in_()`. This 
 ]
 ```
 
-View a list of all available query operations [here](./queries/index.md).
+View a list of all available query operations [here](/tools/grip/docs/queries/).
 
 ### Using the command line
 

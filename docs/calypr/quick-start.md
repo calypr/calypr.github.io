@@ -20,7 +20,7 @@ related_tools:
 ---
 
 !!! info "Private Beta"
-    CALYPR platform is currently in a private beta phase. We are actively working with a select group of research partners to refine the platform. If you encounter any issues or have feature requests, please reach out to the team. The individual [tools](../tools/index.md) are available for public use.
+    CALYPR platform is currently in a private beta phase. We are actively working with a select group of research partners to refine the platform. If you encounter any issues or have feature requests, please reach out to the team. The individual [tools](/tools/) are available for public use.
 
 ---
 
@@ -67,7 +67,7 @@ To interact with CALYPR, you need API credentials from the Gen3 data commons. Yo
 
 API credentials expire after 30 days, so you'll need to download fresh credentials regularly.
 
-**Learn More:** [Download Gen3 API Credentials](../tools/git-drs/quickstart.md#2-get-credentials) — Step-by-step instructions and setup context
+**Learn More:** [Download Gen3 API Credentials](/tools/git-drs/quickstart/#2-get-credentials) — Step-by-step instructions and setup context
 
 ---
 
@@ -82,7 +82,7 @@ Git-DRS lets you:
 
 When you push files, Git-DRS uploads them to S3, registers DRS records in Gen3, and stores only lightweight pointer files in your Git repository.
 
-**Learn More:** [Git-DRS Complete Documentation](../tools/git-drs/quickstart.md) — Installation, setup, and detailed workflows
+**Learn More:** [Git-DRS Complete Documentation](/tools/git-drs/quickstart/) — Installation, setup, and detailed workflows
 
 ---
 
@@ -97,7 +97,7 @@ Forge helps you:
 
 While you can upload files before metadata, adding metadata early maximizes the value of your data by making it discoverable and queryable.
 
-**Learn More:** [Forge Documentation](../tools/forge/docs/index.md) — Installation, validation, and publishing workflows
+**Learn More:** [Forge Documentation](/tools/forge/docs/) — Installation, validation, and publishing workflows
 
 ---
 
@@ -112,7 +112,7 @@ Funnel enables you to:
 
 Funnel is typically used for production pipelines and large-scale analysis. For exploratory work, you might run analyses locally first.
 
-**Learn More:** [Funnel Documentation](../tools/funnel/docs/index.md) — Task definitions, execution, and cluster integration
+**Learn More:** [Funnel Documentation](/tools/funnel/docs/docs/) — Task definitions, execution, and cluster integration
 
 ---
 
@@ -127,7 +127,7 @@ GRIP allows you to:
 
 GRIP is most useful after you've integrated metadata and established relationships between entities.
 
-**Learn More:** [GRIP Documentation](../tools/grip/docs/index.md) — Query syntax, graph traversals, and examples
+**Learn More:** [GRIP Documentation](/tools/grip/) — Query syntax, graph traversals, and examples
 
 ---
 
@@ -143,10 +143,10 @@ Now that you understand the basic CALYPR workflow, here are some recommended nex
 
 ### 🔧 Tool Documentation
 
-- **[Git-DRS Complete Guide](../tools/git-drs/quickstart.md)** - Comprehensive Git-DRS documentation
-- **[Forge Reference](../tools/forge/docs/index.md)** - Metadata validation and publishing
-- **[Funnel Workflows](../tools/funnel/docs/index.md)** - Task execution and pipeline management
-- **[GRIP Queries](../tools/grip/docs/index.md)** - Graph-based data queries
+- **[Git-DRS Complete Guide](/tools/git-drs/quickstart/)** - Comprehensive Git-DRS documentation
+- **[Forge Reference](/tools/forge/docs/)** - Metadata validation and publishing
+- **[Funnel Workflows](/tools/funnel/docs/docs/)** - Task execution and pipeline management
+- **[GRIP Queries](/tools/grip/)** - Graph-based data queries
 
 ### 🆘 Get Help
 

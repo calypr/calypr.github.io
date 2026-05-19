@@ -109,7 +109,7 @@ Example:
 
 ## Validating Metadata
 
-To ensure that the FHIR files you added are valid and graph-consistent, use [Forge validation](../../tools/forge/docs/validation.md).
+To ensure that the FHIR files you added are valid and graph-consistent, use [Forge validation](/tools/forge/docs/validation/).
 
 ```bash
 forge validate data --path META

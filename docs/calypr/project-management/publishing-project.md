@@ -53,7 +53,7 @@ Successful output:
 Check job status: forge status \<job-id\>  
 Get all job ids: forge list
 
-📖 More details: [Forge](../../tools/forge/docs/index.md)
+📖 More details: [Forge](/tools/forge/docs/)
 
 ---
 

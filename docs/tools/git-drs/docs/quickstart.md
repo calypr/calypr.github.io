@@ -17,7 +17,7 @@ This page is a deeper walkthrough of the current `git-drs` workflow.
 !!! note "Git LFS is optional"
     `git-drs` does not require Git LFS for normal setup, tracking, push, or pull workflows.
 
-    Git LFS compatibility is still supported for older repos and mixed environments. See [Git LFS Compatibility](git-lfs.md) if you need that mode.
+    Git LFS compatibility is still supported for older repos and mixed environments. See [Git LFS Compatibility](git-lfs/) if you need that mode.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Visit [https://git-scm.com](https://git-scm.com) to download and install Git for
 
 ## Install Git DRS
 
-Use the project installer or release workflow described in the main [Quick Start](../quickstart.md) and [Installation Guide](../installation.md).
+Use the project installer or release workflow described in the main [Quick Start](/tools/git-drs/quickstart/) and [Installation Guide](/tools/git-drs/installation/).
 
 One installer path is:
 
@@ -130,7 +130,7 @@ git add .gitattributes
 git commit -m "Track BAM files"
 ```
 
-If you are working in a legacy mixed setup that still depends on Git LFS concepts, see [Git LFS Compatibility](git-lfs.md).
+If you are working in a legacy mixed setup that still depends on Git LFS concepts, see [Git LFS Compatibility](git-lfs/).
 
 ### Add, Commit, and Push Data
 
@@ -298,7 +298,7 @@ git drs remote list
 
 ### Cross-Remote Promotion
 
-Transfer and promotion workflows depend on the current command surface and deployment conventions. Use the main [Commands Reference](../commands.md) and your environment-specific process rather than older `fetch`-based examples.
+Transfer and promotion workflows depend on the current command surface and deployment conventions. Use the main [Commands Reference](/tools/git-drs/commands/) and your environment-specific process rather than older `fetch`-based examples.
 
 ## Command Quick Reference
 
@@ -320,6 +320,6 @@ Transfer and promotion workflows depend on the current command surface and deplo
 
 ## Further Reading
 
-- [Troubleshooting](troubleshooting.md) — Common issues and solutions
-- [Developer Guide](developer-guide.md) — Architecture, command reference, and internals
-- [Git LFS Compatibility](git-lfs.md) — Optional compatibility notes for legacy mixed setups
+- [Troubleshooting](troubleshooting/) — Common issues and solutions
+- [Developer Guide](developer-guide/) — Architecture, command reference, and internals
+- [Git LFS Compatibility](git-lfs/) — Optional compatibility notes for legacy mixed setups
