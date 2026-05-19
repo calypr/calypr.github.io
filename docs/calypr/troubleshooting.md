@@ -58,4 +58,4 @@ git push
 ---
 
 !!! tip "Getting Help"
-    If your issue isn't listed here, please reach out to our team at [support@calypr.org](mailto:support@calypr.org) or search the individual tool documentation in the [Tools Section](../tools/index.md).
+    If your issue isn't listed here, please reach out to our team at [support@calypr.org](mailto:support@calypr.org) or search the individual tool documentation in the [Tools Section](/tools/).

@@ -1,5 +1,5 @@
 PYTHON ?= python3
-ZENSICAL ?= zensical
+ZENSICAL ?= $(if $(wildcard ./venv/bin/zensical),./venv/bin/zensical,zensical)
 
 .PHONY: build
 build:
@@ -15,4 +15,3 @@ help:
 	@echo "  build             - Build the Zensical site with the active Python environment"
 	@echo "  serve             - Serve the Zensical site with the active Python environment"
 	@echo "  help              - Show this message"
-
