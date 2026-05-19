@@ -14,7 +14,7 @@ each of the items in the array will become an independent row.
 | name | Type | Description |
 | --- | --- | --- |
 | field | string | Name of field to be processed |
-| mapping | map[string]string | Project templated values into child element |
+| mapping | `map[string]string` | Project templated values into child element |
 | itemField | string | If processing an array of non-dict elements, create a dict as `{itemField:element}` |
 
 

@@ -1,3 +1,36 @@
+[plugins.multirepo]
+cleanup = true
+
+[[plugins.multirepo.nav_repos]]
+name = "git-drs"
+import_url = "https://github.com/calypr/git-drs?branch=development"
+imports = [
+  "docs/index.md",
+  "docs/quickstart.md",
+  "docs/getting-started.md",
+  "docs/installation.md",
+  "docs/commands.md",
+  "docs/troubleshooting.md",
+  "docs/bucket-mapping.md",
+  "docs/git-lfs.md",
+  "docs/developer-guide.md",
+  "docs/remove-files.md",
+]
+
+[[plugins.multirepo.nav_repos]]
+name = "syfon"
+import_url = "https://github.com/calypr/syfon?branch=development"
+imports = [
+  "docs/index.md",
+  "docs/quickstart.md",
+  "docs/local-deployment.md",
+  "docs/kubernetes-deployment.md",
+  "docs/configuration.md",
+  "docs/encryption.md",
+  "docs/troubleshooting.md",
+  "docs/images/syfon-logo.png",
+]
+
 [project]
 site_name = "CALYPR"
 site_url = "https://calypr.org"
@@ -78,6 +111,7 @@ nav = [
         { "Compute" = [
           { "Deploying a Cluster" = "tools/funnel/docs/compute/deployment.md" },
           { "AWS Batch" = "tools/funnel/docs/compute/aws-batch.md" },
+          { "GCP Batch" = "tools/funnel/docs/compute/gcp-batch.md" },
           { "Kubernetes" = "tools/funnel/docs/compute/kubernetes.md" },
           { "HTCondor" = "tools/funnel/docs/compute/htcondor.md" },
           { "Slurm" = "tools/funnel/docs/compute/slurm.md" },
@@ -220,7 +254,6 @@ primary = "custom"
 title = "bash"
 buttons = "macos"
 prompt_literal_start = ["$"]
-include_assets = false
 [project.markdown_extensions.toc]
 permalink = true
 [project.markdown_extensions.pymdownx.details]

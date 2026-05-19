@@ -36,7 +36,7 @@ A Funnel development environment includes:
 - [gRPC Gateway][gateway] for HTTP communication.
 - [Angular][angular] and [SASS][sass] for the web dashboard.
 - [GNU Make][make] for development tasks.
-- [Docker][docker] for executing task containers (tested with v1.12, v1.13).
+- [Docker](https://docker.io) for executing task containers (tested with v1.12, v1.13).
 - [dep][dep] for Go dependency vendoring.
 - [Make][make] for development/build commands.
 - [NodeJS][node] and [NPM][npm] for web dashboard development.
@@ -64,8 +64,6 @@ mock interfaces in test code, for example, to mock the Google Cloud APIs.
 [grpc]: http://www.grpc.io/
 [sass]: http://sass-lang.com/
 [make]: https://www.gnu.org/software/make/
-[docker]: https://docker.io
-[python]: https://www.python.org/
 [dep]: https://golang.github.io/dep/
 [node]: https://nodejs.org
 [npm]: https://www.npmjs.com/
