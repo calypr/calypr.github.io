@@ -90,6 +90,36 @@ or automatic commits), open an issue or pull request describing the desired beha
 the maintainers can review it.
 
 
+update_front_matter.py - Usage
+==============================
+
+This script infers and writes page front matter fields used by navigation/taxonomy:
+
+- `lead`
+- `personas`
+- `solutions`
+- `related_tools`
+
+It is deterministic and idempotent: running it repeatedly should not keep changing files.
+
+Run from repository root:
+
+```bash
+# Apply updates in place
+python3 scripts/update_front_matter.py
+
+# Check mode for CI/pre-commit (no files written)
+python3 scripts/update_front_matter.py --check
+```
+
+Behavior notes:
+
+- Preserves non-target front matter keys.
+- Rebuilds only targeted keys in a stable order.
+- Processes markdown files under the repo, excluding `.git`, `.generated`, and `site`.
+- `--check` exits non-zero if any file would be updated.
+
+
 prepare_docs.py - Documentation Preparation & Import
 =====================================================
 
