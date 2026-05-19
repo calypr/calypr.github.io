@@ -2,7 +2,14 @@
 title: Elasticsearch
 menu:
   main:
-    parent: Databases
+lead: "Funnel supports storing tasks and scheduler data in Elasticsearch (v8)."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Elasticsearch

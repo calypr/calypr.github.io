@@ -3,7 +3,14 @@ title: Overview
 menu:
   main:
     identifier: docs
-    weight: -1000
+lead: "Funnel makes distributed batch processing easier by providing a simple task API and a set of components which can easily adapted to a vareity of platforms."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Overview

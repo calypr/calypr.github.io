@@ -1,5 +1,13 @@
 ---
 title: Storage
+lead: "Funnel storage backends handle downloading task inputs and uploading task outputs."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Storage

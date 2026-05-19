@@ -1,5 +1,15 @@
 ---
 title: server
+lead: "- --config or -c - Specifies a YAML config file with server settings."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # `server`

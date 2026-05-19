@@ -4,7 +4,14 @@ render_macros: true
 menu:
   main:
     parent: Compute
-    weight: 20
+lead: "Funnel can be configured to submit workers to [PBS/Torque][pbs] by making calls to qsub."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 # PBS/Torque
 

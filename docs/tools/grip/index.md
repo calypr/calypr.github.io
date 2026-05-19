@@ -1,5 +1,15 @@
 ---
 title: GRIP
+lead: "GRIP is the graph query and graph database component in the CALYPR stack."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # GRIP

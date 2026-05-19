@@ -35,7 +35,16 @@ nav = [
       ] },
     ] },
     { "Analysis" = [
-      { "Data Querying + Gen3 SDK" = "calypr/analysis/query.md" },
+       { "Data Querying + Gen3 SDK" = "calypr/analysis/query.md" },
+     ] },
+     { "Audience" = [
+       "personas/index.md",
+      { "Data Steward" = "personas/data-steward.md" },
+      { "Platform Engineer" = "personas/platform-engineer.md" },
+      { "Workflow Engineer" = "personas/workflow-engineer.md" },
+      { "Researcher / Bioinformatician" = "personas/researcher-bioinformatician.md" },
+      { "Security / Compliance Reviewer" = "personas/security-compliance-reviewer.md" },
+      { "Standards / Architecture Lead" = "personas/standards-architecture-lead.md" },
     ] },
     { "Website" = [
       { "Explore" = "calypr/website/portal-explore.md" },

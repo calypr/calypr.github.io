@@ -1,5 +1,14 @@
 ---
 title: Publishing
+lead: "The forge tool handles the lifecycle of publishing metadata to Gen3 Commons via the **Sower** service (for async job processing)."
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - forge
 ---
 
 # Publishing

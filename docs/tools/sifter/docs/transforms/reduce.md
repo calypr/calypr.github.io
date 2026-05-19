@@ -3,7 +3,17 @@ title: reduce
 menu:
   main:
     parent: transforms
-    weight: 100
+lead: "Using key from rows, reduce matched records into a single entry"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # reduce

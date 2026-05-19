@@ -1,5 +1,16 @@
 ---
 title: Schema
+lead: "This document provides a comprehensive description of the Sifter Playbook format, its input methods (extractors), and its transformation steps."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # Sifter Playbook Schema

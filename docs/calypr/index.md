@@ -1,3 +1,24 @@
+---
+lead: "CALYPR is the product layer of the CALYPR open platform."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
 # CALYPR Product Guide
 
 CALYPR is the product layer of the CALYPR open platform. It turns the underlying data, compute, metadata, and access-control tools into a workspace experience that research programs can understand and operate.

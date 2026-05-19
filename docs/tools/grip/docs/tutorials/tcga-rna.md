@@ -4,7 +4,16 @@ title: TCGA RNA Expression
 menu:
   main:
     parent: Tutorials
-    weight: 2
+lead: "Connect RNASeq data to Clinical data"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 ### Explore TCGA RNA Expression Data

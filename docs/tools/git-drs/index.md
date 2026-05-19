@@ -1,5 +1,15 @@
 ---
 title: Git-DRS
+lead: "Git-DRS is the Git-facing data workflow for Syfon-backed repositories."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - git-drs
+  - syfon
 ---
 
 # Git-DRS

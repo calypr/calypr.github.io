@@ -2,6 +2,17 @@
 title: Sifter
 render_macros: false
 repo_url: https://github.com/bmeg/sifter
+lead: "Sifter is a stream based processing engine."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 

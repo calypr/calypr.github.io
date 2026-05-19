@@ -1,3 +1,25 @@
+---
+lead: "This is the technical reference area for the CALYPR toolchain."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
 # Open-Source Tool Docs
 
 This is the technical reference area for the CALYPR toolchain. It is intentionally behind the product and solution pages so non-technical readers do not have to start with implementation detail.

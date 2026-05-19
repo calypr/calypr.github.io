@@ -1,3 +1,14 @@
+---
+lead: "Forge manages the configuration for the CALYPR Explorer UI."
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - forge
+---
 # Forge Configuration
 
 Forge manages the configuration for the CALYPR Explorer UI. This configuration defines how data is displayed, filtered, and accessed in the web interface.

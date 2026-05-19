@@ -1,5 +1,13 @@
 ---
 title: Funnel
+lead: "Funnel provides task execution and workflow orchestration around the GA4GH TES model."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Funnel

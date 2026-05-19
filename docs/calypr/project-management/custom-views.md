@@ -1,4 +1,21 @@
-
+---
+lead: "The dataframer is used to render the FHIR .ndjson files into the tabular space that is used in the explorer page table."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+related_tools:
+  - data-client
+  - git-drs
+  - syfon
+  - forge
+---
 # Project Customization
 
 ## Dataframer Configuration

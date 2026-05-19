@@ -2,7 +2,26 @@
 body_class: marketing-page
 hide:
   - navigation
-  - toc
+lead: "CALYPR helps research programs move from scattered files, spreadsheets, and one-off analysis into a governed system for data access, metadata, workflow execution, and reusable research assets."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
 ---
 
 <div class="solutions-page">

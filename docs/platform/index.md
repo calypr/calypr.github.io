@@ -1,3 +1,26 @@
+---
+lead: "CALYPR is a research data platform for organizations that need to make biomedical data usable without giving up governance, portability, or open infrastructure."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
 # CALYPR Platform
 
 CALYPR is a research data platform for organizations that need to make biomedical data usable without giving up governance, portability, or open infrastructure.

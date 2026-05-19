@@ -8,11 +8,12 @@ update-branches:
 
 .PHONY: prepare
 prepare:
+	@echo "Preparing documentation, adding meta for tools, personas, and solution links..."
 	@$(PYTHON) scripts/prepare_docs.py
 
 .PHONY: build
 build: prepare
-	@$(ZENSICAL) build --clean
+	@$(ZENSICAL) build
 
 .PHONY: serve
 serve: prepare

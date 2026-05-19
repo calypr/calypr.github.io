@@ -4,7 +4,16 @@ title: er
 menu:
   main:
     parent: commands
-    weight: 6
+lead: "The *External Resource* system allows GRIP to plug into existing data systems and integrate them into queriable graphs."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 ```

@@ -1,3 +1,16 @@
+---
+lead: "CALYPR helps research teams register, version, govern, and resolve biomedical data without forcing users to work directly against raw object storage."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - git-drs
+  - syfon
+  - data-client
+---
 # Manage Data
 
 ![Manage Data](../assets/solutions/manage-data.svg)

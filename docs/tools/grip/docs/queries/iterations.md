@@ -3,7 +3,16 @@ title: Iteration
 menu:
   main:
     parent: Queries
-    weight: 16
+lead: "A common operation in graph search is the ability to iteratively repeat a search pattern."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Iteration Commands

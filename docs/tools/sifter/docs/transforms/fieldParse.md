@@ -3,7 +3,17 @@ title: fieldParse
 menu:
   main:
     parent: transforms
-    weight: 100
+lead: "Parse a string field (e.g."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # fieldParse

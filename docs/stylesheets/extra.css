@@ -143,6 +143,25 @@ body {
   color: #475569 !important;
 }
 
+.calypr-page-taxonomy-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.calypr-page-taxonomy-nav--heading {
+  margin-top: 0.45rem;
+}
+
+.calypr-page-taxonomy-nav .md-nav__link {
+  margin-top: 0;
+}
+
+.calypr-page-taxonomy-nav--heading .md-nav__link {
+  color: #475569;
+  font-weight: 700;
+  pointer-events: none;
+}
+
 h1,
 h2,
 h3 {

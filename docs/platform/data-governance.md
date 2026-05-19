@@ -1,3 +1,20 @@
+---
+lead: "Biomedical research data needs to be findable and usable, but it also needs to remain controlled."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - integrate-data
+related_tools:
+  - git-drs
+  - syfon
+  - data-client
+  - forge
+  - grip
+---
 # Governed Data Access
 
 Biomedical research data needs to be findable and usable, but it also needs to remain controlled. CALYPR treats data governance as part of the product experience rather than an afterthought bolted onto storage.

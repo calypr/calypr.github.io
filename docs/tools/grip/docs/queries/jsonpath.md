@@ -3,7 +3,16 @@ title: Referencing Fields
 menu:
   main:
     parent: Queries
-    weight: 2
+lead: "Several operations (where, fields, render, etc.) reference properties of the vertices/edges during the traversal."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Referencing Vertex/Edge Properties

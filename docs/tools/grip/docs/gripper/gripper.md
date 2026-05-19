@@ -4,7 +4,16 @@ title: Intro
 menu:
   main:
     parent: gripper
-    weight: 1
+lead: "GRIP Plugin External Resources (GRIPPERs) are GRIP drivers that take external resources and allow GRIP to access them are part of a unified graph."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # GRIPPER

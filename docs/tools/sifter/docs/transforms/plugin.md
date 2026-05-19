@@ -3,7 +3,17 @@ title: transform plugin
 menu:
   main:
     parent: transforms
-    weight: 100
+lead: "Invoke external program for data processing"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # plugin

@@ -1,5 +1,14 @@
 ---
 title: Data Client
+lead: "data-client is the Gen3-facing CLI for profile setup, data transfer, and collaborator request workflows."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - data-client
 ---
 
 # Data Client

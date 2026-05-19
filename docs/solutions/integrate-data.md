@@ -1,3 +1,16 @@
+---
+lead: "CALYPR helps teams connect clinical, omics, sample, file, and project metadata into structures that can be searched, queried, validated, and reused."
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - forge
+  - grip
+  - sifter
+---
 # Integrate Data
 
 ![Integrate Data](../assets/solutions/integrate-data.svg)

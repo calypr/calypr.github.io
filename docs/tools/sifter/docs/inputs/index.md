@@ -1,6 +1,17 @@
 ---
 title: Inputs
 render_macros: false
+lead: "Every playbook has a section of **input loaders** \u2013 components that read raw data (files, APIs, databases, etc.) and convert it into Python objects for downstream steps."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 Every playbook has a section of **input loaders** – components that read raw data (files, APIs, databases, etc.) and convert it into Python objects for downstream steps.  

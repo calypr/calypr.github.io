@@ -2,7 +2,14 @@
 title: DynamoDB
 menu:
   main:
-    parent: Databases
+lead: "Funnel supports storing task data in DynamoDB."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # DynamoDB

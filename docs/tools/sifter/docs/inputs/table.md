@@ -1,6 +1,17 @@
 ---
 title: table
 render_macros: false
+lead: "Extract data from tabular file, includiong TSV and CSV files."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # table

@@ -2,7 +2,27 @@
 body_class: marketing-page
 hide:
   - navigation
-  - toc
+lead: "CALYPR packages the underlying data, workflow, and metadata infrastructure into four products that buyers can evaluate and teams can adopt without first becoming experts in the implementation."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
 ---
 
 <section class="solution-hero">

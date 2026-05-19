@@ -1,3 +1,15 @@
+---
+lead: "This page is a deeper walkthrough of the current git-drs workflow."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - git-drs
+  - syfon
+---
 # Git DRS — Quick Start
 
 This page is a deeper walkthrough of the current `git-drs` workflow.

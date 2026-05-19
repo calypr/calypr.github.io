@@ -1,6 +1,17 @@
 ---
 title: lookup
 render_macros: false
+lead: "| name | Type | Description | | --- | --- | --- | | replace | string (field path) | Field to replace | | lookup | string (template string) | Key to use for looking up data | | copy | map[string]string | Copy values from record that was found by lookup."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # lookup

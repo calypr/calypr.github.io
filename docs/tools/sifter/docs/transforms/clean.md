@@ -3,7 +3,17 @@ title: clean
 menu:
   main:
     parent: transforms
-    weight: 100
+lead: "Remove fields that don't appear in the desingated list."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # clean

@@ -3,7 +3,16 @@ title: Output Control
 menu:
   main:
     parent: Queries
-    weight: 10
+lead: "If fields is empty, all properties are excluded."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 ---

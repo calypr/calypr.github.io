@@ -1,3 +1,19 @@
+---
+lead: "Use case: As an analyst, in order to share data with collaborators, I need a way to create a project, upload files and associate those files with metadata."
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - integrate-data
+related_tools:
+  - git-drs
+  - syfon
+  - forge
+  - grip
+  - data-client
+---
 # Git-DRS
 
 !!! note
