@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Data Steward">
+  <title>Data Steward</title>
+  <g stroke="#7c3aed" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M44 54 C44 34 144 34 144 54 C144 74 44 74 44 54 Z"/>
+    <path d="M44 54 V138 C44 158 144 158 144 138 V54"/>
+    <path d="M44 96 C44 116 144 116 144 96"/>
+    <path d="M120 160 L146 186 L184 136"/>
+  </g>
+</svg>
+

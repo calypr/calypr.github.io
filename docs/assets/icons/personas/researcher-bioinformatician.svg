@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Researcher / Bioinformatician">
+  <title>Researcher / Bioinformatician</title>
+  <g stroke="#14b8a6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M66 38 C92 64 96 102 66 128"/>
+    <path d="M122 38 C96 64 92 102 122 128"/>
+    <path d="M70 54 H118 M78 76 H110 M78 100 H110 M70 122 H118"/>
+    <circle cx="94" cy="172" r="28"/>
+    <path d="M94 128 V144"/>
+  </g>
+</svg>
+

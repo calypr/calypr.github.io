@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Manage Data">
+  <title>Manage Data</title>
+  <g stroke="#14b8a6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M34 50 C34 30 154 30 154 50 C154 70 34 70 34 50 Z"/>
+    <path d="M34 50 V142 C34 162 154 162 154 142 V50"/>
+    <path d="M34 96 C34 116 154 116 154 96"/>
+    <path d="M58 166 L94 198 L130 166"/>
+    <path d="M94 130 V198"/>
+  </g>
+</svg>
+

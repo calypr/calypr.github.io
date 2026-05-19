@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Manage Compute">
+  <title>Manage Compute</title>
+  <g stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="36" y="42" width="116" height="96" rx="18"/>
+    <path d="M66 72 H122"/>
+    <path d="M66 100 H104"/>
+    <path d="M54 168 H134"/>
+    <path d="M94 138 V168"/>
+    <path d="M18 72 H36 M152 72 H170 M18 108 H36 M152 108 H170"/>
+    <path d="M62 24 V42 M94 24 V42 M126 24 V42"/>
+  </g>
+</svg>
+

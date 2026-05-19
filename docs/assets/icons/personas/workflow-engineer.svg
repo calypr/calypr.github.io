@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Workflow Engineer">
+  <title>Workflow Engineer</title>
+  <g stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="22" y="44" width="54" height="38" rx="10"/>
+    <rect x="112" y="44" width="54" height="38" rx="10"/>
+    <rect x="67" y="132" width="54" height="38" rx="10"/>
+    <path d="M76 63 H112"/>
+    <path d="M139 82 L104 132"/>
+    <path d="M49 82 L84 132"/>
+    <path d="M54 154 H67 M121 154 H136"/>
+  </g>
+</svg>
+
