@@ -28,7 +28,7 @@ related_tools:
 <section class="solution-hero">
   <div>
     <p class="eyebrow">Products</p>
-    <h1>Products designed for how research programs actually operate.</h1>
+    <h1>Products designed for how research programs operate.</h1>
     <p class="solution-hero__lead">
       CALYPR packages the underlying data, workflow, and metadata infrastructure into four products that buyers can evaluate and teams can adopt without first becoming experts in the implementation.
     </p>

@@ -26,7 +26,7 @@ CALYPR helps research teams register, version, govern, and resolve biomedical da
 
 ## Related Docs
 
-- [Governed data access](../platform/data-governance.md)
-- [Managing metadata](../calypr/data/managing-metadata.md)
-- [Git-DRS](../tools/git-drs/index.md)
-- [Syfon](../tools/syfon/index.md)
+- [Governed data access](/platform/data-governance/)
+- [Managing metadata](/calypr/data/managing-metadata/)
+- [Git-DRS](/tools/git-drs/)
+- [Syfon](/tools/syfon/)
