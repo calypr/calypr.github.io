@@ -1,2 +1,3 @@
 zensical
 termynal
+mkdocs-multirepo-plugin

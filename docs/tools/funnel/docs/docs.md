@@ -19,7 +19,7 @@ output files to upload, state, and logs. The API allows you to create, get, list
 Tasks are accessed via the `funnel task` command. Additionally the HTTP API is based on a standarized GA4GH
 protocol, and any client the is compatible with that API will work with Funnel.
 
-There's a lot more you can do with the task API. See the [tasks docs](./tasks.md) for more.
+There's a lot more you can do with the task API. See the [tasks docs](/tools/funnel/docs/tasks/) for more.
 
 ### Server
 
@@ -32,7 +32,7 @@ Storage provides access to file systems such as S3, Google Storage, and local fi
 Tasks define locations where files should be downloaded from and uploaded to. Workers handle
 the downloading/uploading.
 
-See the [storage docs](./storage/index.md) for more information on configuring storage backends.
+See the [storage docs](/tools/funnel/docs/storage/) for more information on configuring storage backends.
 
 ### Worker
 
@@ -66,6 +66,6 @@ external system for scheduling tasks and managing cluster resources, such as AWS
 or HPC systems like HTCondor, Slurm, Grid Engine, etc. Funnel provides integration with
 these services that doesn't include nodes or scheduling by Funnel.
 
-See [Deploying a cluster](./compute/deployment.md) for more information about running a cluster of nodes.
+See [Deploying a cluster](/tools/funnel/docs/compute/deployment/) for more information about running a cluster of nodes.
 
 The node is accessible via the `funnel node` command.

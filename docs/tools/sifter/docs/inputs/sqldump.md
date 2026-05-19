@@ -11,7 +11,7 @@ Scan file produced produced from sqldump.
 | Name | Type | Description |
 |-------|---|--------|
 | path | string | Path to the SQL dump file | 
-| tables | []string | Names of tables to read out |
+| tables | `[]string` | Names of tables to read out |
 
 ## Example
 

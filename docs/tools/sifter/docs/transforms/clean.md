@@ -14,7 +14,7 @@ Remove fields that don't appear in the desingated list.
 
 | name | Type | Description |
 | --- | --- | --- |
-| fields | [] string | Fields to keep | 
+| fields | `[]string` | Fields to keep | 
 | removeEmpty | bool | Fields with empty values will also be removed |
 | storeExtra | string | Field name to store removed fields |
 
