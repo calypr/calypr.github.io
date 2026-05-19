@@ -15,7 +15,6 @@ make serve
 
 The local build contract is:
 
-- `make prepare` stages repo-authored docs plus imported upstream tool docs into `.generated/docs`
 - `make build` runs a clean Zensical build
 - `make serve` stages the docs and starts the local Zensical server
 
@@ -24,7 +23,6 @@ For repo maintenance details, navigation ownership, and import behavior, see [DE
 If you prefer the raw commands:
 
 ```sh
-python scripts/prepare_docs.py
 zensical serve
 ```
 
@@ -33,3 +31,4 @@ zensical serve
 The site is automatically built and published on every push to `main` using the GitHub Actions workflow in [publish.yml](.github/workflows/publish.yml). Netlify uses the same Zensical build pipeline.
 
 To skip CI for a commit, add `[skip ci]` (or any [equivalent variation](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)) to the commit message.
+
