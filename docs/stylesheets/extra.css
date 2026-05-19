@@ -161,15 +161,7 @@ body.home   .md-content h2::before {
   margin-bottom: 1.5em;
 }
 
-body.business-home .md-main__inner {
-  display: block;
-  width: 100%;
-  margin: 0;
-  max-width: 100%;
-  padding: 0;
-}
-
-body.business-home .md-content {
+.md-main__inner.md-grid:has(.business-hero) {
   display: block;
   width: 100%;
   max-width: none;
@@ -177,7 +169,7 @@ body.business-home .md-content {
   padding: 0;
 }
 
-body.business-home .md-content__inner {
+.md-main__inner.md-grid:has(.business-hero) .md-content {
   display: block;
   width: 100%;
   max-width: none;
@@ -185,8 +177,16 @@ body.business-home .md-content__inner {
   padding: 0;
 }
 
-body.business-home .md-content__inner::before,
-body.business-home .md-content h2::before {
+.md-main__inner.md-grid:has(.business-hero) .md-content__inner {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.md-main__inner.md-grid:has(.business-hero) .md-content__inner::before,
+.md-main__inner.md-grid:has(.business-hero) .md-content h2::before {
   display: none;
 }
 
@@ -219,20 +219,23 @@ body.marketing-page .md-sidebar--secondary {
 }
 
 .business-hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(520px, 1fr) minmax(360px, 0.78fr);
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: clamp(4rem, 7vw, 7rem) 1.5rem 3rem;
+  max-width: none;
+  margin: 0;
+  padding:
+    clamp(3.25rem, 5vw, 5rem)
+    max(1.5rem, calc((100vw - 1180px) / 2))
+    3rem;
 }
 
 .business-hero::before {
   content: "";
   position: absolute;
-  inset: 6rem 0 auto;
-  height: 560px;
+  inset: 0;
   z-index: -1;
   background:
     radial-gradient(circle at 18% 28%, rgba(20, 184, 166, 0.14), transparent 28rem),
@@ -358,33 +361,33 @@ body.marketing-page .md-sidebar--secondary {
 .solution-hero,
 .solution-section {
   max-width: 1180px;
-  margin: 0 auto 5rem;
+  margin: 0 auto 3.5rem;
   padding: 0 1.5rem;
 }
 
 .solution-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
+  gap: 1.25rem;
   align-items: start;
-  padding-top: 2.5rem;
+  padding-top: 1rem;
 }
 
 .solution-hero h1 {
-  max-width: 14ch;
+  max-width: 12ch;
   margin: 0;
   color: #07111f;
-  font-size: clamp(2.5rem, 4.2vw, 4.4rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  line-height: 1;
   letter-spacing: -0.06em;
 }
 
 .solution-hero__lead {
   max-width: 42rem;
-  margin: 1.5rem 0 0;
+  margin: 1rem 0 0;
   color: #334155;
-  font-size: clamp(1rem, 1.45vw, 1.18rem);
-  line-height: 1.7;
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.6;
 }
 
 .solution-hero__copy {
@@ -401,7 +404,7 @@ body.marketing-page .md-sidebar--secondary {
     radial-gradient(circle at 92% 8%, rgba(56, 189, 248, 0.18), transparent 14rem),
     linear-gradient(135deg, #f0fdfa 0%, #eff6ff 100%);
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-  padding: 1.6rem;
+  padding: 1.25rem;
 }
 
 .solution-hero__aside span,
@@ -936,8 +939,16 @@ body.developers-page .md-content h1:first-of-type {
   text-decoration: none;
 }
 
+.developer-index__row,
+.developer-index__row:hover,
+.developer-index__row:focus,
+.developer-index__row:active,
+.developer-index__row span {
+  text-decoration: none;
+}
+
 .developer-index__title {
-  color: #0f172a;
+  color: #0057B7;
   font-size: 1.18rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -949,7 +960,7 @@ body.developers-page .md-content h1:first-of-type {
 }
 
 .developer-index__route {
-  color: #0f766e;
+  color: #0057B7;
   font-size: 0.76rem;
   font-weight: 900;
   letter-spacing: 0.16em;

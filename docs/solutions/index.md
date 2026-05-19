@@ -9,7 +9,7 @@ hide:
   <section class="solution-hero">
     <div class="solution-hero__copy">
       <p class="eyebrow">Solutions</p>
-      <h1>Build a research operating model people can actually use.</h1>
+      <h1>Build a research operating model people can use.</h1>
       <p class="solution-hero__lead">
         CALYPR helps research programs move from scattered files, spreadsheets, and one-off analysis into a governed system for data access, metadata, workflow execution, and reusable research assets.
       </p>
@@ -230,7 +230,7 @@ hide:
   </section>
 
   <section class="cta-band cta-band--solutions">
-    <h2>See how the products package these capabilities into something teams can actually buy and adopt.</h2>
+    <h2>See how the products package these capabilities into something teams can buy and adopt.</h2>
     <div class="business-actions">
       <a href="../products/" class="md-button md-button--primary">View products</a>
     </div>

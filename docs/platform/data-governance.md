@@ -17,7 +17,7 @@ CALYPR keeps the technical machinery available, but puts a governed product surf
 
 ## Related Technical Docs
 
-- [Managing metadata](../calypr/data/managing-metadata.md)
-- [Role based access control](../calypr/project-management/calypr-admin/approve-requests.md)
-- [Syfon storage service](../tools/syfon/index.md)
-- [Git-DRS data versioning](../tools/git-drs/index.md)
+- [Managing metadata](/calypr/data/managing-metadata/)
+- [Role based access control](/calypr/project-management/calypr-admin/approve-requests/)
+- [Syfon storage service](/tools/syfon/)
+- [Git-DRS data versioning](/tools/git-drs/)

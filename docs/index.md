@@ -80,7 +80,7 @@ hide:
 
 <section class="business-section business-section--muted">
   <p class="eyebrow">One platform story</p>
-  <h2>A platform story built for research programs, not just platform engineers.</h2>
+  <h2>A platform story built for research programs</h2>
   <div class="value-grid">
     <article>
       <h3>Start with the program problem</h3>
