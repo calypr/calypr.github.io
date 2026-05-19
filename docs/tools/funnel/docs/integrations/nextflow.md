@@ -2,7 +2,14 @@
 title: Nextflow
 menu:
   main:
-    parent: Integrations
+lead: "> \u26a0\ufe0f Nextflow support is currently in development and requires a few additional steps to run which are included below."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 > ⚠️ Nextflow support is currently in development and requires a few additional steps to run which are included below.

@@ -3,7 +3,17 @@ title: split
 menu:
   main:
     parent: transforms
-    weight: 100
+lead: "Split a field using string sep ## Parameters"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # split

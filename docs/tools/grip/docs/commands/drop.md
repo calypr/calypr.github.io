@@ -4,7 +4,16 @@ title: drop
 menu:
   main:
     parent: commands
-    weight: 4
+lead: "grip drop"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 ```

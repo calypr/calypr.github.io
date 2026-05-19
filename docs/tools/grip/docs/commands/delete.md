@@ -3,7 +3,16 @@ title: delete
 menu:
   main:
     parent: commands
-    weight: 3
+lead: "- : Name of the graph (required) - --host : GripQL server URL (default: \"localhost:8202\") - --file : Path to a JSON file containing data to delete - --edges : Comma-separated list of edge IDs to delete (ignored if JSON file is provided) - --vertices : Comma-separated list of vertex IDs to delete (ignored if JSON file is provided)"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # `delete` Command

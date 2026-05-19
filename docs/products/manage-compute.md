@@ -2,7 +2,22 @@
 body_class: marketing-page
 hide:
   - navigation
-  - toc
+lead: "Manage Compute gives research organizations a consistent way to run analysis across cloud, cluster, and local environments without forcing every team to relearn the platform each time infrastructure changes."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - data-client
 ---
 
 # Manage Compute

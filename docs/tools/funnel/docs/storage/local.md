@@ -3,7 +3,14 @@ title: Local
 menu:
   main:
     parent: Storage
-    weight: -10
+lead: "Funnel supports using the local filesystem for file storage."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Local

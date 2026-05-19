@@ -1,5 +1,15 @@
 ---
 title: GRIP
+lead: "GRIP (Graph Resource Integration Platform) is a powerful framework for building and managing distributed data processing systems."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 GRIP (Graph Resource Integration Platform) is a powerful framework for building and managing distributed data processing systems. Key features include:

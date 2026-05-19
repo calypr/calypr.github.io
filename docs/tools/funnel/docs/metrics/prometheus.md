@@ -2,7 +2,14 @@
 title: Prometheus
 menu:
   main:
-    parent: Metrics
+lead: "[Prometheus][prom] is a monitoring and metrics collection service."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Prometheus

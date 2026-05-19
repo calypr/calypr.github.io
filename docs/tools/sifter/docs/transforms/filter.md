@@ -3,7 +3,17 @@ title: filter
 menu:
   main:
     parent: transforms
-    weight: 100
+lead: "Filter rows in stream using a number of different methods"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # filter

@@ -2,7 +2,14 @@
 title: Kafka
 menu:
   main:
-    parent: Events
+lead: "Funnel supports writing task events to a Kafka topic."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Kafka

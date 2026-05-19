@@ -3,7 +3,14 @@ title: Deploying a cluster
 menu:
   main:
     parent: Compute
-    weight: -50
+lead: "This guide describes the basics of starting a cluster of Funnel nodes."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Deploying a cluster

@@ -3,7 +3,16 @@ title: Traverse the Graph
 menu:
   main:
     parent: Queries
-    weight: 3
+lead: "The as_ and select commands allow a traveler to mark a step in the traversal and return to it as a later step."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Traverse the graph

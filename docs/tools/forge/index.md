@@ -1,5 +1,14 @@
 ---
 title: Forge
+lead: "Forge covers metadata generation, validation, and publication workflows for CALYPR and Gen3 environments."
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - forge
 ---
 
 # Forge

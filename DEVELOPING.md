@@ -1,3 +1,25 @@
+---
+lead: "This repo now uses a Zensical-only build pipeline."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
 # Developing CALYPR Docs
 
 This repo now uses a Zensical-only build pipeline. MkDocs, `.nav.yml`, and the old multirepo plugin are gone.

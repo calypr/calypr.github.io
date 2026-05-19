@@ -1,3 +1,14 @@
+---
+lead: "CALYPR supports portable research workflows so teams can run analysis across cloud, local, Kubernetes, and federated environments without rewriting the operating model each time."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
+  - git-drs
+---
 # Manage Compute
 
 ![Manage Compute](../assets/solutions/manage-compute.svg)

@@ -1,5 +1,13 @@
 ---
 title: Funnel
+lead: "Funnel is designed to streamline data processing workflows, enabling efficient data transformation and analysis."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 ## Funnel

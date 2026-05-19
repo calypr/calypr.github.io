@@ -4,7 +4,27 @@ body_class: home business-home
 hide:
   - navigation
   - toc
-  - header
+lead: "CALYPR helps research organizations control data access, run reproducible analysis, connect metadata, and prepare model-ready assets across cloud, on-prem, and federated environments."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
 ---
 
 <section class="business-hero">

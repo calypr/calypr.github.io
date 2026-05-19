@@ -2,7 +2,26 @@
 body_class: marketing-page developers-page
 hide:
   - navigation
-  - toc
+lead: "Versioned object pointers, DRS-native upload/download, and storage-layer services."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
 ---
 
 <section class="solution-section developer-catalog">

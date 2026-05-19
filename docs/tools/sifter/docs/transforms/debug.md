@@ -1,5 +1,16 @@
 ---
 title: debug
+lead: "Print out copy of stream to logging"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # debug

@@ -4,7 +4,16 @@ title: Basic Auth
 menu:
   main:
     parent: Security
-    weight: 1
+lead: "By default, an GRIP server allows open access to its API endpoints, but it can be configured to require basic password authentication."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Basic Auth

@@ -2,7 +2,26 @@
 body_class: marketing-page
 hide:
   - navigation
-  - toc
+lead: "Manage Models gives research organizations a way to carry governed data, workflow history, and benchmark context into model-driven work instead of treating models as a separate lifecycle with separate controls."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
 ---
 
 # Manage Models

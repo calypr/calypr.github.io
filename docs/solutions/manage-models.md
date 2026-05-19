@@ -1,3 +1,16 @@
+---
+lead: "CALYPR's open platform foundation is intended to support model management patterns where biomedical models, data references, workflows, and benchmark context remain connected."
+personas:
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-models
+related_tools:
+  - grip
+  - funnel
+  - forge
+---
 # Manage Models
 
 ![Manage Models](../assets/solutions/manage-models.svg)

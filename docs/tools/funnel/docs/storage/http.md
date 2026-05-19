@@ -2,7 +2,14 @@
 title: HTTP(S)
 menu:
   main:
-    parent: Storage
+lead: "Funnel supports downloading files from public URLs via GET requests."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # HTTP(S)

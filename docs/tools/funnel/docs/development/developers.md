@@ -4,7 +4,14 @@ title: Funnel Developers
 menu:
   main:
     parent: Development
-    weight: 30
+lead: "This page contains a rough collection of notes for people wanting to build Funnel from source and/or edit the code."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Developers

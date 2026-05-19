@@ -3,7 +3,14 @@ title: Advanced Auth
 menu:
   main:
     parent: Security
-    weight: 10
+lead: "Thanks to our collaborators at CTDS \u2014 Funnel is currently adding support for \"Per-User/Per-Bucket\" credentials to allow Users to access S3 Buckets without having to store their credentials in the Funnel Server."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Overview 🔐

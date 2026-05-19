@@ -3,7 +3,14 @@ title: GCP Batch
 menu:
   main:
     parent: Compute
-    weight: 20
+lead: "The following steps illustrate how to run a TES tasks via GCP Batch utilizing Google Storage Buckets."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Overview

@@ -3,7 +3,16 @@ title: Jobs API
 menu:
   main:
     identifier: Jobs
-    weight: 40
+lead: "Not all queries return instantaneously, additionally some queries elements are used repeatedly."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Jobs API

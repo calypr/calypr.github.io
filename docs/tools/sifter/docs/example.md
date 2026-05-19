@@ -1,5 +1,16 @@
 ---
 render_macros: false
+lead: "The input file looks like:"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # Example Pipeline

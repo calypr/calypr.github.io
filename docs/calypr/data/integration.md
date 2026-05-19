@@ -1,4 +1,19 @@
-
+---
+lead: "Converting tabular data (CSV, TSV, spreadsheet, database table) into FHIR (Fast Healthcare Interoperability Resources) involves mapping your data to FHIR's resource structure."
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - integrate-data
+related_tools:
+  - git-drs
+  - syfon
+  - forge
+  - grip
+  - data-client
+---
 # Integrating your data
 
 Converting tabular data (CSV, TSV, spreadsheet, database table) into FHIR (Fast Healthcare Interoperability Resources) involves mapping your data to FHIR's resource structure. This guide walks you through the integration process from data preparation to validation.

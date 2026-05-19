@@ -2,7 +2,14 @@
 title: Google Storage
 menu:
   main:
-    parent: Storage
+lead: "Funnel supports using [Google Storage][gs] (GS) for file storage."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Google Storage

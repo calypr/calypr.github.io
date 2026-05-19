@@ -1,6 +1,17 @@
 ---
 title: input plugin
 render_macros: false
+lead: "The plugin program is expected to output JSON messages, one per line, to STDOUT that will then be passed to the transform pipelines."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # plugin

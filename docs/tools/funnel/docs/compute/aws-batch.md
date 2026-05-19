@@ -3,7 +3,14 @@ title: AWS Batch
 menu:
   main:
     parent: Compute
-    weight: 20
+lead: "This guide covers deploying a Funnel server that leverages [DynamoDB][0] for storage and [AWS Batch][1] for task execution."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # AWS Batch

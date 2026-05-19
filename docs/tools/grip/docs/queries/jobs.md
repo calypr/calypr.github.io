@@ -1,6 +1,15 @@
-
-
-
+---
+lead: "Example: Submit a query to be processed in the background"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
+---
 ## .submit()
 Post the traversal as an asynchronous job and get a job ID.
 

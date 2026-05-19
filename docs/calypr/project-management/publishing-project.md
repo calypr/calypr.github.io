@@ -1,3 +1,21 @@
+---
+lead: "In order to publish metadata to CALYPR, regardless of whether you have provided your own metadata or you are simply uploading files to the system, you will need to publish your data."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+related_tools:
+  - data-client
+  - git-drs
+  - syfon
+  - forge
+---
 ## Publishing changes
 
 In order to publish metadata to CALYPR, regardless of whether you have provided your own metadata or you are simply uploading files to the system, you will need to publish your data. Publishing data is done with the **Forge** command line utility.

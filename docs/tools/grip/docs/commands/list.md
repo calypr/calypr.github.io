@@ -4,7 +4,16 @@ title: list
 menu:
   main:
     parent: commands
-    weight: 3
+lead: "The list tables command is used to display all available tables in the grip server."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 The `list tables` command is used to display all available tables in the grip server. Each table is represented by its source, name, fields, and link map. Here's a breakdown of how to use this command:
