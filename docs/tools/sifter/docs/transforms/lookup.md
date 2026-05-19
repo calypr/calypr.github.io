@@ -23,7 +23,7 @@ Using key from current row, get values from a reference source
 | --- | --- | --- |
 | replace | string (field path) | Field to replace | 
 | lookup | string (template string) | Key to use for looking up data |
-| copy | map[string]string | Copy values from record that was found by lookup. The Key/Value record uses the Key as the destination field and copies the field from the retrieved records using the field named in Value |  
+| copy | `map[string]string` | Copy values from record that was found by lookup. The Key/Value record uses the Key as the destination field and copies the field from the retrieved records using the field named in Value |  
 | tsv | TSVTable  | TSV translation table file | 
 | json | JSONTable | JSON data file | 
 | table | LookupTable | Inline lookup table | 

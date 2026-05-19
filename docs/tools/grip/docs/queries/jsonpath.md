@@ -69,11 +69,11 @@ Below is a table of field and the values they would reference in subsequent trav
 | _id                       | "NM_007294.3:c.4963_4981delTGGCCTGACCCCAGAAG" |
 | _label                     | "variant"            |
 | type                       | "deletion"           |
-| publications[0].pmid       | 29480828             |
-| publications[:].pmid       | [29480828, 23666017] |
-| publications.pmid          | [29480828, 23666017] |
-| $gene.symbol.hugo          | "BRCA1"              |
-| $gene.transcripts[0]       | "ENST00000471181.7"  |
+| `publications[0].pmid`     | 29480828             |
+| `publications[:].pmid`     | `[29480828, 23666017]` |
+| `publications.pmid`        | `[29480828, 23666017]` |
+| `$gene.symbol.hugo`        | "BRCA1"              |
+| `$gene.transcripts[0]`     | "ENST00000471181.7"  |
 
 
 ## Usage Example:

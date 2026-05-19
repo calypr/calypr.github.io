@@ -98,13 +98,13 @@ This represents the vertex we queried for above. All vertexes in the system will
 * _\_id_: This represents the global identifier for this vertex. In order to draw edges between different vertexes from different data sets we need an identifier that can be constructed from available data. Often, the `_id` will be the field that you query on as a starting point for a traversal.
 * _\_label_: The label represents the type of the vertex. All vertexes with a given label will share many property keys and edge labels, and form a logical group within the system.
 
-The data on a query result can be accessed as properties on the result object; for example `result[0].data.symbol` would return:
+The data on a query result can be accessed as properties on the result object; for example `result&#91;0&#93;.data.symbol` would return:
 
 ```python
 u'TP53'
 ```
 
-You can also do a `has` query with a list of items using `gripql.within([...])` (other conditions exist, see the `Conditions` section below):
+You can also do a `has` query with a list of items using `gripql.within(&#91;...&#93;)` (other conditions exist, see the `Conditions` section below):
 
 ```python
 result = G.V().hasLabel("Gene").has(gripql.within("symbol", ["TP53", "BRCA1"])).render({"_id": "_id", "symbol":"symbol"}).execute()

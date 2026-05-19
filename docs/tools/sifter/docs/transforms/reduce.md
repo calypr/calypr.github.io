@@ -28,7 +28,7 @@ Using key from rows, reduce matched records into a single entry
 | method | string | Method name |
 | python | string | Python code string |
 | gpython | string | Python code string run using (https://github.com/go-python/gpython) |
-| init | map[string]any | Data to use for first reduce | 
+| init | `map[string]any` | Data to use for first reduce | 
 
 ## Example
 
