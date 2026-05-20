@@ -10,7 +10,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from termynal.markdown import get_default_css, get_default_js
+from importlib.resources import files as _pkg_files
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -391,8 +391,9 @@ def write_termynal_assets() -> None:
     to the generated docs directory. These files enable terminal animations in the
     documentation.
     """
-    (GENERATED_DOCS / "termynal.css").write_text(get_default_css(), encoding="utf-8")
-    (GENERATED_DOCS / "termynal.js").write_text(get_default_js(), encoding="utf-8")
+    assets = _pkg_files("termynal") / "assets"
+    (GENERATED_DOCS / "termynal.css").write_bytes((assets / "termynal.css").read_bytes())
+    (GENERATED_DOCS / "termynal.js").write_bytes((assets / "termynal.js").read_bytes())
 
 
 def parse_front_matter_lists(markdown: str) -> dict[str, list[str]]:

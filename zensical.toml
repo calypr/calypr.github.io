@@ -34,6 +34,7 @@ imports = [
 [project]
 site_name = "CALYPR"
 site_url = "https://calypr.org"
+docs_dir = ".generated/docs"
 
 nav = [
   { "Solutions" = [

@@ -1,3 +1,19 @@
+---
+lead: "This is a Zensical-based documentation site for calypr.org."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-data
+  - manage-compute
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - data-client
+---
+
 # AGENTS.md — CALYPR Docs
 
 This is a Zensical-based documentation site for [calypr.org](https://calypr.org). The published site merges repo-authored docs with pages imported from upstream tool repos.
