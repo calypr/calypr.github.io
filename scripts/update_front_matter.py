@@ -458,7 +458,6 @@ def render_front_matter(
     Returns:
         Front matter content without ``---`` delimiters.
     """
-    print("render_front_matter")
     return "\n".join(
         [
             f"lead: {json.dumps(lead)}",
@@ -491,7 +490,6 @@ def update_markdown_text(path: Path, text: str) -> tuple[str, bool]:
     if existing_fm is None:
         new_text = "---\n" + render_front_matter(lead, personas, solutions, related_tools) + "\n---\n\n" + body.lstrip("\n")
     else:
-        print("update_markdown_text rewrite_front_matter", relpath(path))
         new_fm = rewrite_front_matter(existing_fm, lead, personas, solutions, related_tools)
         new_text = "---\n" + new_fm + "\n---\n" + body
 
@@ -504,19 +502,14 @@ def iter_target_markdown_files() -> list[Path]:
     Returns:
         Sorted list of markdown paths under ``ROOT`` excluding generated/output trees.
     """
-    print(ROOT)
-    print(len([path for path in ROOT.rglob("*.md")]))
     targets = [
         path
         for path in ROOT.rglob("*.md")
         if ".git" not in path.parts
         and ".generated" not in path.parts
         and "site" not in path.parts
-        and "venv" not in path.parts
-        and "scripts" not in path.parts
-        and len(path.parts) != 1  # Exclude markdown files in the root directory
+        and "attic" not in path.parts
     ]
-    print(len(targets))
     return sorted(targets, key=lambda path: relpath(path))
 
 
@@ -581,4 +574,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

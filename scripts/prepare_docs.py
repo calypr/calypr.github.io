@@ -12,9 +12,8 @@ from pathlib import Path
 
 from importlib.resources import files as _pkg_files
 
-
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_DOCS = ROOT / "site"
+SOURCE_DOCS = ROOT / "docs"
 GENERATED_ROOT = ROOT / ".generated"
 GENERATED_DOCS = GENERATED_ROOT / "docs"
 BRANCH_CONFIG = ROOT / "scripts" / "branch_config.json"
@@ -151,11 +150,11 @@ def run_git(*args: str, cwd: Path | None = None) -> str:
 
 def copy_source_docs() -> None:
     """Copy the source documentation tree to the generated directory.
-    
+
     Removes any existing generated documentation and creates a fresh copy of all
     files from the SOURCE_DOCS directory (docs/) to GENERATED_DOCS (.generated/docs).
     Skips hidden files and directories (those starting with a dot).
-    
+
     This prepares a clean workspace for documentation imports and asset generation.
     """
     if GENERATED_ROOT.exists():
@@ -326,10 +325,10 @@ def import_from_local_repo(repo_name: str, repo_root: Path, repo_config: dict) -
 
 
 def import_from_remote_repo(
-    repo_name: str,
-    repo_url: str,
-    repo_config: dict,
-    preferences: dict[str, list[str]],
+        repo_name: str,
+        repo_url: str,
+        repo_config: dict,
+        preferences: dict[str, list[str]],
 ) -> dict[str, str]:
     """Import documentation from a remote repository.
 
@@ -494,7 +493,7 @@ def write_page_taxonomy_manifest() -> None:
 
 def main() -> int:
     """Main entry point for preparing and staging documentation.
-    
+
     Orchestrates the complete documentation preparation workflow:
     1. Copies source docs to generated directory
     2. Loads branch preferences from config
@@ -502,7 +501,7 @@ def main() -> int:
     4. Writes termynal assets for terminal animations
     5. Generates page taxonomy manifest
     6. Writes import metadata to .generated/imports.json
-    
+
     Returns:
         int: Exit code (0 for success).
     """

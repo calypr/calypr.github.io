@@ -1,16 +1,10 @@
 PYTHON ?= python3
 ZENSICAL ?= $(if $(wildcard ./venv/bin/zensical),./venv/bin/zensical,zensical)
 
-.PHONY: clean
-clean:
-	@rm -rf .cache
-	@rm -rf .generated
-	@rm -rf site/
-
-.PHONY: clean
+.PHONY: update-branches
 update-branches:
-	@$(ZENSICAL) build -f zensical.toml
-
+	@echo "Updating GitHub branch links in docs..."
+	@$(PYTHON) scripts/update_doc_links.py
 
 .PHONY: update-front-matter
 update-front-matter:
@@ -24,11 +18,11 @@ prepare: update-front-matter
 
 .PHONY: build
 build: prepare
-	@$(ZENSICAL) build -f zensical-no-multirepo.toml
+	@$(ZENSICAL) build
 
 .PHONY: serve
 serve: prepare
-	@$(ZENSICAL) serve -f zensical-no-multirepo.toml
+	@$(ZENSICAL) serve
 
 .PHONY: help
 help:
