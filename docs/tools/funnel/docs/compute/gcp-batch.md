@@ -3,7 +3,7 @@ title: GCP Batch
 menu:
   main:
     parent: Compute
-lead: "The following steps illustrate how to run a TES tasks via GCP Batch utilizing Google Storage Buckets."
+lead: "The following steps illustrate how to run TES tasks via GCP Batch utilizing Google Storage Buckets."
 personas:
   - platform-engineer
   - workflow-engineer

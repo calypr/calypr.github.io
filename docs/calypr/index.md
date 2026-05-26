@@ -1,5 +1,5 @@
 ---
-lead: "CALYPR is the product layer of the CALYPR open platform."
+lead: "Welcome to the **CALYPR Platform**."
 personas:
   - data-steward
   - platform-engineer
