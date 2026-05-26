@@ -14,7 +14,7 @@ from importlib.resources import files as _pkg_files
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_DOCS = ROOT / "docs"
+SOURCE_DOCS = ROOT / "site"
 GENERATED_ROOT = ROOT / ".generated"
 GENERATED_DOCS = GENERATED_ROOT / "docs"
 BRANCH_CONFIG = ROOT / "scripts" / "branch_config.json"

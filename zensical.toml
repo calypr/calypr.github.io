@@ -1,5 +1,6 @@
 [plugins.multirepo]
-cleanup = true
+cleanup = false
+keep_docs_dir = true
 
 [[plugins.multirepo.nav_repos]]
 name = "git-drs"
