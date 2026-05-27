@@ -240,7 +240,7 @@ body.marketing-page .md-sidebar--secondary {
 .business-hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(520px, 1fr) minmax(360px, 0.78fr);
+  grid-template-columns: minmax(500px, 0.9fr) minmax(500px, 1.1fr);
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
   max-width: none;
@@ -249,17 +249,6 @@ body.marketing-page .md-sidebar--secondary {
     clamp(3.25rem, 5vw, 5rem)
     max(1.5rem, calc((100vw - 1180px) / 2))
     3rem;
-}
-
-.business-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 18% 28%, rgba(20, 184, 166, 0.14), transparent 28rem),
-    radial-gradient(circle at 74% 12%, rgba(56, 189, 248, 0.18), transparent 26rem),
-    linear-gradient(180deg, #f8fafc 0%, #eef6ff 68%, #ffffff 100%);
 }
 
 .business-hero__copy h1 {
@@ -405,7 +394,7 @@ body.marketing-page .md-sidebar--secondary {
 }
 
 .solution-strip--page {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   margin: 2rem 0;
   padding: 0;
 }
@@ -520,6 +509,19 @@ body.marketing-page .md-sidebar--secondary {
   margin: 1rem 0 0;
   color: #475569;
   line-height: 1.65;
+}
+
+.usecase-panel .usecase-panel__meta {
+  margin-top: 0.9rem;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.usecase-panel .usecase-panel__meta + p {
+  margin-top: 0.45rem;
 }
 
 .solutions-page .usecase-panel__journey {
@@ -1835,4 +1837,37 @@ body.developers-page .md-content h1:first-of-type {
 
 body:not(.marketing-page) .md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item:not(.md-nav__item--active) {
   display: none;
+}
+
+.home .usecase-panel img {
+  width: 100%;
+  margin-top: 1rem;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+
+/* Improve hero composition on large monitors */
+@media screen and (min-width: 1600px) {
+  .business-hero {
+    grid-template-columns: minmax(560px, 0.85fr) minmax(760px, 1.15fr);
+    gap: clamp(2rem, 3vw, 3.5rem);
+    padding:
+      clamp(3rem, 4vw, 4.5rem)
+      max(2rem, calc((100vw - 1480px) / 2))
+      3rem;
+  }
+
+  .business-hero__copy h1 {
+    max-width: 15ch;
+    font-size: clamp(2.9rem, 3.8vw, 4.6rem);
+  }
+
+  .business-hero__lead {
+    max-width: 52ch;
+  }
+
+  .business-hero__panel {
+    justify-self: stretch;
+  }
 }

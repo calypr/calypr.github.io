@@ -4,7 +4,7 @@ body_class: home business-home
 hide:
   - navigation
   - toc
-lead: "CALYPR gives academic and biomedical research programs a governed operating layer for data access, reproducible compute, metadata integration, and model-ready assets."
+lead: "CALYPR is a research data management platform for translational teams."
 personas:
   - data-steward
   - platform-engineer
@@ -29,10 +29,10 @@ related_tools:
 
 <section class="business-hero" aria-label="CALYPR homepage hero">
   <div class="business-hero__copy">
-    <p class="eyebrow">Governed research operations</p>
-    <h1>Run biomedical research programs with policy, provenance, and speed.</h1>
+    <p class="eyebrow">For translational researchers</p>
+    <h1>Explore data, manage projects, and run reproducible workflows in one platform.</h1>
     <p class="business-hero__lead">
-      CALYPR helps academic and translational teams govern sensitive data access, run reproducible workflows, connect metadata, and package model-ready assets across cloud, on-prem, and federated environments.
+      CALYPR helps translational teams move from study intake to analysis output with governed data access, project-level controls, and execution history you can audit.
     </p>
     <div class="business-actions">
       <a href="products/" class="md-button md-button--primary">Explore products</a>
@@ -40,89 +40,63 @@ related_tools:
       <a href="solutions/" class="md-button">Match a use case</a>
     </div>
   </div>
-  <div class="business-hero__panel" aria-label="CALYPR value summary">
-    <h2>Why teams choose CALYPR</h2>
-    <ul>
-      <li>Governed access for sensitive biomedical datasets</li>
-      <li>Reproducible workflows across cloud and HPC</li>
-      <li>FHIR-shaped metadata and graph-ready context</li>
-      <li>Model assets grounded in provenance and benchmarks</li>
-    </ul>
+  <div class="business-hero__panel" aria-label="CALYPR platform workflow diagram">
+    <img src="assets/infographic.svg" alt="CALYPR research data and workflow journey — from study intake to analysis output" loading="eager">
   </div>
 </section>
 
-<section class="solution-section" aria-label="Proof and trust band">
-  <p class="eyebrow">Proof points</p>
-  <h2>Built on standards your bioinformatics and platform teams can verify.</h2>
-  <div class="value-grid">
-    <article>
-      <h3>Open standards foundation</h3>
-      <p>Data access on GA4GH DRS, execution through GA4GH TES, and metadata structures aligned to FHIR-oriented research workflows.</p>
-    </article>
-    <article>
-      <h3>Research-ready governance</h3>
-      <p>Policy boundaries, controlled transfer paths, and durable provenance designed for institutional review, audits, and multi-team collaboration.</p>
-    </article>
-    <article>
-      <h3>Practical adoption path</h3>
-      <p>Start with one operating failure—data intake, compute reproducibility, metadata quality, or model handoff—and expand without replacing every workflow at once.</p>
-    </article>
-  </div>
-</section>
-
-<section class="solution-section" aria-label="Audience split">
-  <p class="eyebrow">Choose your starting point</p>
-  <h2>Different stakeholders can evaluate CALYPR from their own decision lens.</h2>
-  <div class="usecase-grid">
+<section class="solution-section" aria-label="Product workflow examples">
+  <p class="eyebrow">Task walkthroughs</p>
+  <h2>Common research tasks, demonstrated with synthetic projects.</h2>
+  <div class="solution-strip solution-strip--page">
     <article class="usecase-panel">
-      <h3>Program leaders and PIs</h3>
-      <p>Show funding boards and collaborators a governed operating model that improves delivery confidence without slowing scientific teams.</p>
-      <div class="usecase-panel__links">
-        <a href="solutions/">See solution outcomes</a>
-        <a href="products/">Review product model</a>
-      </div>
+      <h3>Explore and organize research data</h3>
+      <p class="usecase-panel__meta" title="Tracks longitudinal response across NSCLC participants with linked pathology files, omics outputs, and analysis runs.">TRX-101 Lung Response Cohort</p>
+      <p>Browse study files and metadata, then filter assets by cohort and assay type before analysis kickoff.</p>
+      <img src="images/main-page.png" alt="Research project view for data exploration and project management" loading="lazy">
     </article>
     <article class="usecase-panel">
-      <h3>Bioinformatics and workflow teams</h3>
-      <p>Keep analyses reproducible across environments while preserving lineage from source data through workflow outputs and model artifacts.</p>
-      <div class="usecase-panel__links">
-        <a href="products/manage-compute/">Explore Manage Compute</a>
-        <a href="products/manage-models/">Explore Manage Models</a>
-      </div>
+      <h3>Manage project collaborators and access</h3>
+      <p class="usecase-panel__meta" title="Demonstrates project governance with institution-specific access, collaborator onboarding, and cross-site portfolio tracking.">TRX-204 AML Multi-site Registry</p>
+      <p>Review project member context and enforce role-based access before exposing new datasets to partner labs.</p>
+      <img src="images/profile.png" alt="Project profile and member management view" loading="lazy">
     </article>
     <article class="usecase-panel">
-      <h3>Platform, data, and compliance teams</h3>
-      <p>Implement policy-aware data operations, validated metadata, and controlled transfer services with standards-based interoperability.</p>
-      <div class="usecase-panel__links">
-        <a href="products/manage-data/">Explore Manage Data</a>
-        <a href="products/integrate-data/">Explore Integrate Data</a>
-      </div>
+      <h3>Integrate new data drops</h3>
+      <p class="usecase-panel__meta" title="Shows governed file intake and metadata integration from collaborating wet-lab and clinical data partners.">TRX-318 Immunotherapy Biomarker Study</p>
+      <p>Upload files from collaborating sites and register each drop with provenance and project metadata.</p>
+      <img src="images/file-upload.png" alt="File upload workflow for governed data integration" loading="lazy">
+    </article>
+    <article class="usecase-panel">
+      <h3>Execute workflows and retrieve outputs</h3>
+      <p class="usecase-panel__meta" title="Tracks longitudinal response across NSCLC participants with linked pathology files, omics outputs, and analysis runs.">TRX-101 Lung Response Cohort</p>
+      <p>Run a reproducible workflow, monitor status, and download artifacts for reporting and downstream modeling.</p>
+      <img src="images/download.png" alt="Workflow output download view for execution results" loading="lazy">
     </article>
   </div>
 </section>
 
-<section class="home-footer" aria-label="CTA strategy">
+<section class="home-footer" aria-label="Time-to-Decision Toolkit">
   <div class="home-footer__inner">
-    <p class="eyebrow">Next step</p>
-    <h2>Move from evaluation to implementation with a clear path.</h2>
+    <p class="eyebrow">What you need before deciding</p>
+    <h2>Complete a lightweight self-assessment in 20 minutes.</h2>
     <div class="home-footer__grid">
       <div class="home-footer__item">
-        <h3>1. Frame the operating problem</h3>
-        <p>Start in Solutions to align on program-level outcomes and identify the highest-risk operational gap.</p>
+        <h3>Governance readiness check</h3>
+        <p>Clarifies your policy gaps and ensures CALYPR can support your compliance requirements without slowing researcher workflows.</p>
       </div>
       <div class="home-footer__item">
-        <h3>2. Select the first product surface</h3>
-        <p>Use Products to choose an initial adoption point: Manage Data, Manage Compute, Integrate Data, or Manage Models.</p>
+        <h3>Workflow portability audit</h3>
+        <p>Tests your code environment and identifies how easily your existing scripts and workflows can execute on CALYPR infrastructure.</p>
       </div>
       <div class="home-footer__item">
-        <h3>3. Validate technical fit</h3>
-        <p>Use Developers and tool docs to verify standards, architecture, and implementation details with your engineering team.</p>
+        <h3>Data asset inventory template</h3>
+        <p>Maps what you already manage and surfaces the immediate operational lift before your teams engage with implementation planning.</p>
       </div>
     </div>
     <div class="business-actions">
-      <a href="solutions/" class="md-button md-button--primary">Start with solutions</a>
-      <a href="products/" class="md-button">Review products</a>
-      <a href="developers/" class="md-button">Validate technical fit</a>
+      <a href="#" class="md-button md-button--primary">Explore Tools</a>
+      <a href="#" class="md-button">Examine sample datasets</a>
     </div>
   </div>
 </section>
