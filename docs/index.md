@@ -40,8 +40,8 @@ related_tools:
       <a href="solutions/" class="md-button">Match a use case</a>
     </div>
   </div>
-  <div class="business-hero__panel" aria-label="CALYPR product interface preview">
-    <img src="images/main-page.png" alt="CALYPR workspace showing project and data operations" loading="eager">
+  <div class="business-hero__panel" aria-label="CALYPR platform workflow diagram">
+    <img src="assets/infographic.svg" alt="CALYPR research data and workflow journey — from study intake to analysis output" loading="eager">
   </div>
 </section>
 
@@ -50,59 +50,28 @@ related_tools:
   <h2>Common research tasks, demonstrated with synthetic projects.</h2>
   <div class="solution-strip solution-strip--page">
     <article class="usecase-panel">
-      <h3>1) Explore and organize research data</h3>
-      <p class="usecase-panel__meta">TRX-101 Lung Response Cohort</p>
+      <h3>Explore and organize research data</h3>
+      <p class="usecase-panel__meta" title="Tracks longitudinal response across NSCLC participants with linked pathology files, omics outputs, and analysis runs.">TRX-101 Lung Response Cohort</p>
       <p>Browse study files and metadata, then filter assets by cohort and assay type before analysis kickoff.</p>
       <img src="images/main-page.png" alt="Research project view for data exploration and project management" loading="lazy">
     </article>
     <article class="usecase-panel">
-      <h3>2) Manage project collaborators and access</h3>
-      <p class="usecase-panel__meta">TRX-204 AML Multi-site Registry</p>
+      <h3>Manage project collaborators and access</h3>
+      <p class="usecase-panel__meta" title="Demonstrates project governance with institution-specific access, collaborator onboarding, and cross-site portfolio tracking.">TRX-204 AML Multi-site Registry</p>
       <p>Review project member context and enforce role-based access before exposing new datasets to partner labs.</p>
       <img src="images/profile.png" alt="Project profile and member management view" loading="lazy">
     </article>
     <article class="usecase-panel">
-      <h3>3) Integrate new data drops</h3>
-      <p class="usecase-panel__meta">TRX-318 Immunotherapy Biomarker Study</p>
+      <h3>Integrate new data drops</h3>
+      <p class="usecase-panel__meta" title="Shows governed file intake and metadata integration from collaborating wet-lab and clinical data partners.">TRX-318 Immunotherapy Biomarker Study</p>
       <p>Upload files from collaborating sites and register each drop with provenance and project metadata.</p>
       <img src="images/file-upload.png" alt="File upload workflow for governed data integration" loading="lazy">
     </article>
     <article class="usecase-panel">
-      <h3>4) Execute workflows and retrieve outputs</h3>
-      <p class="usecase-panel__meta">TRX-101 Lung Response Cohort</p>
+      <h3>Execute workflows and retrieve outputs</h3>
+      <p class="usecase-panel__meta" title="Tracks longitudinal response across NSCLC participants with linked pathology files, omics outputs, and analysis runs.">TRX-101 Lung Response Cohort</p>
       <p>Run a reproducible workflow, monitor status, and download artifacts for reporting and downstream modeling.</p>
       <img src="images/download.png" alt="Workflow output download view for execution results" loading="lazy">
-    </article>
-  </div>
-</section>
-
-<section class="solution-section" aria-label="Synthetic project catalog">
-  <p class="eyebrow">Project catalog</p>
-  <h2>These synthetic projects back the workflows above.</h2>
-  <div class="usecase-grid">
-    <article class="usecase-panel">
-      <h3>TRX-101 Lung Response Cohort</h3>
-      <p>Tracks longitudinal response across NSCLC participants with linked pathology files, omics outputs, and analysis runs.</p>
-      <div class="usecase-panel__links">
-        <a href="products/manage-data/">Data exploration workflow</a>
-        <a href="products/manage-compute/">Workflow execution workflow</a>
-      </div>
-    </article>
-    <article class="usecase-panel">
-      <h3>TRX-204 AML Multi-site Registry</h3>
-      <p>Demonstrates project governance with institution-specific access, collaborator onboarding, and cross-site portfolio tracking.</p>
-      <div class="usecase-panel__links">
-        <a href="products/manage-data/">Project management workflow</a>
-        <a href="developers/">Technical implementation details</a>
-      </div>
-    </article>
-    <article class="usecase-panel">
-      <h3>TRX-318 Immunotherapy Biomarker Study</h3>
-      <p>Shows governed file intake and metadata integration from collaborating wet-lab and clinical data partners.</p>
-      <div class="usecase-panel__links">
-        <a href="products/integrate-data/">Data integration workflow</a>
-        <a href="products/manage-data/">Governed data operations</a>
-      </div>
     </article>
   </div>
 </section>
