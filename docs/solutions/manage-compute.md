@@ -1,5 +1,5 @@
 ---
-lead: "CALYPR supports portable research workflows so teams can run analysis across cloud, local, Kubernetes, and federated environments without rewriting the operating model each time."
+lead: "CALYPR gives teams a portable compute operating model so workflows can run reproducibly across cloud, cluster, and federated environments without rebuilding user processes each time infrastructure changes."
 personas:
   - platform-engineer
   - workflow-engineer
@@ -13,14 +13,14 @@ related_tools:
 
 ![Manage Compute](../assets/solutions/manage-compute.svg)
 
-CALYPR supports portable research workflows so teams can run analysis across cloud, local, Kubernetes, and federated environments without rewriting the operating model each time.
+CALYPR gives teams a portable compute operating model so workflows can run reproducibly across cloud, cluster, and federated environments without rebuilding user processes each time infrastructure changes.
 
 ## Outcomes
 
-- Portable workflow execution through standards-aligned interfaces.
-- Clear separation between analyst-facing workflows and platform deployment detail.
-- A path from governed data access into reproducible compute.
-- Infrastructure flexibility without making every user understand the scheduler.
+- Standardized execution interfaces across environments.
+- Reproducible workflow operations tied to governed inputs.
+- Reduced environment-specific orchestration overhead.
+- Better auditability of run history and output lineage.
 
 ## Related Docs
 

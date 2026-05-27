@@ -1,5 +1,5 @@
 ---
-lead: "CALYPR's open platform foundation is intended to support model management patterns where biomedical models, data references, workflows, and benchmark context remain connected."
+lead: "CALYPR provides a path for model-centric research operations where model artifacts remain connected to governed data, workflow provenance, metadata context, and benchmark evidence."
 personas:
   - workflow-engineer
   - researcher-bioinformatician
@@ -15,17 +15,18 @@ related_tools:
 
 ![Manage Models](../assets/solutions/manage-models.svg)
 
-CALYPR's open platform foundation is intended to support model management patterns where biomedical models, data references, workflows, and benchmark context remain connected.
+CALYPR provides a path for model-centric research operations where model artifacts remain connected to governed data, workflow provenance, metadata context, and benchmark evidence.
 
 ## Outcomes
 
-- Model work tied back to governed data and reproducible workflows.
-- A clearer route from research analysis to repeatable evaluation.
-- Room for future model packaging and governance without changing the platform principles.
+- Model work anchored to reproducible data and execution history.
+- Clearer transition from analysis output to model evaluation workflows.
+- Better auditability for model comparisons in biomedical settings.
+- Forward-compatible foundation for model packaging and governance.
 
 ## Current Status
 
-This is an emerging solution area. The current platform foundation focuses on governed data, metadata integration, and portable workflow execution.
+Manage Models is an emerging solution area built on capabilities already present in governed data operations, metadata integration, and portable compute execution.
 
 ## Related Docs
 
