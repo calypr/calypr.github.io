@@ -522,6 +522,19 @@ body.marketing-page .md-sidebar--secondary {
   line-height: 1.65;
 }
 
+.usecase-panel .usecase-panel__meta {
+  margin-top: 0.9rem;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.usecase-panel .usecase-panel__meta + p {
+  margin-top: 0.45rem;
+}
+
 .solutions-page .usecase-panel__journey {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1835,4 +1848,12 @@ body.developers-page .md-content h1:first-of-type {
 
 body:not(.marketing-page) .md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item:not(.md-nav__item--active) {
   display: none;
+}
+
+.home .usecase-panel img {
+  width: 100%;
+  margin-top: 1rem;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
 }
