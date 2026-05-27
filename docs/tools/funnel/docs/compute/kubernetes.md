@@ -3,7 +3,14 @@ title: Kubernetes
 menu:
   main:
     parent: Compute
-    weight: 20
+lead: "helm repo update calypr"
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 !!! warning

@@ -1,5 +1,13 @@
 ---
 title: Download
+lead: "There are two main ways to download files:"
+personas:
+  - data-steward
+  - platform-engineer
+solutions:
+  - manage-data
+related_tools:
+  - data-client
 ---
 
 There are two main ways to download files:

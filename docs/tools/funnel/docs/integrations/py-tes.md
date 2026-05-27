@@ -2,7 +2,14 @@
 title: py-tes
 menu:
   main:
-    parent: Integrations
+lead: "> \u26a0\ufe0f py-tes support is in active development and may be subject to change."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 > ⚠️ py-tes support is in active development and may be subject to change.

@@ -1,3 +1,18 @@
+---
+lead: "CALYPR connects data access, metadata, and workflow execution so research teams can move from question to reproducible result without rebuilding one-off infrastructure for every project."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+related_tools:
+  - funnel
+  - git-drs
+  - data-client
+---
 # Research Workflows
 
 CALYPR connects data access, metadata, and workflow execution so research teams can move from question to reproducible result without rebuilding one-off infrastructure for every project.

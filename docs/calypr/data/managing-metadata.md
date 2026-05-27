@@ -1,3 +1,19 @@
+---
+lead: "Metadata in Calypr is represented as FHIR resources in newline-delimited JSON files (.ndjson)."
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - integrate-data
+related_tools:
+  - git-drs
+  - syfon
+  - forge
+  - grip
+  - data-client
+---
 # Managing Metadata
 
 Metadata in Calypr is represented as FHIR resources in newline-delimited JSON files (.ndjson).

@@ -2,7 +2,23 @@
 body_class: marketing-page
 hide:
   - navigation
-  - toc
+lead: "Manage Data gives research programs a governed way to register, move, version, and resolve large biomedical datasets without turning every project into a storage engineering exercise."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - data-client
 ---
 
 # Manage Data

@@ -3,7 +3,16 @@ title: Record Transforms
 menu:
   main:
     parent: Queries
-    weight: 5
+lead: "Graph python {\"vertex\" : {\"_id\":\"1\", \"_label\":\"Thing\", \"stuff\" : [\"1\", \"2\", \"3\"]}}"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 

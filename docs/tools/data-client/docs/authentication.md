@@ -1,5 +1,14 @@
 ---
 title: Authentication & Access
+lead: "data-client uses named profiles."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - data-client
 ---
 
 # Authentication & Access

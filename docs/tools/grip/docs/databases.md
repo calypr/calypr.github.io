@@ -3,7 +3,16 @@ title: Database Configuration
 menu:
   main:
     identifier: Databases
-    weight: 20
+lead: "GRIP supports storing vertices and edges in a variety of key-value stores including:"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 

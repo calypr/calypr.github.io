@@ -3,7 +3,17 @@ title: embedded
 menu:
   main:
     parent: inputs
-    weight: 100
+lead: "Load data from embedded structure"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # embedded

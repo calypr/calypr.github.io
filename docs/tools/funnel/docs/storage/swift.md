@@ -2,7 +2,14 @@
 title: OpenStack Swift
 menu:
   main:
-    parent: Storage
+lead: "Funnel supports using [OpenStack Swift][swift] for file storage."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # OpenStack Swift

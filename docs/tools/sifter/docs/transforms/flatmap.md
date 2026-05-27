@@ -1,6 +1,17 @@
 ---
 title: flatMap
 render_macros: false
+lead: "Flatten an array field into separate messages, each containing a single element of the array."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # flatMap

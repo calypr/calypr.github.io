@@ -3,7 +3,17 @@ title: map
 menu:
   main:
     parent: transforms
-    weight: 100
+lead: "Run function on every row"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # map

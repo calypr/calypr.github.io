@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Integrate Data">
+  <title>Integrate Data</title>
+  <g stroke="#7c3aed" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <circle cx="36" cy="52" r="22"/>
+    <circle cx="150" cy="52" r="22"/>
+    <circle cx="94" cy="150" r="24"/>
+    <path d="M56 62 L76 128"/>
+    <path d="M132 64 L112 128"/>
+    <path d="M58 52 H128"/>
+    <path d="M42 150 H70"/>
+    <path d="M118 150 H146"/>
+    <path d="M94 88 V126"/>
+  </g>
+</svg>
+

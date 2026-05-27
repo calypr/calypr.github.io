@@ -3,7 +3,14 @@ title: HTCondor
 menu:
   main:
     parent: Compute
-    weight: 20
+lead: "Funnel can be configured to submit workers to [HTCondor][htcondor] by making calls to condor_submit."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 # HTCondor
 

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Manage Models">
+  <title>Manage Models</title>
+  <g stroke="#f59e0b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M48 54 C48 32 140 32 140 54 V142 C140 164 48 164 48 142 Z"/>
+    <path d="M70 82 H118"/>
+    <path d="M70 112 H118"/>
+    <path d="M94 142 V198"/>
+    <path d="M54 198 H134"/>
+    <circle cx="94" cy="94" r="56"/>
+    <path d="M40 40 L20 20 M148 40 L168 20 M40 148 L20 168 M148 148 L168 168"/>
+  </g>
+</svg>
+

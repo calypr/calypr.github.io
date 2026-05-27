@@ -1,3 +1,14 @@
+---
+lead: "Once a project has been created you will have full access to it."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - data-client
+---
 # Add users
 
 ## Granting user access to a project

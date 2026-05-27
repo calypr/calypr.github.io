@@ -4,7 +4,16 @@ title: Amazon Purchase Network
 menu:
   main:
     parent: Tutorials
-    weight: 1
+lead: "Convert the data into vertices and edges"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Explore Amazon Product Co-Purchasing Network Metadata

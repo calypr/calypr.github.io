@@ -1,5 +1,15 @@
 ---
 title: Git-DRS
+lead: "Git-DRS is a Git extension for managing large files using the **Data Repository Service (DRS)** content-addressable storage model."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - git-drs
+  - syfon
 ---
 
 # Git-DRS

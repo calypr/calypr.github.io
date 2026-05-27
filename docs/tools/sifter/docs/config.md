@@ -1,5 +1,16 @@
 ---
 title: Parameters
+lead: "Playbooks can be parameterized."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 ## Parameters Variables

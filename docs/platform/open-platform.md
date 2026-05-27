@@ -1,3 +1,26 @@
+---
+lead: "CALYPR is built around an open foundation because research infrastructure needs to outlive individual projects, vendors, clouds, and funding cycles."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
 # Open Platform Strategy
 
 CALYPR is built around an open foundation because research infrastructure needs to outlive individual projects, vendors, clouds, and funding cycles.

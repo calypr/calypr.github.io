@@ -1,4 +1,15 @@
-
+---
+lead: "--- title: Start a Traversal menu: main: parent: Queries weight: 1 ---"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
+---
 ---
 title: Start a Traversal
 menu:

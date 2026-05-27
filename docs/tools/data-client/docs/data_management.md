@@ -1,5 +1,14 @@
 ---
 title: Data Management
+lead: "The current data-client transfer workflow is built around upload, download-single, and download-multiple."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - data-client
 ---
 
 # Data Management

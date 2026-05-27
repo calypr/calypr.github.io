@@ -2,7 +2,25 @@
 body_class: marketing-page
 hide:
   - navigation
-  - toc
+lead: "Integrate Data helps research organizations turn scattered metadata into a usable research asset instead of a permanent spreadsheet cleanup problem."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
 ---
 
 # Integrate Data

@@ -2,7 +2,14 @@
 title: MongoDB
 menu:
   main:
-    parent: Databases
+lead: "Funnel supports storing tasks and scheduler data in MongoDB."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # MongoDB

@@ -3,7 +3,14 @@ title: Tasks
 menu:
   main:
     identifier: tasks
-    weight: -70
+lead: "A task defines a unit of work:"
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Tasks

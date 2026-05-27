@@ -1,3 +1,19 @@
+---
+lead: "Adding files to a project is a two-step process:"
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - integrate-data
+related_tools:
+  - git-drs
+  - syfon
+  - forge
+  - grip
+  - data-client
+---
 # Adding FHIR metadata
 
 ## Background

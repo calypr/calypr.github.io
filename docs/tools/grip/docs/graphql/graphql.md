@@ -3,7 +3,16 @@ title: GraphQL
 menu:
   main:
     parent: graphql
-    weight: 25
+lead: "Grip graphql tools are defined as go standard library plugins and are located at https://github.com/bmeg/grip-graphql."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # GraphQL

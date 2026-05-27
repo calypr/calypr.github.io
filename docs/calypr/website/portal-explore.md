@@ -1,4 +1,13 @@
-
+---
+lead: "The push command uploads the metadata associated with the project and makes the files visible on the Explorer page."
+personas:
+  - data-steward
+  - platform-engineer
+solutions:
+  - manage-data
+related_tools:
+  - data-client
+---
 # Explore
 
 The `push` command uploads the metadata associated with the project and makes the files visible on the [Explorer page](https://calypr-public.ohsu.edu/Explorer).

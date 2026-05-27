@@ -1,5 +1,14 @@
 ---
 title: Access & Collaboration
+lead: "The current collaborator command is collaborators, not collaborator."
+personas:
+  - data-steward
+  - platform-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+related_tools:
+  - data-client
 ---
 
 # Access & Collaboration

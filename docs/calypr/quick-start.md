@@ -1,5 +1,22 @@
 ---
 title: Quick Start Guide
+lead: "CALYPR is a genomic data science platform that combines the best of cloud-based data commons with familiar version control tools."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+  - manage-compute
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
 ---
 
 !!! info "Private Beta"

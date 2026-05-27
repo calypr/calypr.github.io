@@ -1,3 +1,25 @@
+---
+lead: "This Zensical-based codebase deploys documentation to calypr.org."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
 # CALYPR Docs
 
 This Zensical-based codebase deploys documentation to [calypr.org](https://calypr.org).

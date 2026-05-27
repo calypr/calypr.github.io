@@ -3,7 +3,16 @@ title: Aggregation
 menu:
   main:
     parent: Queries
-    weight: 6
+lead: "These methods provide a powerful way to analyze and summarize data in your GripQL graph database."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Aggregation
