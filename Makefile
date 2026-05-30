@@ -1,4 +1,4 @@
-PYTHON   ?= python3
+PYTHON ?= python3
 ZENSICAL ?= $(if $(wildcard ./venv/bin/zensical),./venv/bin/zensical,zensical)
 
 .PHONY: build
