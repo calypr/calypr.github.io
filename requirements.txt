@@ -1,3 +1,6 @@
 zensical
 termynal
 mkdocs-multirepo-plugin
+# Not yet supported by Zensical, see https://github.com/zensical/backlog/issues/23
+# mkdocs-redirects
+
