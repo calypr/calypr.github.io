@@ -1,3 +1,4 @@
 zensical
 termynal
 mkdocs-multirepo-plugin
+mkdocs-redirects
