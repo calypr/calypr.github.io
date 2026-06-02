@@ -17,7 +17,7 @@ GCS buckets are automatically mounted inside task containers. Input and output p
 ## 1. Download Funnel
 
 ```sh
-curl -fsSL https://calypr.org/funnel/install.sh | bash
+curl -fsSL https://calypr.org/tools/funnel/install.sh | bash
 ```
 
 ## 2. Start Server
