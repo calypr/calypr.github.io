@@ -1,5 +1,4 @@
 ---
-template: home.html
 body_class: home
 hide:
   - navigation
