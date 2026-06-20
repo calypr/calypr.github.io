@@ -2,7 +2,14 @@
 title: FTP
 menu:
   main:
-    parent: Storage
+lead: "Funnel supports download and uploading files via FTP."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # FTP

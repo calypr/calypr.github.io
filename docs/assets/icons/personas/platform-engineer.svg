@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-42 -42 272 272" width="188" height="188" role="img" aria-label="Platform Engineer">
+  <title>Platform Engineer</title>
+  <g stroke="#0f766e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="38" y="44" width="112" height="112" rx="18"/>
+    <path d="M66 76 H122"/>
+    <path d="M66 104 H122"/>
+    <path d="M66 132 H98"/>
+    <path d="M24 180 H164"/>
+    <path d="M64 156 V180 M124 156 V180"/>
+    <circle cx="142" cy="48" r="22"/>
+    <path d="M132 48 H152 M142 38 V58"/>
+  </g>
+</svg>
+

@@ -1,3 +1,25 @@
+---
+lead: "This repo now uses a Zensical-only build pipeline."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+  - manage-models
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
 # Developing CALYPR Docs
 
 This repo now uses a Zensical-only build pipeline. MkDocs, `.nav.yml`, and the old multirepo plugin are gone.
@@ -49,6 +71,12 @@ zensical serve
 
 Navigation is fully defined in [zensical.toml](./zensical.toml).
 
+The current information architecture is intentionally audience-based:
+
+- `Home`, `Platform`, and `Solutions` are the business-facing front of the site.
+- `Developers` is the technical back of the site.
+- Existing CALYPR product docs and open-source tool docs keep their URLs, but they should not be treated as the main marketing entry point.
+
 If you want to:
 
 - rename a sidebar label
@@ -69,10 +97,15 @@ These live in `docs/` and should be edited directly there.
 Examples:
 
 - `docs/index.md`
+- `docs/platform/...`
+- `docs/solutions/...`
+- `docs/developers/index.md`
 - `docs/calypr/...`
 - `docs/tools/index.md`
 - `docs/tools/funnel/...`
 - `docs/tools/grip/...`
+
+Business-facing pages should explain outcomes first and link to developer docs second. Avoid making command references, protocol names, or implementation components the first thing a non-technical reader has to understand.
 
 ### Imported tool pages
 

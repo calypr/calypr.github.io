@@ -1,5 +1,6 @@
 [plugins.multirepo]
-cleanup = true
+cleanup = false
+keep_docs_dir = true
 
 [[plugins.multirepo.nav_repos]]
 name = "git-drs"
@@ -34,10 +35,22 @@ imports = [
 [project]
 site_name = "CALYPR"
 site_url = "https://calypr.org"
+docs_dir = ".generated/docs"
 
 nav = [
-  { "Home" = "index.md" },
-  { "Calypr" = [
+  { "Solutions" = [
+    "solutions/index.md",
+  ] },
+  { "Products" = [
+    "products/index.md",
+    { "Manage Data" = "products/manage-data.md" },
+    { "Manage Compute" = "products/manage-compute.md" },
+    { "Integrate Data" = "products/integrate-data.md" },
+    { "Manage Models" = "products/manage-models.md" },
+  ] },
+  { "Developers" = [
+    "developers/index.md",
+    { "CALYPR Product Docs" = [
     "calypr/index.md",
     { "Quick Start Guide" = "calypr/quick-start.md" },
     { "Data" = [
@@ -56,14 +69,23 @@ nav = [
       ] },
     ] },
     { "Analysis" = [
-      { "Data Querying + Gen3 SDK" = "calypr/analysis/query.md" },
+       { "Data Querying + Gen3 SDK" = "calypr/analysis/query.md" },
+     ] },
+     { "Audience" = [
+       "personas/index.md",
+      { "Data Steward" = "personas/data-steward.md" },
+      { "Platform Engineer" = "personas/platform-engineer.md" },
+      { "Workflow Engineer" = "personas/workflow-engineer.md" },
+      { "Researcher / Bioinformatician" = "personas/researcher-bioinformatician.md" },
+      { "Security / Compliance Reviewer" = "personas/security-compliance-reviewer.md" },
+      { "Standards / Architecture Lead" = "personas/standards-architecture-lead.md" },
     ] },
     { "Website" = [
       { "Explore" = "calypr/website/portal-explore.md" },
       { "Download" = "calypr/website/portal-download.md" },
     ] },
-  ] },
-  { "Tools" = [
+    ] },
+    { "Open Source Tool Docs" = [
     "tools/index.md",
     { "Data Lake Tools" = [
       { "Git-DRS" = [
@@ -212,6 +234,7 @@ nav = [
         { "Access Requests" = "tools/data-client/docs/access_requests.md" },
       ] },
     ] },
+    ] },
   ] },
 ]
 
@@ -233,7 +256,6 @@ features = [
     "content.code.copy",
     "navigation.indexes",
     "navigation.sections",
-    "navigation.tabs",
     "navigation.top",
     "header.autohide",
     "navigation.instant",

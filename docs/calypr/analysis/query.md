@@ -1,4 +1,17 @@
-
+---
+lead: "Gen3 supports API access to Files and Metadata, allowing users to download and query their data via the Gen3 SDK and GraphQL queries."
+personas:
+  - platform-engineer
+  - workflow-engineer
+  - researcher-bioinformatician
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
+  - grip
+  - sifter
+  - forge
+---
 # Data Querying + Gen3 SDK
 
 ## Overview ⚙️

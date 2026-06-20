@@ -2,7 +2,14 @@
 title: Datastore
 menu:
   main:
-    parent: Databases
+lead: "Funnel supports storing tasks (but not scheduler data) in Google Cloud Datastore."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Google Cloud Datastore

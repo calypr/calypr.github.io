@@ -1,5 +1,21 @@
-
-
+---
+lead: "The standard way to start a new Calypr project is to create a Git repository that will hold your FHIR NDJSON files and a set of Git\u2011LFS tracked files."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+related_tools:
+  - data-client
+  - git-drs
+  - syfon
+  - forge
+---
 # Create a Project (gen3 \+ GitHub)
 
 !!! info "Private Beta"

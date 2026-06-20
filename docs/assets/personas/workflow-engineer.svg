@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow Engineer</title>
+  <desc id="desc">Connect data access, execution engines, and reproducible pipelines.</desc>
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="55%" stop-color="#eef6ff"/>
+      <stop offset="100%" stop-color="#ecfeff"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.13"/>
+    </filter>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#dbeafe" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" rx="0" fill="url(#bgGradient)"/>
+  <rect width="1200" height="675" fill="url(#grid)" opacity="0.48"/>
+
+  <circle cx="1010" cy="118" r="160" fill="#2563eb" opacity="0.08"/>
+  <circle cx="1088" cy="518" r="210" fill="#38bdf8" opacity="0.08"/>
+  <circle cx="126" cy="552" r="190" fill="#7c3aed" opacity="0.05"/>
+
+  <g transform="translate(88 76)">
+    <rect x="0" y="0" width="1024" height="523" rx="36" fill="#ffffff" filter="url(#shadow)" opacity="0.94"/>
+    <rect x="0.5" y="0.5" width="1023" height="522" rx="35.5" fill="none" stroke="#dbeafe"/>
+
+    <g transform="translate(64 66)">
+      <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+            font-size="15" letter-spacing="3.2" text-transform="uppercase" fill="#2563eb" font-weight="700">Persona</text>
+      <text x="0" y="70" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+            font-size="58" fill="#0f172a" font-weight="760">Workflow Engineer</text>
+      <foreignObject x="0" y="100" width="515" height="120">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, ui-sans-serif, system-ui; font-size: 24px; line-height: 1.35; color: #475569;">
+          Connect data access, execution engines, and reproducible pipelines.
+        </div>
+      </foreignObject>
+
+      <g transform="translate(640 52)">
+        <rect x="-42" y="-42" width="272" height="272" rx="40" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="94" cy="94" r="104" fill="url(#accentGradient)" opacity="0.11"/>
+        <g stroke="#0f172a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          
+      <rect x="22" y="44" width="54" height="38" rx="10"/>
+      <rect x="112" y="44" width="54" height="38" rx="10"/>
+      <rect x="67" y="132" width="54" height="38" rx="10"/>
+      <path d="M76 63 H112"/>
+      <path d="M139 82 L104 132"/>
+      <path d="M49 82 L84 132"/>
+      <path d="M54 154 H67 M121 154 H136"/>
+    
+        </g>
+      </g>
+
+      <g transform="translate(0 336)">
+        <rect x="0" y="0" width="182" height="44" rx="22" fill="#ecfeff" stroke="#99f6e4"/>
+        <text x="26" y="29" font-family="Inter, ui-sans-serif, system-ui" font-size="16" fill="#0f766e" font-weight="700">Open standards</text>
+        <rect x="202" y="0" width="190" height="44" rx="22" fill="#eff6ff" stroke="#bfdbfe"/>
+        <text x="228" y="29" font-family="Inter, ui-sans-serif, system-ui" font-size="16" fill="#1d4ed8" font-weight="700">Modular tools</text>
+        <rect x="414" y="0" width="196" height="44" rx="22" fill="#f5f3ff" stroke="#ddd6fe"/>
+        <text x="440" y="29" font-family="Inter, ui-sans-serif, system-ui" font-size="16" fill="#6d28d9" font-weight="700">Research-ready</text>
+      </g>
+    </g>
+
+    <g transform="translate(65 475)">
+      <circle cx="0" cy="0" r="7" fill="#2563eb"/>
+      <text x="18" y="6" font-family="Inter, ui-sans-serif, system-ui" font-size="17" fill="#475569">CALYPR biomedical platform</text>
+    </g>
+  </g>
+</svg>

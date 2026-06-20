@@ -3,7 +3,17 @@ title: accumulate
 menu:
   main:
     parent: transforms
-    weight: 100
+lead: "Gather sequential rows into a single record, based on matching a field"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # accumulate

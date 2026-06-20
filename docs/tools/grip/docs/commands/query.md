@@ -4,7 +4,16 @@ title: query
 menu:
   main:
     parent: commands
-    weight: 2
+lead: "Run a query on a graph."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 ```

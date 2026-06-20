@@ -3,7 +3,16 @@ title: Graph Schemas
 menu:
   main:
     parent: graphql
-    weight: 30
+lead: "Most GRIP based graphs are not required to have a strict schema."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Graph Schemas

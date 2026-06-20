@@ -3,7 +3,14 @@ title: Slurm
 menu:
   main:
     parent: Compute
-    weight: 20
+lead: "Funnel can be configured to submit workers to [Slurm][slurm] by making calls to sbatch."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 # Slurm
 

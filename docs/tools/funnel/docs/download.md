@@ -2,7 +2,14 @@
 title: Download
 menu:
   main:
-    weight: -2000
+lead: "See the Releases page for release history."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 ## Releases

@@ -3,7 +3,14 @@ title: Embedded
 menu:
   main:
     parent: Databases
-    weight: -10
+lead: "By default, Funnel uses an embedded database named [BoltDB][bolt] to store task and scheduler data."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 
 # Embedded

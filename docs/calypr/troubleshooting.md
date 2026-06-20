@@ -1,3 +1,22 @@
+---
+lead: "Common issues encountered when working with the CALYPR platform and its tools."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - security-compliance-reviewer
+solutions:
+  - manage-data
+  - manage-compute
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
 # Troubleshooting & FAQ
 
 Common issues encountered when working with the CALYPR platform and its tools.

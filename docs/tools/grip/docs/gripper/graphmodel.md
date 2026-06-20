@@ -4,7 +4,16 @@ title: Graph Model
 menu:
   main:
     parent: gripper
-    weight: 3
+lead: "GRIP Plugable External Resources"
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # GRIPPER

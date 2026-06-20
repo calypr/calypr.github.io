@@ -3,7 +3,14 @@ title: OAuth2
 menu:
   main:
     parent: Security
-    weight: 10
+lead: "By default, a Funnel server allows open access to its API endpoints, but in addition to Basic authentication it can also be configured to require a valid JWT in the request."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 # OAuth2
 

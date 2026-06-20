@@ -1,5 +1,14 @@
 ---
 title: Validation
+lead: "The forge validate command suite ensures that your metadata and configuration files adhere to the expected formats and schemas."
+personas:
+  - data-steward
+  - platform-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - forge
 ---
 
 # Validation

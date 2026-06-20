@@ -3,7 +3,16 @@ title: Filtering
 menu:
   main:
     parent: Queries
-    weight: 4
+lead: "GripQL provides powerful filtering capabilities using the .has() method and various condition functions."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # Filtering in GripQL

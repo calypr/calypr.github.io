@@ -1,4 +1,21 @@
-
+---
+lead: "How to work efficiently with Git LFS repositories that track thousands of files."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+related_tools:
+  - data-client
+  - git-drs
+  - syfon
+  - forge
+---
 # Working with Large Projects
 
 How to work efficiently with Git LFS repositories that track thousands of files.

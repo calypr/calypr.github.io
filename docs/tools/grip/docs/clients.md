@@ -3,7 +3,16 @@ title: Client Library
 menu:
   main:
     identifier: clients
-    weight: 25
+lead: "GRIP has an API for making graph queries using structured data."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 

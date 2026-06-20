@@ -1,6 +1,17 @@
 ---
 title: json
 render_macros: false
+lead: "| name | Description | | --- | --- | | path | Path of JSON file to transform | | multiline | Load file as a single multiline JSON object |"
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+  - manage-compute
+related_tools:
+  - sifter
 ---
 
 # json

@@ -1,4 +1,25 @@
-# CALYPR Platform
+---
+lead: "Welcome to the **CALYPR Platform**."
+personas:
+  - data-steward
+  - platform-engineer
+  - workflow-engineer
+  - security-compliance-reviewer
+  - standards-architecture-lead
+solutions:
+  - manage-data
+  - manage-compute
+  - integrate-data
+related_tools:
+  - git-drs
+  - syfon
+  - funnel
+  - forge
+  - grip
+  - sifter
+  - data-client
+---
+# CALYPR Product Guide
 
 Welcome to the **CALYPR Platform**. CALYPR is a next-generation genomic data science ecosystem designed to bridge the gap between massive, centralized data commons and the agile, distributed workflows of modern researchers.
 

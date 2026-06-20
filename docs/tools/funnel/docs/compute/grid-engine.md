@@ -1,5 +1,13 @@
 ---
 title: Grid Engine
+lead: "Funnel can be configured to submit workers to Grid Engine by making calls to qsub."
+personas:
+  - platform-engineer
+  - workflow-engineer
+solutions:
+  - manage-compute
+related_tools:
+  - funnel
 ---
 # Grid Engine
 

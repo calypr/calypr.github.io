@@ -4,7 +4,16 @@ title: External Resource Proxies
 menu:
   main:
     parent: gripper
-    weight: 2
+lead: "With the external resources normalized to a single data model, the graph model describes how to connect the set of collections into a graph model."
+personas:
+  - data-steward
+  - platform-engineer
+  - researcher-bioinformatician
+  - standards-architecture-lead
+solutions:
+  - integrate-data
+related_tools:
+  - grip
 ---
 
 # GRIPPER
