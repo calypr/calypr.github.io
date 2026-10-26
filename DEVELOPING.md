@@ -49,8 +49,9 @@ Generated Funnel pages and the marked Funnel navigation block should be changed
 in the Funnel repository, not edited manually here. The sync branch is reused
 while an update PR is open. If the Funnel revision is unchanged, no PR is created.
 
-The workflow needs the repository setting that allows GitHub Actions to create
-pull requests, plus `contents: write` and `pull-requests: write` job permissions.
+The workflow needs both the organization policy and the repository setting that
+allow GitHub Actions to create pull requests, plus `contents: write` and
+`pull-requests: write` job permissions.
 GitHub places PR workflows created with `GITHUB_TOKEN` in an approval-required
 state. The sync workflow runs its own tests and site build before creating the
 PR; a repository writer can approve the PR workflows separately.
