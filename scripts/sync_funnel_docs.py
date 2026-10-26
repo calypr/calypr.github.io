@@ -51,6 +51,9 @@ def sync(upstream, revision):
     old = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {'files': []}
     pending = old.get('pending_reconciliation', {}).copy()
     new = sorted(p.relative_to(source).as_posix() for p in files)
+    missing_pending = set(pending) - set(new)
+    if missing_pending:
+        raise ValueError('Reconciliation pages missing upstream: ' + ', '.join(sorted(missing_pending)))
     for name in old['files']:
         p = Path(name)
         if p.is_absolute() or '..' in p.parts:

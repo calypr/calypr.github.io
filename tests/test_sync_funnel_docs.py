@@ -61,6 +61,16 @@ class SyncTest(unittest.TestCase):
         sync.sync(self.upstream, REV)
         self.assertEqual(page.read_text(), 'later change')
 
+    def test_does_not_delete_a_pending_page_when_upstream_removes_it(self):
+        page = sync.DEST / 'compute/example.md'
+        page.parent.mkdir(parents=True)
+        page.write_text('live content')
+        sync.MANIFEST.write_text(json.dumps({'files': ['compute/example.md'], 'pending_reconciliation': {'compute/example.md': 'expected'}}))
+        (self.source / 'compute/example.md').unlink()
+        with self.assertRaisesRegex(ValueError, 'Reconciliation pages missing upstream'):
+            sync.sync(self.upstream, REV)
+        self.assertEqual(page.read_text(), 'live content')
+
     def test_fails_for_unknown_shortcodes(self):
         with self.assertRaisesRegex(ValueError, 'Unconverted Hugo shortcode'):
             sync.convert('{{< surprise >}}', self.upstream)
