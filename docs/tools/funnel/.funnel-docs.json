@@ -1,0 +1,11 @@
+{
+  "source": "https://github.com/calypr/funnel",
+  "branch": "develop",
+  "revision": "a3be3b208e0f6202bc2a33d1946fb56a8e850431",
+  "files": [],
+  "pending_reconciliation": {
+    "compute/gcp-batch.md": "a1ad1e72c4b7b8befd4ec98814855aa43fb48f8b76b6b12f9147ad64802f4d79",
+    "compute/kubernetes.md": "456c6cbed9d9d1687b717dde7e647daea896fd96b03662ec4022d862930ca400",
+    "storage/s3.md": "7624b293ea197bc68dfb01d06227b2c2da3b1ccd16762d2c00b3abfb01b4cf5b"
+  }
+}

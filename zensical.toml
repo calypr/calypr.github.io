@@ -93,6 +93,7 @@ nav = [
       ] },
     ] },
     { "Workflow Execution" = [
+      # BEGIN GENERATED FUNNEL NAV
       { "Funnel" = [
         "tools/funnel/index.md",
         { "Overview" = "tools/funnel/docs/docs.md" },
@@ -143,6 +144,7 @@ nav = [
           { "Funnel Developers" = "tools/funnel/docs/development/developers.md" },
         ] },
       ] },
+      # END GENERATED FUNNEL NAV
     ] },
     { "Graph Database" = [
       { "GRIP" = [

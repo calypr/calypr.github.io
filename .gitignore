@@ -4,3 +4,5 @@ venv
 site/
 .idea/
 attic/
+
+/.funnel-upstream/
