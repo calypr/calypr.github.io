@@ -1,29 +1,27 @@
 ---
 title: Grid Engine
+menu:
+  main:
+    parent: Compute
+    weight: 20
 ---
 # Grid Engine
 
-Funnel can be configured to submit workers to [Grid Engine](https://gridscheduler.sourceforge.net/) by making calls
+Funnel can be configured to submit workers to [Grid Engine][ge] by making calls
 to `qsub`.
 
 The Funnel server needs to run on a submission node.
 Configure Funnel to use Grid Engine by including the following config:
 
 It is recommended to update the submit file template so that the
-`funnel worker run` command takes a config file as an argument:
-
-```
-{% raw %}
-funnel worker run --config /opt/funnel_config.yml --taskID {{.TaskId}}
-{% endraw %}
-```
+`funnel worker run` command takes a config file as an argument
+(e.g. `funnel worker run --config /opt/funnel_config.yml --taskID {{.TaskId}}`)
 
 ```YAML
-{% raw %}
 Compute: gridengine
 
 GridEngine:
-    Template: |
+  Template: |
     #!/bin/bash
     #$ -N {{.TaskId}}
     #$ -o {{.WorkDir}}/funnel-stdout
@@ -37,10 +35,9 @@ GridEngine:
     {{if ne .DiskGb 0.0 -}}
     {{printf "#$ -l h_fsize=%.0fG" .DiskGb}}
     {{- end}}
-    funnel worker run --taskID {{.TaskId}}
-{% endraw %}
-```
 
+    funnel worker run --taskID {{.TaskId}}
+```
 The following variables are available for use in the template:
 
 | Variable    |  Description |
@@ -54,3 +51,4 @@ The following variables are available for use in the template:
 
 See https://golang.org/pkg/text/template for information on creating templates.
 
+[ge]: http://gridscheduler.sourceforge.net/documentation.html

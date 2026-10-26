@@ -1,6 +1,5 @@
 ---
 title: PBS/Torque
-render_macros: true
 menu:
   main:
     parent: Compute
@@ -15,15 +14,14 @@ The Funnel server needs to run on a submission node.
 Configure Funnel to use PBS by including the following config:
 
 It is recommended to update the submit file template so that the
-`funnel worker run` command takes a config file as an argument 
-(e.g. `funnel worker run --config /opt/funnel_config.yml --taskID {% raw %}{{.TaskId}}{% endraw %}`)
+`funnel worker run` command takes a config file as an argument
+(e.g. `funnel worker run --config /opt/funnel_config.yml --taskID {{.TaskId}}`)
 
-{% raw %}
 ```YAML
 Compute: pbs
 
 PBS:
-    Template: |
+  Template: |
     #!/bin/bash
     #PBS -N {{.TaskId}}
     #PBS -o {{.WorkDir}}/funnel-stdout
@@ -40,7 +38,6 @@ PBS:
 
     funnel worker run --taskID {{.TaskId}}
 ```
-{% endraw %}
 The following variables are available for use in the template:
 
 | Variable    |  Description |
@@ -54,4 +51,4 @@ The following variables are available for use in the template:
 
 See https://golang.org/pkg/text/template for information on creating templates.
 
-[pbs]: https://hpc-wiki.info/hpc/Torque
+[pbs]: http://www.adaptivecomputing.com/products/open-source/torque/

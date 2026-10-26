@@ -93,6 +93,7 @@ nav = [
       ] },
     ] },
     { "Workflow Execution" = [
+      # BEGIN GENERATED FUNNEL NAV
       { "Funnel" = [
         "tools/funnel/index.md",
         { "Overview" = "tools/funnel/docs/docs.md" },
@@ -100,34 +101,37 @@ nav = [
         { "Tasks" = "tools/funnel/docs/tasks.md" },
         { "Storage" = [
           "tools/funnel/docs/storage/index.md",
-          { "Local" = "tools/funnel/docs/storage/local.md" },
-          { "S3" = "tools/funnel/docs/storage/s3.md" },
-          { "Google Storage" = "tools/funnel/docs/storage/google-storage.md" },
-          { "OpenStack Swift" = "tools/funnel/docs/storage/swift.md" },
-          { "HTTP(S)" = "tools/funnel/docs/storage/http.md" },
           { "FTP" = "tools/funnel/docs/storage/ftp.md" },
+          { "Google Storage" = "tools/funnel/docs/storage/google-storage.md" },
+          { "HTTP(S)" = "tools/funnel/docs/storage/http.md" },
+          { "Local" = "tools/funnel/docs/storage/local.md" },
+          { "Mounted inputs" = "tools/funnel/docs/storage/mounted-inputs.md" },
+          { "OpenStack Swift" = "tools/funnel/docs/storage/swift.md" },
+          { "S3" = "tools/funnel/docs/storage/s3.md" },
         ] },
         { "Compute" = [
-          { "Deploying a Cluster" = "tools/funnel/docs/compute/deployment.md" },
           { "AWS Batch" = "tools/funnel/docs/compute/aws-batch.md" },
+          { "Deploying a cluster" = "tools/funnel/docs/compute/deployment.md" },
           { "GCP Batch" = "tools/funnel/docs/compute/gcp-batch.md" },
-          { "Kubernetes" = "tools/funnel/docs/compute/kubernetes.md" },
-          { "HTCondor" = "tools/funnel/docs/compute/htcondor.md" },
-          { "Slurm" = "tools/funnel/docs/compute/slurm.md" },
-          { "PBS/Torque" = "tools/funnel/docs/compute/pbs-torque.md" },
           { "Grid Engine" = "tools/funnel/docs/compute/grid-engine.md" },
+          { "HTCondor" = "tools/funnel/docs/compute/htcondor.md" },
+          { "Kubernetes" = "tools/funnel/docs/compute/kubernetes.md" },
+          { "Kubernetes storage" = "tools/funnel/docs/compute/kubernetes-storage.md" },
+          { "PBS/Torque" = "tools/funnel/docs/compute/pbs-torque.md" },
+          { "Slurm" = "tools/funnel/docs/compute/slurm.md" },
         ] },
         { "Databases" = [
+          { "Datastore" = "tools/funnel/docs/databases/datastore.md" },
+          { "DynamoDB" = "tools/funnel/docs/databases/dynamodb.md" },
+          { "Elasticsearch" = "tools/funnel/docs/databases/elasticsearch.md" },
           { "Embedded" = "tools/funnel/docs/databases/boltdb.md" },
           { "MongoDB" = "tools/funnel/docs/databases/mongodb.md" },
-          { "Elasticsearch" = "tools/funnel/docs/databases/elasticsearch.md" },
-          { "DynamoDB" = "tools/funnel/docs/databases/dynamodb.md" },
-          { "Datastore" = "tools/funnel/docs/databases/datastore.md" },
+          { "Postgres" = "tools/funnel/docs/databases/postgres.md" },
         ] },
         { "Security" = [
+          { "Advanced Auth" = "tools/funnel/docs/security/advanced.md" },
           { "Basic Auth" = "tools/funnel/docs/security/basic.md" },
           { "OAuth2" = "tools/funnel/docs/security/oauth2.md" },
-          { "Advanced Auth" = "tools/funnel/docs/security/advanced.md" },
         ] },
         { "Integrations" = [
           { "Nextflow" = "tools/funnel/docs/integrations/nextflow.md" },
@@ -143,6 +147,7 @@ nav = [
           { "Funnel Developers" = "tools/funnel/docs/development/developers.md" },
         ] },
       ] },
+      # END GENERATED FUNNEL NAV
     ] },
     { "Graph Database" = [
       { "GRIP" = [
