@@ -20,7 +20,7 @@ when changes reach `main`.
 
 The canonical Funnel reference pages live in the `website/content/docs/`
 directory on [Funnel's `develop` branch](https://github.com/calypr/funnel/tree/develop/website/content/docs).
-A scheduled workflow checks that branch hourly and opens or updates a pull request
+A scheduled workflow checks that branch daily and opens or updates a pull request
 with changed pages and generated navigation. Review and merge the pull request
 to publish the update. The workflow also runs the sync tests and builds the site.
 
