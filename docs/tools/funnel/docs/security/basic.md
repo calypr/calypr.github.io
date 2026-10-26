@@ -40,14 +40,9 @@ so you will also need to configure the RPC client.
 
 ```yaml
 RPCClient:
-  Credential:
-    User: funnel
-    Password: abc123
+  User: funnel
+  Password: abc123
 ```
-
-Beginning with Funnel v0.11.8, `User` and `Password` must be nested under
-`RPCClient.Credential`. Configurations created for earlier releases need to be
-updated to use this structure.
 
 Make sure to properly protect the configuration file so that it's not readable
 by everyone:
