@@ -1,10 +1,3 @@
----
-title: OpenStack Swift
-menu:
-  main:
-    parent: Storage
----
-
 # OpenStack Swift
 
 Funnel supports using [OpenStack Swift][swift] for file storage.

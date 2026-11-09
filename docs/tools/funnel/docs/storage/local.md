@@ -1,16 +1,8 @@
----
-title: Local
-menu:
-  main:
-    parent: Storage
-    weight: -10
----
-
 # Local
 
 Funnel supports using the local filesystem for file storage.
 
-Funnel limits which directories may be accessed, by default only allowing directories 
+Funnel limits which directories may be accessed, by default only allowing directories
 under the current working directory of the Funnel worker.
 
 Config:
@@ -46,18 +38,21 @@ Files must be absolute paths in `file:///path/to/file.txt` URL form.
 }
 ```
 
-### File hard linking behavior
+### Directory boundaries and file transfers
 
-For efficiency, Funnel will attempt not to copy the input files, instead trying 
-create a hard link to the source file. In some cases this isn't possible. For example, 
-if the source file is on a network file system mount (e.g. NFS) but the Funnel worker's 
-working directory is on the local scratch disk, a hard link would cross a file system 
-boundary, which is not possible. In this case, Funnel will copy the file.
+Funnel checks storage URLs against `AllowedDirs` during reads, writes, and listings.
+Paths and relative symlinks cannot escape the selected allowed directory. Absolute
+symlinks are rejected, including those pointing inside an allowed directory. Use
+relative symlinks for files within that directory.
+
+Local transfers copy files rather than creating hard links. This keeps file access
+within the allowed directory during the transfer, but requires space for the copy.
+The worker's task staging paths are separate from the storage URL allowlist.
 
 ### File ownership behavior
 
-One difficult area of files and Docker containers is file owner/group management. 
-If a Docker container runs as root, it's likely that the file will end up being owned 
-by root on the host system. In this case, some step (Funnel or another task) will 
-likely fail to access it. This is a tricky problem with no good solution yet. 
+One difficult area of files and Docker containers is file owner/group management.
+If a Docker container runs as root, it's likely that the file will end up being owned
+by root on the host system. In this case, some step (Funnel or another task) will
+likely fail to access it. This is a tricky problem with no good solution yet.
 See [issue 66](https://github.com/ohsu-comp-bio/funnel/issues/66).

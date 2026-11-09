@@ -1,15 +1,7 @@
----
-title: Embedded
-menu:
-  main:
-    parent: Databases
-    weight: -10
----
-
 # Embedded
 
-By default, Funnel uses an embedded database named [BoltDB][bolt] to store task 
-and scheduler data. This is great for development and a simple server without 
+By default, Funnel uses an embedded database named [BoltDB][bolt] to store task
+and scheduler data. This is great for development and a simple server without
 external dependencies, but it doesn't scale well to larger clusters.
 
 Available config:

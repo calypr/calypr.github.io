@@ -1,10 +1,3 @@
----
-title: Prometheus
-menu:
-  main:
-    parent: Metrics
----
-
 # Prometheus
 
 [Prometheus][prom] is a monitoring and metrics collection service. It pulls metrics
@@ -32,4 +25,5 @@ Funnel exports these metrics:
   of bytes of disk space available by all nodes.
 
 [prom]: https://prometheus.io/
+[gauge]: https://prometheus.io/docs/concepts/metric_types/#gauge
 [graf]: https://grafana.com/

@@ -1,13 +1,6 @@
----
-title: py-tes
-menu:
-  main:
-    parent: Integrations
----
+# py-tes
 
 > ⚠️ py-tes support is in active development and may be subject to change.
-
-# py-tes
 
 [py-tes](https://github.com/ohsu-comp-bio/py-tes) is a library for interacting with servers implementing the [GA4GH Task Execution Schema](https://github.com/ga4gh/task-execution-schemas).
 

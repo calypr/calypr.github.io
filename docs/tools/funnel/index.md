@@ -1,15 +1,14 @@
----
-title: Funnel
----
-
 # Funnel
 
-Funnel provides task execution and workflow orchestration around the GA4GH TES model.
+Funnel runs batch tasks through the GA4GH Task Execution Service API. Tasks describe their input files, container commands, output destinations, and resource requirements.
 
-It is designed to streamline distributed batch processing by exposing a simple task API and a set of components that can be adapted to different compute and storage backends.
+Funnel supports local Docker, Kubernetes, cloud batch services, and HPC schedulers. Supported deployments can also request GPUs. Operators choose the compute and storage backends; clients submit tasks through the same task API.
 
-## Read Next
+## Get started
 
-- [Architecture Overview](docs/docs.md)
-- [Download & Installation](docs/download.md)
+- [Download and installation](docs/download.md)
+- [Overview](docs/docs.md)
 - [Tasks](docs/tasks.md)
+- [GPU tasks](docs/compute/gpus.md)
+- [Upgrade an existing deployment](docs/upgrading.md)
+- [Latest release and release notes](https://github.com/calypr/funnel/releases/latest)

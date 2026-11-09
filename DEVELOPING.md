@@ -18,24 +18,24 @@ when changes reach `main`.
 
 ## Funnel documentation
 
-The canonical Funnel reference pages live in the `website/content/docs/`
-directory on [Funnel's `develop` branch](https://github.com/calypr/funnel/tree/develop/website/content/docs).
+The canonical Funnel reference pages live in the `docs/`
+directory on [Funnel's `develop` branch](https://github.com/calypr/funnel/tree/develop/docs).
 A scheduled workflow checks that branch daily and opens or updates a pull request
 with changed pages and generated navigation. Review and merge the pull request
 to publish the update. The workflow also runs the sync tests and builds the site.
 
-The Funnel landing page, download page, and storage index remain CALYPR site
-content. The installation script is copied from Funnel's `install.sh`. The sync
-converts Funnel's Hugo shortcodes to Markdown compatible with this site and
-rejects unknown shortcodes rather than publishing them verbatim.
+The Funnel landing and download pages remain CALYPR site content. Reference
+pages, section overviews, navigation, and documentation assets come from Funnel.
+The public installer is copied from Funnel's `install.sh`.
 
-Three pages are temporarily held at their existing CALYPR versions while newer
-site guidance is reconciled with Funnel: the GCP Batch, Kubernetes, and S3
-guides. Their expected upstream versions are recorded in
-`docs/tools/funnel/.funnel-docs.json`. Once those exact versions reach `develop`,
-the sync imports them and removes their exceptions automatically. If the
-upstream content changes during review, update the expected hashes after
-reconciling the differences.
+The sync reads page titles from Markdown headings and keeps the existing
+Overview URL by importing `docs/README.md` as `docs/docs.md`. Repository-source
+links are rewritten to the imported commit on GitHub. Retired pages are removed,
+including Elasticsearch. Private `docs/internal/` content and hidden files are
+excluded. Unknown sections and Hugo shortcodes stop the sync before publication.
+
+The earlier exceptions for the GCP Batch, Kubernetes, and S3 guides have been
+removed: their reconciled content is now in Funnel `develop`.
 
 To run the sync locally against a Funnel checkout:
 

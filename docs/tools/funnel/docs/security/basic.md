@@ -1,10 +1,3 @@
----
-title: Basic Auth
-menu:
-  main:
-    parent: Security
-    weight: 10
----
 # Basic Auth
 
 By default, a Funnel server allows open access to its API endpoints, but it
@@ -40,9 +33,14 @@ so you will also need to configure the RPC client.
 
 ```yaml
 RPCClient:
-  User: funnel
-  Password: abc123
+  Credential:
+    User: funnel
+    Password: abc123
 ```
+
+Beginning with Funnel v0.11.8, `User` and `Password` must be nested under
+`RPCClient.Credential`. Configurations created for earlier releases need to be
+updated to use this structure.
 
 Make sure to properly protect the configuration file so that it's not readable
 by everyone:
@@ -57,3 +55,13 @@ $ export FUNNEL_SERVER_USER=funnel
 $ export FUNNEL_SERVER_PASSWORD=abc123
 $ funnel task list
 ```
+
+## API audit logs
+
+The server writes structured `AUDIT` entries at Info level for unary gRPC API
+requests, including calls through the HTTP gateway and authentication failures.
+Entries record the method, user ID, result code, and task ID when available.
+Public or unauthenticated requests use `ANONYMOUS`; internal calls without a
+user context use `SYSTEM`. Request bodies, bearer tokens, and raw error or panic
+values are excluded. The configured logger controls output and log level;
+these entries use the same logging destination as other server messages.

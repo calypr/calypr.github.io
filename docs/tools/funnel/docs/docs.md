@@ -1,30 +1,27 @@
----
-title: Overview
-menu:
-  main:
-    identifier: docs
-    weight: -1000
----
-
 # Overview
 
-Funnel makes distributed batch processing easier by providing a simple task API and a set of
+Funnel makes distributed, batch processing easier by providing a simple task API and a set of
 components which can easily adapted to a vareity of platforms.
+
+For an existing deployment or Go integration, follow the [Funnel upgrade guide](upgrading.md)
+before moving to the unreleased package and configuration changes.
 
 ### Task
 
 A task defines a unit of work: metadata, input files to download, a sequence of Docker containers + commands to run,
 output files to upload, state, and logs. The API allows you to create, get, list, and cancel tasks.
 
-Tasks are accessed via the `funnel task` command. Additionally the HTTP API is based on a standarized GA4GH
-protocol, and any client the is compatible with that API will work with Funnel.
+Tasks are accessed via the `funnel task` command. Go applications use the
+[REST client][clientpkg] and [TES wire models][tespkg].
 
-There's a lot more you can do with the task API. See the [tasks docs](/tools/funnel/docs/tasks/) for more.
+There's a lot more you can do with the task API. See the [tasks docs](tasks.md) for more.
 
 ### Server
 
 The server serves the task API, web dashboard, and optionally runs a task scheduler.
 It serves both HTTP/JSON and gRPC/Protobuf.
+
+Run the server with `funnel server`. Its implementation lives in `internal/server`.
 
 ### Storage
 
@@ -32,7 +29,8 @@ Storage provides access to file systems such as S3, Google Storage, and local fi
 Tasks define locations where files should be downloaded from and uploaded to. Workers handle
 the downloading/uploading.
 
-See the [storage docs](/tools/funnel/docs/storage/) for more information on configuring storage backends.
+See the [storage docs](storage.md) for more information on configuring storage backends.
+Storage implementations live in `internal/storage` and are private application code.
 
 ### Worker
 
@@ -52,7 +50,8 @@ Along the way, the worker writes logs to event streams and databases:
 - a list of output files uploaded, with sizes
 - system logs, such as host name, docker command, system error messages, etc.
 
-The worker is accessible via the `funnel worker` command.
+Run a worker with `funnel worker`. Its runtime lives in `internal/worker`, with
+task path mapping in `internal/worker/workspace`.
 
 ### Node Scheduler
 
@@ -66,6 +65,10 @@ external system for scheduling tasks and managing cluster resources, such as AWS
 or HPC systems like HTCondor, Slurm, Grid Engine, etc. Funnel provides integration with
 these services that doesn't include nodes or scheduling by Funnel.
 
-See [Deploying a cluster](/tools/funnel/docs/compute/deployment/) for more information about running a cluster of nodes.
+See [Deploying a cluster](compute/deployment.md) for more information about running a cluster of nodes.
 
-The node is accessible via the `funnel node` command.
+Run a node with `funnel node`. Its implementation lives in `internal/compute/scheduler`.
+
+[tes]: https://github.com/ga4gh/task-execution-schemas
+[clientpkg]: https://github.com/calypr/funnel/tree/feature/client-server-split/client/tes
+[tespkg]: https://github.com/calypr/funnel/tree/feature/client-server-split/api/tes
