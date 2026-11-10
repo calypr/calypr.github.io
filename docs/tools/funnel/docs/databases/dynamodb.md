@@ -1,10 +1,3 @@
----
-title: DynamoDB
-menu:
-  main:
-    parent: Databases
----
-
 # DynamoDB
 
 Funnel supports storing task data in DynamoDB. Storing scheduler data is not supported currently, so using the node scheduler with DynamoDB won't work. Using AWS Batch for compute scheduling may be a better option.

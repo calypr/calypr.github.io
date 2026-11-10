@@ -15,16 +15,14 @@ make serve
 
 The local build contract is:
 
-- `make prepare` stages repo-authored docs plus imported upstream tool docs into `.generated/docs`
 - `make build` runs a clean Zensical build
-- `make serve` stages the docs and starts the local Zensical server
+- `make serve` starts the local Zensical server
 
 For repo maintenance details, navigation ownership, and import behavior, see [DEVELOPING.md](./DEVELOPING.md).
 
 If you prefer the raw commands:
 
 ```sh
-python scripts/prepare_docs.py
 zensical serve
 ```
 

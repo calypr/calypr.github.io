@@ -1,10 +1,3 @@
----
-title: OAuth2
-menu:
-  main:
-    parent: Security
-    weight: 10
----
 # OAuth2
 
 By default, a Funnel server allows open access to its API endpoints, but in
@@ -18,8 +11,9 @@ In addition, if the OIDC provides a token introspection endpoint (in its
 configuration JSON), Funnel server also calls that endpoint to make sure the
 token is still active (i.e., no token invalidation before expiring).
 
-Optionally, Funnel can also validate the scope and audience claims to contain
-specific values.
+Funnel requires an expiration claim and an explicitly configured API audience.
+It can also require a specific scope. Set the audience expected by your API;
+this may differ from the OAuth client ID.
 
 To enable JWT authentication, specify `OidcAuth` section in your config file:
 
@@ -37,7 +31,7 @@ Server:
     # Optional: if specified, this scope value must be in the token:
     RequireScope: funnel-id
 
-    # Optional: if specified, this audience value must be in the token:
+    # Required: this API audience value must be in the token:
     RequireAudience: tes-api
 
     # The URL where OIDC should redirect after login (keep the path '/login')

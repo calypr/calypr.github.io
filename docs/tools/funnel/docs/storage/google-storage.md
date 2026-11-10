@@ -1,10 +1,3 @@
----
-title: Google Storage
-menu:
-  main:
-    parent: Storage
----
-
 # Google Storage
 
 Funnel supports using [Google Storage][gs] (GS) for file storage.
