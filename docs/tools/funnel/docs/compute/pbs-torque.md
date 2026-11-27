@@ -10,7 +10,7 @@ It is recommended to update the submit file template so that the
 `funnel worker run` command takes a config file as an argument
 (e.g. `funnel worker run --config /opt/funnel_config.yml --taskID {{.TaskId}}`)
 
-Download the [PBS/Torque submit template](https://github.com/calypr/funnel/blob/738ab75a7056321d82cf57d9781d0af5a4433da6/website/static/funnel-config-examples/pbs-template.txt)
+Download the [PBS/Torque submit template](https://github.com/calypr/funnel/blob/14511f237d1c2fe029ef4ab77c862f3553d29092/website/static/funnel-config-examples/pbs-template.txt)
 to `/etc/funnel/pbs-template.txt`, then configure Funnel to read it:
 
 ```yaml

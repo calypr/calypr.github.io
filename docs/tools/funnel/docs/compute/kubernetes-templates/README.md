@@ -6,6 +6,6 @@ The reference files originated in the [Funnel Helm chart](https://github.com/ohs
 
 Templates used by Go tests live beside their tests:
 
-- [worker job](https://github.com/calypr/funnel/blob/738ab75a7056321d82cf57d9781d0af5a4433da6/internal/compute/kubernetes/testdata/worker-job.yaml)
-- [service account](https://github.com/calypr/funnel/blob/738ab75a7056321d82cf57d9781d0af5a4433da6/internal/compute/kubernetes/resources/testdata/serviceaccount.yaml)
-- [executor job](https://github.com/calypr/funnel/blob/738ab75a7056321d82cf57d9781d0af5a4433da6/internal/worker/testdata/executor-job.yaml)
+- [worker job](https://github.com/calypr/funnel/blob/14511f237d1c2fe029ef4ab77c862f3553d29092/internal/compute/kubernetes/testdata/worker-job.yaml)
+- [service account](https://github.com/calypr/funnel/blob/14511f237d1c2fe029ef4ab77c862f3553d29092/internal/compute/kubernetes/resources/testdata/serviceaccount.yaml)
+- [executor job](https://github.com/calypr/funnel/blob/14511f237d1c2fe029ef4ab77c862f3553d29092/internal/worker/testdata/executor-job.yaml)
