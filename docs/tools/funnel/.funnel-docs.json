@@ -2,7 +2,7 @@
   "source": "https://github.com/calypr/funnel",
   "branch": "develop",
   "source_directory": "docs",
-  "revision": "738ab75a7056321d82cf57d9781d0af5a4433da6",
+  "revision": "14511f237d1c2fe029ef4ab77c862f3553d29092",
   "files": [
     "compute.md",
     "compute/aws-batch.md",
@@ -46,6 +46,7 @@
     "security/advanced.md",
     "security/basic.md",
     "security/oauth2.md",
+    "service-info.md",
     "storage.md",
     "storage/ftp.md",
     "storage/google-storage.md",
